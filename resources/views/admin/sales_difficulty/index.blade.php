@@ -1,6 +1,6 @@
 @extends('admin.layout.backend')
 
-@section('title') {{__('Administrators')}} @endsection
+@section('title') Sales Difficulty @endsection
 
 @section('css')
 <!-- DataTables -->
