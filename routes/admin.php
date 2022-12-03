@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdministratorController;
+use App\Http\Controllers\Admin\SalesDifficultyController;
 
 Route::get('/home', function () {
     $users[] = Auth::user();
@@ -19,6 +20,14 @@ Route::get('/home', function () {
   Route::get('administrators/edit/{id}',  'Admin\AdministratorController@edit')->name('administrator.edit');
   Route::post('administrators/update/{id}',  'Admin\AdministratorController@update')->name('administrator.update');
   Route::delete('administrators/destroy/{id}',  'Admin\AdministratorController@destroy')->name('administrator.destroy');
+
+  // Sales Difficulty
+  Route::get('sales-difficulty',  'Admin\SalesDifficultyController@index')->name('sales-difficulty.index');
+  Route::get('sales-difficulty/create',  'Admin\SalesDifficultyController@create')->name('sales-difficulty.create');
+  Route::post('sales-difficulty/store',  'Admin\SalesDifficultyController@store')->name('sales-difficulty.store');
+  Route::get('sales-difficulty/edit/{id}',  'Admin\SalesDifficultyController@edit')->name('sales-difficulty.edit');
+  Route::post('sales-difficulty/update/{id}',  'Admin\SalesDifficultyController@update')->name('sales-difficulty.update');
+  Route::delete('sales-difficulty/destroy/{id}',  'Admin\SalesDifficultyController@destroy')->name('sales-difficulty.destroy');
 
 
 // Roles

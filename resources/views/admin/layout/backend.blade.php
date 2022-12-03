@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="{{asset('assets/libs/owl.carousel/assets/owl.carousel.min.css')}}">
 
         <link rel="stylesheet" href="{{asset('assets/libs/owl.carousel/assets/owl.theme.default.min.css')}}">
+        @notify_css
 
         <!-- Bootstrap Css -->
         <link href="{{asset('assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -500,6 +501,12 @@
                                 <span key="t-file-manager">Administrators</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{route('admin.sales-difficulty.index')}}" class="waves-effect">
+                                <i class="bx bx-file"></i>
+                                <span key="t-file-manager">Sale Difficulties</span>
+                            </a>
+                        </li>
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -618,7 +625,7 @@
         <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
         <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
         <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
-
+        @notify_js
         <!-- apexcharts -->
         {{-- <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script> --}}
 
@@ -628,6 +635,8 @@
         <!-- App js -->
         <script src="{{ asset('assets/js/app.js') }}"></script>
         @yield('script')
+
+        @notify_render
 </body>
 
 </html>
