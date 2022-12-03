@@ -37,7 +37,7 @@
                                 <div class="col-sm-9">
                                     <input id="name" name="name" type="text"
                                         class="form-control @if ($errors->has('name')) is-invalid  @endif"
-                                        placeholder="{{__('Enter Name')}}" required value="{{ @old('name') }}">
+                                        placeholder="Enter Name" required value="{{ @old('name') }}">
                                     <div class="invalid-feedback">{{ $errors->first('name') }}</div>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                                 <div class="col-sm-9">
                                     <input id="email" type="text" name="email"
                                         class="form-control @if ($errors->has('email')) is-invalid  @endif"
-                                        placeholder="{{__('Enter Email')}}" value="{{ @old('email') }}" required>
+                                        placeholder="Enter Email" value="{{ @old('email') }}" required>
                                     <div class="invalid-feedback">{{ $errors->first('email') }}</div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                     <div class="input-group auth-pass-inputgroup">
                                         <input id="password" name="password" type="password"
                                             class="form-control @if ($errors->has('password')) is-invalid  @endif"
-                                            placeholder="{{__('Enter Password')}}" required
+                                            placeholder="Enter Password" required
                                             aria-describedby="button-addon"
                                             data-parsley-errors-container="#errorContainer" data-parsley-minlength="8">
                                         <button class="btn btn-light " type="button" id="password-addon"><i
@@ -90,7 +90,7 @@
                             <div class="mb-4 row">
                                 <label for="avatar" class="col-sm-3 col-form-label">{{__('Avatar')}} <a href="#" class="tool_tip js-tooltip-enabled"
                                         data-toggle="tooltip"
-                                        title="{{__('Supported File Formats:- jpeg, png, jpg only. Not more than 1024 KB.')}}"><i
+                                        title="Supported File Formats:- jpeg, png, jpg only. Not more than 1024 KB."><i
                                             class="fa fa-info-circle"></i></a></label>
                                 <div class="col-sm-9">
                                     <input id="avatar" name="avatar" type="file"
@@ -98,7 +98,7 @@
                                         data-parsley-fileextension='jpg,png,jpeg' data-parsley-max-file-size="1024">
                                     <div class="invalid-feedback">{{ $errors->first('avatar') }}</div>
                                     <a target="_blank" href="https://www.reduceimages.com/"
-                                        class="text-primary">{{__('Want to resize the image')}}</a>
+                                        class="text-primary">Want to resize the image</a>
                                 </div>
                             </div>
                             <div class="row justify-content-end">
