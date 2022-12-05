@@ -2,14 +2,14 @@
 
 namespace App\DataTables\Admin;
 
-use App\Models\Brand;
+use App\Models\Difficulty;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class BrandDataTable extends DataTable
+class DifficultyDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -22,14 +22,11 @@ class BrandDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addIndexColumn()
-            ->editColumn('name', function (Brand $model) {
-                return $admin->name;
+            ->editColumn('status', function (Difficulty $admin) {
+                return $admin->email;
             })
-            // ->addColumn('role', function (Brand $admin) {
-            //     return $admin->getRoleNames()->implode(', ');
-            // })
-            ->addColumn('action', function (Brand $model) {
-                return view('admin.brands.action', compact('model'));
+            ->addColumn('action', function (Difficulty $admin) {
+                return view('admin.difficulty.action', compact('admin'));
             })
             ->rawColumns(['action']);
     }
@@ -37,10 +34,10 @@ class BrandDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\BrandDataTable $model
+     * @param \App\Models\DifficultyDataTable $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Brand $model)
+    public function query(Difficulty $model)
     {
         return $model->newQuery();
     }
@@ -53,10 +50,12 @@ class BrandDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('branddatatable-table')
+                    ->setTableId('difficultydatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
+                    ->dom('Bfrtip')
                     ->orderBy(1);
+                    
     }
 
     /**
@@ -69,8 +68,9 @@ class BrandDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
             Column::make('name')->title(__('Name')),
-            Column::make('difficulty_id')->title(__('Sales Difficulty')),
-            Column::make('sttaus')->title(__('Status'))->orderable(false),
+            Column::make('difficulties')->title(__('Difficulty')),
+            Column::make('status')->title(__('Status')),
+            // Column::make('role')->title(__('Role'))->orderable(false),
             Column::computed('action')
                 ->title(__('Action'))
                 ->exportable(false)
@@ -87,6 +87,6 @@ class BrandDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Brand_' . date('YmdHis');
+        return 'Difficulty_' . date('YmdHis');
     }
 }
