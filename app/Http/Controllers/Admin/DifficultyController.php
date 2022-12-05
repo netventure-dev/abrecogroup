@@ -16,8 +16,8 @@ class DifficultyController extends Controller
         $difficulties = Difficulty::get();
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['Administrator', route('admin.administrator.index')],
-            ['Create', route('admin.administrator.create')],
+            ['Administrator', route('admin.difficulty.index')],
+            ['Create', route('admin.difficulty.create')],
         ];
         return $dataTable->render('admin.difficulty.index', ['difficulties' => $difficulties, 'breadcrumbs' => $breadcrumbs]);
     }
@@ -26,7 +26,7 @@ class DifficultyController extends Controller
         $datas= SaleDifficulty::get();
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['Administrator'],
+            ['Administrator',route('admin.difficulty.index')],
             ['Create', route('admin.difficulty.create')],
         ];
         return view('admin.difficulty.create', compact('breadcrumbs','datas'));
@@ -46,7 +46,7 @@ class DifficultyController extends Controller
 
         $data->save();
         if ($data) {
-            activity('data')->performedOn($data)->causedBy($data)->withProperties(['data' => $request])->log('Created Administrator #' . $data->name . '.');
+            activity('data')->performedOn($data)->causedBy($data)->withProperties(['data' => $request])->log('Created  #' . $data->name . '.');
             notify()->success(__('Created successfully'));
         } else {
             notify()->error(__('Failed to create. Please try again'));
@@ -82,7 +82,7 @@ class DifficultyController extends Controller
         $admin->difficulties = $validated['difficulties'];
         $admin->save();
         if ($admin) {
-            activity('admin')->performedOn($admin)->causedBy($admin)->withProperties(['data' => $request])->log('Created Administrator #' . $admin->name . '.');
+            activity('admin')->performedOn($admin)->causedBy($admin)->withProperties(['data' => $request])->log('Created  #' . $admin->name . '.');
             notify()->success(__('Updated successfully'));
         } else {
             notify()->error(__('Failed to Update. Please try again'));

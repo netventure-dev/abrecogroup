@@ -23,7 +23,7 @@ class DifficultyDataTable extends DataTable
             ->eloquent($query)
             ->addIndexColumn()
             ->editColumn('status', function (Difficulty $admin) {
-                return $admin->email;
+                return $admin->status;
             })
             ->addColumn('action', function (Difficulty $admin) {
                 return view('admin.difficulty.action', compact('admin'));
