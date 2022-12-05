@@ -29,6 +29,14 @@ Route::get('/home', function () {
   Route::post('sales-difficulty/update/{id}',  'Admin\SalesDifficultyController@update')->name('sales-difficulty.update');
   Route::delete('sales-difficulty/destroy/{id}',  'Admin\SalesDifficultyController@destroy')->name('sales-difficulty.destroy');
 
+  // Brands
+  Route::get('brands',  'Admin\BrandController@index')->name('brands.index');
+  Route::get('brands/create',  'Admin\BrandController@create')->name('brands.create');
+  Route::post('brands/store',  'Admin\BrandController@store')->name('brands.store');
+  Route::get('brands/edit/{id}',  'Admin\BrandController@edit')->name('brands.edit');
+  Route::post('brands/update/{id}',  'Admin\BrandController@update')->name('brands.update');
+  Route::delete('brands/destroy/{id}',  'Admin\BrandController@destroy')->name('brands.destroy');
+
 
 // Roles
 Route::get('roles/index',  'Admin\RoleController@index')->name('roles.index');
