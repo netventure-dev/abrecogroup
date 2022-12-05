@@ -513,6 +513,14 @@
                                 <span key="t-file-manager">Brands</span>
                             </a>
                         </li>
+                         <li>
+                            <a href="{{route('admin.difficulty.index')}}" class="waves-effect">
+                                <i class="bx bx-file"></i>
+                                
+                                <span key="t-file-manager">KMS run</span>
+                            </a>
+                        </li>
+                        
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
