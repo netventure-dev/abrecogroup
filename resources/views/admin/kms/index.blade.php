@@ -19,7 +19,7 @@
             <h4 class="mb-sm-0 font-size-18">KMS Run</h4>
             <div class="page-title-right mt-5">
                 {{-- @can('create', App\Models\Admin::class) --}}
-                <a href="{{ route('admin.difficulty.create') }}"
+                <a href="{{ route('admin.kms.create') }}"
                     class="btn btn-primary w-md">Create KMS Run</a>
                 {{-- @endcan --}}
             </div>

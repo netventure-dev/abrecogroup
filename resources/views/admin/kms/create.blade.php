@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <div class="mt-2 row">
                         <div class="col-lg-7">
-                            <form action="{{ route('admin.difficulty.store') }}" method="post" class="custom-validation"
+                            <form action="{{ route('admin.kms.store') }}" method="post" class="custom-validation"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-4 row">
@@ -44,10 +44,10 @@
                                     </div>
                                 </div>
                                 <div class="row mb-4">
-                                    <label class="col-sm-3 col-form-label" for="difficulties">Difficulty
+                                    <label class="col-sm-3 col-form-label" for="difficulty_id">Difficulty
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-8">
-                                        <select id="difficulties" name="difficulties"
+                                        <select id="difficulty_id" name="difficulty_id"
                                             class="form-control select2 @if ($errors->has('store')) is-invalid @endif"
                                             rquired>
                                             <option>Select</option>
@@ -56,7 +56,7 @@
                                             @endforeach
 
                                         </select>
-                                        <div class="invalid-feedback">{{ $errors->first('difficulties') }}</div>
+                                        <div class="invalid-feedback">{{ $errors->first('difficulty_id') }}</div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
@@ -64,7 +64,7 @@
                                         class="col-sm-3 col-form-label">{{ __('Status') }}</label>
                                     <div class="col-sm-9">
                                         <div class="form-check form-check-inline col-form-label">
-                                            <input class="form-check-input" type="checkbox" value="Active"
+                                            <input class="form-check-input" type="checkbox" value="1"
                                                 id="defaultCheck1" name="status" checked>
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Active

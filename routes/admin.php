@@ -38,7 +38,6 @@ Route::get('/home', function () {
   Route::post('brands/update/{id}',  'Admin\BrandController@update')->name('brands.update');
   Route::delete('brands/destroy/{id}',  'Admin\BrandController@destroy')->name('brands.destroy');
 
-
 // Roles
 // Route::get('roles/index',  'Admin\RoleController@index')->name('roles.index');
 // Route::get('roles/create',  'Admin\RoleController@create')->name('roles.create');
@@ -49,9 +48,9 @@ Route::get('permissions/create',  'Admin\PermissionController@create')->name('pe
 Route::post('permissions/store',  'Admin\PermissionController@store')->name('permissions.store');
 
 //Sales difficulty
-Route::get('difficulty/index',  'Admin\DifficultyController@index')->name('difficulty.index');
-Route::get('difficulty/create',  'Admin\DifficultyController@create')->name('difficulty.create');
-Route::post('difficulty/store',  'Admin\DifficultyController@store')->name('difficulty.store');
-Route::get('difficulty/edit/{id}',  'Admin\DifficultyController@edit')->name('difficulty.edit');
-Route::post('difficulty/update/{id}',  'Admin\DifficultyController@update')->name('difficulty.update');
-Route::delete('difficulty/destroy/{id}',  'Admin\DifficultyController@destroy')->name('difficulty.destroy');
+Route::get('kms/index',  'Admin\KmsController@index')->name('kms.index');
+Route::get('kms/create',  'Admin\KmsController@create')->name('kms.create');
+Route::post('kms/store',  'Admin\KmsController@store')->name('kms.store');
+Route::get('kms/edit/{id}',  'Admin\KmsController@edit')->name('kms.edit');
+Route::post('kms/update/{id}',  'Admin\KmsController@update')->name('kms.update');
+Route::delete('kms/destroy/{id}',  'Admin\KmsController@destroy')->name('kms.destroy');

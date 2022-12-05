@@ -62,7 +62,7 @@
                                     class="col-sm-3 col-form-label">{{ __('Status') }}</label>
                                 <div class="col-sm-9">
                                     <div class="form-check form-check-inline col-form-label">
-                                        <input class="form-check-input" type="checkbox" value="Active"
+                                        <input class="form-check-input" type="checkbox" value="1"
                                             id="defaultCheck1" name="status" checked>
                                         <label class="form-check-label" for="defaultCheck1">
                                             Active
