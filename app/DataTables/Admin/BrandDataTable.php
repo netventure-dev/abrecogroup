@@ -21,7 +21,17 @@ class BrandDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'branddatatable.action');
+            ->addIndexColumn()
+            ->editColumn('name', function (Brand $model) {
+                return $admin->name;
+            })
+            // ->addColumn('role', function (Brand $admin) {
+            //     return $admin->getRoleNames()->implode(', ');
+            // })
+            ->addColumn('action', function (Brand $model) {
+                return view('admin.brands.action', compact('model'));
+            })
+            ->rawColumns(['action']);
     }
 
     /**
@@ -46,15 +56,7 @@ class BrandDataTable extends DataTable
                     ->setTableId('branddatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
+                    ->orderBy(1);
     }
 
     /**
@@ -65,15 +67,16 @@ class BrandDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
+            Column::make('name')->title(__('Name')),
+            Column::make('difficulty_id')->title(__('Sales Difficulty')),
+            Column::make('sttaus')->title(__('Status'))->orderable(false),
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+                ->title(__('Action'))
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
         ];
     }
 
