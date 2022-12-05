@@ -15,9 +15,9 @@
                                 <div class="col-lg-7">
                                     <div class="text-center">
                                         
-                                        <h4 class="mb-3"><i class="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i><span class="text-primary">5k</span>+ Satisfied clients</h4>
+                                        {{--  <h4 class="mb-3"><i class="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i><span class="text-primary">5k</span>+ Satisfied clients</h4>  --}}
                                         
-                                        <div dir="ltr">
+                                        {{--  <div dir="ltr">
                                             <div class="owl-carousel owl-theme auth-review-carousel" id="auth-review-carousel">
                                                 <div class="item">
                                                     <div class="py-3">
@@ -43,7 +43,7 @@
                                                     
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>  --}}
                                     </div>
                                 </div>
                             </div>
@@ -59,16 +59,16 @@
             
                     <div class="d-flex flex-column h-100">
                         <div class="mb-4 mb-md-5">
-                            <a href="index.html" class="d-block auth-logo">
+                            {{--  <a href="index.html" class="d-block auth-logo">
                                 <img src="{{asset('assets/images/logo-dark.png')}}" alt="" height="18" class="auth-logo-dark">
                                 <img src="{{asset('assets/images/logo-light.png')}}" alt="" height="18" class="auth-logo-light">
-                            </a>
+                            </a>  --}}
                         </div>
                         <div class="my-auto">
                             
                             <div>
                                 <h5 class="text-primary">Welcome Back !</h5>
-                                <p class="text-muted">Sign in to continue to Skote.</p>
+                                <p class="text-muted">Sign in to continue.</p>
                             </div>
             
                             <div class="mt-4">
@@ -105,7 +105,7 @@
                                     </div>
             
                                     
-                                    <div class="mt-4 text-center">
+                                    {{--  <div class="mt-4 text-center">
                                         <h5 class="font-size-14 mb-3">Sign in with</h5>
             
                                         <ul class="list-inline">
@@ -125,17 +125,17 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div>  --}}
             
                                 </form>
-                                <div class="mt-5 text-center">
+                                {{--  <div class="mt-5 text-center">
                                     <p>Don't have an account ? <a href="{{url('admin/register')}}" class="fw-medium text-primary"> Signup now </a> </p>
-                                </div>
+                                </div>  --}}
                             </div>
                         </div>
             
                         <div class="mt-4 mt-md-5 text-center">
-                            <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                            <p class="mb-0">© <script>document.write(new Date().getFullYear())</script>  Crafted with <i class="mdi mdi-heart text-danger"></i> by Netventure Digital Solutions</p>
                         </div>
                     </div>
                     
