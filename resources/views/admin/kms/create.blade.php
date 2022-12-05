@@ -69,7 +69,6 @@
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Active
                                             </label>
-                                            
                                         </div>
                                     </div>
                                 </div>

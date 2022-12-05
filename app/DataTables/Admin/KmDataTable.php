@@ -34,7 +34,7 @@ class KmDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\DifficultyDataTable $model
+     * @param \App\Models\KmDataTable $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Km $model)
@@ -50,7 +50,7 @@ class KmDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('difficultydatatable-table')
+                    ->setTableId('Kmdatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
