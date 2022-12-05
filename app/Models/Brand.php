@@ -17,7 +17,7 @@ class Brand extends Model
 
     public function sale_difficulty()
     {
-        return $this->hasOne('App\Models\SaleDifficulty');
+        return $this->belongsTo('App\Models\SaleDifficulty','difficulty_id','id');
     }
 
 }

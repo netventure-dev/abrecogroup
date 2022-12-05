@@ -23,15 +23,25 @@ class BrandDataTable extends DataTable
             ->eloquent($query)
             ->addIndexColumn()
             ->editColumn('name', function (Brand $model) {
-                return $admin->name;
+                return $model->name;
             })
-            // ->addColumn('role', function (Brand $admin) {
-            //     return $admin->getRoleNames()->implode(', ');
-            // })
+            ->editColumn('difficulty_id', function (Brand $model) {
+                if(isset($model->sale_difficulty)){
+                    return $model->sale_difficulty->name;
+
+                }
+            })
+            ->editColumn('status', function (Brand $model) {
+                if ($model->status) {
+                    return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
+                } else {
+                    return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
+                }
+            })
             ->addColumn('action', function (Brand $model) {
                 return view('admin.brands.action', compact('model'));
             })
-            ->rawColumns(['action']);
+            ->rawColumns(['action','status','name']);
     }
 
     /**
@@ -70,7 +80,7 @@ class BrandDataTable extends DataTable
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
             Column::make('name')->title(__('Name')),
             Column::make('difficulty_id')->title(__('Sales Difficulty')),
-            Column::make('sttaus')->title(__('Status'))->orderable(false),
+            Column::make('status')->title(__('Status'))->orderable(false),
             Column::computed('action')
                 ->title(__('Action'))
                 ->exportable(false)

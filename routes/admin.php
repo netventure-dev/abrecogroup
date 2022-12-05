@@ -37,7 +37,6 @@ Route::get('/home', function () {
   Route::post('brands/update/{id}',  'Admin\BrandController@update')->name('brands.update');
   Route::delete('brands/destroy/{id}',  'Admin\BrandController@destroy')->name('brands.destroy');
 
-
 // Roles
 Route::get('roles/index',  'Admin\RoleController@index')->name('roles.index');
 Route::get('roles/create',  'Admin\RoleController@create')->name('roles.create');
