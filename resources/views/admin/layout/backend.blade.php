@@ -514,7 +514,7 @@
                             </a>
                         </li>
                          <li>
-                            <a href="{{route('admin.difficulty.index')}}" class="waves-effect">
+                            <a href="{{route('admin.kms.index')}}" class="waves-effect">
                                 <i class="bx bx-file"></i>
                                 
                                 <span key="t-file-manager">KMS run</span>

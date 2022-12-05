@@ -2,14 +2,14 @@
 
 namespace App\DataTables\Admin;
 
-use App\Models\Difficulty;
+use App\Models\Km;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class DifficultyDataTable extends DataTable
+class KmDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -22,11 +22,11 @@ class DifficultyDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addIndexColumn()
-            ->editColumn('status', function (Difficulty $admin) {
+            ->editColumn('status', function (Km $admin) {
                 return $admin->status;
             })
-            ->addColumn('action', function (Difficulty $admin) {
-                return view('admin.difficulty.action', compact('admin'));
+            ->addColumn('action', function (Km $admin) {
+                return view('admin.kms.action', compact('admin'));
             })
             ->rawColumns(['action']);
     }
@@ -37,7 +37,7 @@ class DifficultyDataTable extends DataTable
      * @param \App\Models\DifficultyDataTable $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Difficulty $model)
+    public function query(Km $model)
     {
         return $model->newQuery();
     }
@@ -68,7 +68,7 @@ class DifficultyDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
             Column::make('name')->title(__('Name')),
-            Column::make('difficulties')->title(__('Difficulty')),
+            Column::make('difficulty_id')->title(__('difficulty_id')),
             Column::make('status')->title(__('Status')),
             // Column::make('role')->title(__('Role'))->orderable(false),
             Column::computed('action')
@@ -87,6 +87,6 @@ class DifficultyDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Difficulty_' . date('YmdHis');
+        return 'Difficulty_id' . date('YmdHis');
     }
 }

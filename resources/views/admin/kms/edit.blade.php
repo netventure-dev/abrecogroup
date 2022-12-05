@@ -29,7 +29,7 @@
                 <div class="card-body">
                     <div class="mt-2 row">
                         <div class="col-lg-7">
-                            <form action="{{ route('admin.difficulty.update', $admin->id) }}" method="post"
+                            <form action="{{ route('admin.kms.update', $admin->id) }}" method="post"
                                 class="custom-validation" enctype="multipart/form-data" id="myForm">
                                 @csrf
                                 @method('post')
@@ -45,10 +45,10 @@
                                     </div>
                                 </div>
                                 <div class="row mb-4">
-                                    <label class="col-sm-3 col-form-label" for="difficulties">Difficulty
+                                    <label class="col-sm-3 col-form-label" for="difficulty_id">Difficulty
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-8">
-                                        <select id="difficulties" name="difficulties"
+                                        <select id="difficulty_id" name="difficulty_id"
                                             class="form-control select2 @if ($errors->has('store')) is-invalid @endif"
                                             rquired>
                                             <option>Select</option>
@@ -57,7 +57,7 @@
                                             @endforeach
 
                                         </select>
-                                        <div class="invalid-feedback">{{ $errors->first('difficulties') }}</div>
+                                        <div class="invalid-feedback">{{ $errors->first('difficulty_id') }}</div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
