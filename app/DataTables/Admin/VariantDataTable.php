@@ -57,15 +57,16 @@ class VariantDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
+            Column::make('name')->title(__('Name')),
+            Column::make('difficulty_id')->title(__('Sales Difficulty')),
+            Column::make('status')->title(__('Status'))->orderable(false),
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+                ->title(__('Action'))
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
         ];
     }
 

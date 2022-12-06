@@ -500,6 +500,7 @@
                                 <span key="t-file-manager">Sub Models</span>
                             </a>
                         </li>
+                        <li>
                             <a href="{{route('admin.variants.index')}}" class="waves-effect">
                                 <i class="bx bx-file"></i>
                                 <span key="t-file-manager">Variants</span>

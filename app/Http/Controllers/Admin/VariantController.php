@@ -83,4 +83,55 @@ class VariantController extends Controller
         }
         return redirect()->back();
     }
+
+    public function update(Request $request,$id)
+    {
+        // $this->authorize('create', Admin::class);
+        $data =  Variant::whereid($id)->firstorFail();
+        $validated = $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'brand' => 'required',
+            'sub_model' => 'required',
+            'fuel' => 'required',
+            'on_road_price' => 'required',
+            'offer' => 'nullable',
+            'status' => 'required',
+            
+        ]);
+        $data->name = $validated['name'];
+        $data->brand_id = $validated['brand'];
+        $data->sub_model_id = $validated['sub_model'];
+        $data->fuel_id = $validated['fuel'];
+        $data->on_road_price = $validated['on_road_price']; 
+        $data->offer = $validated['offer'];
+        $data->status = $validated['status'];
+        $data->save();
+        if ($data) {
+            activity('data')->performedOn($data)->causedBy($data)->withProperties(['data' => $request])->log('Created Variant #' . $data->name . '.');
+            notify()->success(__('Created successfully'));
+        } else {
+            notify()->error(__('Failed to create. Please try again'));
+        }
+        return redirect()->back();
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Admin  $admin
+     * @return \Illuminate\Http\Response
+     */
+     public function edit($id)
+    {
+        $variant = Variant::whereid($id)->firstorFail();
+        $brands= Brand::where('status',1)->get();
+        $fuels= FuelType::where('status',1)->get();
+        $sub_models= SubModel::where('status',1)->get();
+        $breadcrumbs = [
+            ['Dashboard', route('admin.home')],
+            ['Variants', route('admin.variants.index')],
+            [$brand->name, null],
+        ];
+        return view('admin.variants.edit', compact('variant','sub_models','brands','fuels'));
+    }
 }
