@@ -41,16 +41,19 @@ Route::get('/home', function () {
 // Roles
 // Route::get('roles/index',  'Admin\RoleController@index')->name('roles.index');
 // Route::get('roles/create',  'Admin\RoleController@create')->name('roles.create');
-Route::resource('roles', Admin\RoleController::class);
-// permissions
-Route::get('permissions/index',  'Admin\PermissionController@index')->name('permissions.index');
-Route::get('permissions/create',  'Admin\PermissionController@create')->name('permissions.create');
-Route::post('permissions/store',  'Admin\PermissionController@store')->name('permissions.store');
+  Route::resource('roles', Admin\RoleController::class);
+  // permissions
+  Route::get('permissions/index',  'Admin\PermissionController@index')->name('permissions.index');
+  Route::get('permissions/create',  'Admin\PermissionController@create')->name('permissions.create');
+  Route::post('permissions/store',  'Admin\PermissionController@store')->name('permissions.store');
 
-//Sales difficulty
-Route::get('kms/index',  'Admin\KmsController@index')->name('kms.index');
-Route::get('kms/create',  'Admin\KmsController@create')->name('kms.create');
-Route::post('kms/store',  'Admin\KmsController@store')->name('kms.store');
-Route::get('kms/edit/{id}',  'Admin\KmsController@edit')->name('kms.edit');
-Route::post('kms/update/{id}',  'Admin\KmsController@update')->name('kms.update');
-Route::delete('kms/destroy/{id}',  'Admin\KmsController@destroy')->name('kms.destroy');
+  //Sales difficulty
+  Route::get('kms',  'Admin\KmsController@index')->name('kms.index');
+  Route::get('kms/create',  'Admin\KmsController@create')->name('kms.create');
+  Route::post('kms/store',  'Admin\KmsController@store')->name('kms.store');
+  Route::get('kms/edit/{id}',  'Admin\KmsController@edit')->name('kms.edit');
+  Route::post('kms/update/{id}',  'Admin\KmsController@update')->name('kms.update');
+  Route::delete('kms/destroy/{id}',  'Admin\KmsController@destroy')->name('kms.destroy');
+
+  // Sub Models
+  Route::resource('sub-models', Admin\SubModelController::class);
