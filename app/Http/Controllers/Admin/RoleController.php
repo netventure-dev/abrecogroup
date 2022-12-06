@@ -52,14 +52,16 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('create', Role::class);
+        // $this->authorize('create', Role::class);
 
         $data = $this->validate($request, [
             'name' => 'required|unique:roles|max:32',
             'permissions' => 'array',
         ]);
 
+       
         $role = Role::create($data);
+        // dd($data);
 
         $permissions = Permission::find($request->permissions);
         $role->syncPermissions($permissions);

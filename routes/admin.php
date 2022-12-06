@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdministratorController;
 use App\Http\Controllers\Admin\SalesDifficultyController;
 
+
 Route::get('/home', function () {
     $users[] = Auth::user();
     $users[] = Auth::guard()->user();
@@ -38,9 +39,9 @@ Route::get('/home', function () {
   Route::delete('brands/destroy/{id}',  'Admin\BrandController@destroy')->name('brands.destroy');
 
 // Roles
-Route::get('roles/index',  'Admin\RoleController@index')->name('roles.index');
-Route::get('roles/create',  'Admin\RoleController@create')->name('roles.create');
-
+// Route::get('roles/index',  'Admin\RoleController@index')->name('roles.index');
+// Route::get('roles/create',  'Admin\RoleController@create')->name('roles.create');
+Route::resource('roles', Admin\RoleController::class);
 // permissions
 Route::get('permissions/index',  'Admin\PermissionController@index')->name('permissions.index');
 Route::get('permissions/create',  'Admin\PermissionController@create')->name('permissions.create');
