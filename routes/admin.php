@@ -57,3 +57,6 @@ Route::delete('kms/destroy/{id}',  'Admin\KmsController@destroy')->name('kms.des
 
 //fuel type
 Route::resource('fuel',Admin\FuelTypeController::class);
+
+//owener
+Route::resource('owner', Admin\OwnerController::class);
