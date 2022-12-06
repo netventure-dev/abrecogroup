@@ -136,6 +136,15 @@ class SubModelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subModels = SubModel::whereid($id)->firstorFail();
+        // $this->authorize('delete', $admin);
+        $res = $subModels->delete();
+        if ($res) {
+            activity('admin')->performedOn($subModels)->causedBy($subModels)->log('Deleted Su$subModels #' . $subModels->name . '.');
+            notify()->success(__('Deleted successfully'));
+        } else {
+            notify()->error(__('Failed to Delete. Please try again'));
+        }
+        return redirect()->back();
     }
 }
