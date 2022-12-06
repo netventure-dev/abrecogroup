@@ -52,7 +52,7 @@
                                    <div class="invalid-feedback">{{ $errors->first('email') }}</div>
                                 </div>
                             </div>
-                            {{-- <div class="mb-4 row">
+                            <div class="mb-4 row">
                                 <label for="role" class="col-sm-3 col-form-label">{{__('Role')}}<span
                                         class="text-danger">*</span></label>
                                 <div class="col-sm-9">
@@ -68,7 +68,7 @@
                                     </select>
                                     <div class="invalid-feedback">{{ $errors->first('role') }}</div>
                                 </div>
-                            </div> --}}
+                            </div>
                             <div class="mb-4 row">
                                 <label for="password" class="col-sm-3 col-form-label">{{__('Password')}}
                                 </label>

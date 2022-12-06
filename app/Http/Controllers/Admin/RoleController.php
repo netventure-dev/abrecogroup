@@ -89,9 +89,9 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        $this->authorize('update', $role);
+        // $this->authorize('update', $role);
         $breadcrumbs = [
-            [__('Dashboard'), route('admin.dashboard')],
+            [__('Dashboard'), route('admin.home')],
             [__('Roles'), route('admin.roles.index')],
             [__('Edit'), null]
         ];
@@ -111,7 +111,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        $this->authorize('update', $role);
+        // $this->authorize('update', $role);
 
         $data = $this->validate($request, [
             'name' => 'required|max:32|unique:roles,name,' . $role->id,
@@ -134,7 +134,7 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        $this->authorize('delete', $role);
+        // $this->authorize('delete', $role);
 
         $role->delete();
 

@@ -40,5 +40,11 @@
 @endsection
 
 @section('script')
+<script>
 
+$("#checkAll").click(function(){
+    $('input:checkbox').not(this).prop('checked', this.checked);
+});
+
+</script>
 @endsection
