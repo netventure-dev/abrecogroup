@@ -60,3 +60,8 @@ Route::resource('fuel',Admin\FuelTypeController::class);
 
 //owener
 Route::resource('owner', Admin\OwnerController::class);
+ 
+// Sub Models
+Route::resource('sub-models', Admin\SubModelController::class);
+// variant
+Route::resource('variants',Admin\VariantController::class);

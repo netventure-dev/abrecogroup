@@ -26,6 +26,7 @@ class AdministratorController extends Controller
     {
         // $this->authorize('viewAny', Admin::class);
         $user = auth()->guard('admin')->user();
+        // dd($user)
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
             ['Administrator', route('admin.administrator.index')],
@@ -104,7 +105,7 @@ class AdministratorController extends Controller
     public function show($id)
     {
         $admin = Admin::whereUuid($id)->firstorFail();
-        $this->authorize('update', $admin);
+        // $this->authorize('update', $admin);
         return redirect()->route('admin.administrators.edit', $admin->uuid);
     }
 
@@ -118,13 +119,13 @@ class AdministratorController extends Controller
     {
         $admin = Admin::whereid($id)->firstorFail();
         // $this->authorize('update', $admin);
-        // $roles = Role::all();
+        $roles = Role::all();
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
             ['Administrator', route('admin.administrator.index')],
             [$admin->name, null],
         ];
-        return view('admin.administrators.edit', compact('admin'    ,'breadcrumbs'));
+        return view('admin.administrators.edit', compact('admin','roles','breadcrumbs'));
     }
 
     /**
@@ -142,7 +143,7 @@ class AdministratorController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:admins,email,' . $admin->id . ',id,deleted_at,NULL',
             'password' => 'nullable|string|min:8',
-            // 'role' => 'required',
+            'role' => 'required',
             'avatar' => 'nullable|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $admin->name = $validated['name'];
@@ -161,8 +162,8 @@ class AdministratorController extends Controller
         }
         $admin->save();
         if ($admin) {
-            // $role = Role::findById($validated['role']);
-            // $admin->assignRole($role);
+            $role = Role::findById($validated['role']);
+            $admin->assignRole($role);
             // $data['name'] = $admin->name;
             // $data['email'] = $admin->email;
             // $data['password'] = $validated['password'];

@@ -15,7 +15,7 @@ class CreateVariantsTable extends Migration {
 			$table->bigInteger('brand_id')->unsigned();
 			$table->bigInteger('sub_model_id')->unsigned();
 			$table->string('on_road_price', 255);
-			$table->string('offer', 255);
+			$table->string('offer', 255)->nullable();
 			$table->bigInteger('fuel_id')->unsigned();
 			$table->integer('status')->default('0');
 		});

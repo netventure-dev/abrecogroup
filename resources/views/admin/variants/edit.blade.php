@@ -47,7 +47,7 @@
                                 <div class="col-sm-9">
                                     <select id="difficulties" name="difficulties"
                                         class="form-control select2 @if ($errors->has('store')) is-invalid @endif"
-                                        required>
+                                        rquired>
                                         <option>Select</option>
                                         @foreach ($datas as $data)
                                             <option @if($data->id == $brand->difficulty_id) selected @endif value={{ $data->id }}>{{ $data->name }}</option>

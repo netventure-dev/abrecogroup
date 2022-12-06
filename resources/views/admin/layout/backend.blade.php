@@ -481,12 +481,7 @@
                         </li>
 
                         <li class="menu-title" key="t-apps">Pages</li>
-                        <li>
-                            <a href="{{route('admin.administrator.index')}}" class="waves-effect">
-                                <i class="bx bx-file"></i>
-                                <span key="t-file-manager">Administrators</span>
-                            </a>
-                        </li>
+                      
                         <li>
                             <a href="{{route('admin.sales-difficulty.index')}}" class="waves-effect">
                                 <i class="bx bx-file"></i>
@@ -497,6 +492,17 @@
                             <a href="{{route('admin.brands.index')}}" class="waves-effect">
                                 <i class="bx bx-file"></i>
                                 <span key="t-file-manager">Brands</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.sub-models.index')}}" class="waves-effect">
+                                <i class="bx bx-file"></i>
+                                <span key="t-file-manager">Sub Models</span>
+                            </a>
+                        </li>
+                            <a href="{{route('admin.variants.index')}}" class="waves-effect">
+                                <i class="bx bx-file"></i>
+                                <span key="t-file-manager">Variants</span>
                             </a>
                         </li>
                          <li>
@@ -533,6 +539,12 @@
                         </li>  --}}
                         <li class="menu-title" key="t-apps">Settings</li>
                         <li>
+                            <a href="{{route('admin.administrator.index')}}" class="waves-effect">
+                                <i class="bx bx-file"></i>
+                                <span key="t-file-manager">Administrators</span>
+                            </a>
+                        </li>
+                        {{-- <li>
                             <a href="{{ route('admin.roles.index') }}" class=" waves-effect">
                                 <i class="bx bxs-user-detail"></i>
                                 <span>{{ __('Roles') }}</span>
@@ -543,7 +555,7 @@
                                 <i class="bx bxs-user-detail"></i>
                                 <span>{{ __('Permissions') }}</span>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <!-- Sidebar -->
