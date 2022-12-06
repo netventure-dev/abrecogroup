@@ -506,6 +506,13 @@
                                 <span key="t-file-manager">KMS run</span>
                             </a>
                         </li>
+                         <li>
+                            <a href="{{route('admin.fuel.index')}}" class="waves-effect">
+                                <i class="bx bx-file"></i>
+                                
+                                <span key="t-file-manager">Fuel Type</span>
+                            </a>
+                        </li>
                         {{--  <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
