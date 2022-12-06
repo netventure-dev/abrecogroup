@@ -10,9 +10,10 @@
 
     <div class="mt-2 form-group col-sm-12">
         <h5> {{ __('Assign Permissions') }}</h5>
-
+        <input type="checkbox" class="" id='checkAll' >  <label for="checkAll" > Select All</label>
         @foreach ($permissions->chunk(4) as $items)
             <div class="row">
+                
                 @foreach ($items as $permission)
                     <div class="pt-2 col-md-3">
                         <x-inputs.checkbox id="permission{{ $permission->id }}" name="permissions[]"

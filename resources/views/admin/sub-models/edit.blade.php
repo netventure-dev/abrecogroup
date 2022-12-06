@@ -1,6 +1,6 @@
 @extends('admin.layout.backend')
 
-@section('title') {{__('Edit Brand')}} @endsection
+@section('title') {{__('Edit sub-models')}} @endsection
 
 @section('content')
 
@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0 font-size-18">{{__('Edit Brand')}}</h4>
+            <h4 class="mb-sm-0 font-size-18">{{__('Edit sub-models')}}</h4>
             <div class="page-title-right">
 
             </div>
@@ -27,18 +27,34 @@
             <div class="card-body">
                 <div class="mt-2 row">
                     <div class="col-lg-7">
-                        <form action="{{ route('admin.brands.update',$brand->id) }}" method="post"
+                        <form action="{{ route('admin.sub-models.update',$subModels->id) }}" method="post"
                             class="custom-validation" enctype="multipart/form-data" id="myForm">
                             @csrf
-                            @method('post')
+                            @method('PUT')
                             <div class="mb-4 row">
                                 <label for="name" class="col-sm-3 col-form-label">{{__('Name')}}<span
                                         class="text-danger">*</span></label>
                                 <div class="col-sm-9">
                                     <input id="name" name="name" type="text"
                                             class="form-control @if ($errors->has('name')) is-invalid  @endif"
-                                            placeholder="{{__('Enter Name')}}" required value="{{ @old('name',$brand->name) }}">
+                                            placeholder="{{__('Enter Name')}}" required value="{{ @old('name',$subModels->name) }}">
                                     <div class="invalid-feedback">{{ $errors->first('name') }}</div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <label class="col-sm-3 col-form-label" for="brand">Brand
+                                    <span class="text-danger">*</span></label>
+                                <div class="col-sm-9">
+                                    <select id="brand" name="brand"
+                                        class="form-control select2 @if ($errors->has('store')) is-invalid @endif"
+                                        required>
+                                        <option value="">Select</option>
+                                        @foreach ($brands as $data)
+                                            <option @if($data->id == $subModels->brand_id) selected @endif value={{ $data->id }}>{{ $data->name }}</option>
+                                        @endforeach
+
+                                    </select>
+                                    <div class="invalid-feedback">{{ $errors->first('brand') }}</div>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -48,9 +64,9 @@
                                     <select id="difficulties" name="difficulties"
                                         class="form-control select2 @if ($errors->has('store')) is-invalid @endif"
                                         required>
-                                        <option>Select</option>
+                                        <option value="">Select</option>
                                         @foreach ($datas as $data)
-                                            <option @if($data->id == $brand->difficulty_id) selected @endif value={{ $data->id }}>{{ $data->name }}</option>
+                                            <option @if($data->id == $subModels->difficulty_id) selected @endif value={{ $data->id }}>{{ $data->name }}</option>
                                         @endforeach
 
                                     </select>
@@ -62,7 +78,7 @@
                                     class="col-sm-3 col-form-label">{{ __('Status') }}</label>
                                 <div class="col-sm-9">
                                     <div class="form-check form-check-inline col-form-label">
-                                        <input @if($brand->status == 1) checked @endif class="form-check-input" type="checkbox" value="1"
+                                        <input @if($subModels->status == 1) checked @endif class="form-check-input" type="checkbox" value="1"
                                             id="defaultCheck1" name="status" >
                                         <label class="form-check-label" for="defaultCheck1">
                                             Active

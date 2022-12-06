@@ -50,7 +50,7 @@
                                     <div class="col-sm-8">
                                         <select id="difficulty_id" name="difficulty_id"
                                             class="form-control select2 @if ($errors->has('store')) is-invalid @endif"
-                                            rquired>
+                                            required>
                                             <option>Select</option>
                                             @foreach ($datas as $data)
                                                 <option value={{ $data->point }}>{{ $data->name }}</option>

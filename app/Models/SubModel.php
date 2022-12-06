@@ -17,12 +17,12 @@ class SubModel extends Model
 
     public function sale_difficulty()
     {
-        return $this->hasOne('SaleDifficulty');
+        return $this->belongsTo('App\Models\SaleDifficulty','difficulty_id','id');
     }
 
     public function brand_data()
     {
-        return $this->hasOne('App\Models\Brand');
+        return $this->hasOne('App\Models\Brand','id','brand_id');
     }
 
 }

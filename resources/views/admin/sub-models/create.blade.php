@@ -1,6 +1,6 @@
 @extends('admin.layout.backend')
 
-@section('title') {{__('Edit Brand')}} @endsection
+@section('title') {{__('Create sub-models')}} @endsection
 
 @section('content')
 
@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0 font-size-18">{{__('Edit Brand')}}</h4>
+            <h4 class="mb-sm-0 font-size-18">{{__('Create sub-models')}}</h4>
             <div class="page-title-right">
 
             </div>
@@ -20,24 +20,24 @@
 </div>
 <!-- end page title -->
 
-<!-- start administrator edit form -->
+<!-- start administrator create form -->
+
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
                 <div class="mt-2 row">
                     <div class="col-lg-7">
-                        <form action="{{ route('admin.brands.update',$brand->id) }}" method="post"
-                            class="custom-validation" enctype="multipart/form-data" id="myForm">
+                        <form action="{{ route('admin.sub-models.store') }}" method="post" class="custom-validation"
+                            enctype="multipart/form-data">
                             @csrf
-                            @method('post')
                             <div class="mb-4 row">
                                 <label for="name" class="col-sm-3 col-form-label">{{__('Name')}}<span
                                         class="text-danger">*</span></label>
                                 <div class="col-sm-9">
                                     <input id="name" name="name" type="text"
-                                            class="form-control @if ($errors->has('name')) is-invalid  @endif"
-                                            placeholder="{{__('Enter Name')}}" required value="{{ @old('name',$brand->name) }}">
+                                        class="form-control @if ($errors->has('name')) is-invalid  @endif"
+                                        placeholder="Enter Name" required value="{{ @old('name') }}">
                                     <div class="invalid-feedback">{{ $errors->first('name') }}</div>
                                 </div>
                             </div>
@@ -46,15 +46,31 @@
                                     <span class="text-danger">*</span></label>
                                 <div class="col-sm-9">
                                     <select id="difficulties" name="difficulties"
-                                        class="form-control select2 @if ($errors->has('store')) is-invalid @endif"
+                                        class="form-control select2 @if ($errors->has('difficulties')) is-invalid @endif"
                                         required>
-                                        <option>Select</option>
+                                        <option value="">Select Difficulty</option>
                                         @foreach ($datas as $data)
-                                            <option @if($data->id == $brand->difficulty_id) selected @endif value={{ $data->id }}>{{ $data->name }}</option>
+                                            <option value={{ $data->point }}>{{ $data->name }}</option>
                                         @endforeach
 
                                     </select>
                                     <div class="invalid-feedback">{{ $errors->first('difficulties') }}</div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <label class="col-sm-3 col-form-label" for="brand">Brand
+                                    <span class="text-danger">*</span></label>
+                                <div class="col-sm-9">
+                                    <select id="brand" name="brand"
+                                        class="form-control select2 @if ($errors->has('brand')) is-invalid @endif"
+                                        required>
+                                        <option value="">Select Brand</option>
+                                        @foreach ($brands as $data)
+                                            <option value={{ $data->id }}>{{ $data->name }}</option>
+                                        @endforeach
+
+                                    </select>
+                                    <div class="invalid-feedback">{{ $errors->first('brand') }}</div>
                                 </div>
                             </div>
                             <div class="mb-4 row">
@@ -62,31 +78,37 @@
                                     class="col-sm-3 col-form-label">{{ __('Status') }}</label>
                                 <div class="col-sm-9">
                                     <div class="form-check form-check-inline col-form-label">
-                                        <input @if($brand->status == 1) checked @endif class="form-check-input" type="checkbox" value="1"
-                                            id="defaultCheck1" name="status" >
+                                        <input class="form-check-input" type="checkbox" value="1"
+                                            id="defaultCheck1" name="status" checked>
                                         <label class="form-check-label" for="defaultCheck1">
                                             Active
                                         </label>
                                     </div>
                                 </div>
-                            </div>                    
-                            <button class="btn btn-primary" type="submit">{{__('Update')}}</button>
+                            </div>
+                            <div class="row justify-content-end">
+                                <div class="col-sm-9">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary w-md">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
+                    <div class="col-lg-6"> </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- end administrator edit form -->
+<!-- end administrator create form -->
 
 @endsection
 
 @section('script')
 <!-- Plugins js -->
 <script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
-<script src="{{ URL::asset('assets/libs/jquery-repeater/jquery-repeater.min.js') }}"></script>
 <script src="{{ URL::asset('assets/js/pages/form-validation.init.js') }}"></script>
 
 <script>
