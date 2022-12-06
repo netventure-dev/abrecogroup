@@ -22,13 +22,25 @@ class KmDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addIndexColumn()
+            ->editColumn('name', function (Km $admin) {
+                return $admin->name;
+            })
+            // ->editColumn('difficulty_id', function (Km $admin) {
+            //     if (isset($admin->sale_difficulty)) {
+            //         return $admin->sale_difficulty->name;
+            //     }
+            // })
             ->editColumn('status', function (Km $admin) {
-                return $admin->status;
+                if ($admin->status) {
+                    return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
+                } else {
+                    return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
+                }
             })
             ->addColumn('action', function (Km $admin) {
                 return view('admin.kms.action', compact('admin'));
             })
-            ->rawColumns(['action']);
+            ->rawColumns(['action','status']);
     }
 
     /**
