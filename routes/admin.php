@@ -56,4 +56,4 @@ Route::post('kms/update/{id}',  'Admin\KmsController@update')->name('kms.update'
 Route::delete('kms/destroy/{id}',  'Admin\KmsController@destroy')->name('kms.destroy');
 
 //fuel type
-Route::resource('fuel','Admin\FuelTypeController');
+Route::resource('fuel',Admin\FuelTypeController::class);
