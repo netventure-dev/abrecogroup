@@ -33,7 +33,7 @@ class VariantDataTable extends DataTable
             })
             ->editColumn('brand_id', function (Variant $model) {
                 if(isset($model->brand_data)){
-                    // dd($model->brand_data);
+                 
                     return @$model->brand_data->name;
 
                 }
@@ -98,7 +98,7 @@ class VariantDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
             Column::make('name')->title(__('Name')),
-            Column::make('band_id')->title(__('Band')),
+            Column::make('brand_id')->title(__('Band')),
             Column::make('sub_model_id')->title(__('Sub Model')),
             Column::make('fuel_id')->title(__('Fuel Type')),
             Column::make('on_road_price')->title(__('On Road Price')),

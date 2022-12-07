@@ -17,7 +17,7 @@ class Variant extends Model
 
     public function brand_data()
     {
-        return $this->hasOne('App\Models\Brand','brand_id','id');
+        return $this->belongsTo('App\Models\Brand','brand_id','id');
     }
 
     public function sub_model_data()
