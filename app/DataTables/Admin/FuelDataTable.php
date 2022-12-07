@@ -25,10 +25,17 @@ class FuelDataTable extends DataTable
             ->editColumn('status', function (FuelType $fuel) {
                 return $fuel->status;
             })
+            ->editColumn('status', function (FuelType $fuel) {
+                if ($fuel->status) {
+                    return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
+                } else {
+                    return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
+                }
+            })
             ->addColumn('action', function (FuelType $fuel) {
                 return view('admin.fuel.action', compact('fuel'));
             })
-            ->rawColumns(['action']);
+            ->rawColumns(['action','status']);
     }
 
     /**

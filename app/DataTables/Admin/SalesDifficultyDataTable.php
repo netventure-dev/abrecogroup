@@ -28,6 +28,13 @@ class SalesDifficultyDataTable extends DataTable
             ->addColumn('point', function (SaleDifficulty $sale_difficulty) {
                 return $sale_difficulty->point;
             })
+            // ->editColumn('status', function (SaleDifficulty $sale_difficulty) {
+            //     if ($sale_difficulty->status) {
+            //         return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
+            //     } else {
+            //         return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
+            //     }
+            // })
             ->addColumn('action', function (SaleDifficulty $sale_difficulty) {
                 return view('admin.sales_difficulty.action', compact('sale_difficulty'));
             })

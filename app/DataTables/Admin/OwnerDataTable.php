@@ -25,10 +25,18 @@ class OwnerDataTable extends DataTable
             ->editColumn('status', function (Owner $owner) {
                 return $owner->status;
             })
+            ->editColumn('status', function (Owner $owner) {
+                if ($owner->status) {
+                    return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
+                } else {
+                    return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
+                }
+            })
             ->addColumn('action', function (Owner $owner) {
                 return view('admin.owner.action', compact('owner'));
             })
-            ->rawColumns(['action']);
+
+            ->rawColumns(['action','status']);
     }
 
     /**
