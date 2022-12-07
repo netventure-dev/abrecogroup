@@ -17,12 +17,16 @@ class Variant extends Model
 
     public function brand_data()
     {
-        return $this->hasOne('App\Models\Brand');
+        return $this->hasOne('App\Models\Brand','brand_id','id');
     }
 
-    public function sub_model_id()
+    public function sub_model_data()
     {
-        return $this->hasOne('App\Models\SaleDifficulty');
+        return $this->belongsTo('App\Models\SubModel','sub_model_id','id');
+    }
+    public function fuel_type()
+    {
+        return $this->belongsTo('App\Models\FuelType','fuel_id','id');
     }
 
 }

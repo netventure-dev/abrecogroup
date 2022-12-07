@@ -21,7 +21,46 @@ class VariantDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'variantdatatable.action');
+            ->addIndexColumn()
+            ->editColumn('name', function (Variant $model) {
+                return $model->name;
+            })
+            ->editColumn('offer', function (Variant $model) {
+                return $model->offer;
+            })
+            ->editColumn('on_road_price', function (Variant $model) {
+                return $model->on_road_price;
+            })
+            ->editColumn('brand_id', function (Variant $model) {
+                if(isset($model->brand_data)){
+                    // dd($model->brand_data);
+                    return @$model->brand_data->name;
+
+                }
+            })
+            ->editColumn('sub_model_id', function (Variant $model) {
+                if(isset($model->sub_model_data)){
+                    return @$model->sub_model_data->name;
+
+                }
+            })
+            ->editColumn('fuel_id', function (Variant $model) {
+                if(isset($model->fuel_type)){
+                    return @$model->fuel_type->name;
+
+                }
+            })
+            ->editColumn('status', function (Variant $model) {
+                if ($model->status) {
+                    return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
+                } else {
+                    return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
+                }
+            })
+            ->addColumn('action', function (Variant $model) {
+                return view('admin.variants.action', compact('model'));
+            })
+            ->rawColumns(['action','status','name','sub_model_id','fuel_id','brand_id','offer','on_road_price']);
     }
 
     /**
@@ -32,7 +71,7 @@ class VariantDataTable extends DataTable
      */
     public function query(Variant $model)
     {
-        return $model->newQuery();
+        return $model->with('brand_data','sub_model_data','fuel_type')->newQuery();
     }
 
     /**
@@ -59,7 +98,11 @@ class VariantDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
             Column::make('name')->title(__('Name')),
-            Column::make('difficulty_id')->title(__('Sales Difficulty')),
+            Column::make('band_id')->title(__('Band')),
+            Column::make('sub_model_id')->title(__('Sub Model')),
+            Column::make('fuel_id')->title(__('Fuel Type')),
+            Column::make('on_road_price')->title(__('On Road Price')),
+            Column::make('offer')->title(__('Offer')),
             Column::make('status')->title(__('Status'))->orderable(false),
             Column::computed('action')
                 ->title(__('Action'))

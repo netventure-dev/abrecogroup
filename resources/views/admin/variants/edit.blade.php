@@ -30,7 +30,7 @@
                         <form action="{{ route('admin.variants.update',$variant->id) }}" method="post"
                             class="custom-validation" enctype="multipart/form-data" id="myForm">
                             @csrf
-                            @method('post')
+                            @method('PUT')
                             <div class="mb-4 row">
                                 <label for="name" class="col-sm-3 col-form-label">{{__('Name')}}<span
                                         class="text-danger">*</span></label>

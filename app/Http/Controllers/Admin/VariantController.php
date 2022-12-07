@@ -60,7 +60,7 @@ class VariantController extends Controller
             'name' => 'required|string|max:255',
             'brand' => 'required',
             'sub_model' => 'required',
-            'fuel' => 'required',
+            'fuel_type' => 'required',
             'on_road_price' => 'required',
             'offer' => 'nullable',
             'status' => 'required',
@@ -70,7 +70,7 @@ class VariantController extends Controller
         $data->name = $validated['name'];
         $data->brand_id = $validated['brand'];
         $data->sub_model_id = $validated['sub_model'];
-        $data->fuel_id = $validated['fuel'];
+        $data->fuel_id = $validated['fuel_type'];
         $data->on_road_price = $validated['on_road_price']; 
         $data->offer = $validated['offer'];
         $data->status = $validated['status'];
