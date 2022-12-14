@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="utf-8" />
-        <title> PPM </title>
+        <title> METCON </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -483,48 +483,21 @@
                         <li class="menu-title" key="t-apps">Pages</li>
                       
                         <li>
-                            <a href="{{route('admin.sales-difficulty.index')}}" class="waves-effect">
-                                <i class="bx bx-file"></i>
-                                <span key="t-file-manager">Sale Difficulties</span>
+                            <a href="{{route('admin.size.index')}}" class="waves-effect">
+                                <i class="bx bx-box"></i>
+                                <span key="t-file-manager">Size</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('admin.brands.index')}}" class="waves-effect">
+                            <a href="{{route('admin.rods.index')}}" class="waves-effect">
                                 <i class="bx bx-file"></i>
-                                <span key="t-file-manager">Brands</span>
+                                <span key="t-file-manager">Rod</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('admin.sub-models.index')}}" class="waves-effect">
+                            <a href="{{route('admin.bundles.index')}}" class="waves-effect">
                                 <i class="bx bx-file"></i>
-                                <span key="t-file-manager">Sub Models</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('admin.variants.index')}}" class="waves-effect">
-                                <i class="bx bx-file"></i>
-                                <span key="t-file-manager">Variants</span>
-                            </a>
-                        </li>
-                         <li>
-                            <a href="{{route('admin.kms.index')}}" class="waves-effect">
-                                <i class="bx bx-file"></i>
-                                
-                                <span key="t-file-manager">KMS run</span>
-                            </a>
-                        </li>
-                         <li>
-                            <a href="{{route('admin.fuel.index')}}" class="waves-effect">
-                                <i class="bx bx-file"></i>
-                                
-                                <span key="t-file-manager">Fuel Type</span>
-                            </a>
-                        </li>
-                         <li>
-                            <a href="{{ route('admin.owner.index') }}" class="waves-effect">
-                                <i class="bx bx-file"></i>
-                                
-                                <span key="t-file-manager">Owner</span>
+                                <span key="t-file-manager">Bundles</span>
                             </a>
                         </li>
                         {{--  <li>
@@ -539,12 +512,7 @@
                             </ul>
                         </li>  --}}
                         <li class="menu-title" key="t-apps">Settings</li>
-                        <li>
-                            <a href="{{route('admin.administrator.index')}}" class="waves-effect">
-                                <i class="bx bx-file"></i>
-                                <span key="t-file-manager">Administrators</span>
-                            </a>
-                        </li>
+                      
                         {{-- <li>
                             <a href="{{ route('admin.roles.index') }}" class=" waves-effect">
                                 <i class="bx bxs-user-detail"></i>

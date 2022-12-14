@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
+
+// calculation
+Route::get('/rod_calc', 'HomeController@rod_calc')->name('rod_calc');
+Route::get('/bundle_calc', 'HomeController@bundle_calc')->name('bundle_calc');
+Route::get('/weight_calc', 'HomeController@weight_calc')->name('weight_calc');
+Route::get('/rate_calc', 'HomeController@rate_calc')->name('rate_calc');
+
 
 Route::group(['prefix' => 'admin'], function () {
   Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');

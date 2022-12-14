@@ -14,54 +14,28 @@ Route::get('/home', function () {
     return view('admin.home');
 })->name('home');
 
-  // Admin
-  Route::get('administrators',  'Admin\AdministratorController@index')->name('administrator.index');
-  Route::get('administrators/create',  'Admin\AdministratorController@create')->name('administrator.create');
-  Route::post('administrators/store',  'Admin\AdministratorController@store')->name('administrator.store');
-  Route::get('administrators/edit/{id}',  'Admin\AdministratorController@edit')->name('administrator.edit');
-  Route::post('administrators/update/{id}',  'Admin\AdministratorController@update')->name('administrator.update');
-  Route::delete('administrators/destroy/{id}',  'Admin\AdministratorController@destroy')->name('administrator.destroy');
 
-  // Sales Difficulty
-  Route::get('sales-difficulty',  'Admin\SalesDifficultyController@index')->name('sales-difficulty.index');
-  Route::get('sales-difficulty/create',  'Admin\SalesDifficultyController@create')->name('sales-difficulty.create');
-  Route::post('sales-difficulty/store',  'Admin\SalesDifficultyController@store')->name('sales-difficulty.store');
-  Route::get('sales-difficulty/edit/{id}',  'Admin\SalesDifficultyController@edit')->name('sales-difficulty.edit');
-  Route::post('sales-difficulty/update/{id}',  'Admin\SalesDifficultyController@update')->name('sales-difficulty.update');
-  Route::delete('sales-difficulty/destroy/{id}',  'Admin\SalesDifficultyController@destroy')->name('sales-difficulty.destroy');
+  // size
+  Route::get('size',  'Admin\SizeController@index')->name('size.index');
+  Route::get('size/create',  'Admin\SizeController@create')->name('size.create');
+  Route::post('size/store',  'Admin\SizeController@store')->name('size.store');
+  Route::get('size/edit/{id}',  'Admin\SizeController@edit')->name('size.edit');
+  Route::post('size/update/{id}',  'Admin\SizeController@update')->name('size.update');
+  Route::delete('size/destroy/{id}',  'Admin\SizeController@destroy')->name('size.destroy');
 
-  // Brands
-  Route::get('brands',  'Admin\BrandController@index')->name('brands.index');
-  Route::get('brands/create',  'Admin\BrandController@create')->name('brands.create');
-  Route::post('brands/store',  'Admin\BrandController@store')->name('brands.store');
-  Route::get('brands/edit/{id}',  'Admin\BrandController@edit')->name('brands.edit');
-  Route::post('brands/update/{id}',  'Admin\BrandController@update')->name('brands.update');
-  Route::delete('brands/destroy/{id}',  'Admin\BrandController@destroy')->name('brands.destroy');
+  // Rods
+  Route::get('rods',  'Admin\RodController@index')->name('rods.index');
+  Route::get('rods/create',  'Admin\RodController@create')->name('rods.create');
+  Route::post('rods/store',  'Admin\RodController@store')->name('rods.store');
+  Route::get('rods/edit/{id}',  'Admin\RodController@edit')->name('rods.edit');
+  Route::post('rods/update/{id}',  'Admin\RodController@update')->name('rods.update');
+  Route::delete('rods/destroy/{id}',  'Admin\RodController@destroy')->name('rods.destroy');
 
-// Roles
-// Route::get('roles/index',  'Admin\RoleController@index')->name('roles.index');
-// Route::get('roles/create',  'Admin\RoleController@create')->name('roles.create');
-Route::resource('roles', Admin\RoleController::class);
-// permissions
-Route::get('permissions/index',  'Admin\PermissionController@index')->name('permissions.index');
-Route::get('permissions/create',  'Admin\PermissionController@create')->name('permissions.create');
-Route::post('permissions/store',  'Admin\PermissionController@store')->name('permissions.store');
+  // Bundles
+  Route::get('bundles',  'Admin\BundlesController@index')->name('bundles.index');
+  Route::get('bundles/create',  'Admin\BundlesController@create')->name('bundles.create');
+  Route::post('bundles/store',  'Admin\BundlesController@store')->name('bundles.store');
+  Route::get('bundles/edit/{id}',  'Admin\BundlesController@edit')->name('bundles.edit');
+  Route::post('bundles/update/{id}',  'Admin\BundlesController@update')->name('bundles.update');
+  Route::delete('bundles/destroy/{id}',  'Admin\BundlesController@destroy')->name('bundles.destroy');
 
-//Sales difficulty
-Route::get('kms/index',  'Admin\KmsController@index')->name('kms.index');
-Route::get('kms/create',  'Admin\KmsController@create')->name('kms.create');
-Route::post('kms/store',  'Admin\KmsController@store')->name('kms.store');
-Route::get('kms/edit/{id}',  'Admin\KmsController@edit')->name('kms.edit');
-Route::post('kms/update/{id}',  'Admin\KmsController@update')->name('kms.update');
-Route::delete('kms/destroy/{id}',  'Admin\KmsController@destroy')->name('kms.destroy');
-
-//fuel type
-Route::resource('fuel',Admin\FuelTypeController::class);
-
-//owener
-Route::resource('owner', Admin\OwnerController::class);
- 
-// Sub Models
-Route::resource('sub-models', Admin\SubModelController::class);
-// variant
-Route::resource('variants',Admin\VariantController::class);
