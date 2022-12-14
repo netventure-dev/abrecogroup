@@ -39,3 +39,8 @@ Route::get('/home', function () {
   Route::post('bundles/update/{id}',  'Admin\BundlesController@update')->name('bundles.update');
   Route::delete('bundles/destroy/{id}',  'Admin\BundlesController@destroy')->name('bundles.destroy');
 
+//gst
+//  Route::get('gst',  'Admin\GstController@index')->name('gst.index');
+Route::get('gst/create',  'Admin\GstController@create')->name('gst.create');
+Route::post('gst/store',  'Admin\GstController@store')->name('gst.store');
+

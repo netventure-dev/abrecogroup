@@ -512,6 +512,12 @@
                             </ul>
                         </li>  --}}
                         <li class="menu-title" key="t-apps">Settings</li>
+                         <li>
+                            <a href="{{ route('admin.gst.create') }}" class=" waves-effect">
+                                <i class="bx bxs-user-detail"></i>
+                                <span>{{ __('Gst') }}</span>
+                            </a>
+                        </li>
                       
                         {{-- <li>
                             <a href="{{ route('admin.roles.index') }}" class=" waves-effect">
