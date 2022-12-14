@@ -230,3 +230,6 @@ table, td, th {
 .text-right{
   text-align: right;
 }
+.text-op{
+  opacity: 0.5
+}

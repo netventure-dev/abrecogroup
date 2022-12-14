@@ -90,12 +90,16 @@
                             <th class="text_white"><span id="foot_weight"></span>Kgs</th>
                             <th class="text_white"><span id="foot_rods"></span>Rods</th>
                             <th class="text_white"><span id="foot_bundles"></span>Bundles</th>
-                            <th class="text_white"><span id="foot_rate"></span></th>
+                            <th class="text_white"><span id="foot_extra_rods"></span>Rods</th>
                             <th class="text_white text-right"><span id="foot_amt">0.00</span></th>
                         </tr>
                         <tr>
                             <th colspan="6" class="text-centre text_white">Total Amount(Rs)</th>
                             <th class="text-right text_white"><h2><span id="total_amount"></span></h2></th>
+                        </tr>
+                        <tr>
+                            <th colspan="6" class="text-centre text_white text-op">18% GST included in above (Rs)</th>
+                            <th class="text-right text_white"><h2><span id="final_amount"></span></h2></th>
                         </tr>
                     </tbody>
                     
@@ -185,9 +189,11 @@
             var total_rods =0;
             var total_weight =0;
             var total_bundles =0;
+            var total_new_rods =0;
             $("#foot_rods").html("");
             $("#foot_weight").html("");
             $("#foot_bundles").html("");
+            $("#foot_extra_rods").html("");
             $.ajax({
                 url: "{{ route('rod_calc') }}",
                 type: "GET",
@@ -205,33 +211,42 @@
                     for(var i=0;i<=count;i++){
                         var rod_value= $('#rods_'+i).val();
                         if(rod_value){
-                            console.log(rod_value);
-                            total_rods = parseInt(total_rods) + parseInt(rod_value);
+                                total_rods = parseInt(total_rods) + parseInt(rod_value);
 
                         }
                     }
                     var html = '<span>'+total_rods+'  </span>';
-                    $('#foot_rods').append(html); 
+                    $('#foot_rods').append(html);
+
                     for(var j=0;j<=count;j++){
                         var weight_value= $('#weight_'+j).val();
                         if(weight_value){
-                            console.log(weight_value);
                             total_weight = parseInt(total_weight) + parseInt(weight_value);
 
                         }
                     }
                     var html1 = '<span>'+total_weight+'  </span>';
                     $('#foot_weight').append(html1); 
+
                     for(var k=0;k<=count;k++){
                         var bundle_value= $('#bundles_'+k).val();
                         if(bundle_value){
-                            console.log(bundle_value);
                             total_bundles = parseInt(total_bundles) + parseInt(bundle_value);
 
                         }
                     }
                     var html2 = '<span>'+total_bundles+'  </span>';
                     $('#foot_bundles').append(html2); 
+
+                    for(var m=0;m<=count;m++){
+                        var rods_new_value= $('#rods_new_'+m).val();
+                        if(rods_new_value){
+                            total_new_rods = parseInt(total_new_rods) + parseInt(rods_new_value);
+
+                        }
+                    }
+                    var html3 = '<span>'+total_new_rods+'  </span>';
+                    $('#foot_extra_rods').append(html3); 
                 }
             });
     }
@@ -365,7 +380,10 @@
             var weight = $('#weight_'+key).val();
             var count=$('#size_count').val();
             var total_amt =0;
+            var percentage=18;
+            var gst_amount=0;
             $('#total_amount').html("");
+            $('#final_amount').html("");
             $.ajax({
                 url: "{{ route('rate_calc') }}",
                 type: "GET",
@@ -380,14 +398,18 @@
                     for(var k=0;k<=count;k++){
                         var amt_value= $('#amt_'+k).val();
                         if(amt_value){
-                            console.log(amt_value);
+                            // console.log(amt_value);
                             total_amt = parseInt(total_amt) + parseInt(amt_value);
 
                         }
                     }
                     var html = '<span>'+total_amt+'  </span>';
-                    $('#total_amount').append(html); 
-                    // $('#rods_'+key).val(result.rods);
+                    $('#total_amount').append(html);
+                    if(total_amt){
+                        gst_amount=(parseInt(total_amt) * (100 + parseInt(percentage))/ 100);
+                    } 
+                    var html1 = '<span>'+gst_amount+'  </span>';
+                     $('#final_amount').append(html1);
                     // $('#rods_new_'+key).val(result.rem);
                     // $('#city-dd').html('<option value="">City</option>');
                 }
