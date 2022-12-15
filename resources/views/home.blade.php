@@ -151,7 +151,7 @@
             <div class="col-12">
                 <div class="content">
                     <div class="text mb-5 text-center text_white">
-                        © 2022 VSM Hospital. All Rights Reserved. Digitally Empowered by <a href="https://www.netventure.in/"> NetVenture Digital Solutions Pvt. Ltd. </a>
+                        © 2022 METCON. All Rights Reserved. Digitally Empowered by <a href="https://www.netventure.in/"> NetVenture Digital Solutions Pvt. Ltd. </a>
                     </div>
                 </div>
             </div>
@@ -469,7 +469,7 @@
                         // $('#city-dd').html('<option value="">City</option>');
                     }
                 });
-            }, 100 );
+            }, 200 );
         }
         $("input[type=number]").on("keydown", function(e) {
             var invalidChars = ["-", "+", "e", " "]; //include "." if you only want integers
