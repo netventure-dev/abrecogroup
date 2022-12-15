@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-sm-8">
                 <h2 class="text_white text-centre">Tick a check box to add the quantities</h2>
-                <table>
+                <table class="mt-5">
                     <thead>
                         <tr>
                             <td></td>
@@ -98,7 +98,7 @@
                             <th class="text-right text_white"><h2><span id="total_amount"></span></h2></th>
                         </tr>
                         <tr>
-                            <th colspan="6" class="text-centre text_white text-op">18% GST included in above (Rs)</th>
+                            <th colspan="6" class="text-centre text_white text-op">@if($gst) {{$gst->gst}} 18 @endif  % GST included in above (Rs)</th>
                             <th class="text-right text_white"><h2><span id="final_amount"></span></h2></th>
                         </tr>
                     </tbody>
@@ -107,10 +107,8 @@
             </div>
             <div class="col-sm-4">
                 <div class="content">
-                    <div class="text">
-                        <h1>SEE, FEEL AND LIVE IN THE TOUGHNESS <br> <span>WE PROVIDE YOU.</span></h1>
-                        <p>We value your life and your satisfaction.  <br>Strength and safety are our primary concerns. <br>You will simply love them.
-                        </p>
+                    <div class="text mb-5">
+                        
                     </div>
                 </div>
             </div>

@@ -133,7 +133,7 @@ table, td, th {
   
   table {
     border-collapse: collapse;
-    width: 50%;
+    width: 100%;
   }
   
   th, td {
@@ -232,4 +232,10 @@ table, td, th {
 }
 .text-op{
   opacity: 0.5
+}
+.mb-5{
+  margin-bottom: 50px;;
+}
+.mt-5{
+  margin-top: 50px;;
 }

@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 use App\Models\Rod;
 use App\Models\Bundle;
 use App\Models\Size;
+use App\Models\Gst;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index(Request $request){
         $sizes= Size::where('status',1)->get();
-        return view('home',compact('sizes'));
+        $gst = Gst::where('status',1)->first();
+        return view('home',compact('sizes','gst'));
     }
 
     public function rod_calc(Request $request)

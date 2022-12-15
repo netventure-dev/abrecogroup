@@ -37,7 +37,7 @@
                                 <div class="col-sm-9">
                                     <input id="gst" type="number" name="gst"
                                         class="form-control @if ($errors->has('gst')) is-invalid  @endif"
-                                        placeholder="Enter gst percentage" value="{{ @old('gst') }}" required>
+                                        placeholder="Enter gst percentage" value="{{ @old('gst',@$gst->gst) }}" required>
                                     <div class="invalid-feedback">{{ $errors->first('gst') }}</div>
                                 </div>
                             </div>

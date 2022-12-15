@@ -29,7 +29,8 @@ class GSTController extends Controller
             ['Dashboard', route('admin.home')],
             // ['gst', route('admin.gst.index')],
         ];
-        return view('admin.gst.create',compact('breadcrumbs'));
+        $gst = Gst::where('status',1)->first();
+        return view('admin.gst.create',compact('breadcrumbs','gst'));
     }
     public function store(Request $request)
     {
