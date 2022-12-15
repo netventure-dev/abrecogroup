@@ -127,11 +127,17 @@
                                     {{ $gst->gst }}
                                 @else
                                     18
-                                @endif % GST included in above (Rs)
+                                @endif % GST Amount (Rs)
                             </th>
                             <input type="hidden"
                                 value="@if ($gst) {{ $gst->gst }} @else 18 @endif"
                                 id="gst_val">
+                            <th class="text-right text_white">
+                                <h2><span id="gst_amount"></span></h2>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="6" class="text-centre text_white">Grand Total(Rs)</th>
                             <th class="text-right text_white">
                                 <h2><span id="final_amount"></span></h2>
                             </th>
@@ -425,8 +431,10 @@
                 var total_amt = 0;
                 var percentage = $('#gst_val').val();
                 var gst_amount = 0;
+                var gst_only = 0;
                 $('#total_amount').html("");
                 $('#final_amount').html("");
+                $('#gst_amount').html("");
                 $.ajax({
                     url: "{{ route('rate_calc') }}",
                     type: "GET",
@@ -451,9 +459,12 @@
                         if (total_amt) {
                             gst_amount = (parseInt(total_amt) * (100 + parseInt(percentage)) / 100);
                             gst_amount = Math.ceil(gst_amount);
+                            gst_only =  gst_amount - total_amt;
                         }
                         var html1 = '<span>' + gst_amount + '  </span>';
+                        var html2 = '<span>' + gst_only + '  </span>';
                         $('#final_amount').append(html1);
+                        $('#gst_amount').append(html2);
                         // $('#rods_new_'+key).val(result.rem);
                         // $('#city-dd').html('<option value="">City</option>');
                     }

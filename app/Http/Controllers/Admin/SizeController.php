@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Size;
+use App\Models\Bundle;
+use App\Models\Rod;
 use Illuminate\Http\Request;
 
 class SizeController extends Controller
@@ -133,6 +135,8 @@ class SizeController extends Controller
      public function destroy($id)
     {
         $data = Size::whereid($id)->firstorFail();
+        $rod = Rod::where('size_id',$id)->delete();
+        $bundle = Bundle::where('size_id',$id)->delete();
         // $this->authorize('delete', $data);
         $res = $data->delete();
         if ($res) {
