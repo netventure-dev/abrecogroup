@@ -434,7 +434,7 @@
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle header-profile-user" src="{{asset('assets/images/users/avatar-1.jpg')}}"
                                 alt="Header Avatar">
-                            <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
+                            <span class="d-none d-xl-inline-block ms-1" key="t-henry">Developer</span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
@@ -484,7 +484,7 @@
                       
                         <li>
                             <a href="{{route('admin.size.index')}}" class="waves-effect">
-                                <i class="bx bx-box"></i>
+                                <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Size</span>
                             </a>
                         </li>
@@ -496,7 +496,7 @@
                         </li>
                         <li>
                             <a href="{{route('admin.bundles.index')}}" class="waves-effect">
-                                <i class="bx bx-file"></i>
+                                <i class="bx bx-box"></i>
                                 <span key="t-file-manager">Bundles</span>
                             </a>
                         </li>
@@ -514,7 +514,7 @@
                         <li class="menu-title" key="t-apps">Settings</li>
                          <li>
                             <a href="{{ route('admin.gst.create') }}" class=" waves-effect">
-                                <i class="bx bxs-user-detail"></i>
+                                <i class="bx bxs-cog"></i>
                                 <span>{{ __('Gst') }}</span>
                             </a>
                         </li>
@@ -607,7 +607,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            Design & Netventure Digital Solutions
+                            © 2022 VSM Hospital. All Rights Reserved. Digitally Empowered by <a href="https://www.netventure.in/"> NetVenture Digital Solutions Pvt. Ltd. </a>
                         </div>
                     </div>
                 </div>

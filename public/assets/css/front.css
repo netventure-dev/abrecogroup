@@ -86,10 +86,7 @@ nav ul li a {
   align-items: center;
   justify-content: space-between;
 }
-.content .text {
-  position: relative;
-  max-width: 600px;
-}
+
 .content .text h1 {
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;

@@ -34,7 +34,7 @@
                             <div class="col-7">
                                 <div class="text-primary p-3">
                                     <h5 class="text-primary">Welcome Back !</h5>
-                                    <p>Skote Dashboard</p>
+                                    <p>Metcon Dashboard</p>
                                 </div>
                             </div>
                             <div class="col-5 align-self-end">
@@ -50,7 +50,6 @@
                                         class="img-thumbnail rounded-circle">
                                 </div>
                                 <h5 class="font-size-15 text-truncate">Developer</h5>
-                                <p class="text-muted mb-0 text-truncate">UI/UX Designer</p>
                             </div>
 
                            
