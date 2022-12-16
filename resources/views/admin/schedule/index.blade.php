@@ -1,6 +1,6 @@
 @extends('admin.layout.backend')
 
-@section('title') Size @endsection
+@section('title') Schedule @endsection
 
 @section('css')
 <!-- DataTables -->
@@ -16,11 +16,11 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0 font-size-18">Size</h4>
+            <h4 class="mb-sm-0 font-size-18">Schedule</h4>
             <div class="page-title-right mt-5">
                 {{-- @can('create', App\Models\Admin::class) --}}
-                <a href="{{ route('admin.size.create') }}"
-                    class="btn btn-primary w-md">Create Size</a>
+                <a href="{{ route('admin.schedule.create') }}"
+                    class="btn btn-primary w-md">Create Schedule</a>
                 {{-- @endcan --}}
             </div>
         </div>

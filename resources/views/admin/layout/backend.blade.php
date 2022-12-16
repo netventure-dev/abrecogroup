@@ -483,41 +483,14 @@
                         <li class="menu-title" key="t-apps">Pages</li>
                       
                         <li>
-                            <a href="{{route('admin.size.index')}}" class="waves-effect">
+                            <a href="{{route('admin.schedule.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Size</span>
+                                <span key="t-file-manager">Schedule</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{route('admin.rods.index')}}" class="waves-effect">
-                                <i class="bx bx-file"></i>
-                                <span key="t-file-manager">Rod</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('admin.bundles.index')}}" class="waves-effect">
-                                <i class="bx bx-box"></i>
-                                <span key="t-file-manager">Bundles</span>
-                            </a>
-                        </li>
-                        {{--  <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="bx bx-store"></i>
-                                <span key="t-ecommerce">Ecommerce</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="ecommerce-products.html" key="t-products">Products</a></li>
-                                <li><a href="ecommerce-product-detail.html" key="t-product-detail">Product Detail</a>
-                                </li>
-                            </ul>
-                        </li>  --}}
+                       
                         <li class="menu-title" key="t-apps">Settings</li>
-                         <li>
-                            <a href="{{ route('admin.gst.create') }}" class=" waves-effect">
-                                <i class="bx bxs-cog"></i>
-                                <span>{{ __('Gst') }}</span>
-                            </a>
-                        </li>
+                         
                       
                         {{-- <li>
                             <a href="{{ route('admin.roles.index') }}" class=" waves-effect">

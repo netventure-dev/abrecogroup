@@ -16,31 +16,11 @@ Route::get('/home', function () {
 
 
   // size
-  Route::get('size',  'Admin\SizeController@index')->name('size.index');
-  Route::get('size/create',  'Admin\SizeController@create')->name('size.create');
-  Route::post('size/store',  'Admin\SizeController@store')->name('size.store');
-  Route::get('size/edit/{id}',  'Admin\SizeController@edit')->name('size.edit');
-  Route::post('size/update/{id}',  'Admin\SizeController@update')->name('size.update');
-  Route::delete('size/destroy/{id}',  'Admin\SizeController@destroy')->name('size.destroy');
+  Route::get('schedule',  'Admin\ScheduleController@index')->name('schedule.index');
+  Route::get('schedule/create',  'Admin\ScheduleController@create')->name('schedule.create');
+  Route::post('schedule/store',  'Admin\ScheduleController@store')->name('schedule.store');
+  Route::get('schedule/edit/{id}',  'Admin\ScheduleController@edit')->name('schedule.edit');
+  Route::post('schedule/update/{id}',  'Admin\ScheduleController@update')->name('schedule.update');
+  Route::delete('schedule/destroy/{id}',  'Admin\ScheduleController@destroy')->name('schedule.destroy');
 
-  // Rods
-  Route::get('rods',  'Admin\RodController@index')->name('rods.index');
-  Route::get('rods/create',  'Admin\RodController@create')->name('rods.create');
-  Route::post('rods/store',  'Admin\RodController@store')->name('rods.store');
-  Route::get('rods/edit/{id}',  'Admin\RodController@edit')->name('rods.edit');
-  Route::post('rods/update/{id}',  'Admin\RodController@update')->name('rods.update');
-  Route::delete('rods/destroy/{id}',  'Admin\RodController@destroy')->name('rods.destroy');
-
-  // Bundles
-  Route::get('bundles',  'Admin\BundlesController@index')->name('bundles.index');
-  Route::get('bundles/create',  'Admin\BundlesController@create')->name('bundles.create');
-  Route::post('bundles/store',  'Admin\BundlesController@store')->name('bundles.store');
-  Route::get('bundles/edit/{id}',  'Admin\BundlesController@edit')->name('bundles.edit');
-  Route::post('bundles/update/{id}',  'Admin\BundlesController@update')->name('bundles.update');
-  Route::delete('bundles/destroy/{id}',  'Admin\BundlesController@destroy')->name('bundles.destroy');
-
-//gst
-//  Route::get('gst',  'Admin\GstController@index')->name('gst.index');
-Route::get('gst/create',  'Admin\GstController@create')->name('gst.create');
-Route::post('gst/store',  'Admin\GstController@store')->name('gst.store');
 

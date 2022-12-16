@@ -19,7 +19,8 @@ class CreateSchedulesTable extends Migration
             $table->text('topic');
             $table->string('speakers')->nullable();
             $table->date('schedule_date')->nullable();
-            $table->time('schedule_time')->nullable();
+            $table->string('schedule_time')->nullable();
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
