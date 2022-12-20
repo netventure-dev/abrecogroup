@@ -47,6 +47,24 @@
                                 </div>
                             </div>  
                             <div class="mb-4 row">
+                                <label for="speaker" class="col-sm-3 col-form-label">{{__('Speaker')}}</label>
+                                <div class="col-sm-9">
+                                    <input id="speaker" type="text" name="speaker"
+                                        class="form-control @if ($errors->has('speaker')) is-invalid  @endif"
+                                        placeholder="Enter speaker name" value="{{ @old('speaker',@$schedule->speakers) }}" >
+                                    <div class="invalid-feedback">{{ $errors->first('speaker') }}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 row">
+                                <label for="topic" class="col-sm-3 col-form-label">{{__('topic')}}</label>
+                                <div class="col-sm-9">
+                                    <textarea id="topic" type="text" name="topic"
+                                        class="form-control @if ($errors->has('topic')) is-invalid  @endif"
+                                        placeholder="Enter topic name">{{ @old('topic',@$schedule->topic) }}</textarea>
+                                    <div class="invalid-feedback">{{ $errors->first('topic') }}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 row">
                                 <label class="col-sm-3 col-form-label"
                                     for="schedule_date">{{ __('Date') }}<span
                                         class="text-danger">*</span></label>
@@ -68,24 +86,6 @@
                                         class="form-control @if ($errors->has('schedule_time')) is-invalid  @endif"
                                         placeholder="Enter time"  data-provide="timepicker" value="{{ @old('schedule_time',@$schedule->schedule_time) }}" required>
                                     <div class="invalid-feedback">{{ $errors->first('schedule_time') }}</div>
-                                </div>
-                            </div>
-                            <div class="mb-4 row">
-                                <label for="speaker" class="col-sm-3 col-form-label">{{__('Speaker')}}</label>
-                                <div class="col-sm-9">
-                                    <input id="speaker" type="number" name="speaker"
-                                        class="form-control @if ($errors->has('speaker')) is-invalid  @endif"
-                                        placeholder="Enter speaker name" value="{{ @old('speaker',@$schedule->schedule_time) }}" >
-                                    <div class="invalid-feedback">{{ $errors->first('speaker') }}</div>
-                                </div>
-                            </div>
-                            <div class="mb-4 row">
-                                <label for="topic" class="col-sm-3 col-form-label">{{__('topic')}}</label>
-                                <div class="col-sm-9">
-                                    <textarea id="topic" type="number" name="topic"
-                                        class="form-control @if ($errors->has('topic')) is-invalid  @endif"
-                                        placeholder="Enter topic name">{{ @old('topic',@$schedule->topic) }}</textarea>
-                                    <div class="invalid-feedback">{{ $errors->first('topic') }}</div>
                                 </div>
                             </div>
                             <div class="mb-4 row">

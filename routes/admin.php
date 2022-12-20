@@ -23,4 +23,5 @@ Route::get('/home', function () {
   Route::post('schedule/update/{id}',  'Admin\ScheduleController@update')->name('schedule.update');
   Route::delete('schedule/destroy/{id}',  'Admin\ScheduleController@destroy')->name('schedule.destroy');
 
+  Route::post('schedule/import',  'Admin\ScheduleController@excel_store')->name('schedule.import');
 

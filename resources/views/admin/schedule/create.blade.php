@@ -4,8 +4,8 @@
 @section('css')
     <!-- DataTables -->
     <link href="{{ URL::asset('/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css') }}" rel="stylesheet"
-    type="text/css">
+    <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">
 @endsection
 
 @section('content')
@@ -48,6 +48,24 @@
                                 </div>
                             </div>  
                             <div class="mb-4 row">
+                                <label for="speaker" class="col-sm-3 col-form-label">{{__('Speaker')}}</label>
+                                <div class="col-sm-9">
+                                    <input id="speaker" type="text" name="speaker"
+                                        class="form-control @if ($errors->has('speaker')) is-invalid  @endif"
+                                        placeholder="Enter speaker name" value="{{ @old('speaker') }}" >
+                                    <div class="invalid-feedback">{{ $errors->first('speaker') }}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 row">
+                                <label for="topic" class="col-sm-3 col-form-label">{{__('topic')}}</label>
+                                <div class="col-sm-9">
+                                    <textarea id="topic" type="text" name="topic"
+                                        class="form-control @if ($errors->has('topic')) is-invalid  @endif"
+                                        placeholder="Enter topic name" >{{ @old('topic') }}</textarea>
+                                    <div class="invalid-feedback">{{ $errors->first('topic') }}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 row">
                                 <label class="col-sm-3 col-form-label"
                                     for="schedule_date">{{ __('Date') }}<span
                                         class="text-danger">*</span></label>
@@ -71,25 +89,6 @@
                                     <div class="invalid-feedback">{{ $errors->first('schedule_time') }}</div>
                                 </div>
                             </div>
-                            <div class="mb-4 row">
-                                <label for="speaker" class="col-sm-3 col-form-label">{{__('Speaker')}}</label>
-                                <div class="col-sm-9">
-                                    <input id="speaker" type="number" name="speaker"
-                                        class="form-control @if ($errors->has('speaker')) is-invalid  @endif"
-                                        placeholder="Enter speaker name" value="{{ @old('speaker') }}" >
-                                    <div class="invalid-feedback">{{ $errors->first('speaker') }}</div>
-                                </div>
-                            </div>
-                            <div class="mb-4 row">
-                                <label for="topic" class="col-sm-3 col-form-label">{{__('topic')}}</label>
-                                <div class="col-sm-9">
-                                    <textarea id="topic" type="number" name="topic"
-                                        class="form-control @if ($errors->has('topic')) is-invalid  @endif"
-                                        placeholder="Enter topic name" value="{{ @old('topic') }}"></textarea>
-                                    <div class="invalid-feedback">{{ $errors->first('topic') }}</div>
-                                </div>
-                            </div>
-                           
                             <div class="mb-4 row">
                                 <label for="horizontal-firstname-input"
                                     class="col-sm-3 col-form-label">{{ __('Status') }}</label>
@@ -119,6 +118,46 @@
     </div>
 </div>
 
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="mt-2 row">
+                    <div class="col-lg-7">
+                        <form action="{{ route('admin.schedule.import') }}" method="post" class="custom-validation"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="mb-4 row">
+                                <div class="mt-4">
+                                    <div class="row">
+                                        <label class="col-sm-3 col-form-label" for="excel">{{ __('Excel File Upload') }} <a
+                                                href="#"></a><span class="text-danger">*</span></label>
+                                        <div class="col-sm-9">
+                                            <input required id="excel" name="excel" type="file"  title="Supported File Formats:- xlsx. " class="form-control mb-2 @if ($errors->has('excel')) is-invalid @endif"
+                                            data-parsley-fileextension='xlsx' data-parsley-max-file-size="1024">
+                                            <div class="invalid-feedback">{{ $errors->first('excel') }}</div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            
+                            <div class="row justify-content-end">
+                                <div class="col-sm-9">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary w-md">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-6"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- end administrator create form -->
 
 @endsection
@@ -132,11 +171,9 @@
 
 <!-- init js -->
 <script>
-    var date = new Date();   
    $('#schedule_date').datepicker({
        format: 'dd-mm-yyyy',
        todayHighlight: true,
-       startDate: date
    }).on('changeDate', function(e) {
        $(this).parsley().validate();
    });
