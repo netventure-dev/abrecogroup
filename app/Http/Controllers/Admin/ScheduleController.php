@@ -206,7 +206,7 @@ class ScheduleController extends Controller
             $data=Excel::toArray([],$filepath);
             // dd($data);
             foreach ($data as $importDatas) {
-                // try {   
+                try {   
                     // dd($importDatas);
                     foreach($importDatas as $key => $importData){
                         if($key != 0 && $importData[3] != null){
@@ -233,12 +233,12 @@ class ScheduleController extends Controller
                         
                     }            
                    
-                // } catch (\Exception $e) {
-                // //throw $th;
-                // DB::rollBack();
-                // notify()->error(__('Failed to upload records. Please try again'));
-                // return redirect()->back();
-                // }
+                } catch (\Exception $e) {
+                //throw $th;
+                DB::rollBack();
+                notify()->error(__('Failed to upload records. Please try again'));
+                return redirect()->back();
+                }
             }
             notify()->success(__('records successfully uploaded'));
             return redirect()->back();

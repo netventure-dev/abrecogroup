@@ -4,7 +4,7 @@
         <div class="page-title-box d-flex align-items-center justify-content-between">
             <h4 class="mb-0 font-size-18">{{ $title }}</h4>
             <div class="page-title-right">
-                {{--  <ol class="breadcrumb m-0">
+                 <ol class="breadcrumb m-0">
                     @if(isset($breadcrumbs))
                     @foreach ($breadcrumbs as $breadcrumb)
 
@@ -16,7 +16,7 @@
 
                     @endforeach
                     @endif
-                </ol>  --}}
+                </ol> 
             </div>
 
         </div>
