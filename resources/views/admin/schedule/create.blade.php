@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                             <div class="mb-4 row">
-                                <label for="topic" class="col-sm-3 col-form-label">{{__('topic')}}<span
+                                <label for="topic" class="col-sm-3 col-form-label">{{__('Topic')}}<span
                                     class="text-danger">*</span></label>
                                 <div class="col-sm-9">
                                     <textarea required id="topic" type="text" name="topic"
@@ -93,14 +93,18 @@
                             </div>
                             <div class="mb-4 row">
                                 <label for="horizontal-firstname-input"
-                                    class="col-sm-3 col-form-label">{{ __('Status') }}</label>
+                                    class="col-sm-3 col-form-label">{{ __('Status') }}<span
+                                        class="text-danger">*</span></label>
                                 <div class="col-sm-9">
-                                    <div class="form-check form-check-inline col-form-label">
-                                        <input class="form-check-input" type="checkbox" value="1"
-                                            id="defaultCheck1" name="status" checked>
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Active
-                                        </label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="status" id="status1"
+                                            value="1" @if (!@old('status')) checked @endif>
+                                        <label class="form-check-label" for="status1">{{ __('Active') }}</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="status" id="status2"
+                                            value="0" @if (@old('status')) checked @endif>
+                                        <label class="form-check-label" for="status2">{{ __('Inactive') }}</label>
                                     </div>
                                 </div>
                             </div>

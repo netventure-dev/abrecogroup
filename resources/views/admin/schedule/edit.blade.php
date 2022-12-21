@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="mb-4 row">
-                                <label for="topic" class="col-sm-3 col-form-label">{{__('topic')}}<span
+                                <label for="topic" class="col-sm-3 col-form-label">{{__('Topic')}}<span
                                     class="text-danger">*</span></label>
                                 <div class="col-sm-9">
                                     <textarea required id="topic" type="text" name="topic"
@@ -92,17 +92,21 @@
                             </div>
                             <div class="mb-4 row">
                                 <label for="horizontal-firstname-input"
-                                    class="col-sm-3 col-form-label">{{ __('Status') }}</label>
+                                    class="col-sm-3 col-form-label">{{ __('Status') }}<span
+                                        class="text-danger">*</span></label>
                                 <div class="col-sm-9">
-                                    <div class="form-check form-check-inline col-form-label">
-                                        <input @if($schedule->status == 1) checked @endif class="form-check-input" type="checkbox" value="@if($schedule->status == 1) 1 @else 0 @endif"
-                                            id="defaultCheck1" name="status" >
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Active
-                                        </label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="status" id="status1"
+                                            value="1" @if ($schedule->status == 1) checked @endif>
+                                        <label class="form-check-label" for="status1">{{ __('Active') }}</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="status" id="status2"
+                                            value="0" @if ($schedule->status == 0) checked @endif>
+                                        <label class="form-check-label" for="status2">{{ __('Inactive') }}</label>
                                     </div>
                                 </div>
-                            </div>                      
+                            </div>                  
                             <button class="btn btn-primary" type="submit">{{__('Update')}}</button>
                         </form>
                     </div>

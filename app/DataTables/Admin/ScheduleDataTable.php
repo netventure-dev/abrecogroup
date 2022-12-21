@@ -32,6 +32,13 @@ class ScheduleDataTable extends DataTable
                     return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
                 }
             })
+            ->editColumn('status', function (Schedule $schedule) {
+                if ($schedule->status) {
+                    return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
+                } else {
+                    return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
+                }
+            })
             ->addColumn('action', function (Schedule $schedule) {
                 return view('admin.schedule.action', compact('schedule'));
             })
@@ -80,6 +87,7 @@ class ScheduleDataTable extends DataTable
             Column::make('speakers')->title(__('Speakers')),
             Column::make('schedule_date')->title(__('Date')),
             Column::make('schedule_time')->title(__('Time')),
+            Column::make('status')->title(__('Status')),
             // Column::make('role')->title(__('Role'))->orderable(false),
             Column::computed('action')
                 ->title(__('Action'))
