@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Mbifl</title>
+    <title>MBIFL</title>
     <link href="{{ asset('assets/css/front.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
 </head>
