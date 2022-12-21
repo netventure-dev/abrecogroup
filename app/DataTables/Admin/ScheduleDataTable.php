@@ -60,7 +60,10 @@ class ScheduleDataTable extends DataTable
                     ->setTableId('scheduledatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->dom('Bfrtip')
+                    ->parameters([
+                        'dom'          => 'Bfrtip',
+                        'buttons'      => ['csv', 'print', 'excel'],
+                    ])
                     ->orderBy(1);
     }
 

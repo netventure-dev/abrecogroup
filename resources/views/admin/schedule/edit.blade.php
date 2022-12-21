@@ -56,9 +56,10 @@
                                 </div>
                             </div>
                             <div class="mb-4 row">
-                                <label for="topic" class="col-sm-3 col-form-label">{{__('topic')}}</label>
+                                <label for="topic" class="col-sm-3 col-form-label">{{__('topic')}}<span
+                                    class="text-danger">*</span></label>
                                 <div class="col-sm-9">
-                                    <textarea id="topic" type="text" name="topic"
+                                    <textarea required id="topic" type="text" name="topic"
                                         class="form-control @if ($errors->has('topic')) is-invalid  @endif"
                                         placeholder="Enter topic name">{{ @old('topic',@$schedule->topic) }}</textarea>
                                     <div class="invalid-feedback">{{ $errors->first('topic') }}</div>
@@ -80,9 +81,10 @@
                                 </div>
                             </div>
                             <div class="mb-4 row">
-                                <label for="schedule_time" class="col-sm-3 col-form-label">{{__('Time')}}</label>
+                                <label for="schedule_time" class="col-sm-3 col-form-label">{{__('Time')}}<span
+                                    class="text-danger">*</span></label>
                                 <div class="col-sm-9">
-                                    <input id="timepicker" type="text" name="schedule_time"
+                                    <input required id="timepicker" type="text" name="schedule_time"
                                         class="form-control @if ($errors->has('schedule_time')) is-invalid  @endif"
                                         placeholder="Enter time"  data-provide="timepicker" value="{{ @old('schedule_time',@$schedule->schedule_time) }}" required>
                                     <div class="invalid-feedback">{{ $errors->first('schedule_time') }}</div>

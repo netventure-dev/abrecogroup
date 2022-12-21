@@ -62,9 +62,9 @@ class ScheduleController extends Controller
         $validated = $this->validate($request, [
             'venue' => 'required',
             'speaker' => 'nullable',
-            'topic' => 'nullable',
-            'schedule_date' => 'nullable|date',
-            'schedule_time' => 'nullable|date_format:g:i A',
+            'topic' => 'required',
+            'schedule_date' => 'required|date',
+            'schedule_time' => 'required|date_format:g:i A',
             'status' => 'required',
         ]);
         $data = new Schedule();
@@ -116,9 +116,9 @@ class ScheduleController extends Controller
         $validated = $this->validate($request, [
             'venue' => 'required',
             'speaker' => 'nullable',
-            'topic' => 'nullable',
-            'schedule_date' => 'nullable|date',
-            'schedule_time' => 'nullable|date_format:g:i A',
+            'topic' => 'required',
+            'schedule_date' => 'required|date',
+            'schedule_time' => 'required|date_format:g:i A',
             'status' => 'required',
         ]);
         $data->venue = $validated['venue'];
