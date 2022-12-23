@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" id="bootstrap-style" rel="stylesheet"
         type="text/css" />
+
+
     <link href="{{ asset('assets/css/front.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
 </head>
 
@@ -70,6 +72,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
+                    <button id="search-data">Search</button>
                     <table id="example" class="display">
                         <thead>
                             <tr>
@@ -172,7 +175,7 @@
             // Setup - add a text input to each footer cell
             $('#example tfoot th').each(function() {
                 var title = $(this).text();
-                $(this).html('<input class="foot_pad" type="text" placeholder="Search" />');
+                $(this).html('<input class="foot_pad" type="text" placeholder="Search '+title+'" />');
             });
 
             // DataTable
@@ -194,7 +197,15 @@
 
             });
         });
+        $(document).ready(function(){
+            $('#search-data').click(function(){
+                $('#example tfoot').toggle();
+                if ($(this).text() == "Search")
+                    $(this).text("Close")
+                else
+                    $(this).text("Search");
+            })
+        });
     </script>
 </body>
-
 </html>
