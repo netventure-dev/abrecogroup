@@ -85,6 +85,7 @@ class ScheduleDataTable extends DataTable
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
             Column::make('venue')->title(__('Venue')),
             Column::make('speakers')->title(__('Speakers')),
+            Column::make('topic')->title(__('Topic')),
             Column::make('schedule_date')->title(__('Date')),
             Column::make('schedule_time')->title(__('Time')),
             Column::make('status')->title(__('Status')),

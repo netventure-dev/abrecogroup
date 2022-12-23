@@ -130,7 +130,7 @@
 <script>
     var date = new Date();   
   $('#schedule_date').datepicker({
-       format: 'dd-mm-yyyy',
+    format: 'yyyy-mm-dd',
        todayHighlight: true,
        startDate: date
    }).on('changeDate', function(e) {

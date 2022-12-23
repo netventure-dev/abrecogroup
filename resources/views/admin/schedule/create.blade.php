@@ -178,7 +178,7 @@
 <!-- init js -->
 <script>
    $('#schedule_date').datepicker({
-       format: 'dd-mm-yyyy',
+       format: 'yyyy-mm-dd',
        todayHighlight: true,
    }).on('changeDate', function(e) {
        $(this).parsley().validate();
