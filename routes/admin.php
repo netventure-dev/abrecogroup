@@ -36,12 +36,12 @@ Route::get('/home', function () {
   Route::post('why-choose-us/settings/store',  'Admin\ChooseSettingsController@store')->name('why-choose-us.settings.store');
 
   // testimonials
-  Route::get('testimonials',  'Admin\ChooseListController@index')->name('testimonials.index');
-  Route::get('testimonials/create',  'Admin\ChooseListController@create')->name('testimonials.create');
-  Route::post('testimonials/store',  'Admin\ChooseListController@store')->name('testimonials.store');
-  Route::get('testimonials/edit/{id}',  'Admin\ChooseListController@edit')->name('testimonials.edit');
-  Route::post('testimonials/update/{id}',  'Admin\ChooseListController@update')->name('testimonials.update');
-  Route::delete('testimonials/destroy/{id}',  'Admin\ChooseListController@destroy')->name('testimonials.destroy');
+  Route::get('testimonials',  'Admin\TestimonialsController@index')->name('testimonials.index');
+  Route::get('testimonials/create',  'Admin\TestimonialsController@create')->name('testimonials.create');
+  Route::post('testimonials/store',  'Admin\TestimonialsController@store')->name('testimonials.store');
+  Route::get('testimonials/edit/{id}',  'Admin\TestimonialsController@edit')->name('testimonials.edit');
+  Route::post('testimonials/update/{id}',  'Admin\TestimonialsController@update')->name('testimonials.update');
+  Route::delete('testimonials/destroy/{id}',  'Admin\TestimonialsController@destroy')->name('testimonials.destroy');
 
   // services
   Route::get('services',  'Admin\ServiceController@index')->name('services.index');
