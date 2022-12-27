@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\Admin\BlogDataTable;
 use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use App\Http\Controllers\Controller;
 use App\Models\Bloglist;
 use Illuminate\Support\Str;
@@ -45,6 +46,7 @@ class BlogListController extends Controller
         $blogs->title = $validated['title'];
         $blogs->description = $validated['description'];
         $blogs->status = $validated['status'];
+        $blogs->slug = SlugService::createSlug(Bloglist::class, 'slug', $validated['title'], ['unique' => false]);
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image/', $blogs->title . $validated['image']->getClientOriginalName(), 'public');
             $blogs->image = $path;
@@ -83,6 +85,7 @@ class BlogListController extends Controller
         $blog->title = $validated['title'];
         $blog->description = $validated['description'];
         $blog->status = $validated['status'];
+        $blog->slug = SlugService::createSlug(Bloglist::class, 'slug', $validated['title'], ['unique' => false]);
        
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image/', $blog->title . $validated['image']->getClientOriginalName(), 'public');
