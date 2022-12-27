@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Admin\HomeSliderDatatable;
+use App\DataTables\Admin\WhyChooseUsListDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\WhyChooseUs;
 use Illuminate\Support\Str;
@@ -11,10 +11,10 @@ use Illuminate\Http\Request;
 
 class ChooseListController extends Controller
 {
-    // public function index(HomeSliderDatatable $dataTable)
+    public function index(WhyChooseUsListDataTable $dataTable)
     {
         $breadcrumbs = [
-            [(__('Dashboard')), route('admin.why-choose-us.list')],
+            [(__('Dashboard')), route('admin.home')],
             [(__('Slider')), null],
         ];
         return $dataTable->render('admin.why-choose-us.list.index', ['breadcrumbs' => $breadcrumbs]);
@@ -28,8 +28,8 @@ class ChooseListController extends Controller
     {
         // $this->authorize('create', Admin::class);
         $breadcrumbs = [
-            ['Dashboard', route('admin.why-choose-us.list')],
-            ['Slider', route('admin.why-choose-us.list.index')],
+            ['Dashboard', route('admin.home')],
+            ['Why Choose Us List', route('admin.why-choose-us.list.index')],
             ['Create', route('admin.why-choose-us.list.create')],
         ];
         return view('admin.why-choose-us.list.create', compact('breadcrumbs'));
@@ -39,23 +39,21 @@ class ChooseListController extends Controller
     {
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
-            'title' => 'required|unique:home_sliders,title',
+            'title' => 'required|unique:why_choose_us,title',
             'content' => 'required',
-            'link' => 'nullable',
             'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
             'status' => 'required',
         ]);
-        $slider = new WhyChooseUs;
-        $slider->uuid = (string) Str::uuid();
-        $slider->title = $validated['title'];
-        $slider->link = $validated['link'];
-        $slider->description = $validated['content'];
-        $slider->status = $validated['status'];
+        $data = new WhyChooseUs;
+        $data->uuid = (string) Str::uuid();
+        $data->title = $validated['title'];
+        $data->description = $validated['content'];
+        $data->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/image/', $slider->title . $validated['image']->getClientOriginalName(), 'public');
-            $slider->image = $path;
+            $path =  $request->file('image')->storeAs('media/why_choose/image/',$validated['image']->getClientOriginalName(), 'public');
+            $data->image = $path;
         }
-        $res = $slider->save();
+        $res = $data->save();
         if ($res) {
             notify()->success(__('Created successfully'));
         } else {
@@ -66,34 +64,32 @@ class ChooseListController extends Controller
     public function edit($id)
     {
         // $this->authorize('update', $menu);
-        $slider= WhyChooseUs::where('uuid',$id)->first();
+        $data= WhyChooseUs::where('uuid',$id)->first();
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Slider')),  route('admin.why-choose-us.list.index')],
-            [$slider->title, null],
+            [(__('Why Choose Us List')),  route('admin.why-choose-us.list.index')],
+            [$data->title, null],
     ];
-        return view('admin.why-choose-us.list.edit', compact('breadcrumbs','slider'));
+        return view('admin.why-choose-us.list.edit', compact('breadcrumbs','data'));
     }
     public function update(Request $request,$id)
     {
         // $this->authorize('create', Gender::class);
-        $slider= WhyChooseUs::where('uuid',$id)->first();
+        $data= WhyChooseUs::where('uuid',$id)->first();
         $validated = $request->validate([
-            'title' => 'required|unique:home_sliders,title,'.$slider->id,
+            'title' => 'required|unique:why_choose_us,title,'.$data->id,
             'content' => 'required',
-            'link' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
             'status' => 'required',
         ]);
-        $slider->title = $validated['title'];
-        $slider->description = $validated['content'];
-        $slider->status = $validated['status'];
-        $slider->link = $validated['link'];
+        $data->title = $validated['title'];
+        $data->description = $validated['content'];
+        $data->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/image/', $slider->title . $validated['image']->getClientOriginalName(), 'public');
-            $slider->image = $path;
+            $path =  $request->file('image')->storeAs('media/why_choose/image/',$validated['image']->getClientOriginalName(), 'public');
+            $data->image = $path;
         }
-        $res = $slider->save();
+        $res = $data->save();
         if ($res) {
             notify()->success(__('Updated successfully'));
         } else {

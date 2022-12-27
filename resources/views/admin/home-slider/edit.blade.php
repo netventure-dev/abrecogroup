@@ -62,7 +62,7 @@
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
                                         @if (isset($slider->image))
-                                            <img src="{{ asset("/storage/$slider->image") }}" alt="" class="img-fluid" style="width:100px;">
+                                            <img src="{{ asset('storage/'.$slider->image) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>

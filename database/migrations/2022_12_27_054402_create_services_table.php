@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWhyChooseUsSettingsTable extends Migration
+class CreateServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateWhyChooseUsSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('why_choose_us_settings', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('uuid');
+            $table->string('name');
+            $table->text('cover_description');
+            $table->string('cover_image');
             $table->string('title');
-            $table->text('description');
-            $table->string('image');
-            $table->string('link')->nullable();
+            $table->longText('description');
             $table->boolean('status')->default(0);
             $table->timestamps();
         });
@@ -32,6 +33,6 @@ class CreateWhyChooseUsSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('why_choose_us_settings');
+        Schema::dropIfExists('services');
     }
 }

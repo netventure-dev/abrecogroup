@@ -1,6 +1,6 @@
 @extends('admin.layout.backend')
 
-@section('title') {{ __('Slider') }} @endsection
+@section('title') {{ __('Services') }} @endsection
 
 @section('css')
     <!-- DataTables -->
@@ -16,11 +16,11 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Slider') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Services') }}</h4>
                 <div class="page-title-right">
                     {{-- @can('create', App\Models\Admin::class) --}}
-                        <a href="{{ route('admin.home-slider.create') }}"
-                            class="btn btn-primary w-md">{{ __('Create Slider') }}</a>
+                        <a href="{{ route('admin.services.create') }}"
+                            class="btn btn-primary w-md">{{ __('Create Services') }}</a>
                     {{-- @endcan --}}
                 </div>
             </div>

@@ -15,6 +15,11 @@ class CreateWhyChooseUsTable extends Migration
     {
         Schema::create('why_choose_us', function (Blueprint $table) {
             $table->id();
+            $table->string('uuid');
+            $table->string('title');
+            $table->text('description');
+            $table->string('image');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
