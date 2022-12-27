@@ -25,6 +25,9 @@ class HomeSliderDataTable extends DataTable
         ->editColumn('title', function (HomeSlider $new) {
             return $new->title;
         })
+        ->editColumn('link', function (HomeSlider $new) {
+            return @$new->link;
+        })
        
         ->editColumn('status', function (HomeSlider $new) {
                 if ($new->status) {
@@ -75,6 +78,7 @@ class HomeSliderDataTable extends DataTable
         return [
         Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
             Column::make('title')->title(__('Title')),
+            Column::make('link')->title(__('Link')),
             Column::make('status')->title(__('Status')),
             Column::computed('action')
                 ->title(__('Action'))

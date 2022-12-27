@@ -66,6 +66,16 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
+                                    <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Link') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="link" name="link" type="text"
+                                            class="form-control mb-2 @if ($errors->has('link')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter link') }}"  value="{{ @old('link') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('link') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
                                     <label for="horizontal-firstname-input"
                                         class="col-sm-3 col-form-label">{{ __('Status') }}<span
                                             class="text-danger">*</span></label>

@@ -42,12 +42,14 @@ class HomeSliderController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:home_sliders,title',
             'content' => 'required',
+            'link' => 'nullable',
             'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
             'status' => 'required',
         ]);
         $slider = new HomeSlider;
         $slider->uuid = (string) Str::uuid();
         $slider->title = $validated['title'];
+        $slider->link = $validated['link'];
         $slider->description = $validated['content'];
         $slider->status = $validated['status'];
         if ($request->hasFile('image')) {
@@ -80,12 +82,14 @@ class HomeSliderController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:home_sliders,title,'.$slider->id,
             'content' => 'required',
+            'link' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
             'status' => 'required',
         ]);
         $slider->title = $validated['title'];
         $slider->description = $validated['content'];
         $slider->status = $validated['status'];
+        $slider->link = $validated['link'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image/', $slider->title . $validated['image']->getClientOriginalName(), 'public');
             $slider->image = $path;
