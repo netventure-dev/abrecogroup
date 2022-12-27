@@ -15,13 +15,12 @@ Route::get('/home', function () {
 })->name('home');
 
 
-  // size
-  Route::get('schedule',  'Admin\ScheduleController@index')->name('schedule.index');
-  Route::get('schedule/create',  'Admin\ScheduleController@create')->name('schedule.create');
-  Route::post('schedule/store',  'Admin\ScheduleController@store')->name('schedule.store');
-  Route::get('schedule/edit/{id}',  'Admin\ScheduleController@edit')->name('schedule.edit');
-  Route::post('schedule/update/{id}',  'Admin\ScheduleController@update')->name('schedule.update');
-  Route::delete('schedule/destroy/{id}',  'Admin\ScheduleController@destroy')->name('schedule.destroy');
+  // home slider
+  Route::get('home-slider',  'Admin\HomeSliderController@index')->name('home-slider.index');
+  Route::get('home-slider/create',  'Admin\HomeSliderController@create')->name('home-slider.create');
+  Route::post('home-slider/store',  'Admin\HomeSliderController@store')->name('home-slider.store');
+  Route::get('home-slider/edit/{id}',  'Admin\HomeSliderController@edit')->name('home-slider.edit');
+  Route::post('home-slider/update/{id}',  'Admin\HomeSliderController@update')->name('home-slider.update');
+  Route::delete('home-slider/destroy/{id}',  'Admin\HomeSliderController@destroy')->name('home-slider.destroy');
 
-  Route::post('schedule/import',  'Admin\ScheduleController@excel_store')->name('schedule.import');
 

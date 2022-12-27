@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="utf-8" />
-        <title> MBIFL </title>
+        <title> EUREKA </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -23,6 +23,7 @@
         <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{asset('assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+        
         @yield('css')
     </head>
 <body data-sidebar="dark">
@@ -483,9 +484,9 @@
                         <li class="menu-title" key="t-apps">Pages</li>
                       
                         <li>
-                            <a href="{{route('admin.schedule.index')}}" class="waves-effect">
+                            <a href="{{route('admin.home-slider.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Schedule</span>
+                                <span key="t-file-manager">Home Slider</span>
                             </a>
                         </li>
                        
@@ -597,7 +598,7 @@
         <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
         <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
         <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
-        
+
         <!-- apexcharts -->
         {{-- <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script> --}}
 
