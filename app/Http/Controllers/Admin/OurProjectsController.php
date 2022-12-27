@@ -2,23 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Admin\TestimonialsDataTable;
+use App\DataTables\Admin\OurProjectsDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Testimonial;
+use App\Models\OurProjects;
 use Illuminate\Support\Str;
 use JoeDixon\Translation\Language;
 use Illuminate\Http\Request;
 
-
-class TestimonialsController extends Controller
+class OurProjectsController extends Controller
 {
-    public function index(TestimonialsDataTable $dataTable)
+    public function index(OurProjectsDataTable $dataTable)
     {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Testimonils')), null],
+            [(__('Our Projects')), null],
         ];
-        return $dataTable->render('admin.testimonials.index', ['breadcrumbs' => $breadcrumbs]);
+        return $dataTable->render('admin.our-projects.index', ['breadcrumbs' => $breadcrumbs]);
     }
      /**
      * Show the form for creating a new resource.
@@ -30,28 +29,24 @@ class TestimonialsController extends Controller
         // $this->authorize('create', Admin::class);
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['Testimonials', route('admin.testimonials.index')],
-            ['Create', route('admin.testimonials.create')],
+            ['Our Projects', route('admin.our-projects.index')],
+            ['Create', route('admin.our-projects.create')],
         ];
-        return view('admin.testimonials.create', compact('breadcrumbs'));
+        return view('admin.our-projects.create', compact('breadcrumbs'));
     }
 
     public function store(Request $request)
     {
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
-            'title' => 'required|unique:testimonials,title',
-            'content' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
             'status' => 'required',
         ]);
-        $data = new Testimonial;
+        $data = new OurProjects;
         $data->uuid = (string) Str::uuid();
-        $data->title = $validated['title'];
-        $data->description = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/testimonials/image/',$validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/projects/image/',$validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
         }
         $res = $data->save();
@@ -65,29 +60,24 @@ class TestimonialsController extends Controller
     public function edit($id)
     {
         // $this->authorize('update', $menu);
-        $data= Testimonial::where('uuid',$id)->first();
+        $data= OurProjects::where('uuid',$id)->first();
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Testimonials')),  route('admin.testimonials.index')],
-            [$data->title, null],
+            [(__('Our Projects')),  route('admin.our-projects.index')],
     ];
-        return view('admin.testimonials.edit', compact('breadcrumbs','data'));
+        return view('admin.our-projects.edit', compact('breadcrumbs','data'));
     }
     public function update(Request $request,$id)
     {
         // $this->authorize('create', Gender::class);
-        $data= Testimonial::where('uuid',$id)->first();
+        $data= OurProjects::where('uuid',$id)->first();
         $validated = $request->validate([
-            'title' => 'required|unique:testimonials,title,'.$data->id,
-            'content' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
             'status' => 'required',
         ]);
-        $data->title = $validated['title'];
-        $data->description = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/testimonials/image/',$validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/projects/image/',$validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
         }
         $res = $data->save();
@@ -101,7 +91,7 @@ class TestimonialsController extends Controller
     public function destroy($id)
     {
         // $this->authorize('delete', $menu);
-        $res = Testimonial::where('uuid',$id)->delete();
+        $res = OurProjects::where('uuid',$id)->delete();
         if ($res) {
             notify()->success(__('Deleted successfully'));
         } else {

@@ -495,15 +495,15 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('admin.home-slider.index')}}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Blogs</span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="{{route('admin.testimonials.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Testimonials</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.our-projects.index')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Our Projects</span>
                             </a>
                         </li>
                         <li>

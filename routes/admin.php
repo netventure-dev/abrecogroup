@@ -72,3 +72,11 @@ Route::delete('blog/list/destroy/{id}',  'Admin\BlogListController@destroy')->na
   Route::get('services/edit/{id}',  'Admin\ServiceController@edit')->name('services.edit');
   Route::post('services/update/{id}',  'Admin\ServiceController@update')->name('services.update');
   Route::delete('services/destroy/{id}',  'Admin\ServiceController@destroy')->name('services.destroy');
+
+  // our-projects
+  Route::get('our-projects',  'Admin\OurProjectsController@index')->name('our-projects.index');
+  Route::get('our-projects/create',  'Admin\OurProjectsController@create')->name('our-projects.create');
+  Route::post('our-projects/store',  'Admin\OurProjectsController@store')->name('our-projects.store');
+  Route::get('our-projects/edit/{id}',  'Admin\OurProjectsController@edit')->name('our-projects.edit');
+  Route::post('our-projects/update/{id}',  'Admin\OurProjectsController@update')->name('our-projects.update');
+  Route::delete('our-projects/destroy/{id}',  'Admin\OurProjectsController@destroy')->name('our-projects.destroy');
