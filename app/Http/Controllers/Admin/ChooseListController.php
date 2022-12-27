@@ -50,7 +50,7 @@ class ChooseListController extends Controller
         $data->description = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/why_choose/image/', $data->title . $validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/why_choose/image/',$validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
         }
         $res = $data->save();
@@ -64,13 +64,13 @@ class ChooseListController extends Controller
     public function edit($id)
     {
         // $this->authorize('update', $menu);
-        $slider= WhyChooseUs::where('uuid',$id)->first();
+        $data= WhyChooseUs::where('uuid',$id)->first();
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Slider')),  route('admin.why-choose-us.list.index')],
-            [$slider->title, null],
+            [(__('Why Choose Us List')),  route('admin.why-choose-us.list.index')],
+            [$data->title, null],
     ];
-        return view('admin.why-choose-us.list.edit', compact('breadcrumbs','slider'));
+        return view('admin.why-choose-us.list.edit', compact('breadcrumbs','data'));
     }
     public function update(Request $request,$id)
     {
@@ -86,7 +86,7 @@ class ChooseListController extends Controller
         $data->description = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/why_choose/image/', $data->title . $validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/why_choose/image/',$validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
         }
         $res = $data->save();
