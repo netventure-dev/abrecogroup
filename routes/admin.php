@@ -40,3 +40,10 @@ Route::get('/home', function () {
   Route::delete('why-choose-us/settings/destroy/{id}',  'Admin\ChooseController@destroy')->name('why-choose-us.settings.destroy');
 
 
+  // services
+  Route::get('services',  'Admin\ServiceController@index')->name('services.index');
+  Route::get('services/create',  'Admin\ServiceController@create')->name('services.create');
+  Route::post('services/store',  'Admin\ServiceController@store')->name('services.store');
+  Route::get('services/edit/{id}',  'Admin\ServiceController@edit')->name('services.edit');
+  Route::post('services/update/{id}',  'Admin\ServiceController@update')->name('services.update');
+  Route::delete('services/destroy/{id}',  'Admin\ServiceController@destroy')->name('services.destroy');

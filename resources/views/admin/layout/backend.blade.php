@@ -480,7 +480,12 @@
                                 <span key="t-dashboards">Dashboards</span>
                             </a>
                         </li>
-
+                        <li>
+                            <a href="{{route('admin.services.index')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Services</span>
+                            </a>
+                        </li>
                         <li class="menu-title" key="t-apps">Pages</li>
                       
                         <li>
@@ -495,6 +500,7 @@
                                 <span key="t-file-manager">Blogs</span>
                             </a>
                         </li>
+
                        
                         <li class="menu-title" key="t-apps">Sections</li>
                         <li>
