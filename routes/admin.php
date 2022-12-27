@@ -39,4 +39,18 @@ Route::get('/home', function () {
   Route::post('why-choose-us/settings/update/{id}',  'Admin\ChooseController@update')->name('why-choose-us.settings.update');
   Route::delete('why-choose-us/settings/destroy/{id}',  'Admin\ChooseController@destroy')->name('why-choose-us.settings.destroy');
 
+//blog settings
+Route::get('blog-settings/create',  'Admin\BlogSettingController@create')->name('blog-settings.create');
+Route::post('blog-settings/store',  'Admin\BlogSettingController@store')->name('blog-settings.store');
+
+//blog list
+Route::get('blog/list',  'Admin\BlogListController@index')->name('blog-list.index');
+Route::get('blog/list/create',  'Admin\BlogListController@create')->name('blog-list.create');
+Route::post('blog/list/store',  'Admin\BlogListController@store')->name('blog-list.store');
+Route::get('blog/list/edit/{id}',  'Admin\BlogListController@edit')->name('blog-list.edit');
+Route::post('blog/list/update/{id}',  'Admin\BlogListController@update')->name('blog-list.update');
+Route::delete('blog/list/destroy/{id}',  'Admin\BlogListController@destroy')->name('blog-list.destroy');
+
+
+
 
