@@ -24,12 +24,12 @@ Route::get('/home', function () {
   Route::delete('home-slider/destroy/{id}',  'Admin\HomeSliderController@destroy')->name('home-slider.destroy');
 
   // why choose us.list
-  Route::get('why-choose-us/list',  'Admin\ChooseController@index')->name('why-choose-us.list.index');
-  Route::get('why-choose-us/list/create',  'Admin\ChooseController@create')->name('why-choose-us.list.create');
-  Route::post('why-choose-us/list/store',  'Admin\ChooseController@store')->name('why-choose-us.list.store');
-  Route::get('why-choose-us/list/edit/{id}',  'Admin\ChooseController@edit')->name('why-choose-us.list.edit');
-  Route::post('why-choose-us/list/update/{id}',  'Admin\ChooseController@update')->name('why-choose-us.list.update');
-  Route::delete('why-choose-us/list/destroy/{id}',  'Admin\ChooseController@destroy')->name('why-choose-us.list.destroy');
+  Route::get('why-choose-us/list',  'Admin\ChooseListController@index')->name('why-choose-us.list.index');
+  Route::get('why-choose-us/list/create',  'Admin\ChooseListController@create')->name('why-choose-us.list.create');
+  Route::post('why-choose-us/list/store',  'Admin\ChooseListController@store')->name('why-choose-us.list.store');
+  Route::get('why-choose-us/list/edit/{id}',  'Admin\ChooseListController@edit')->name('why-choose-us.list.edit');
+  Route::post('why-choose-us/list/update/{id}',  'Admin\ChooseListController@update')->name('why-choose-us.list.update');
+  Route::delete('why-choose-us/list/destroy/{id}',  'Admin\ChooseListController@destroy')->name('why-choose-us.list.destroy');
 
   // why choose us.settings
   Route::get('why-choose-us/settings',  'Admin\ChooseController@index')->name('why-choose-us.settings.index');

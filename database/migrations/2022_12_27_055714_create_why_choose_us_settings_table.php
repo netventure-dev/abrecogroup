@@ -15,6 +15,12 @@ class CreateWhyChooseUsSettingsTable extends Migration
     {
         Schema::create('why_choose_us_settings', function (Blueprint $table) {
             $table->id();
+            $table->string('uuid');
+            $table->string('title');
+            $table->text('description');
+            $table->string('image');
+            $table->string('link')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
