@@ -500,16 +500,19 @@
                                 <span key="t-file-manager">Blogs</span>
                             </a>
                         </li>
-
-                       
-                        <li class="menu-title" key="t-apps">Sections</li>
+                        <li>
+                            <a href="{{route('admin.testimonials.index')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Testimonials</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
                                 <span key="t-ecommerce">Why Choose Us</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{route('admin.why-choose-us.settings.index')}}" key="t-products">settings</a></li>
+                                <li><a href="{{route('admin.why-choose-us.settings.create')}}" key="t-products">settings</a></li>
                                 <li><a href="{{route('admin.why-choose-us.list.index')}}" key="t-product-detail">list</a></li>
                             </ul>
                         </li>
