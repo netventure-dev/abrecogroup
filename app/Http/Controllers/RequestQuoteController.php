@@ -3,51 +3,49 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
-use App\Models\Contact;
-use App\Notifications\ContactNotification;
-use App\Notifications\ContactusNotification;
+use App\Models\Quote;
+use App\Notifications\QuoteNotification;
+use App\Notifications\QuotessNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 
-class ContactController extends Controller
+class RequestQuoteController extends Controller
 {
     public function index()
     {
-        return view('contact_us.show');
+        return view('request-a-quote.show');
     }
-
     public function store(Request $request)
     {
         // return 1;
         $validated = $request->validate(
             [
                 'name' => 'required|max:255',
-                'email' => 'required|email|max:255',
+                'service' => 'required',
                 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-                'message' => 'nullable',
+                'location' => 'required',
                 'g-recaptcha-response' => 'required|captcha',
 
             ],
         );
-        // return 1;
-        $feedbacks = new Contact();
-        $feedbacks->name = $validated['name'];
-        $feedbacks->email = $validated['email'];
-        $feedbacks->phone = $validated['phone'];
-        $feedbacks->message = $validated['message'];
+        //  return 1;
+        $request = new Quote();
+        $request->name = $validated['name'];
+        $request->service = $validated['service'];
+        $request->phone = $validated['phone'];
+        $request->location = $validated['location'];
         // dd($feedbacks);
-        $res = $feedbacks->save();
-        // return view('contact_us.show');
-
+        $res = $request->save();
+        //  return view('request-a-quote.show');
         if ($res) {
             $admin = Admin::first();
             $details['name'] = $validated['name'];
-            $details['email'] = $validated['email'];
+            $details['service'] = $validated['service'];
             $details['phone'] = $validated['phone'];
-            $details['message'] = $validated['message'];
+            $details['location'] = $validated['location'];
             $details['admin_name'] = $admin->name;
-            Notification::send($admin, new ContactNotification($details));
-             Notification::route('mail', $admin->email)->notify(new ContactusNotification($admin));
+            Notification::send($admin, new QuoteNotification($details));
+            Notification::route('mail', $admin->email)->notify(new QuotessNotification($admin));
             return view('contact_us.show');
         } else {
             return redirect()->back()->with('error', 'Failed to contact us. Please try again.');
