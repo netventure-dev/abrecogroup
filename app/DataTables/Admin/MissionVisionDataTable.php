@@ -1,15 +1,15 @@
 <?php
 
-namespace App\DataTables\Admin;
+namespace App\DataTables\ADMIN;
 
-use App\Models\Testimonial;
+use App\Models\MissionVision;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class TestimonialsDataTable extends DataTable
+class MissionVisionDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -22,17 +22,17 @@ class TestimonialsDataTable extends DataTable
         return datatables()
         ->eloquent($query)
         ->addIndexColumn()
-        ->editColumn('title', function (Testimonial $new) {
+        ->editColumn('title', function (MissionVision $new) {
             return $new->title;
         })
-        ->editColumn('status', function (Testimonial $new) {
-                if ($new->status) {
-                    return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
-                } else {
-                    return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
-                }
-            })
-            ->editColumn('image', function (Testimonial $new) {
+        ->editColumn('status', function (MissionVision $new) {
+            if ($new->status) {
+                return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
+            } else {
+                return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
+            }
+        })
+        ->editColumn('image', function (MissionVision $new) {
             if ($new->image) {
                 $url = asset('storage/' . $new->image);
                 $d = '<img class="rounded avatar-md" src="' . $url . '" border="0" width="70" height="60" class="img-rounded" align="center" /> ';
@@ -44,8 +44,8 @@ class TestimonialsDataTable extends DataTable
                 return $d;
             }
         })
-        ->addColumn('action', function (Testimonial $new) {
-            return view('admin.testimonials.action', compact('new'));
+        ->addColumn('action', function (MissionVision $new) {
+            return view('admin.about-us.mission-vision.action', compact('new'));
         })
 
         ->rawColumns(['title','action','image','status']);
@@ -54,10 +54,10 @@ class TestimonialsDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\TestimonialsDataTable $model
+     * @param \App\Models\MissionVisionDataTable $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Testimonial $model)
+    public function query(MissionVision $model)
     {
         return $model->newQuery();
     }
@@ -70,7 +70,7 @@ class TestimonialsDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('testimonialsdatatable-table')
+                    ->setTableId('missionvisiondatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->orderBy(1);
@@ -104,6 +104,6 @@ class TestimonialsDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Testimonials_' . date('YmdHis');
+        return 'MissionVision_' . date('YmdHis');
     }
 }

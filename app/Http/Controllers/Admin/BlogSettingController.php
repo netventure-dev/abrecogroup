@@ -43,7 +43,7 @@ class BlogSettingController extends Controller
         
         $blogs->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/image/', $blogs->title . $validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/blogs/image', $validated['image']->getClientOriginalName(), 'public');
             $blogs->image = $path;
         }
         $res = $blogs->save();
