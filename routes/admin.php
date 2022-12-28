@@ -39,6 +39,31 @@ Route::get('/home', function () {
   Route::post('why-choose-us/settings/update/{id}',  'Admin\ChooseController@update')->name('why-choose-us.settings.update');
   Route::delete('why-choose-us/settings/destroy/{id}',  'Admin\ChooseController@destroy')->name('why-choose-us.settings.destroy');
 
+//blog settings
+Route::get('blog-settings/create',  'Admin\BlogSettingController@create')->name('blog-settings.create');
+Route::post('blog-settings/store',  'Admin\BlogSettingController@store')->name('blog-settings.store');
+
+//blog list
+Route::get('blog/list',  'Admin\BlogListController@index')->name('blog-list.index');
+Route::get('blog/list/create',  'Admin\BlogListController@create')->name('blog-list.create');
+Route::post('blog/list/store',  'Admin\BlogListController@store')->name('blog-list.store');
+Route::get('blog/list/edit/{id}',  'Admin\BlogListController@edit')->name('blog-list.edit');
+Route::post('blog/list/update/{id}',  'Admin\BlogListController@update')->name('blog-list.update');
+Route::delete('blog/list/destroy/{id}',  'Admin\BlogListController@destroy')->name('blog-list.destroy');
+
+
+
+
+  Route::get('why-choose-us/settings/create',  'Admin\ChooseSettingsController@create')->name('why-choose-us.settings.create');
+  Route::post('why-choose-us/settings/store',  'Admin\ChooseSettingsController@store')->name('why-choose-us.settings.store');
+
+  // testimonials
+  Route::get('testimonials',  'Admin\TestimonialsController@index')->name('testimonials.index');
+  Route::get('testimonials/create',  'Admin\TestimonialsController@create')->name('testimonials.create');
+  Route::post('testimonials/store',  'Admin\TestimonialsController@store')->name('testimonials.store');
+  Route::get('testimonials/edit/{id}',  'Admin\TestimonialsController@edit')->name('testimonials.edit');
+  Route::post('testimonials/update/{id}',  'Admin\TestimonialsController@update')->name('testimonials.update');
+  Route::delete('testimonials/destroy/{id}',  'Admin\TestimonialsController@destroy')->name('testimonials.destroy');
 
   // services
   Route::get('services',  'Admin\ServiceController@index')->name('services.index');
@@ -56,3 +81,11 @@ Route::get('/home', function () {
   Route::post('services/{id}/content/{uuid}/destroy',  'Admin\ServiceContentController@destroy')->name('services.content.destroy');
 
 
+
+  // our-projects
+  Route::get('our-projects',  'Admin\OurProjectsController@index')->name('our-projects.index');
+  Route::get('our-projects/create',  'Admin\OurProjectsController@create')->name('our-projects.create');
+  Route::post('our-projects/store',  'Admin\OurProjectsController@store')->name('our-projects.store');
+  Route::get('our-projects/edit/{id}',  'Admin\OurProjectsController@edit')->name('our-projects.edit');
+  Route::post('our-projects/update/{id}',  'Admin\OurProjectsController@update')->name('our-projects.update');
+  Route::delete('our-projects/destroy/{id}',  'Admin\OurProjectsController@destroy')->name('our-projects.destroy');
