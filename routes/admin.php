@@ -47,3 +47,12 @@ Route::get('/home', function () {
   Route::get('services/edit/{id}',  'Admin\ServiceController@edit')->name('services.edit');
   Route::post('services/update/{id}',  'Admin\ServiceController@update')->name('services.update');
   Route::delete('services/destroy/{id}',  'Admin\ServiceController@destroy')->name('services.destroy');
+  // service content
+  Route::get('services/{id}/content',  'Admin\ServiceContentController@index')->name('services.content.index');
+  Route::get('services/{id}/content/create',  'Admin\ServiceContentController@create')->name('services.content.create');
+  Route::post('services/{id}/content/store',  'Admin\ServiceContentController@store')->name('services.content.store');
+  Route::get('services/{id}/content/{uuid}/edit',  'Admin\ServiceContentController@edit')->name('services.content.edit');
+  Route::post('services/{id}/content/{uuid}/update',  'Admin\ServiceContentController@update')->name('services.content.update');
+  Route::post('services/{id}/content/{uuid}/destroy',  'Admin\ServiceContentController@destroy')->name('services.content.destroy');
+
+
