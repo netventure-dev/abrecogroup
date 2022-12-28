@@ -1,4 +1,5 @@
 <div class="mt-2 btn-group btn-group-sm" role="group" aria-label="Admin Action">
+    <a href="{{ route('admin.services.content.index',$services->uuid) }}" class="first btn btn-primary edit"> Content</a>
     {{-- @can('update', $admin) --}}
     <a href="{{ route('admin.services.edit',$services->uuid) }}" class="first btn btn-primary edit"><i class="fas fa-pencil-alt"
             data-toggle="tooltip" title="Edit"></i></a>

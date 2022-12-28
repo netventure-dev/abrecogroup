@@ -80,3 +80,12 @@ Route::delete('blog/list/destroy/{id}',  'Admin\BlogListController@destroy')->na
   Route::get('our-projects/edit/{id}',  'Admin\OurProjectsController@edit')->name('our-projects.edit');
   Route::post('our-projects/update/{id}',  'Admin\OurProjectsController@update')->name('our-projects.update');
   Route::delete('our-projects/destroy/{id}',  'Admin\OurProjectsController@destroy')->name('our-projects.destroy');
+  // service content
+  Route::get('services/{id}/content',  'Admin\ServiceContentController@index')->name('services.content.index');
+  Route::get('services/{id}/content/create',  'Admin\ServiceContentController@create')->name('services.content.create');
+  Route::post('services/{id}/content/store',  'Admin\ServiceContentController@store')->name('services.content.store');
+  Route::get('services/{id}/content/{uuid}/edit',  'Admin\ServiceContentController@edit')->name('services.content.edit');
+  Route::post('services/{id}/content/{uuid}/update',  'Admin\ServiceContentController@update')->name('services.content.update');
+  Route::post('services/{id}/content/{uuid}/destroy',  'Admin\ServiceContentController@destroy')->name('services.content.destroy');
+
+

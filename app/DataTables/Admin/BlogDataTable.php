@@ -64,7 +64,6 @@ class BlogDataTable extends DataTable
                     ->setTableId('blogdatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->dom('Bfrtip')
                     ->orderBy(1);
                
     }
