@@ -35,3 +35,7 @@ Route::group(['prefix' => 'admin'], function () {
 //feedback
 Route::get('feedback', 'FeedbackController@index')->name('feedback.index');
 Route::post('feedback/store', 'FeedbackController@store')->name('feedback.store');
+
+//contact-us
+Route::get('contact-us', 'ContactController@index')->name('contact-us.index');
+Route::post('contact-us/store', 'ContactController@store')->name('contact-us.store');
