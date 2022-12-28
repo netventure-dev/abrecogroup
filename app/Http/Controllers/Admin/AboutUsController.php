@@ -37,7 +37,7 @@ class AboutUsController extends Controller
             'title' => 'required',
             'content' => 'required',
             'cover_content' => 'required',
-            'banner_image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
+            'banner_image' => 'sometimes|required|mimes:jpg,jpeg,png,webp | max:2000',
             'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
             'link' => 'nullable',
             'status' => 'required',

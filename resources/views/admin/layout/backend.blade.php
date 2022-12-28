@@ -479,36 +479,17 @@
                                 <i class="bx bx-home-circle"></i>
                                 <span key="t-dashboards">Dashboards</span>
                             </a>
-                        </li>
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="bx bx-store"></i>
-                                <span key="t-ecommerce">About Us</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{route('admin.about-us.settings.create')}}" key="t-products">Settings</a></li>
-                                <li><a href="{{route('admin.about-us.list.index')}}" key="t-product-detail">List</a></li>
-                                <li><a href="{{route('admin.mission-vision.index')}}" key="t-product-detail">Mission And Vision</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="{{route('admin.services.index')}}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Services</span>
-                            </a>
-                        </li>
-                        <li class="menu-title" key="t-apps">Pages</li>
-                      
+                        </li>     
                         <li>
                             <a href="{{route('admin.home-slider.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Home Slider</span>
                             </a>
-                        </li>
+                        </li>      
                         <li>
-                            <a href="{{route('admin.testimonials.index')}}" class="waves-effect">
+                            <a href="{{route('admin.services.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Testimonials</span>
+                                <span key="t-file-manager">Services</span>
                             </a>
                         </li>
                         <li>
@@ -526,11 +507,35 @@
                                 <li><a href="{{route('admin.why-choose-us.settings.create')}}" key="t-products">Settings</a></li>
                                 <li><a href="{{route('admin.why-choose-us.list.index')}}" key="t-product-detail">List</a></li>
                             </ul>
+                        </li>       
+                        <li class="menu-title" key="t-apps">Pages</li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-store"></i>
+                                <span key="t-ecommerce">About Us</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{route('admin.about-us.settings.create')}}" key="t-products">Settings</a></li>
+                                <li><a href="{{route('admin.about-us.list.index')}}" key="t-product-detail">List</a></li>
+                                <li><a href="{{route('admin.mission-vision.index')}}" key="t-product-detail">Mission And Vision</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.contact-us.create')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Contact Us</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.testimonials.index')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Testimonials</span>
+                            </a>
                         </li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
-                                <span key="t-ecommerce">Blog</span>
+                                <span key="t-ecommerce">Blogs</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('admin.blog-settings.create') }}" key="t-products">Settings</a></li>

@@ -66,9 +66,6 @@ Route::get('/home', function () {
   Route::post('blog/list/update/{id}',  'Admin\BlogListController@update')->name('blog-list.update');
   Route::delete('blog/list/destroy/{id}',  'Admin\BlogListController@destroy')->name('blog-list.destroy');
 
-
-
-
   Route::get('why-choose-us/settings/create',  'Admin\ChooseSettingsController@create')->name('why-choose-us.settings.create');
   Route::post('why-choose-us/settings/store',  'Admin\ChooseSettingsController@store')->name('why-choose-us.settings.store');
 
@@ -95,6 +92,7 @@ Route::get('/home', function () {
   Route::get('our-projects/edit/{id}',  'Admin\OurProjectsController@edit')->name('our-projects.edit');
   Route::post('our-projects/update/{id}',  'Admin\OurProjectsController@update')->name('our-projects.update');
   Route::delete('our-projects/destroy/{id}',  'Admin\OurProjectsController@destroy')->name('our-projects.destroy');
+
   // service content
   Route::get('services/{id}/content',  'Admin\ServiceContentController@index')->name('services.content.index');
   Route::get('services/{id}/content/create',  'Admin\ServiceContentController@create')->name('services.content.create');
@@ -103,4 +101,7 @@ Route::get('/home', function () {
   Route::post('services/{id}/content/{uuid}/update',  'Admin\ServiceContentController@update')->name('services.content.update');
   Route::post('services/{id}/content/{uuid}/destroy',  'Admin\ServiceContentController@destroy')->name('services.content.destroy');
 
-
+  // contact-us
+  Route::get('contact-us/create',  'Admin\ContactUsController@create')->name('contact-us.create');
+  Route::post('contact-us/store',  'Admin\ContactUsController@store')->name('contact-us.store');
+  
