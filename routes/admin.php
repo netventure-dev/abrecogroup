@@ -13,7 +13,7 @@ Route::get('/home', function () {
 
     return view('admin.home');
 })->name('home');
-
+ 
 
   // home slider
   Route::get('home-slider',  'Admin\HomeSliderController@index')->name('home-slider.index');
