@@ -30,3 +30,8 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
 });
+
+
+//feedback
+Route::get('feedback', 'FeedbackController@index')->name('feedback.index');
+Route::post('feedback/store', 'FeedbackController@store')->name('feedback.store');
