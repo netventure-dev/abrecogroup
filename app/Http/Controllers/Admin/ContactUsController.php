@@ -14,7 +14,7 @@ class ContactUsController extends Controller
         // $this->authorize('create', Admin::class);
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['About Us', route('admin.contact-us.create')],
+            ['Contact Us', route('admin.contact-us.create')],
         ];
         $data = ContactUs::first();
         return view('admin.contact-us.create', compact('breadcrumbs','data'));
