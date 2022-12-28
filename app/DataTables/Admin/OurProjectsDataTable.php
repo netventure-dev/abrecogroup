@@ -36,7 +36,7 @@ class OurProjectsDataTable extends DataTable
                 return $d;
             }
             else{
-                $url = asset('assets/images/kepa/no_image.png');
+                $url = asset('assets/images/no_image.png');
                 $d = '<img class="rounded avatar-md" src="' . $url . '" border="0" width="70" height="60" class="img-rounded" align="center" /> ';
                 return $d;
             }

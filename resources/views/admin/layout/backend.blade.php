@@ -481,6 +481,17 @@
                             </a>
                         </li>
                         <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-store"></i>
+                                <span key="t-ecommerce">About Us</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{route('admin.about-us.settings.create')}}" key="t-products">Settings</a></li>
+                                <li><a href="{{route('admin.about-us.list.index')}}" key="t-product-detail">List</a></li>
+                                <li><a href="{{route('admin.mission-vision.index')}}" key="t-product-detail">Mission And Vision</a></li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="{{route('admin.services.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Services</span>
@@ -512,8 +523,8 @@
                                 <span key="t-ecommerce">Why Choose Us</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{route('admin.why-choose-us.settings.create')}}" key="t-products">settings</a></li>
-                                <li><a href="{{route('admin.why-choose-us.list.index')}}" key="t-product-detail">list</a></li>
+                                <li><a href="{{route('admin.why-choose-us.settings.create')}}" key="t-products">Settings</a></li>
+                                <li><a href="{{route('admin.why-choose-us.list.index')}}" key="t-product-detail">List</a></li>
                             </ul>
                         </li>
                         <li>
@@ -522,8 +533,8 @@
                                 <span key="t-ecommerce">Blog</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.blog-settings.create') }}" key="t-products">settings</a></li>
-                                <li><a href="{{ route('admin.blog-list.index') }}" key="t-product-detail">list</a></li>
+                                <li><a href="{{ route('admin.blog-settings.create') }}" key="t-products">Settings</a></li>
+                                <li><a href="{{ route('admin.blog-list.index') }}" key="t-product-detail">List</a></li>
                             </ul>
                         </li>
 
