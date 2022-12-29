@@ -49,7 +49,7 @@
                                     <label for="phone" class="col-sm-3 col-form-label mb-2">{{ __('Mobile') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <input id="phone" name="phone" type="text"
+                                        <input id="phone" name="phone" type="number"
                                             class="form-control mb-2 @if ($errors->has('phone')) is-invalid  @endif"
                                             placeholder="{{ __('Enter phone') }}" required value="{{ @old('phone',@$data->phone) }}">
                                         <div class="invalid-feedback">{{ $errors->first('phone') }}
@@ -62,7 +62,7 @@
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="content"
-                                            class="form-control summernote @if ($errors->has('content')) is-invalid @endif" ro placeholder="{{ __('Enter Description') }}" required>{{ @old('content',@$data->content)}}</textarea>
+                                            class="form-control summernote @if ($errors->has('content')) is-invalid @endif" ro placeholder="{{ __('Enter Description') }}" required>{{ @old('content',@$data->description)}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
                                     </div>
@@ -83,8 +83,8 @@
                                         class="text-danger">*</span> <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
-                                        @if (isset($data->banner_image))
-                                            <img src="{{ asset("/storage/".@$data->banner_image) }}" alt="" class="img-fluid" style="width:100px;">
+                                        @if (isset($data->image))
+                                            <img src="{{ asset("/storage/".@$data->image) }}" alt="" class="img-fluid" style="width:100px;">
                                         @endif
                                         <input id="banner_image" name="banner_image" type="file" class="form-control mb-2 @if ($errors->has('banner_image')) is-invalid @endif" value="{{ @old('banner_image') }}">
                                         <div class="invalid-feedback">{{ $errors->first('banner_image') }}</div>
@@ -105,7 +105,7 @@
                                     <div class="col-sm-9">
                                         <input id="map_link" name="map_link" type="text"
                                             class="form-control mb-2 @if ($errors->has('map_link')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter map_link') }}"  value="{{ @old('map_link',@$data->map_link) }}">
+                                            placeholder="{{ __('Enter map link') }}"  value="{{ @old('map_link',@$data->map_link) }}">
                                         <div class="invalid-feedback">{{ $errors->first('map_link') }}
                                         </div>
                                     </div>

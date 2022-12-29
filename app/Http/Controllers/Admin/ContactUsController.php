@@ -32,7 +32,6 @@ class ContactUsController extends Controller
             'banner_image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
             'link' => 'nullable',
             'map_link' => 'nullable',
-            'status' => 'required',
         ]);
         $data = ContactUs::firstOrNew();
         $data->uuid = (string) Str::uuid();
