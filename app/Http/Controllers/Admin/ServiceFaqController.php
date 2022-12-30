@@ -14,15 +14,14 @@ class ServiceFaqController extends Controller
 {
     public function index(ServiceFaqDataTable $dataTable, $id)
     {
-        $services= Service::where('uuid',$id)->first();
-        $faqs = ServiceFaq::where('service_id',$services->uuid)->get();
+        $service_id= Service::where('uuid',$id)->first();
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Services')),  route('admin.services.index')],
-            [$services->title, null],
+            [$service_id->title, null],
         ];
         // dd( $services );
-        return $dataTable->render('admin.services.faq.index', ['breadcrumbs' => $breadcrumbs,'services' => $services]);
+        return $dataTable->with(['service_id' => $service_id])->render('admin.services.faq.index', ['breadcrumbs' => $breadcrumbs,'service_id' => $service_id]);
     }
 
     public function create($id)
@@ -31,7 +30,7 @@ class ServiceFaqController extends Controller
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Services')), route('admin.services.index')],
-            [$services->title, null],
+            [(__('Faqs')), route('admin.services.faq.index',$services->uuid)],
             [(__('Faq')), null],
         ];
         return view('admin.services.faq.create',compact('services','breadcrumbs'));
@@ -43,11 +42,8 @@ class ServiceFaqController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
             'order' => 'required|numeric',
-            'image_position' => 'required',
-            'button_title' => 'nullable',
-            'button_link' => 'nullable',
+            'status' => 'required',
         ]); 
 
         $faq = new ServiceFaq();
@@ -56,13 +52,7 @@ class ServiceFaqController extends Controller
         $faq->title =  $validated['title'];
         $faq->description =  $validated['description'];
         $faq->order =  $validated['order'];
-        $faq->image_position =  $validated['image_position'];
-        $faq->button_title =  $validated['button_title'];
-        $faq->button_link =  $validated['button_link'];
-        if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
-            $faq->image = $path;
-        }
+        $faq->status =  $validated['status'];
         $res = $faq->save();
         if ($res) {
             notify()->success(__('Created successfully'));
@@ -81,8 +71,8 @@ class ServiceFaqController extends Controller
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Services')), route('admin.services.index')],
-            [$services->title, route('admin.services.faq.index',$services->uuid)],
-            [(__('Faq')), null],
+            [(__('Faqs')), route('admin.services.faq.index',$services->uuid)],
+            [$faq->title, null],
         ];
         return view('admin.services.faq.edit',compact('services','breadcrumbs','faq'));
     }
@@ -90,30 +80,22 @@ class ServiceFaqController extends Controller
     
     public function update(Request $request, $id,$uuid)
     {
-        $services= Service::where('uuid',$id)->first();
-        $faq = ServiceFaq::where('uuid',$uuid)->first();
+        $services= Service::where('uuid',$uuid)->first();
+        $faq = ServiceFaq::where('uuid',$id)->first();
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
             'order' => 'required|numeric',
-            'image_position' => 'required',
-            'button_title' => 'nullable',
-            'button_link' => 'nullable',
+            'status' => 'required',
         ]); 
 
         // $faq = new ServiceFaq();
         // $faq->service_id = $services->uuid;
+        $faq->service_id = $services->uuid;
         $faq->title =  $validated['title'];
         $faq->description =  $validated['description'];
         $faq->order =  $validated['order'];
-        $faq->image_position =  $validated['image_position'];
-        $faq->button_title =  $validated['button_title'];
-        $faq->button_link =  $validated['button_link'];
-        if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
-            $faq->image = $path;
-        }
+        $faq->status =  $validated['status'];
         $res = $faq->save();
         if ($res) {
             notify()->success(__('Updated successfully'));
@@ -123,11 +105,11 @@ class ServiceFaqController extends Controller
         return redirect()->back();
     }
 
-    public function destroy($id,$uuid)
+    public function destroy($id)
     {
         // $this->authorize('delete', $menu);
         // $res = Service::where('uuid',$id);
-        $res = ServiceFaq::where('uuid',$uuid)->delete();
+        $res = ServiceFaq::where('uuid',$id)->delete();
 
         if ($res) {
             notify()->success(__('Deleted successfully'));

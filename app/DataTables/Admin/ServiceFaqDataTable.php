@@ -21,7 +21,24 @@ class ServiceFaqDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'servicefaqdatatable.action');
+            ->addIndexColumn()
+            ->editColumn('title', function (ServiceFaq $services) {
+                return $services->title;
+            })
+            ->editColumn('order', function (ServiceFaq $services) {
+                return $services->order;
+            })
+            ->editColumn('status', function (ServiceFaq $services) {
+                if ($services->status) {
+                    return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
+                } else {
+                    return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
+                }
+            })
+            ->addColumn('action', function (ServiceFaq $services) {
+                return view('admin.services.faq.action', compact('services'));
+            })
+            ->rawColumns(['action','status']);
     }
 
     /**
@@ -32,7 +49,8 @@ class ServiceFaqDataTable extends DataTable
      */
     public function query(ServiceFaq $model)
     {
-        return $model->newQuery();
+        $service_id =  $this->service_id;
+        return $model->where('service_id',$service_id->uuid)->newQuery();
     }
 
     /**
@@ -57,15 +75,17 @@ class ServiceFaqDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
+            Column::make('title')->title(__('Title')),
+            Column::make('order')->title(__('Order')),
+            Column::make('status')->title(__('Status')),
+            // Column::make('role')->title(__('Role'))->orderable(false),
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+                ->title(__('Action'))
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
         ];
     }
 

@@ -552,6 +552,13 @@
                                 <li><a href="{{route('admin.request.list.index')}}" key="t-product-detail">Content</a></li>
                             </ul>
                         </li>
+                        <li class="menu-title" key="t-apps">Reports</li>
+                        <li>
+                            <a href="{{route('admin.enquiries.index')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Enquiries</span>
+                            </a>
+                        </li>
                         <li class="menu-title" key="t-apps">Settings</li>
                          
                         <li>

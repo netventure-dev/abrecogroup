@@ -20,6 +20,7 @@ class CreateServiceFaqsTable extends Migration
             $table->string('title');
             $table->longText('description');
             $table->string('order');
+            $table->boolean('status')->default(0);
             $table->timestamps();
 
         });

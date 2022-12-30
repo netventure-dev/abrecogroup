@@ -1,6 +1,6 @@
 @extends('admin.layout.backend')
 
-@section('title') {{ __('Service Faq') }} @endsection
+@section('title') {{ __('Enquiry Reports') }} @endsection
 
 @section('css')
     <!-- DataTables -->
@@ -16,11 +16,9 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Service Faq') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Enquiry Reports') }}</h4>
                 <div class="page-title-right">
                     {{-- @can('create', App\Models\Admin::class) --}}
-                        <a href="{{ route('admin.services.faq.create',@$service_id->uuid) }}"
-                            class="btn btn-primary w-md">{{ __('Create Service Faq') }}</a>
                     {{-- @endcan --}}
                 </div>
             </div>

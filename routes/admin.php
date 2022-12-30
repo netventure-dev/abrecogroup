@@ -107,7 +107,7 @@ Route::get('/home', function () {
   Route::post('services/{id}/faq/store',  'Admin\ServiceFaqController@store')->name('services.faq.store');
   Route::get('services/{id}/faq/{uuid}/edit',  'Admin\ServiceFaqController@edit')->name('services.faq.edit');
   Route::post('services/{id}/faq/{uuid}/update',  'Admin\ServiceFaqController@update')->name('services.faq.update');
-  Route::post('services/{id}/faq/{uuid}/destroy',  'Admin\ServiceFaqController@destroy')->name('services.faq.destroy');
+  Route::delete('services/{id}/faq/destroy',  'Admin\ServiceFaqController@destroy')->name('services.faq.destroy');
 
   // contact-us
   Route::get('contact-us/create',  'Admin\ContactUsController@create')->name('contact-us.create');
@@ -136,3 +136,6 @@ Route::get('/home', function () {
   Route::get('service-care/edit/{id}',  'Admin\ServiceCareController@edit')->name('service-care.edit');
   Route::post('service-care/update/{id}',  'Admin\ServiceCareController@update')->name('service-care.update');
   Route::delete('service-care/destroy/{id}',  'Admin\ServiceCareController@destroy')->name('service-care.destroy');
+
+  // enquiries
+  Route::get('enquiries/report',  'Admin\ContactUsReportController@index')->name('enquiries.index');

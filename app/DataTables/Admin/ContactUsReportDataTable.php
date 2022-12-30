@@ -2,14 +2,14 @@
 
 namespace App\DataTables\Admin;
 
-use App\Models\Service;
+use App\Models\Contact;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class ServicesDataTable extends DataTable
+class ContactUsReportDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -20,31 +20,28 @@ class ServicesDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables()
-            ->eloquent($query)
-            ->addIndexColumn()
-            ->editColumn('status', function (Service $new) {
-                if ($new->status) {
-                    return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
-                } else {
-                    return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
-                }
-            })
-            ->addColumn('action', function (Service $services) {
-                return view('admin.services.action', compact('services'));
-            })
-    
+        ->eloquent($query)
+        ->addIndexColumn()
+        ->editColumn('name', function (Contact $new) {
+            return $new->name;
+        })
+        ->editColumn('email', function (Contact $new) {
+            return $new->email;
+        })
+        ->editColumn('phone', function (Contact $new) {
+            return $new->phone;
+        })
 
-            ->rawColumns(['status','action']);
-
+        ->rawColumns(['title','image','status']);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Service $model
+     * @param \App\Models\ContactUsReportDataTable $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Service $model)
+    public function query(Contact $model)
     {
         return $model->newQuery();
     }
@@ -57,10 +54,10 @@ class ServicesDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('services-table')
+                    ->setTableId('contactusreportdatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->orderBy(1)    ;
+                    ->orderBy(1);
     }
 
     /**
@@ -72,14 +69,9 @@ class ServicesDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
-            Column::make('name')->title(__('Title')),
-            Column::make('status')->title(__('Status')),
-            Column::computed('action')
-            ->title(__('Action'))
-            ->exportable(false)
-            ->printable(false)
-            ->width(60)
-            ->addClass('text-center'),
+            Column::make('name')->title(__('Name')),
+            Column::make('email')->title(__('Email')),
+            Column::make('phone')->title(__('Phone'))
         ];
     }
 
@@ -90,6 +82,6 @@ class ServicesDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Services_' . date('YmdHis');
+        return 'ContactUsReport_' . date('YmdHis');
     }
 }
