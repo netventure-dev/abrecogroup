@@ -95,11 +95,19 @@ Route::get('/home', function () {
 
   // service content
   Route::get('services/{id}/content',  'Admin\ServiceContentController@index')->name('services.content.index');
-  Route::get('service-carecreate',  'Admin\ServiceContentController@create')->name('services.content.create');
+  Route::get('services/{id}/content/create',  'Admin\ServiceContentController@create')->name('services.content.create');
   Route::post('services/{id}/content/store',  'Admin\ServiceContentController@store')->name('services.content.store');
   Route::get('services/{id}/content/{uuid}/edit',  'Admin\ServiceContentController@edit')->name('services.content.edit');
   Route::post('services/{id}/content/{uuid}/update',  'Admin\ServiceContentController@update')->name('services.content.update');
   Route::post('services/{id}/content/{uuid}/destroy',  'Admin\ServiceContentController@destroy')->name('services.content.destroy');
+
+  // service faq
+  Route::get('services/{id}/faq',  'Admin\ServiceFaqController@index')->name('services.faq.index');
+  Route::get('services/{id}/faq/create',  'Admin\ServiceFaqController@create')->name('services.faq.create');
+  Route::post('services/{id}/faq/store',  'Admin\ServiceFaqController@store')->name('services.faq.store');
+  Route::get('services/{id}/faq/{uuid}/edit',  'Admin\ServiceFaqController@edit')->name('services.faq.edit');
+  Route::post('services/{id}/faq/{uuid}/update',  'Admin\ServiceFaqController@update')->name('services.faq.update');
+  Route::post('services/{id}/faq/{uuid}/destroy',  'Admin\ServiceFaqController@destroy')->name('services.faq.destroy');
 
   // contact-us
   Route::get('contact-us/create',  'Admin\ContactUsController@create')->name('contact-us.create');
