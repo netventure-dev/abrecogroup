@@ -95,7 +95,7 @@ Route::get('/home', function () {
 
   // service content
   Route::get('services/{id}/content',  'Admin\ServiceContentController@index')->name('services.content.index');
-  Route::get('services/{id}/content/create',  'Admin\ServiceContentController@create')->name('services.content.create');
+  Route::get('service-carecreate',  'Admin\ServiceContentController@create')->name('services.content.create');
   Route::post('services/{id}/content/store',  'Admin\ServiceContentController@store')->name('services.content.store');
   Route::get('services/{id}/content/{uuid}/edit',  'Admin\ServiceContentController@edit')->name('services.content.edit');
   Route::post('services/{id}/content/{uuid}/update',  'Admin\ServiceContentController@update')->name('services.content.update');
@@ -105,3 +105,26 @@ Route::get('/home', function () {
   Route::get('contact-us/create',  'Admin\ContactUsController@create')->name('contact-us.create');
   Route::post('contact-us/store',  'Admin\ContactUsController@store')->name('contact-us.store');
   
+  // general
+  Route::get('general/create',  'Admin\GeneralController@create')->name('general.create');
+  Route::post('general/store',  'Admin\GeneralController@store')->name('general.store');
+  
+  // request rates
+  Route::get('request/create',  'Admin\RequestRatesController@create')->name('request.settings.create');
+  Route::post('request/store',  'Admin\RequestRatesController@store')->name('request.settings.store');
+  
+  // request rate list
+  Route::get('request/list',  'Admin\RequestRateListController@index')->name('request.list.index');
+  Route::get('request/list/create',  'Admin\RequestRateListController@create')->name('request.list.create');
+  Route::post('request/list/store',  'Admin\RequestRateListController@store')->name('request.list.store');
+  Route::get('request/list/edit/{id}',  'Admin\RequestRateListController@edit')->name('request.list.edit');
+  Route::post('request/list/update/{id}',  'Admin\RequestRateListController@update')->name('request.list.update');
+  Route::delete('request/list/destroy/{id}',  'Admin\RequestRateListController@destroy')->name('request.list.destroy');
+
+  // service care
+  Route::get('service-care',  'Admin\ServiceCareController@index')->name('service-care.index');
+  Route::get('service-care/create',  'Admin\ServiceCareController@create')->name('service-care.create');
+  Route::post('service-care/store',  'Admin\ServiceCareController@store')->name('service-care.store');
+  Route::get('service-care/edit/{id}',  'Admin\ServiceCareController@edit')->name('service-care.edit');
+  Route::post('service-care/update/{id}',  'Admin\ServiceCareController@update')->name('service-care.update');
+  Route::delete('service-care/destroy/{id}',  'Admin\ServiceCareController@destroy')->name('service-care.destroy');

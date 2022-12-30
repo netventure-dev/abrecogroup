@@ -2,14 +2,14 @@
 
 namespace App\DataTables\Admin;
 
-use App\Models\Schedule;
+use App\Models\ServiceCare;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class ScheduleDataTable extends DataTable
+class ServiceCareDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -22,25 +22,18 @@ class ScheduleDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addIndexColumn()
-            ->editColumn('venue', function (Schedule $schedule) {
-                return $schedule->venue;
+            ->editColumn('name', function (ServiceCare $new) {
+                return $new->name;
             })
-            ->editColumn('status', function (Schedule $schedule) {
-                if ($schedule->status) {
+            ->editColumn('status', function (ServiceCare $new) {
+                if ($new->status) {
                     return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
                 } else {
                     return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
                 }
             })
-            ->editColumn('status', function (Schedule $schedule) {
-                if ($schedule->status) {
-                    return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
-                } else {
-                    return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
-                }
-            })
-            ->addColumn('action', function (Schedule $schedule) {
-                return view('admin.schedule.action', compact('schedule'));
+            ->addColumn('action', function (ServiceCare $new) {
+                return view('admin.service-care.action', compact('new'));
             })
             ->rawColumns(['action','status']);
     }
@@ -48,10 +41,10 @@ class ScheduleDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\ScheduleDataTable $model
+     * @param \App\Models\ServiceCareDataTable $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Schedule $model)
+    public function query(ServiceCare $model)
     {
         return $model->newQuery();
     }
@@ -64,13 +57,9 @@ class ScheduleDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('scheduledatatable-table')
+                    ->setTableId('servicecaredatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->parameters([
-                        'dom'          => 'Bfrtip',
-                        'buttons'      => ['csv', 'print', 'excel'],
-                    ])
                     ->orderBy(1);
     }
 
@@ -83,11 +72,7 @@ class ScheduleDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
-            Column::make('venue')->title(__('Venue')),
-            Column::make('speakers')->title(__('Speakers')),
-            Column::make('topic')->title(__('Topic')),
-            Column::make('schedule_date')->title(__('Date')),
-            Column::make('schedule_time')->title(__('Time')),
+            Column::make('name')->title(__('Name')),
             Column::make('status')->title(__('Status')),
             // Column::make('role')->title(__('Role'))->orderable(false),
             Column::computed('action')
@@ -106,6 +91,6 @@ class ScheduleDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Schedule_' . date('YmdHis');
+        return 'ServiceCare_' . date('YmdHis');
     }
 }

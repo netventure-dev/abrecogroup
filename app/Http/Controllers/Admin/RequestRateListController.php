@@ -1,23 +1,25 @@
 <?php
 
+
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Admin\WhyChooseUsListDataTable;
+use App\DataTables\Admin\RequestRateListDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\WhyChooseUs;
+use App\Models\RequestRateContent;
+use App\Models\ServiceCare;
 use Illuminate\Support\Str;
 use JoeDixon\Translation\Language;
 use Illuminate\Http\Request;
 
-class ChooseListController extends Controller
+class RequestRateListController extends Controller
 {
-    public function index(WhyChooseUsListDataTable $dataTable)
+    public function index(RequestRateListDataTable $dataTable)
     {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Why Choose Us List')), null],
+            [(__('Request Rate List')), null],
         ];
-        return $dataTable->render('admin.why-choose-us.list.index', ['breadcrumbs' => $breadcrumbs]);
+        return $dataTable->render('admin.request.list.index', ['breadcrumbs' => $breadcrumbs]);
     }
      /**
      * Show the form for creating a new resource.
@@ -29,28 +31,31 @@ class ChooseListController extends Controller
         // $this->authorize('create', Admin::class);
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['Why Choose Us List', route('admin.why-choose-us.list.index')],
-            ['Create', route('admin.why-choose-us.list.create')],
+            ['Request Rate List', route('admin.request.list.index')],
+            ['Create', route('admin.request.list.create')],
         ];
-        return view('admin.why-choose-us.list.create', compact('breadcrumbs'));
+        $service_cares=ServiceCare::where('status',1)->get();
+        return view('admin.request.list.create', compact('breadcrumbs','service_cares'));
     }
 
     public function store(Request $request)
     {
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
-            'title' => 'required|unique:why_choose_us,title',
+            'title' => 'required|unique:request_rate_contents,title',
             'content' => 'required',
+            'service_care_id' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
             'status' => 'required',
         ]);
-        $data = new WhyChooseUs;
+        $data = new RequestRateContent;
         $data->uuid = (string) Str::uuid();
         $data->title = $validated['title'];
-        $data->description = $validated['content'];
+        $data->service_care_id = $validated['service_care_id'];
+        $data->content = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/why_choose/image/',$validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/service_care/image/',$validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
         }
         $res = $data->save();
@@ -64,29 +69,31 @@ class ChooseListController extends Controller
     public function edit($id)
     {
         // $this->authorize('update', $menu);
-        $data= WhyChooseUs::where('uuid',$id)->first();
+        $data= RequestRateContent::where('uuid',$id)->first();
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Why Choose Us List')),  route('admin.why-choose-us.list.index')],
+            [(__('Request Rate List')),  route('admin.request.list.index')],
             [$data->title, null],
-    ];
-        return view('admin.why-choose-us.list.edit', compact('breadcrumbs','data'));
+        ];
+        return view('admin.request.list.edit', compact('breadcrumbs','data'));
     }
     public function update(Request $request,$id)
     {
         // $this->authorize('create', Gender::class);
-        $data= WhyChooseUs::where('uuid',$id)->first();
+        $data= RequestRateContent::where('uuid',$id)->first();
         $validated = $request->validate([
-            'title' => 'required|unique:why_choose_us,title,'.$data->id,
+            'title' => 'required|unique:request_rate_contents,title,'.$data->id,
             'content' => 'required',
+            'service_care_id' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
             'status' => 'required',
         ]);
         $data->title = $validated['title'];
-        $data->description = $validated['content'];
+        $data->service_care_id = $validated['service_care_id'];
+        $data->content = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/why_choose/image/',$validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/request/image/',$validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
         }
         $res = $data->save();
@@ -100,7 +107,7 @@ class ChooseListController extends Controller
     public function destroy($id)
     {
         // $this->authorize('delete', $menu);
-        $res = WhyChooseUs::where('uuid',$id)->delete();
+        $res = RequestRateContent::where('uuid',$id)->delete();
         if ($res) {
             notify()->success(__('Deleted successfully'));
         } else {

@@ -5,19 +5,20 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use App\Http\Controllers\Controller;
-use App\Models\ContactUs;
+use App\Models\RequestRateSetting;
 use Illuminate\Support\Str;
-class ContactUsController extends Controller
+
+class RequestRatesController extends Controller
 {
     public function create()
     {
         // $this->authorize('create', Admin::class);
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['Contact Us', route('admin.contact-us.create')],
+            ['Request Rate Setting', route('admin.request.settings.create')],
         ];
-        $data = ContactUs::first();
-        return view('admin.contact-us.create', compact('breadcrumbs','data'));
+        $data = RequestRateSetting::first();
+        return view('admin.request.settings.create', compact('breadcrumbs','data'));
     }
 
     public function store(Request $request)
@@ -25,31 +26,25 @@ class ContactUsController extends Controller
         // dd($request);
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-            'address' => 'required',
-            'phone' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|min:9',
-            'banner_image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
+            'cover_title' => 'required',
+            'cover_content' => 'required',
+            'cover_image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
             'link' => 'nullable',
-            'map_link' => 'nullable',
             'seo_title' => 'nullable',
             'seo_keyword' => 'nullable',
             'seo_description' => 'nullable',
         ]);
-        $data = ContactUs::firstOrCreate();
+        $data = RequestRateSetting::firstOrCreate();
         $data->uuid = (string) Str::uuid();
-        $data->title = $validated['title'];
-        $data->description = $validated['content'];
-        $data->address = $validated['address'];
+        $data->cover_title = $validated['cover_title'];
+        $data->cover_content = $validated['cover_content'];
         $data->link = $validated['link'];
-        $data->phone = $validated['phone'];
-        $data->map_link = $validated['map_link'];
         $data->seo_title = $validated['seo_title'];
-        $data->seo_keyword = $validated['seo_keyword'];
+        $data->seo_keywords = $validated['seo_keyword'];
         $data->seo_description = $validated['seo_description'];
-        if ($request->hasFile('banner_image')) {
-            $path =  $request->file('banner_image')->storeAs('media/aboutus/image/',$validated['banner_image']->getClientOriginalName(), 'public');
-            $data->image = $path;
+        if ($request->hasFile('cover_image')) {
+            $path =  $request->file('cover_image')->storeAs('media/request/image/',$validated['cover_image']->getClientOriginalName(), 'public');
+            $data->cover_image = $path;
         }
         $res = $data->save();
         if ($res) {
@@ -59,5 +54,4 @@ class ContactUsController extends Controller
         }
         return redirect()->back();
     }
-
 }

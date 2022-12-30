@@ -542,10 +542,30 @@
                                 <li><a href="{{ route('admin.blog-list.index') }}" key="t-product-detail">List</a></li>
                             </ul>
                         </li>
-
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-store"></i>
+                                <span key="t-ecommerce">Request Rates</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{route('admin.request.settings.create')}}" key="t-products">Settings</a></li>
+                                <li><a href="{{route('admin.request.list.index')}}" key="t-product-detail">Content</a></li>
+                            </ul>
+                        </li>
                         <li class="menu-title" key="t-apps">Settings</li>
                          
-                      
+                        <li>
+                            <a href="{{route('admin.general.create')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">General</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.service-care.index')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Services Care</span>
+                            </a>
+                        </li>
                         {{-- <li>
                             <a href="{{ route('admin.roles.index') }}" class=" waves-effect">
                                 <i class="bx bxs-user-detail"></i>

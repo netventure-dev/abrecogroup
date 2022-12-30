@@ -42,7 +42,7 @@ class AboutUsController extends Controller
             'link' => 'nullable',
             'status' => 'required',
         ]);
-        $data = AboutUs::firstOrNew();
+        $data = AboutUs::firstOrCreate();
         $data->uuid = (string) Str::uuid();
         $data->cover_title = $validated['title'];
         $data->cover_content = $validated['cover_content'];
