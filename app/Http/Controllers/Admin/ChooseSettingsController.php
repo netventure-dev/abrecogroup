@@ -29,7 +29,7 @@ class ChooseSettingsController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'image' => 'sometimes|required|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'sometimes|required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $data = WhyChooseUsSettings::firstOrNew();

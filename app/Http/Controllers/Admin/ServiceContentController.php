@@ -44,7 +44,7 @@ class ServiceContentController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
             'image_position' => 'required',
             'button_title' => 'nullable',
@@ -96,7 +96,7 @@ class ServiceContentController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
             'image_position' => 'required',
             'button_title' => 'nullable',

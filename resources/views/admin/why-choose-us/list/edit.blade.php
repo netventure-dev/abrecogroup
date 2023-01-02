@@ -64,7 +64,7 @@
                                         @if (isset($data->image))
                                             <img src="{{ asset("/storage/$data->image") }}" alt="" class="img-fluid" style="width:100px;">
                                         @endif
-                                        <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
+                                        <input required id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>

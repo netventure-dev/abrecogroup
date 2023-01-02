@@ -41,7 +41,7 @@ class ChooseListController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:why_choose_us,title',
             'content' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $data = new WhyChooseUs;
@@ -79,7 +79,7 @@ class ChooseListController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:why_choose_us,title,'.$data->id,
             'content' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $data->title = $validated['title'];
