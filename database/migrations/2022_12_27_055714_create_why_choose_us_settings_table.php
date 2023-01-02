@@ -16,7 +16,7 @@ class CreateWhyChooseUsSettingsTable extends Migration
         Schema::create('why_choose_us_settings', function (Blueprint $table) {
             $table->id();
             $table->string('uuid');
-            $table->string('title');
+            $table->longText('title');
             $table->text('description');
             $table->string('image');
             $table->string('link')->nullable();
