@@ -572,6 +572,12 @@
                                 <span key="t-file-manager">Feedback</span>
                             </a>
                         </li>
+                         <li>
+                            <a href="{{ route('admin.requestenquiry.index') }}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Request-a-Quote</span>
+                            </a>
+                        </li>
                         <li class="menu-title" key="t-apps">Settings</li>
                          
                         <li>

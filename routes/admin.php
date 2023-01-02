@@ -144,3 +144,4 @@ Route::delete('service-care/destroy/{id}',  'Admin\ServiceCareController@destroy
 // enquiries
 Route::get('enquiries/report',  'Admin\ContactUsReportController@index')->name('enquiries.index');
 Route::get('feedback/report',  'Admin\FeedBackReportController@index')->name('feedbackenquiry.index');
+Route::get('request-quote/report',  'Admin\RequestQuoteReportController@index')->name('requestenquiry.index');
