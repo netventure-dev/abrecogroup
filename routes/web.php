@@ -42,5 +42,5 @@ Route::post('contact-us/store', 'ContactController@store')->name('contact-us.sto
 
 
 //request a quote
-Route::get('request-a-quote', 'RequestQuoteController@index')->name('contact-us.index');
+Route::get('request-a-quote', 'RequestQuoteController@index')->name('request-a-quote.index');
 Route::post('request-a-quote/store', 'RequestQuoteController@store')->name('request-a-quote.store');
