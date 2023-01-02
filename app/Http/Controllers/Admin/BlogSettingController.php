@@ -30,7 +30,7 @@ class BlogSettingController extends Controller
             'seo_title' => 'nullable',
             'seo_keyword' => 'nullable',
             'seo_description' => 'nullable',
-            'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $blogs = Blog::firstOrCreate();      

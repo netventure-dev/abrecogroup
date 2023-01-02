@@ -15,7 +15,7 @@ class OurProjectsController extends Controller
     {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Our Projects')), null],
+            [(__('Our Projects')), route('admin.our-projects.index')],
         ];
         return $dataTable->render('admin.our-projects.index', ['breadcrumbs' => $breadcrumbs]);
     }
