@@ -42,7 +42,7 @@ class HomeSliderController extends Controller
             'title' => 'required|unique:home_sliders,title',
             'content' => 'required',
             'link' => 'nullable',
-            'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $slider = new HomeSlider;
@@ -82,7 +82,7 @@ class HomeSliderController extends Controller
             'title' => 'required|unique:home_sliders,title,'.$slider->id,
             'content' => 'required',
             'link' => 'nullable',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $slider->title = $validated['title'];
