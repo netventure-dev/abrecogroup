@@ -84,6 +84,7 @@
             </div>
         </section>
     @endif
+    
     @if ($our_projects->count() > 0)
         <section class="our-projects section">
             <div class="container">
@@ -147,41 +148,41 @@
             </div>
         </div>
     </section>
-      <section class="blog section">
-          <div class="container">
-              <div class="row align-items-start">
-                  <div class="col-12 text-center">
-                      <h2><span>READ OUR</span> BLOGS</h2>
-                  </div>
-              </div>
-              <div class="row align-items-start">
-                  @foreach($blogLists as $key => $bloglist)
-                    @if($key == 0)
-                      <div class="col-md-6 single-blog">
-                          <img src="{{ asset('assets/front/images/blog.webp') }}" class="img-fluid" alt="EUREKA SERVICES"
-                              height="auto" width="100%">
-                          <h4>{{@$bloglist->title}}</h4>
-                          <p>{!! \Illuminate\Support\Str::limit($bloglist->description, $limit = 150, $end = '...') !!}</p>
-                          <a href="#">Learn More....</a>
-                      </div>
-                    @endif
-                  @endforeach
-                  @if($blogLists->count() > 0)
-                    <div class="col-md-6 blog-list">
-                      @foreach($blogLists as $key => $bloglist)
-                        @if($key != 0)
-                            <div class="mb-3 blogs">
-                                <a href="" class="d-flex">
-                                    <img src="{{ asset('storage/'.$bloglist->image) }}" class="img-fluid mr-2"
-                                        alt="EUREKA SERVICES" height="auto" width="20%">
-                                    <p>{{@$bloglist->title}}</p>
-                                </a>
-                            </div>
-                        @endif
-                      @endforeach
+    <section class="blog section">
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col-12 text-center">
+                    <h2><span>READ OUR</span> BLOGS</h2>
+                </div>
+            </div>
+            <div class="row align-items-start">
+                @foreach($blogLists as $key => $bloglist)
+                @if($key == 0)
+                    <div class="col-md-6 single-blog">
+                        <img src="{{ asset('assets/front/images/blog.webp') }}" class="img-fluid" alt="EUREKA SERVICES"
+                            height="auto" width="100%">
+                        <h4>{{@$bloglist->title}}</h4>
+                        <p>{!! \Illuminate\Support\Str::limit($bloglist->description, $limit = 150, $end = '...') !!}</p>
+                        <a href="#">Learn More....</a>
                     </div>
-                  @endif
-              </div>
-          </div>
-      </section>
+                @endif
+                @endforeach
+                @if($blogLists->count() > 0)
+                <div class="col-md-6 blog-list">
+                    @foreach($blogLists as $key => $bloglist)
+                    @if($key != 0)
+                        <div class="mb-3 blogs">
+                            <a href="" class="d-flex">
+                                <img src="{{ asset('storage/'.$bloglist->image) }}" class="img-fluid mr-2"
+                                    alt="EUREKA SERVICES" height="auto" width="20%">
+                                <p>{{@$bloglist->title}}</p>
+                            </a>
+                        </div>
+                    @endif
+                    @endforeach
+                </div>
+                @endif
+            </div>
+        </div>
+    </section>
 @endsection

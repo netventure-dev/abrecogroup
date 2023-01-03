@@ -346,7 +346,7 @@ p {
 
 /*Our projects*/
 .projects-section {
-  background-image: url(images/plumbing.webp);
+  background-image: url(/assets/front/images/plumbing.webp);
   position: relative;
 }
 

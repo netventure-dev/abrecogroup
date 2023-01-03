@@ -5,6 +5,7 @@ use App\Models\Schedule;
 use App\Models\WhyChooseUsSettings;
 use App\Models\WhyChooseUs;
 use App\Models\OurProjects;
+use App\Models\General;
 use App\Models\Blog;
 use App\Models\BlogList;
 use App\Models\HomeSlider;
@@ -22,9 +23,10 @@ class HomeController extends Controller
         $technical_services_list=WhyChooseUs::where('status',1)->get();
         $services=Service::with('faqs','contents')->where('status',1)->get();
         $blog=Blog::first();
+        $general=General::first();
         $blogLists=BlogList::where('status',1)->get();
         $testimonials=Testimonial::where('status',1)->get();
-        return view('home',compact('home_sliders','technical_service','blog','blogLists','technical_services_list','services','our_projects','testimonials'));
+        return view('home',compact('general','home_sliders','technical_service','blog','blogLists','technical_services_list','services','our_projects','testimonials'));
     }
 
 }

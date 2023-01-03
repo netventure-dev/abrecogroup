@@ -26,8 +26,8 @@ class GeneralController extends Controller
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
             'address' => 'required',
-            'phone' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|min:9',
-            'logo' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
+            'phone' => 'nullable|numeric',
+            'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'facebook' => 'required',
             'instagram' => 'required',
             'linkdln' => 'required',
