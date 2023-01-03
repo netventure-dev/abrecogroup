@@ -15,7 +15,7 @@ class OurProjectsController extends Controller
     {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Our Projects')), null],
+            [(__('Our Projects')), route('admin.our-projects.index')],
         ];
         return $dataTable->render('admin.our-projects.index', ['breadcrumbs' => $breadcrumbs]);
     }
@@ -39,7 +39,7 @@ class OurProjectsController extends Controller
     {
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
-            'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $data = new OurProjects;
@@ -72,7 +72,7 @@ class OurProjectsController extends Controller
         // $this->authorize('create', Gender::class);
         $data= OurProjects::where('uuid',$id)->first();
         $validated = $request->validate([
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $data->status = $validated['status'];

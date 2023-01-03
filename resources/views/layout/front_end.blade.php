@@ -30,7 +30,7 @@
     <!-- HEADER -->
     <header class="fixed-top header_area">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#"><img src="{{ asset('assets/front/images/logo-new.webp') }}"
+            <a class="navbar-brand" href="{{route('home')}}"><img src="{{ asset('assets/front/images/logo-new.webp') }}"
                     alt="EUREKA SERVICES" height="50px" width="auto" />EUREKA SERVICES</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{route('home')}}">HOME <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -60,16 +60,16 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">BLOG</a>
+                        <a class="nav-link" href="https://www.eurekaservices.ae/blog/">BLOG</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">REQUEST RATES</a>
+                        <a class="nav-link" href="https://www.eurekaservices.ae/request-rates/">REQUEST RATES</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ABOUT US</a>
+                        <a class="nav-link" href="https://www.eurekaservices.ae/about-us/">ABOUT US</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="contact-button">CONTAC US</a>
+                        <a class="nav-link" href="https://www.eurekaservices.ae/contact-us/" id="contact-button">CONTAC US</a>
                     </li>
 
                 </ul>
@@ -96,24 +96,25 @@
                     <li><a href="#">Carpentry & Flooring Contracting</a></li>
                 </ul>
 
-            </div>
+            </div>           
+            @php 
+                $general = \DB::table('generals')->first();
+            @endphp
             <div class="col-md-3 contact-details">
                 <h3>GET IN TOUCH</h3>
                 <!--Form-->
                 <p class="text-left"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                    Eureka Technical Services LLC<br>
-                    Office no: 1102, Shobha Ivory 2<br>
-                    Business Bay, Dubai, UAE</p>
+                    {!!@$general->address!!}</p>
                 <p class="text-left"><i class="fa fa-mobile" aria-hidden="true"></i>
                     <a href="tel:+971522726486">+971 52 272 6486</a>
                 </p>
 
                 <div class="Social-media">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    <a href="{{@$general->facebook}}"><i class="fa fa-facebook"></i></a>
+                    <a href="{{@$general->instagram}}"><i class="fa fa-instagram"></i></a>
+                    <a href="{{@$general->twitter}}"><i class="fa fa-twitter"></i></a>
+                    <a href="{{@$general->linkdln}}"><i class="fa fa-linkedin"></i></a>
+                    <a href="{{@$general->youtube}}"><i class="fa fa-youtube"></i></a>
                 </div>
             </div>
             <div class="col-md-6">

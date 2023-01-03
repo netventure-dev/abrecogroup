@@ -28,7 +28,7 @@ class RequestRatesController extends Controller
         $validated = $request->validate([
             'cover_title' => 'required',
             'cover_content' => 'required',
-            'cover_image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
+            'cover_image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
             'seo_title' => 'nullable',
             'seo_keyword' => 'nullable',

@@ -38,7 +38,7 @@ class BlogListController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:blogs,title',
             'description' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $blogs = new Bloglist();
@@ -79,7 +79,7 @@ class BlogListController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:blogs,title,' . $blog->id,
             'description' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $blog->title = $validated['title'];

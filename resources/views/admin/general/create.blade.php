@@ -50,10 +50,10 @@
                                     <label for="phone" class="col-sm-3 col-form-label mb-2">{{ __('Mobile') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <input id="phone" name="phone" type="number"
+                                        <input id="phone" name="phone" type="text"
                                             class="form-control mb-2 @if ($errors->has('phone')) is-invalid @endif"
                                             placeholder="{{ __('Enter phone') }}" required
-                                            value="{{ @old('phone', @$data->phone) }}">
+                                            value="{{ @old('phone', @$data->mobile) }}">
                                         <div class="invalid-feedback">{{ $errors->first('phone') }}
                                         </div>
                                     </div>

@@ -40,7 +40,7 @@ class MissionVisionController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:about_us_lists,title',
             'content' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $data = new MissionVision;
@@ -78,7 +78,7 @@ class MissionVisionController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:about_us_lists,title,'.$data->id,
             'content' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $data->title = $validated['title'];

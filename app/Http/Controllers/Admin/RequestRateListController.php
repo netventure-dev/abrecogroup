@@ -45,7 +45,7 @@ class RequestRateListController extends Controller
             'title' => 'required|unique:request_rate_contents,title',
             'content' => 'required',
             'service_care_id' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $data = new RequestRateContent;
@@ -85,7 +85,7 @@ class RequestRateListController extends Controller
             'title' => 'required|unique:request_rate_contents,title,'.$data->id,
             'content' => 'required',
             'service_care_id' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $data->title = $validated['title'];
