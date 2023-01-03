@@ -67,23 +67,7 @@
                                         </div>
                                     </div>
                                 </div>                         
-                                <div class="mb-4 row">
-                                    <label for="horizontal-firstname-input"
-                                        class="col-sm-3 col-form-label">{{ __('Status') }}<span
-                                            class="text-danger">*</span></label>
-                                    <div class="col-sm-9">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="status1"
-                                                value="1" @if (!@old('status')) checked @endif>
-                                            <label class="form-check-label" for="status1">{{ __('Active') }}</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="status2"
-                                                value="0" @if (@old('status')) checked @endif>
-                                            <label class="form-check-label" for="status2">{{ __('Inactive') }}</label>
-                                        </div>
-                                    </div>
-                                </div> 
+                               
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">
                                         <div>
