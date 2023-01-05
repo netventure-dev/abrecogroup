@@ -34,7 +34,7 @@
             <div class="card">
                 <div class="card-body">
                     {{-- {{ $dataTable->table(['class' => 'table table-bordered dt-responsive nowrap w-100'], false) }} --}}
-                    <table class="table table-bordered yajra-datatable">
+                    <table class="table table-bordered table-striped yajra-datatable" style="    background: #b2b2b2;">
                         <thead>
                             <tr>
                                 <th>Sl. No</th>
@@ -47,7 +47,7 @@
                             @foreach ($contents as $content)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$content->title}}</td>
+                                <td>{!! $content->title !!}</td>
                                 <td>{{$content->order}}</td>
                                 <td> <a href="{{ route('admin.services.content.edit',['id' => $services->uuid, 'uuid' =>$content->uuid]) }}" class="first btn btn-primary edit"> Edit</a>
                                 <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this row')}}')){

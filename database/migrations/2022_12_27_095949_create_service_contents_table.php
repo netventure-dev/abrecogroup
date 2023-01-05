@@ -17,7 +17,7 @@ class CreateServiceContentsTable extends Migration
             $table->id();
             $table->string('uuid');
             $table->string('service_id');
-            $table->string('title');
+            $table->longText('title');
             $table->longText('description');
             $table->string('order');
             $table->string('image')->nullable();

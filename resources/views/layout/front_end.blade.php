@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    {{-- @dd($services); --}}
     <!-- HEADER -->
     <header class="fixed-top header_area">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -49,14 +50,10 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">SWIMMING POOL MAINTENANCE</a>
-                            <a class="dropdown-item" href="#">AC MAINTENANCE & SERVICES</a>
-                            <a class="dropdown-item" href="#">PLUMBING & SANITARY CONTRACTING</a>
-                            <a class="dropdown-item" href="#">ELECTRICAL MAINTENANCE WORKS</a>
-                            <a class="dropdown-item" href="#">CARPENTRY & FLOORING CONTRACTING</a>
-                            <a class="dropdown-item" href="#">FALSE CEILING</a>
-                            <a class="dropdown-item" href="#">FLOOR & TILING WORKS</a>
-                            <a class="dropdown-item" href="#">WALLPAPER FIXING SERVICES</a>
+                            @foreach ($services as $service)
+                            <a class="dropdown-item" href="{{route('service.index',$service->slug)}}">{{$service->name}}</a>                                
+                            @endforeach
+                          
                             <!-- <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
             </div> -->
@@ -72,7 +69,7 @@
                         <a class="nav-link" href="https://www.eurekaservices.ae/about-us/">ABOUT US</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.eurekaservices.ae/contact-us/" id="contact-button">CONTAC US</a>
+                        <a class="nav-link" href="https://www.eurekaservices.ae/contact-us/" id="contact-button">CONTACT US</a>
                     </li>
 
                 </ul>
