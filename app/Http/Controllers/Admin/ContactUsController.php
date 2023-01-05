@@ -33,7 +33,7 @@ class ContactUsController extends Controller
             'link' => 'nullable',
             'map_link' => 'nullable',
             'seo_title' => 'nullable',
-            'seo_keyword' => 'nullable',
+            'seo_keywords' => 'nullable',
             'seo_description' => 'nullable',
         ]);
         $data = ContactUs::firstOrCreate();
@@ -45,7 +45,7 @@ class ContactUsController extends Controller
         $data->phone = $validated['phone'];
         $data->map_link = $validated['map_link'];
         $data->seo_title = $validated['seo_title'];
-        $data->seo_keyword = $validated['seo_keyword'];
+        $data->seo_keywords = $validated['seo_keywords'];
         $data->seo_description = $validated['seo_description'];
         if ($request->hasFile('banner_image')) {
             $path =  $request->file('banner_image')->storeAs('media/aboutus/image/',$validated['banner_image']->getClientOriginalName(), 'public');

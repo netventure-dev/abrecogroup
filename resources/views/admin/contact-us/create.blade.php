@@ -128,14 +128,14 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="seo_keyword"
+                                    <label for="seo_keywords"
                                         class="col-sm-3 col-form-label mb-2">{{ __('Seo keyword') }}</label>
                                     <div class="col-sm-9">
-                                        <input id="seo_keyword" name="seo_keyword" type="text"
-                                            class="form-control mb-2 @if ($errors->has('seo_keyword')) is-invalid @endif"
+                                        <input id="seo_keywords" name="seo_keywords" type="text"
+                                            class="form-control mb-2 @if ($errors->has('seo_keywords')) is-invalid @endif"
                                             placeholder="{{ __('Enter seo keyword') }}"
-                                            value="{{ @old('seo_keyword') }}">
-                                        <div class="invalid-feedback">{{ $errors->first('seo_keyword') }}
+                                            value="{{ @old('seo_keywords') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('seo_keywords') }}
                                         </div>
                                     </div>
                                 </div>
