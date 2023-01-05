@@ -61,7 +61,7 @@
                                     <label for="order" class="col-sm-3 col-form-label mb-2">{{ __('Order') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <input id="order" name="order" type="number" min="1" max="12"
+                                        <input id="order" name="order" type="number" min="1" max="15"
                                             class="form-control mb-2 @if ($errors->has('order')) is-invalid @endif"
                                             placeholder="{{ __('Enter order') }}" required
                                             value="{{ @old('order', @$content->order) }}">

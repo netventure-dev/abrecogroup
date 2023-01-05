@@ -69,7 +69,7 @@
                         <a class="nav-link" href="https://www.eurekaservices.ae/about-us/">ABOUT US</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.eurekaservices.ae/contact-us/" id="contact-button">CONTAC US</a>
+                        <a class="nav-link" href="https://www.eurekaservices.ae/contact-us/" id="contact-button">CONTACT US</a>
                     </li>
 
                 </ul>
