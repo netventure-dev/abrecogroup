@@ -24,7 +24,7 @@ class RequestQuoteController extends Controller
                 'service' => 'required',
                 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
                 'location' => 'required',
-                // 'g-recaptcha-response' => 'required|captcha',
+                'g-recaptcha-response' => 'required|captcha',
 
             ],
         );

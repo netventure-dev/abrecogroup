@@ -109,15 +109,15 @@
                 <p class="text-left"><i class="fa fa-map-marker" aria-hidden="true"></i>
                     {!! @$general->address !!}</p>
                 <p class="text-left"><i class="fa fa-mobile" aria-hidden="true"></i>
-                    <a href="{{ $general->mobile }}">{{ @$general->mobile }}</a>
+                    <a href="{{ @$general->mobile }}">{{ @$general->mobile }}</a>
                 </p>
 
                 <div class="Social-media">
-                    <a href="{{ @$general->facebook }}"><i class="fa fa-facebook"></i></a>
-                    <a href="{{ @$general->instagram }}"><i class="fa fa-instagram"></i></a>
-                    <a href="{{ @$general->twitter }}"><i class="fa fa-twitter"></i></a>
-                    <a href="{{ @$general->linkdln }}"><i class="fa fa-linkedin"></i></a>
-                    <a href="{{ @$general->youtube }}"><i class="fa fa-youtube"></i></a>
+                    <a target="_blank" href="{{ @$general->facebook }}"><i class="fa fa-facebook"></i></a>
+                    <a target="_blank" href="{{ @$general->instagram }}"><i class="fa fa-instagram"></i></a>
+                    <a target="_blank" href="{{ @$general->twitter }}"><i class="fa fa-twitter"></i></a>
+                    <a target="_blank" href="{{ @$general->linkdln }}"><i class="fa fa-linkedin"></i></a>
+                    <a target="_blank" href="{{ @$general->youtube }}"><i class="fa fa-youtube"></i></a>
                 </div>
             </div>
             @php
@@ -138,14 +138,15 @@
                     <!-- <label for="inputService">Select Services</label> -->
                     <select id="service" class="form-control mb-2 mr-sm-2" name="service">
                         <option selected value="">Select Services</option>
-                         @foreach ($services as $service)
+                        @foreach ($services as $service)
                             <option value="{{ $service->uuid }}">{{ @$service->name }}</option>
                         @endforeach
                     </select>
                     <label class="sr-only" for="inlineFormInputLocation">Location</label>
                     <input type="text" class="form-control mb-2 mr-sm-2" id="location" name="location"
                         value="{{ @old('location') }}" placeholder="Location">
-
+                    {!! NoCaptcha::renderJs() !!}
+                    {!! NoCaptcha::display() !!}
                     <button type="submit" class="btn btn-danger mb-2">Submit</button>
                 </form>
             </div>
