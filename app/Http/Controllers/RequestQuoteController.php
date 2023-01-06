@@ -24,7 +24,7 @@ class RequestQuoteController extends Controller
                 'service' => 'required',
                 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
                 'location' => 'required',
-                'g-recaptcha-response' => 'required|captcha',
+                // 'g-recaptcha-response' => 'required|captcha',
 
             ],
         );
@@ -44,9 +44,9 @@ class RequestQuoteController extends Controller
             $details['phone'] = $validated['phone'];
             $details['location'] = $validated['location'];
             $details['admin_name'] = $admin->name;
-            Notification::send($admin, new QuoteNotification($details));
-            Notification::route('mail', $admin->email)->notify(new QuotessNotification($admin));
-            return view('contact_us.show');
+            //  Notification::send($admin, new QuoteNotification($details));
+            //  Notification::route('mail', $admin->email)->notify(new QuotessNotification($admin));
+            return redirect()->back()->with('Sucess','Sucessfully Contacted');
         } else {
             return redirect()->back()->with('error', 'Failed to contact us. Please try again.');
         }

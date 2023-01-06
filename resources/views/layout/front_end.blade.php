@@ -30,8 +30,9 @@
     <!-- HEADER -->
     <header class="fixed-top header_area">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="{{route('home')}}"><img src="{{ asset('assets/front/images/logo-new.webp') }}"
-                    alt="EUREKA SERVICES" height="50px" width="auto" />EUREKA SERVICES</a>
+            <a class="navbar-brand" href="{{ route('home') }}"><img
+                    src="{{ asset('assets/front/images/logo-new.webp') }}" alt="EUREKA SERVICES" height="50px"
+                    width="auto" />EUREKA SERVICES</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,7 +41,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{route('home')}}">HOME <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('home') }}">HOME <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -51,9 +52,10 @@
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach ($services as $service)
-                            <a class="dropdown-item" href="{{route('service.index',$service->slug)}}">{{$service->name}}</a>                                
+                                <a class="dropdown-item"
+                                    href="{{ route('service.index', $service->slug) }}">{{ $service->name }}</a>
                             @endforeach
-                          
+
                             <!-- <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
             </div> -->
@@ -69,7 +71,8 @@
                         <a class="nav-link" href="https://www.eurekaservices.ae/about-us/">ABOUT US</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.eurekaservices.ae/contact-us/" id="contact-button">CONTACT US</a>
+                        <a class="nav-link" href="https://www.eurekaservices.ae/contact-us/" id="contact-button">CONTACT
+                            US</a>
                     </li>
 
                 </ul>
@@ -96,54 +99,52 @@
                     <li><a href="#">Carpentry & Flooring Contracting</a></li>
                 </ul>
 
-            </div>           
-            @php 
+            </div>
+            @php
                 $general = \DB::table('generals')->first();
             @endphp
             <div class="col-md-3 contact-details">
                 <h3>GET IN TOUCH</h3>
                 <!--Form-->
                 <p class="text-left"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                    {!!@$general->address!!}</p>
+                    {!! @$general->address !!}</p>
                 <p class="text-left"><i class="fa fa-mobile" aria-hidden="true"></i>
-                    <a href="tel:+971522726486">+971 52 272 6486</a>
+                    <a href="{{ $general->mobile }}">{{ @$general->mobile }}</a>
                 </p>
 
                 <div class="Social-media">
-                    <a href="{{@$general->facebook}}"><i class="fa fa-facebook"></i></a>
-                    <a href="{{@$general->instagram}}"><i class="fa fa-instagram"></i></a>
-                    <a href="{{@$general->twitter}}"><i class="fa fa-twitter"></i></a>
-                    <a href="{{@$general->linkdln}}"><i class="fa fa-linkedin"></i></a>
-                    <a href="{{@$general->youtube}}"><i class="fa fa-youtube"></i></a>
+                    <a href="{{ @$general->facebook }}"><i class="fa fa-facebook"></i></a>
+                    <a href="{{ @$general->instagram }}"><i class="fa fa-instagram"></i></a>
+                    <a href="{{ @$general->twitter }}"><i class="fa fa-twitter"></i></a>
+                    <a href="{{ @$general->linkdln }}"><i class="fa fa-linkedin"></i></a>
+                    <a href="{{ @$general->youtube }}"><i class="fa fa-youtube"></i></a>
                 </div>
             </div>
+            @php
+                $services = \DB::table('services')->get();
+            @endphp
             <div class="col-md-6">
                 <h3>REQUEST A QUOTE</h3>
-                <form class="form-inline">
+                <form class="form-inline" action="{{ route('request-a-quote.store') }}"method="post">
+                    @csrf
                     <label class="sr-only" for="inlineFormInputName2">Name</label>
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"
-                        placeholder="Name">
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="name" name="name"
+                        value="{{ @old('name') }}" placeholder="Name">
 
                     <label class="sr-only" for="inlineFormInputPhone">Phone</label>
-                    <input type="number" class="form-control mb-2 mr-sm-2" id="inlineFormInputPhone"
-                        placeholder="Phone">
+                    <input type="number" class="form-control mb-2 mr-sm-2" id="phone"
+                        name="phone"value="{{ @old('phone') }}" placeholder="phone">
 
                     <!-- <label for="inputService">Select Services</label> -->
-                    <select id="inputService" class="form-control mb-2 mr-sm-2">
-                        <option selected>Select Services</option>
-                        <option value="1">Swimming Pool Maintenance</option>
-                        <option value="2">AC Maintenance & Services</option>
-                        <option value="3">Plumbing & Sanitary Contracting</option>
-                        <option value="4">Carpentry & Flooring Contracting</option>
-                        <option value="5">Wallpaper Fixing</option>
-                        <option value="6">Electrical Maintenance Works</option>
-                        <option value="7">False Ceiling & Light Partitions</option>
-                        <option value="8">Floor & Tyling Works </option>
-                        <option value="9">Other Handyman Services</option>
+                    <select id="service" class="form-control mb-2 mr-sm-2" name="service">
+                        <option selected value="">Select Services</option>
+                         @foreach ($services as $service)
+                            <option value="{{ $service->uuid }}">{{ @$service->name }}</option>
+                        @endforeach
                     </select>
                     <label class="sr-only" for="inlineFormInputLocation">Location</label>
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputLocation"
-                        placeholder="Location">
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="location" name="location"
+                        value="{{ @old('location') }}" placeholder="Location">
 
                     <button type="submit" class="btn btn-danger mb-2">Submit</button>
                 </form>
