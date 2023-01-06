@@ -19,7 +19,6 @@ class CreateServicesTable extends Migration
             $table->string('name');
             $table->text('cover_description');
             $table->string('cover_image');
-            $table->string('logo');
             $table->string('title');
             $table->longText('description');
             $table->boolean('status')->default(0);
