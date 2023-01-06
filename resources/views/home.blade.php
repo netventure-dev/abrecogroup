@@ -62,7 +62,7 @@
                         <div class="col-md-4 text-center">
                             <div class="box">
                                 <div class="box-icon">
-                                    <div class="image"><img src="{{ asset('storage/' . @$service->cover_image) }}"
+                                    <div class="image"><img src="{{ asset('storage/' . @$service->logo) }}"
                                             class="img-circle" alt="EUREKA SERVICES" height="auto" width="80%"></div>
                                     <div class="info">
                                         <h3 class="title">{{ @$service->name }}</h3>

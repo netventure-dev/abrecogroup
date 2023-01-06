@@ -12,7 +12,7 @@
                     @endphp
                     <h2><span>{{ $firstWord }}</span> {{$restOfSentence}}</h2>
                     <p>{!! $service->cover_description !!} </p>
-                    {{-- <button type="button" class="btn btn-light book-service">BOOK YOUR SERVICE</button> --}}
+                     <button type="button" class="btn btn-light book-service">BOOK YOUR SERVICE</button>
                 </div>
             </div>
         </div>

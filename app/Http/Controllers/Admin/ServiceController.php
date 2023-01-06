@@ -36,6 +36,7 @@ class ServiceController extends Controller
             'name' => 'required|unique:services,name',
             'cover_description' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
+            'logo' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'title' => 'required',
             'description' => 'required',
             'status' => 'required',
@@ -57,6 +58,10 @@ class ServiceController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $service->cover_image = $path;
+        }
+        if ($request->hasFile('logo')) {
+            $path =  $request->file('logo')->storeAs('media/image',  $validated['logo']->getClientOriginalName(), 'public');
+            $service->logo = $path;
         }
         $res = $service->save();
         if ($res) {
@@ -87,6 +92,7 @@ class ServiceController extends Controller
             'name' => 'required|unique:services,name,'.$services->id,
             'cover_description' => 'required',
             'image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
+            'logo' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'title' => 'required',
             'description' => 'required',
             'status' => 'required',
@@ -106,6 +112,10 @@ class ServiceController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $services->cover_image = $path;
+        }
+        if ($request->hasFile('logo')) {
+            $path =  $request->file('logo')->storeAs('media/logo',  $validated['logo']->getClientOriginalName(), 'public');
+            $services->logo = $path;
         }
         $res = $services->save();
         if ($res) {

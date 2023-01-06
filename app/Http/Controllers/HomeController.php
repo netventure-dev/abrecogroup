@@ -26,6 +26,7 @@ class HomeController extends Controller
         $general=General::first();
         $blogLists=BlogList::where('status',1)->get();
         $testimonials=Testimonial::where('status',1)->get();
+        // dd($services);
         return view('home',compact('general','home_sliders','technical_service','blog','blogLists','technical_services_list','services','our_projects','testimonials'));
     }
 
