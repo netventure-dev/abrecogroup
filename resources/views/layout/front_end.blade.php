@@ -133,7 +133,7 @@
 
                     <label class="sr-only" for="inlineFormInputPhone">Phone</label>
                     <input type="number" class="form-control mb-2 mr-sm-2" id="phone"
-                        name="phone"value="{{ @old('phone') }}" placeholder="phone">
+                        name="phone"value="{{ @old('phone') }}" placeholder="Phone">
 
                     <!-- <label for="inputService">Select Services</label> -->
                     <select id="service" class="form-control mb-2 mr-sm-2" name="service">
@@ -154,7 +154,7 @@
         </div>
         <div class="copy-right text-center mt-4">
             <p class="text-center"> © 2022 Eureka Services. All rights reserved. Digitally Empowered by <a
-                    href="https://www.netventure.in/">NetVenture Digital Solutions Pvt. Ltd.</a> </p>
+                 target="_blank"href="https://www.netventure.in/">NetVenture Digital Solutions Pvt. Ltd.</a> </p>
         </div>
         <!-- <div class="fixed-bottom text-center">No:1 Maintenance and Handyman Services Company in Dubai</div> -->
 
