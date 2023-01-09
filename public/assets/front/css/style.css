@@ -720,7 +720,7 @@ p {
   font-size: 16px;
 }
 .footer .Social-mediat-details .fa {
-  padding-right: 5px;
+  padding-right: 5px!important;
 }
 }
 
