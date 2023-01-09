@@ -717,7 +717,7 @@ p {
   font-size: 14px !important;
 }
 .footer .contact-details .fa {
-  font-size: 20px;
+  font-size: 16px;
 }
 .footer .Social-mediat-details .fa {
   padding-right: 5px;
@@ -787,10 +787,10 @@ p {
   font-size: 24px!important;
 }
 .footer .contact-details .fa {
-  font-size: 20px;
+  font-size: 12px;
 }
 .footer .Social-mediat-details .fa {
-  padding-right: 5px;
+  padding-right: 5px!important;
 }
 }
 
