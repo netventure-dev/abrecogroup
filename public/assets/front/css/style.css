@@ -756,6 +756,9 @@ border-color: transparent!important;
     height: 80px;
     line-height: 80px;
   }
+  .service .list-group-item {
+    font-size: 14px;
+}
 }
 
 @media screen and (max-width:767px) {
