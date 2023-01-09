@@ -698,6 +698,9 @@ border-color: transparent!important;
 .navbar-expand-lg .navbar-nav .nav-link {
   padding: 10px 20px !important;
 }
+.service h3, .section2 h3, .section3 h3, .section4 h3, .section5 h3, .section6 h3 {
+  font-size: 30px!important;
+}
 }
 
 @media screen and (max-width:992px) {
