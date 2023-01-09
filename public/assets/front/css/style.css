@@ -84,7 +84,7 @@ header.header_area.newClass {
   background-color: rgba(38, 38, 40, .7) !important;
   padding-left: 20px !important;
   top: unset !important;
-  bottom: 60px !important;
+  bottom: 50px !important;
   width: 510px;
 }
 
@@ -131,6 +131,9 @@ header.header_area.newClass {
 
 .slider-section a:hover {
   color: #f9bf0f;
+}
+.slider-section p {
+ font-size: 17px!important;
 }
 
 /*End slider style*/
@@ -781,6 +784,7 @@ color: #fff;
     bottom: 5px !important;
     width: 356px;
   }
+  
 
   header.header_area {
     position: relative !important;
