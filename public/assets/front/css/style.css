@@ -691,6 +691,9 @@ color: #fff;
 .navbar-brand img{
   height: 30px !important;
 }
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 10px 20px !important;
+}
 }
 
 @media screen and (max-width:992px) {
