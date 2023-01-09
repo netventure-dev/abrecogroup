@@ -661,7 +661,9 @@ color: #fff;
   padding: 25px;
 }
 
-
+.faq p {
+  font-size: 20px;
+}
 .faq h3{
   font-size: 40px!important;
   text-align: center!important;
