@@ -45,7 +45,7 @@ header.header_area.newClass {
 }
 
 #contact-button {
-  background-color: #ea2f33;
+  background-color: #ec3035;
   border-radius: 10px !important;
   color: #ffffff;
 }
@@ -536,6 +536,16 @@ img.pb-4.comms {
   width: 47%;
 }
 
+.btn-danger {
+  color: #fff;
+  background-color: #ec3035!important;
+  border-color: #ec3035!important;
+}
+.btn-danger:hover {
+  color: #fff;
+  background-color: #e5ac0d!important;
+  border-color: #e5ac0d!important;
+}
 /*social media*/
 .footer .Social-media .fa {
   border: 1px solid #ffffff !important;
@@ -582,7 +592,7 @@ img.pb-4.comms {
 }
 
 .contact-us .get-in-touch {
-  background-color: #ea2f33;
+  background-color: #ec3035;
 }
 
 .contact-us .form-control {
