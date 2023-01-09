@@ -25,6 +25,7 @@ header.header_area.newClass {
   font-size: 40px !important;
   color: #ffffff !important;
   FONT-WEIGHT: 700 !important;
+  font-family: "Exo 2", Sans-serif !important;
 }
 
 .navbar-nav .nav-link {
