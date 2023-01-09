@@ -230,7 +230,7 @@ p {
 .box-icon {
   text-align: center;
   position: relative;
-  padding: 6px;
+  padding: 8px;
 }
 
 .box-icon>.image {
