@@ -685,8 +685,13 @@ color: #fff;
   .slider-section h2{
     font-size: 33px!important;
   }
+  .navbar-brand {
+    font-size: 25px !important;
 }
-
+.navbar-brand img{
+  height: 30px !important;
+}
+}
 
 @media screen and (max-width:992px) {
   .blog-list p {
