@@ -887,4 +887,8 @@ p {
   .service h3, .section2 h3, .section3 h3, .section4 h3, .section5 h3, .section6 h3 {
     font-size: 30px!important;
   }
+  .btn-warning {
+    font-size: 15px;
+    padding: 10px 20px;
+}
 }
