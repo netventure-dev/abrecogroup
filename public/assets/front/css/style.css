@@ -791,7 +791,9 @@ border-color: transparent!important;
   .slider-section h1 {
     font-size: 16px !important;
   }
-
+  .slider-section h2 {
+    font-size: 22px!important;
+}
   .slider-section p {
     font-size: 12px !important;
   }
