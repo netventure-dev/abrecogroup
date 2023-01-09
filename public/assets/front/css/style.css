@@ -184,7 +184,11 @@ p {
   font-size: 18px;
   font-weight: 400;
 }
-
+li.list-group-item i {
+  position: absolute;
+  left: -4px;
+  top: 20px;
+}
 
 /*End body*/
 
