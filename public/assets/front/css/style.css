@@ -680,6 +680,12 @@ color: #fff;
 
 
 /*...................Media Queries..................*/
+@media screen and (max-width:992px) {
+
+  .slider-section h2{
+    font-size: 33px;
+  }
+}
 
 
 @media screen and (max-width:992px) {
