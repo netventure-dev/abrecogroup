@@ -795,6 +795,9 @@ p {
 }
 
 @media screen and (max-width:767px) {
+  body{
+    margin-top:59px;
+  }
   .header_area .navbar-toggler {
     background-color: #fbc110 !important;
   }
