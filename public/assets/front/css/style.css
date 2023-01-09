@@ -717,7 +717,7 @@ p {
   font-size: 14px !important;
 }
 .footer .contact-details .fa {
-  font-size: 16px;
+  font-size: 16px!important;
 }
 .footer .Social-mediat-details .fa {
   padding-right: 5px!important;
@@ -787,7 +787,7 @@ p {
   font-size: 24px!important;
 }
 .footer .contact-details .fa {
-  font-size: 12px;
+  font-size: 12px!important;
 }
 .footer .Social-mediat-details .fa {
   padding-right: 5px!important;
