@@ -523,7 +523,7 @@ img.pb-4.comms {
   list-style: none;
   margin-left: -40px;
 }
-.col-md-3.contact-details i:hover {
+.footer .Social-media .fa:hover {
   border: none!important;
   color: #fff!important;
 }
