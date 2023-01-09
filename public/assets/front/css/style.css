@@ -344,6 +344,9 @@ p {
 .our-services {
   background-color: #f7f8f9;
 }
+.service h3, .section2 h3, .section3 h3, .section4 h3, .section5 h3, .section6 h3 {
+  text-align: left!important;
+}
 
 /*End Our services*/
 
