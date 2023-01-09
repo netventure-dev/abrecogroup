@@ -547,12 +547,12 @@ img.pb-4.comms {
 .btn-danger {
   color: #fff;
   background-color: #ea2f33!important;
-  border-color: #ea2f33!important;
+  border-color: transparent!important;
 }
 .btn-danger:hover {
   color: #fff;
   background-color: #e5ac0d!important;
-  border-color: #e5ac0d!important;
+  border-color:transparent!important;
 }
 /*social media*/
 .footer .Social-media .fa {
