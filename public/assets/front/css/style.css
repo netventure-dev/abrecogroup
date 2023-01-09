@@ -522,6 +522,10 @@ img.pb-4.comms {
   list-style: none;
   margin-left: -40px;
 }
+.footer .contact-details i:hover {
+ color: fff;
+ border: none!important;
+}
 
 /* .footer .fixed-bottom{
   padding: 10px;
