@@ -526,6 +526,9 @@ img.pb-4.comms {
   text-decoration: none !important;
   color: #ffffff;
 }
+.footer a:hover {
+  color: #e5ac0d;
+}
 
 .footer li {
   list-style: none;
