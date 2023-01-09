@@ -683,7 +683,7 @@ color: #fff;
 @media screen and (max-width:1024px) {
 
   .slider-section h2{
-    font-size: 33px;
+    font-size: 33px!important;
   }
 }
 
