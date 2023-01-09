@@ -634,6 +634,7 @@ img.pb-4.comms {
 .btn-warning:hover {
 background-color: #ea2f33;
 color: #fff;
+border-color: transparent!important;
 }
 .section2{
   background-color: #f3f3f3;
