@@ -636,6 +636,9 @@ background-color: #ea2f33;
 color: #fff;
 border-color: transparent!important;
 }
+.section1 p {
+  text-align: left;
+}
 .section2{
   background-color: #f3f3f3;
 }
