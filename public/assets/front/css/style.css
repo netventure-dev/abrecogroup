@@ -510,6 +510,7 @@ img.pb-4.comms {
 
 .footer p {
   font-size: 17px !important;
+  
 }
 
 .footer a {
@@ -522,9 +523,9 @@ img.pb-4.comms {
   list-style: none;
   margin-left: -40px;
 }
-.footer .contact-details i:hover {
- color: fff;
- border: none!important;
+.col-md-3.contact-details i:hover {
+  border: none!important;
+  color: #fff!important;
 }
 
 /* .footer .fixed-bottom{
@@ -546,7 +547,7 @@ img.pb-4.comms {
   padding-right: 10px;
 }
 
-.footer .fa:hover {
+.footer .Social-media .fa:hover {
   color: #e5ac0d;
   border: 1px solid #e5ac0d !important;
 }
