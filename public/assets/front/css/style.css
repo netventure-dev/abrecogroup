@@ -755,9 +755,9 @@ p {
     background-color: #000000 !important;
   }
 
-  header.header_area {
+  /* header.header_area {
     position: relative !important;
-  }
+  } */
 
   h2 {
     font-size: 35px !important;
