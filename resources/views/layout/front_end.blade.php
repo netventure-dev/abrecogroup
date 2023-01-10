@@ -61,7 +61,7 @@
             </div> -->
 
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="https://www.eurekaservices.ae/blog/">BLOG</a>
                     </li>
                     <li class="nav-item">
@@ -73,7 +73,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="https://www.eurekaservices.ae/contact-us/" id="contact-button">CONTACT
                             US</a>
-                    </li>
+                    </li> --}}
 
                 </ul>
                 <!-- <form class="form-inline my-2 my-lg-0">

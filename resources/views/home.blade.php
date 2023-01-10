@@ -31,7 +31,7 @@
                         @foreach ($technical_services_list as $technical_service_list)
                             <div class="icon-box-icon-list">
                                 <div class="icon-box-icons">
-                                    <i class="fa fa-ticket"></i>
+                                    <img    src="{{asset('storage/' . @$technical_service_list->image) }}">
                                 </div>
                                 <div class="icon-box-contents">
                                     <h3>{{ @$technical_service_list->title }} </h3>
