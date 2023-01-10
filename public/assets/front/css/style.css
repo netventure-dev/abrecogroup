@@ -973,4 +973,8 @@ body{
     font-size: 15px;
     padding: 10px 20px;
 }
+
+.form-inline .form-control {
+  width: 100%;
+}
 }
