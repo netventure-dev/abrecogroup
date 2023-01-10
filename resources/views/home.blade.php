@@ -50,16 +50,16 @@
     @endif
     @if ($services->count() > 0)
         <section class="our-services section">
-            <div class="container">
+            <div class="container paddingBlock">
                 <div class="row align-items-start">
                     <div class="col-12 text-center">
                         <h2><span>OUR</span> SERVICES</h2>
                     </div>
                 </div>
                 <!-- Row1-->
-                <div class="row align-items-start">
+                <div class="row equalHMRWrap eqWrap align-items-start">
                     @foreach ($services as $service)
-                        <div class="col-md-4 text-center">
+                        <div class="col-md-4 text-center equalHMR eq">
                             <div class="box">
                                 <div class="box-icon">
                                     <div class="image"><img src="{{ asset('storage/' . @$service->logo) }}"
