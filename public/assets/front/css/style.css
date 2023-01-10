@@ -789,7 +789,7 @@ border-color: transparent!important;
 @media screen and (max-width:1366px) {
 
 .navbar-expand-lg .navbar-nav .nav-link {
-  padding: 10px 10px !important;
+  padding: 10px 20px !important;
 }
 .carousel-caption h2 {
   font-size: 40px!important;
