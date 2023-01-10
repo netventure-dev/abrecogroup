@@ -31,7 +31,10 @@
                         @foreach ($technical_services_list as $technical_service_list)
                             <div class="icon-box-icon-list">
                                 <div class="icon-box-icons">
-                                    <i class="fa fa-ticket"></i>
+                                    <i>
+                                        <img src="{{ asset('storage/' . @$technical_service->image) }}" class="img-fluid"
+                            alt="EUREKA SERVICES" style="width:50px;">
+</i>
                                 </div>
                                 <div class="icon-box-contents">
                                     <h3>{{ @$technical_service_list->title }} </h3>
