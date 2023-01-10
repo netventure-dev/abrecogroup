@@ -61,7 +61,7 @@
         $content14 = $content->where('order', 14)->first();
     @endphp
     @if ($content1)
-        <section class="service section" order='{{ $content1->order }}'>
+        <section class="service section d-flex" order='{{ $content1->order }}'>
             <div class="container">
                 <div class="row col-md-12 text-center section1">
                     <h2>{!! @$content1->title !!}</h2>
@@ -94,12 +94,32 @@
             </div>
         </section>
     @endif
-    <section class="section2 section" order='{{ @$content2->order }}'>
+    <section class="section2 section d-flex" order='{{ @$content2->order }}'>
         <div class="container">
             @if ($content2)
-                <div class="row col-md-12  align-items-center">
+            <div class="col-md-12">
+
+                <!-- left image -->
+                <img src="{{ asset('storage/' . $content2->image) }}" 
+                class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES">
+
+                <!-- right image -->
+                <!-- <img src="{{ asset('storage/' . $content2->image) }}" 
+                class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> -->
+
+                <h3>{!! @$content2->title !!}</h3>
+                {!! $content2->description !!}
+                <div class="text-center">
+                    @if (@$content2->button_title)
+                        <a href="{{ $content2->button_link }}" target="_blank"> 
+                            <button type="submit" class="btn btn-warning mb-2">{{ $content2->button_title }}</button>
+                        </a>
+                    @endif
+                </div>
+            </div>
+                {{-- <div class="row col-md-12  align-items-center">
                     <div class="col-md-6 mt-5">
-                        <img src="{{ asset('storage/' . $content2->image) }}" class="rounded img-fluid d-block"
+                        <img src="{{ asset('storage/' . $content2->image) }}" class="float-left pr-4  rounded img-fluid d-block"
                             alt="EUREKA SERVICES">
                     </div>
                     <div class="col-md-6">
@@ -110,7 +130,7 @@
                                     class="btn btn-warning mb-2"> {{ $content2->button_title }}</button><a>
                         @endif
                     </div>
-                </div>
+                </div> --}}
             @endif
             @if ($content3)
                 <div class="row col-md-12 m-1 section2-1" order='{{ @$content3->order }}'>
@@ -119,7 +139,27 @@
             @endif
 
             @if ($content4)
-                <div class="row col-md-12 section2-2" order='{{ @$content4->order }}'>
+            <div class="col-md-12"  order='{{ @$content4->order }}'>
+
+                <!-- left image -->
+                {{-- <img src="{{ asset('storage/' . $content4->image) }}" 
+                class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> --}}
+
+                <!-- right image -->
+               <img src="{{ asset('storage/' . $content4->image) }}" 
+                class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> 
+
+                <h3>{!! @$content4->title !!}</h3>
+                {!! $content4->description !!}
+                <div class="text-center">
+                    @if (@$content4->button_title)
+                        <a href="{{ $content4->button_link }}" target="_blank"> 
+                            <button type="submit" class="btn btn-warning mb-2">{{ $content4->button_title }}</button>
+                        </a>
+                    @endif
+                </div>
+            </div>
+                {{-- <div class="row col-md-12 section2-2" order='{{ @$content4->order }}'>
                     <div class="col-md-6">
                         {!! $content4->description !!}
                         @if (@$content4->button_title)
@@ -131,74 +171,95 @@
                         <img src="{{ asset('storage/' . $content4->image) }}" class="img-fluid rounded d-block"
                             alt="EUREKA SERVICES">
                     </div>
-                </div>
+                </div> --}}
             @endif
 
         </div>
     </section>
 
     @if ($content5)
-        <section class="section3 section" order='{{ @$content5->order }}'>
+        <section class="section3 section d-flex" order='{{ @$content5->order }}'>
             <div class="container">
-                <div class="row col-md-12  align-items-center">
-                    <div class="col-md-6 mt-5">
-                        <img src="{{ asset('storage/' . $content5->image) }}" class="rounded img-fluid d-block"
-                            alt="EUREKA SERVICES">
-                    </div>
-                    <div class="col-md-6">
-                        <h3>{!! @$content5->title !!}</h3>
-                        {!! $content5->description !!}
+                <div class="col-md-12">
+
+                    <!-- left image -->
+                    <img src="{{ asset('storage/' . $content5->image) }}" 
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES">
+
+                    <!-- right image -->
+                    <!-- <img src="{{ asset('storage/' . $content5->image) }}" 
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> -->
+
+                    <h3>{!! @$content5->title !!}</h3>
+                    {!! $content5->description !!}
+                    <div class="text-center">
                         @if (@$content5->button_title)
-                            <a href="{{ $content5->button_link }}" target="_blank"> <button type="submit"
-                                    class="btn btn-warning mb-2">{{ $content5->button_title }}</button></a>
+                            <a href="{{ $content5->button_link }}" target="_blank"> 
+                                <button type="submit" class="btn btn-warning mb-2">{{ $content5->button_title }}</button>
+                            </a>
                         @endif
                     </div>
                 </div>
+               
         </section>
     @endif
     @if ($content6)
-        <section class="section4 section" order='{{ @$content6->order }}'>
+        <section class="section4 section d-flex" order='{{ @$content6->order }}'>
             <div class="container">
-                <div class="row col-md-12  align-items-center">
-                    <div class="col-md-6 mt-5">
-                        <h3>{!! @$content6->title !!}</h3>
-                        {!! $content6->description !!}
+                <div class="col-md-12">
+
+                    <!-- left image -->
+                    {{-- <img src="{{ asset('storage/' . $content6->image) }}" 
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> --}}
+
+                    <!-- right image -->
+                     <img src="{{ asset('storage/' . $content6->image) }}" 
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> 
+
+                    <h3>{!! @$content6->title !!}</h3>
+                    {!! $content6->description !!}
+                    <div class="text-center">
                         @if (@$content6->button_title)
-                            <a href="{{ $content6->button_link }}" target="_blank"> <button type="submit"
-                                    class="btn btn-warning mb-2">{{ $content6->button_title }}</button></a>
+                            <a href="{{ $content6->button_link }}" target="_blank"> 
+                                <button type="submit" class="btn btn-warning mb-2">{{ $content6->button_title }}</button>
+                            </a>
                         @endif
                     </div>
-                    <div class="col-md-6">
-                        <img src="{{ asset('storage/' . $content6->image) }}"
-                            class="shadow rounded img-fluid ml-4 p-4 img1" alt="EUREKA SERVICES">
-                        {{-- <img src="{{asset('storage/'.$content6->image)}}" class="shadow rounded img-fluid img2" alt="EUREKA SERVICES"> --}}
-                    </div>
                 </div>
+            </div>
+
         </section>
     @endif
     @if ($content7)
-        <section class="section5 section" order='{{ @$content7->order }}'>
+        <section class="section5 section d-flex" order='{{ @$content7->order }}'>
             <div class="container">
-                <div class="row col-md-12  align-items-center">
-                    <div class="col-md-6 mt-5">
-                        <img src="{{ asset('storage/' . $content7->image) }}" class="rounded img-fluid d-block"
-                            alt="EUREKA SERVICES">
-                    </div>
-                    <div class="col-md-6">
-                        <h3>{!! @$content7->title !!} </h3>
-                        {!! $content7->description !!}
+                <div class="col-md-12">
+
+                    <!-- left image -->
+                    <img src="{{ asset('storage/' . $content7->image) }}" 
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES">
+
+                    <!-- right image -->
+                    <!-- <img src="{{ asset('storage/' . $content7->image) }}" 
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> -->
+
+                    <h3>{!! @$content7->title !!}</h3>
+                    {!! $content7->description !!}
+                    <div class="text-center">
                         @if (@$content7->button_title)
-                            <a href="{{ $content7->button_link }}" target="_blank"> <button type="submit"
-                                    class="btn btn-warning mb-2">{{ $content7->button_title }}</button></a>
+                            <a href="{{ $content7->button_link }}" target="_blank"> 
+                                <button type="submit" class="btn btn-warning mb-2">{{ $content7->button_title }}</button>
+                            </a>
                         @endif
                     </div>
                 </div>
+
         </section>
     @endif
     @if ($content8)
-        <section class="section6 section" style="background: url('{{ asset('storage/' . $content8->image) }}');"
+        <section class="section6 section d-flex" style="background: url('{{ asset('storage/' . $content8->image) }}');"
             order='{{ @$content8->order }}'>
-            <div class="container">
+            <div class="container">                
                 <div class="row col-md-12  align-items-center">
                     <div class="col-md-6 mt-5 sec6-desc">
                         <h3 class="text-white">{!! @$content8->title !!}</h3>
@@ -214,7 +275,7 @@
         </section>
     @endif
     @if (@$content13)
-        <section class="service section" order='{{ $content13->order }}' 13>
+        <section class="service section d-flex" order='{{ $content13->order }}' 13>
             <div class="container">
                 <div class="row col-md-12 text-center section1  align-items-center">
                     <h2>{!! @$content13->title !!}</h2>
@@ -224,27 +285,32 @@
         </section>
     @endif
     @if (@$content9)
-        <section class="section3 section" order='{{ @$content9->order }}' 9>
+        <section class="section3 section d-flex" order='{{ @$content9->order }}' 9>
             <div class="container">
-                <div class="row col-md-12 align-items-center">
+                <div class="col-md-12">
 
-                    <div class="col-md-6">
-                        <h3>{!! @$content9->title !!}</h3>
-                        {!! $content9->description !!}
+                    <!-- left image -->
+                    {{-- <img src="{{ asset('storage/' . $content10->image) }}" 
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> --}}
+
+                    <!-- right image -->
+                     <img src="{{ asset('storage/' . $content9->image) }}" 
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> 
+
+                    <h3>{!! @$content9->title !!}</h3>
+                    {!! $content9->description !!}
+                    <div class="text-center">
                         @if (@$content9->button_title)
-                            <a href="{{ $content9->button_link }}" target="_blank"> <button type="submit"
-                                    class="btn btn-warning mb-2">{{ $content9->button_title }}</button></a>
+                            <a href="{{ $content9->button_link }}" target="_blank"> 
+                                <button type="submit" class="btn btn-warning mb-2">{{ $content9->button_title }}</button>
+                            </a>
                         @endif
-                    </div>
-                    <div class="col-md-6 mt-5">
-                        <img src="{{ asset('storage/' . $content9->image) }}" class="rounded img-fluid d-block"
-                            alt="EUREKA SERVICES">
                     </div>
                 </div>
         </section>
     @endif
     @if (@$content10)
-        <section class="section4 section" order='{{ @$content10->order }}' 10>
+        <section class="section4 section d-flex" order='{{ @$content10->order }}' 10>
             <div class="container">
                 <div class="col-md-12">
 
@@ -270,63 +336,78 @@
         </section>
     @endif
     @if (@$content11)
-        <section class="section3 section" order='{{ @$content11->order }}' 11>
+        <section class="section3 section d-flex" order='{{ @$content11->order }}' 11>
             <div class="container">
-                <div class="row col-md-12">
+                <div class="col-md-12">
 
-                    <div class="col-md-6">
-                        <h3>{!! @$content11->title !!}</h3>
-                        {!! $content11->description !!}
+                    <!-- left image -->
+                    {{-- <img src="{{ asset('storage/' . $content10->image) }}" 
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> --}}
+
+                    <!-- right image -->
+                    <img src="{{ asset('storage/' . $content11->image) }}" 
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> 
+
+                    <h3>{!! @$content11->title !!}</h3>
+                    {!! $content11->description !!}
+                    <div class="text-center">
                         @if (@$content11->button_title)
-                            <a href="{{ $content11->button_link }}" target="_blank"> <button type="submit"
-                                    class="btn btn-warning mb-2">{{ $content11->button_title }}</button></a>
+                            <a href="{{ $content11->button_link }}" target="_blank"> 
+                                <button type="submit" class="btn btn-warning mb-2">{{ $content11->button_title }}</button>
+                            </a>
                         @endif
-                    </div>
-                    <div class="col-md-6 mt-5">
-                        <img src="{{ asset('storage/' . $content11->image) }}" class="rounded img-fluid d-block"
-                            alt="EUREKA SERVICES">
                     </div>
                 </div>
         </section>
     @endif
 
     @if (@$content12)
-        <section class="section4 section" order='{{ @$content12->order }}' 12>
+        <section class="section4 section d-flex" order='{{ @$content12->order }}' 12>
             <div class="container">
-                <div class="row col-md-12">
-                    <div class="col-md-6">
-                        <img src="{{ asset('storage/' . $content12->image) }}"
-                            class="shadow rounded img-fluid ml-4 p-4 img1" alt="EUREKA SERVICES">
-                        {{-- <img src="{{asset('storage/'.$content6->image)}}" class="shadow rounded img-fluid img2" alt="EUREKA SERVICES"> --}}
-                    </div>
-                    <div class="col-md-6 mt-5">
-                        <h3>{!! @$content12->title !!}</h3>
-                        {!! $content12->description !!}
+                <div class="col-md-12">
+
+                    <!-- left image -->
+                    <img src="{{ asset('storage/' . $content12->image) }}" 
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES">
+
+                    <!-- right image -->
+                    {{-- <img src="{{ asset('storage/' . $content11->image) }}" 
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES">  --}}
+
+                    <h3>{!! @$content12->title !!}</h3>
+                    {!! $content12->description !!}
+                    <div class="text-center">
                         @if (@$content12->button_title)
-                            <a href="{{ $content12->button_link }}" target="_blank"> <button type="submit"
-                                    class="btn btn-warning mb-2">{{ $content12->button_title }}</button></a>
+                            <a href="{{ $content12->button_link }}" target="_blank"> 
+                                <button type="submit" class="btn btn-warning mb-2">{{ $content12->button_title }}</button>
+                            </a>
                         @endif
                     </div>
-
                 </div>
+                
         </section>
     @endif
     @if (@$content14)
-        <section class="section3 section" order='{{ @$content14->order }}' 14>
+        <section class="section3 section d-flex" order='{{ @$content14->order }}' 14>
             <div class="container">
-                <div class="row col-md-12">
+                <div class="col-md-12">
 
-                    <div class="col-md-6">
-                        <h3>{!! @$content14->title !!}</h3>
-                        {!! $content14->description !!}
+                    <!-- left image -->
+                    {{-- <img src="{{ asset('storage/' . $content12->image) }}" 
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> --}}
+
+                    <!-- right image -->
+                    <img src="{{ asset('storage/' . $content14->image) }}" 
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES">  
+
+                    <h3>{!! @$content14->title !!}</h3>
+                    {!! $content14->description !!}
+                    <div class="text-center">
                         @if (@$content14->button_title)
-                            <a href="{{ $content14->button_link }}" target="_blank"> <button type="submit"
-                                    class="btn btn-warning mb-2">{{ $content14->button_title }}</button></a>
+                            <a href="{{ $content14->button_link }}" target="_blank"> 
+                                <button type="submit" class="btn btn-warning mb-2">{{ $content14->button_title }}</button>
+                            </a>
                         @endif
-                    </div>
-                    <div class="col-md-6 mt-5">
-                        <img src="{{ asset('storage/' . $content14->image) }}" class="rounded img-fluid d-block"
-                            alt="EUREKA SERVICES">
                     </div>
                 </div>
         </section>
