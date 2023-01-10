@@ -433,6 +433,7 @@ position: relative;
 
 .border-radius-new {
   background: #e6e9ec;
+  position: relative;
 }
 
 img.comms {
@@ -457,7 +458,7 @@ img.pb-4.comms {
   font-weight: 600;
 }
 
-.satisfied-clients p:after {
+.satisfied-clients div.border-radius-new:after {
   content: "";
   display: block;
   width: 14px;
@@ -603,6 +604,10 @@ img.pb-4.comms {
 
 .satisfied-clients p {
   position: relative;
+}
+
+.satisfied-clients .border-radius-new {
+  min-height: 200px;
 }
 
 
@@ -1024,5 +1029,25 @@ body{
 }
 .Social-media {
   padding-bottom: 30px;
+}
+.eureka-technical-services .icon-box-icon-list {
+  display: block;
+  margin-bottom: 20px !important;
+}
+.eureka-technical-services .icon-box-contents {
+  text-align: center !important;
+  align-items: center;
+}
+.eureka-technical-services .icon-box-contents h3 {
+  text-align: center !important;
+  align-items: center;
+}
+.icon-box-icons {
+  padding-bottom: 20px;
+}
+.equalHMR {
+  width: 100%;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 }

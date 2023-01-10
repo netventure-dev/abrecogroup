@@ -51,13 +51,10 @@
     @if ($services->count() > 0)
         <section class="our-services section">
             <div class="container paddingBlock">
-                <div class="row align-items-start">
-                    <div class="col-12 text-center">
-                        <h2><span>OUR</span> SERVICES</h2>
-                    </div>
+                <div class="col-12 text-center">
+                    <h2><span>OUR</span> SERVICES</h2>
                 </div>
-                <!-- Row1-->
-                <div class="row equalHMRWrap eqWrap box">
+                <div class="equalHMRWrap eqWrap box">
                     @foreach ($services as $service)
                         <div class="equalHMR eq box-icon">
                             <div class="image">
@@ -79,7 +76,6 @@
                         </div>
                     @endforeach
                 </div>
-                <!-- End Row3-->
             </div>
         </section>
     @endif
@@ -87,10 +83,8 @@
     @if ($our_projects->count() > 0)
         <section class="our-projects section">
             <div class="container">
-                <div class="row align-items-start">
-                    <div class="col-12 text-center">
-                        <h2><span>OUR</span> PROJECTS</h2>
-                    </div>
+                <div class="col-12 text-center">
+                    <h2><span>OUR</span> PROJECTS</h2>
                 </div>
             </div>
             <div class="container-fluid">
@@ -128,9 +122,9 @@
                         @foreach ($testimonials as $testimonial)
                             <div class="">
                                 <img src="https://annedece.sirv.com/Images/commos.png" class="pb-4 comms">
-                                <p class="p-4 shadow-sm  border-radius-new text-muted text-center">
+                                <div class="p-4 shadow-sm  border-radius-new text-muted text-center">
                                     {!! @$testimonial->description !!}
-                                </p>
+                                </div>
                                 <div class="pt-3">
                                     <div class="author-img">
                                         <img src="{{ asset('storage/' . @$testimonial->image) }}"
