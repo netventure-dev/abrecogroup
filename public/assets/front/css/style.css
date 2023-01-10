@@ -635,6 +635,9 @@ img.pb-4.comms {
 /*-------END CONTACT US PAGE STYLE-----------*/
 
 /*-------SERVICE PAGE STYLE-----------*/
+ul.list-group li:before {
+  display: none;
+}
 main li {
   position: relative;
   padding-left: 20px;
