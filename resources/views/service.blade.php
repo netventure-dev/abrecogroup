@@ -203,7 +203,7 @@
                     <div class="col-md-6 mt-5 sec6-desc">
                         <h3 class="text-white">{!! @$content8->title !!}</h3>
                         {!! $content8->description !!}
-                        @if (@$content8->button_title)
+                        @if (@$content8->button_title)<br>
                             <a href="{{ $content8->button_link }}" target="_blank"> <button type="submit"
                                     class="btn btn-warning mb-2">{{ $content8->button_title }}</button></a>
                         @endif
