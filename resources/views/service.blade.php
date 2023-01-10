@@ -340,7 +340,7 @@
                                         class="btn btn-link btn-block text-left @if (!$loop->first) collapsed @endif"
                                         type="button" data-toggle="collapse" data-target="#collapse{{ $faq->id }}"
                                         aria-expanded="true" aria-controls="collapse{{ $faq->id }}">
-                                        {{ $faq->title }}
+                                        <i class="fa fa-plus" aria-hidden="true"></i>   {{ $faq->title }}
                                     </button>
                                 </h2>
                             </div>
@@ -349,7 +349,7 @@
                                 class="collapse @if ($loop->first) show @endif"
                                 aria-labelledby="heading{{ $faq->id }}" data-parent="#accordionExample">
                                 <div class="card-body">
-                                    {!! $faq->description !!}
+                                 {!! $faq->description !!}
                                 </div>
                             </div>
                         </div>
