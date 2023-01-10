@@ -799,6 +799,9 @@ p {
 .footer .Social-mediat-details .fa {
   padding-right: 5px 5px!important;
 }
+body{
+  margin-top: 60px;
+}
 }
 
 @media screen and (max-width:767px) {
