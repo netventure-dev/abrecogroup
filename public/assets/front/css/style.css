@@ -783,6 +783,22 @@ border-color: transparent!important;
 
 
 /*...................Media Queries..................*/
+@media screen and (max-width:1366px) {
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 10px 10px !important;
+}
+.carousel-caption h2 {
+  font-size: 40px!important;
+}
+.navbar-brand {
+  font-size: 30px !important;
+}
+.navbar-brand img {
+  height: 50px;
+}
+}
+
 @media screen and (max-width:1024px) {
 
   .slider-section h2{
@@ -795,7 +811,7 @@ border-color: transparent!important;
   height: 30px !important;
 }
 .navbar-expand-lg .navbar-nav .nav-link {
-  padding: 10px 20px !important;
+  padding: 10px 15px !important;
 }
 .service h3, .section2 h3, .section3 h3, .section4 h3, .section5 h3, .section6 h3 {
   font-size: 30px!important;
