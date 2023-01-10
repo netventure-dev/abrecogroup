@@ -50,32 +50,31 @@
     @endif
     @if ($services->count() > 0)
         <section class="our-services section">
-            <div class="container">
+            <div class="container paddingBlock">
                 <div class="row align-items-start">
                     <div class="col-12 text-center">
                         <h2><span>OUR</span> SERVICES</h2>
                     </div>
                 </div>
                 <!-- Row1-->
-                <div class="row align-items-start">
+                <div class="row equalHMRWrap eqWrap box">
                     @foreach ($services as $service)
-                        <div class="col-md-4 text-center">
-                            <div class="box">
-                                <div class="box-icon">
-                                    <div class="image"><img src="{{ asset('storage/' . @$service->logo) }}"
-                                            class="img-circle" alt="EUREKA SERVICES" height="auto" width="80%"></div>
-                                    <div class="info">
-                                        <h3 class="title">{{ @$service->name }}</h3>
-                                        <p>{!! \Illuminate\Support\Str::limit($service->description, $limit = 150, $end = '...') !!}
-                                        </p>
-                                        <div class="more">
-                                            <a href="#" title="Title Link">
-                                                ENQUIRE NOW <i class="fa fa-angle-double-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>
+                        <div class="equalHMR eq box-icon">
+                            <div class="image">
+                                <a href="#" title="Title Link">
+                                    <img src="{{ asset('storage/' . @$service->logo) }}"
+                                    class="img-circle" alt="EUREKA SERVICES" height="auto" width="80%">
+                                </a>
+                            </div>
+                            <div class="info">
+                                <h3 class="title"><a href="#" title="Title Link">{{ @$service->name }}</a></h3>
+                                <p>{!! \Illuminate\Support\Str::limit($service->description, $limit = 150, $end = '...') !!}
+                                </p>
+                                <div class="more">
+                                    <a href="#" title="Title Link">
+                                        ENQUIRE NOW <i class="fa fa-angle-double-right"></i>
+                                    </a>
                                 </div>
-                                <div class="space"></div>
                             </div>
                         </div>
                     @endforeach

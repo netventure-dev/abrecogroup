@@ -31,7 +31,7 @@
     <header class="fixed-top header_area">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="{{ route('home') }}"><img
-                    src="{{ asset('assets/front/images/logo-new.webp') }}" alt="EUREKA SERVICES" height="50px"
+                    src="{{ asset('assets/front/images/logo-new.webp') }}" alt="EUREKA SERVICES" height="80px"
                     width="auto" />EUREKA SERVICES</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,7 +85,9 @@
 
     </header>
 
-    @yield('content')
+    <main>
+        @yield('content')
+    </main>
 
     <footer class="footer section text-left">
         <div class="row">
@@ -154,7 +156,7 @@
         </div>
         <div class="copy-right text-center mt-4">
             <p class="text-center"> © 2022 Eureka Services. All rights reserved. Digitally Empowered by <a
-                 target="_blank"href="https://www.netventure.in/">NetVenture Digital Solutions Pvt. Ltd.</a> </p>
+                    href="https://www.netventure.in/" target="_blank" >NetVenture Digital Solutions Pvt. Ltd.</a> </p>
         </div>
         <!-- <div class="fixed-bottom text-center">No:1 Maintenance and Handyman Services Company in Dubai</div> -->
 
