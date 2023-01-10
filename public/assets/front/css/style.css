@@ -240,21 +240,24 @@ li.list-group-item i {
 
 .box-icon>.image {
   position: relative;
-  z-index: 2;
-  margin: auto;
-  width: 88px;
-  height: 88px;
-  /* border: 8px solid white; */
-  line-height: 88px;
-  /* border-radius: 50%; */
-  /* background: #ff0000; */
-  vertical-align: middle;
+    z-index: 2;
+    margin: auto;
+    width: 88px;
+    height: 88px;
+    line-height: 88px;
+    vertical-align: middle;
+    margin-top: -45px;
+    margin-bottom: 30px;
 }
 
 .box-icon:hover>.image::after {
   background: #ea2f33 !important;
 }
 
+.box-icon>.image> a {
+position: relative;
+    z-index: 9;
+}
 .box-icon>.image>img {
   font-size: 36px !important;
   color: #fff !important;
@@ -268,25 +271,29 @@ li.list-group-item i {
   color: white !important;
 }
 
-.box-icon>.info {
+/* .box-icon>.info {
   margin-top: -43px;
   background: #ffffff;
-  /* border: 1px solid #e0e0e0; */
   padding: 80px 0 10px 0;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 20%);
-}
+} */
 
-.box-icon:hover>.info {
+/* .box-icon:hover>.info {
   color: white;
   box-shadow: 0px 0px 10px 5px rgb(0 0 0 / 20%);
-}
+} */
 
-.box-icon>.info>h3.title {
+.box-icon>.info>h3.title a {
   font-family:  "Exo 2", Sans-serif !important;
   font-size: 20px;
   color: #222;
-  font-weight: 400;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.box-icon>.info>h3.title a:hover {
+  text-decoration: none;
 }
 
 .box-icon>.info>p {
@@ -317,6 +324,10 @@ li.list-group-item i {
 
 .more {
   margin-bottom: -20px !important;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .box-icon:hover>.info>.more>a {
@@ -702,14 +713,6 @@ border-color: transparent!important;
   padding: 10px;
 }
 
-.eq:nth-of-type(odd) {
-  background: yellow;
-}
-
-.eq:nth-of-type(even) {
-  background: lightblue;
-}
-
 .equalHW {
   flex: 1;
 }
@@ -723,13 +726,19 @@ border-color: transparent!important;
 }
 
 .equalHMRWrap {
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .equalHMR {
   width: 32%;
-  margin-bottom: 2%;
+  margin-top: 100px;
+  background: #ffffff;
+  /* border: 1px solid #e0e0e0; */
+  padding: 0px 15px 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 20%);
 }
 
 .equalHMVWrap {
