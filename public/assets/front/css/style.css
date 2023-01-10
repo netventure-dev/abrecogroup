@@ -634,8 +634,25 @@ img.pb-4.comms {
 
 /*-------END CONTACT US PAGE STYLE-----------*/
 
-
 /*-------SERVICE PAGE STYLE-----------*/
+main li {
+  position: relative;
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+main li:before {
+  content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    background: #000;
+    border-radius: 50px;
+}
+
+
 .service .list-group-item {
   border: none;
   font-family: "Exo 2", Sans-serif !important;
@@ -898,7 +915,13 @@ body{
   header.header_area {
     background-color: rgb(0 0 0) !important;
   }
-
+  .navbar-nav .nav-link {
+    color: #ffffff !important;
+    font-size: 12px;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 10px 10px !important;
+}
   .dropdown-item {
     color: #fff;
     background-color: #000000;
@@ -906,7 +929,7 @@ body{
 
   .dropdown-menu {
     background-color: #000000 !important;
-    font-size: 14px!important;
+    font-size: 12px!important;
   }
 
   .slider-section h1 {

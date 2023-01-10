@@ -64,12 +64,11 @@ $(window).scroll(function(){
     }
 });
 
+/*End Header added class on scroll*/
 
 
 
-
-
-
+/*faq icon + and - working*/
 
 $(document).ready(function () {
     // Add minus icon for collapse element which is open by default
@@ -98,4 +97,4 @@ $(document).ready(function () {
           .addClass("fa-plus");
       });
   });
-  
+  /*End faq icon + and - working*/

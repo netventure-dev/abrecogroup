@@ -85,7 +85,9 @@
 
     </header>
 
-    @yield('content')
+    <main>
+        @yield('content')
+    </main>
 
     <footer class="footer section text-left">
         <div class="row">
