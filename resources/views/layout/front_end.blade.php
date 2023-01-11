@@ -108,10 +108,10 @@
             <div class="col-md-3 contact-details">
                 <h3>GET IN TOUCH</h3>
                 <!--Form-->
-                <p class="text-left"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                <p class="text-left"><i class="fa fa-map-marker addr" aria-hidden="true"></i>
                     {!! @$general->address !!}</p>
-                <p class="text-left"><i class="fa fa-mobile" aria-hidden="true"></i>
-                    <a href="tel:{{ @$general->mobile }}">{{ @$general->mobile }}</a>
+                <p class="text-left"><i class="fa fa-mobile addr" aria-hidden="true"></i>
+                    <a href="{{ @$general->mobile }}">{{ @$general->mobile }}</a>
                 </p>
 
                 <div class="Social-media">
