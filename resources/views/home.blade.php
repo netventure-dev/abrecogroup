@@ -26,7 +26,7 @@
                         {!! @$technical_service->description !!}
                     </div>
                 </div>
-                <div class="row align-items-start">
+                <div class="row align-items-center">
                     <div class="col-md-8">
                         @foreach ($technical_services_list as $technical_service_list)
                             <div class="icon-box-icon-list">
