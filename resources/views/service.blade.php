@@ -414,7 +414,7 @@
         </section>
     @endif
 
-    @if ($faqs)
+    @if ($faqs->count())
         <section class="faq section">
             <div class="container">
                 <h3><span>FAQ</span></h3>
