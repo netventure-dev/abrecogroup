@@ -32,8 +32,8 @@
                             <div class="icon-box-icon-list">
                                 <div class="icon-box-icons">
                                     <i>
-                                        <img src="{{ asset('storage/' . @$technical_service->image) }}" class="img-fluid"
-                            alt="EUREKA SERVICES" style="width:50px;">
+                                        <img src="{{ asset('storage/' . @$technical_service_list->image) }}" class="img-fluid"
+                            alt="EUREKA SERVICES" style="width:100px;">
 </i>
                                 </div>
                                 <div class="icon-box-contents">

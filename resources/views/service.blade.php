@@ -245,6 +245,7 @@
 
                     <h3>{!! @$content7->title !!}</h3>
                     {!! $content7->description !!}
+                    <br>
                     <div class="text-center">
                         @if (@$content7->button_title)
                             <a href="{{ $content7->button_link }}" target="_blank"> 

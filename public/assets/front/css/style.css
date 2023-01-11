@@ -701,7 +701,7 @@ border-color: transparent!important;
 }
 .section5 p{
   max-height: 220px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 .section6 p{
   max-height: 220px;

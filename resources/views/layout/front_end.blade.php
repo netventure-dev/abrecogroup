@@ -94,11 +94,10 @@
             <div class="col-md-3">
                 <h3>USEFUL LINKS</h3>
                 <ul class="text-left">
-                    <li><a href="#">Swimming pool Maintenance</a></li>
-                    <li><a href="#">AC Maintenance & Services</a></li>
-                    <li><a href="#">Plumbing & Sanitary Contracting</a></li>
-                    <li><a href="#">Electrical Maintenance Works</a></li>
-                    <li><a href="#">Carpentry & Flooring Contracting</a></li>
+                    @foreach ($services->take(5) as $service)
+                    <li><a href="{{ route('service.index', $service->slug) }}">{{ $service->name }}</a></li>                    
+                @endforeach
+
                 </ul>
 
             </div>
