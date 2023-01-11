@@ -76,8 +76,12 @@ header.header_area.newClass {
 /*End header style*/
 
 /*slider style*/
-
-
+.slider-section .owl-prev{
+  display: none!important;
+}
+.slider-section .owl-next{
+  display: none!important;
+}
 .slider-section .carousel-caption {
   left: 60px !important;
   padding-right: 20px !important;
