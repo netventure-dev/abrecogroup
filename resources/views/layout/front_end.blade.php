@@ -155,7 +155,7 @@
             <!--End Form-->
         </div>
         <div class="copy-right text-center mt-4">
-            <p class="text-center"> © 2022 Eureka Services. All rights reserved. Digitally Empowered by <a
+            <p class="text-center"> © {{date("Y");}} Eureka Services. All rights reserved. Digitally Empowered by <a
                     href="https://www.netventure.in/" target="_blank" >NetVenture Digital Solutions Pvt. Ltd.</a> </p>
         </div>
         <!-- <div class="fixed-bottom text-center">No:1 Maintenance and Handyman Services Company in Dubai</div> -->

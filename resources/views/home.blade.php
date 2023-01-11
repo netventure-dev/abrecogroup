@@ -69,7 +69,9 @@
                             <div class="info">
                                 <h3 class="title"><a href="#" title="Title Link">{{ @$service->name }}</a></h3>
                                 <p>{!! \Illuminate\Support\Str::limit($service->description, $limit = 150, $end = '...') !!}
+                                     
                                 </p>
+                                <a href="{{route('service.index', $service->slug)}}" title="{{ @$service->name }}"><p> Learn More ...</p></a>
                                 <div class="more">
                                     <a href="#" title="Title Link">
                                         ENQUIRE NOW <i class="fa fa-angle-double-right"></i>

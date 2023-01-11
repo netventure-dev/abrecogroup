@@ -145,3 +145,9 @@ Route::delete('service-care/destroy/{id}',  'Admin\ServiceCareController@destroy
 Route::get('enquiries/report',  'Admin\ContactUsReportController@index')->name('enquiries.index');
 Route::get('feedback/report',  'Admin\FeedBackReportController@index')->name('feedbackenquiry.index');
 Route::get('request-quote/report',  'Admin\RequestQuoteReportController@index')->name('requestenquiry.index');
+
+
+// Seo
+Route::get('seo','Admin\SEOController@index')->name('seo.index');
+Route::post('seo/create','Admin\SEOController@store')->name('seo.store');
+Route::post('seo/destroy/{id}','Admin\SEOController@destroy')->name('seo.destroy');
