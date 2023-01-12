@@ -18,22 +18,30 @@ class ServiceController extends Controller
 
     public function index($slug)
     {
-        $service = Service::where('slug',$slug)->where('status',1)->first();
-        if($service){
-        $content = ServiceContent::where('service_id',$service->uuid)->get();
-        $faqs = ServiceFaq::where('service_id',$service->uuid)->get();
-        $seo = Seo::where('route_name',$slug)->first();
-
-        $this->seo()->setTitle(@$seo->seo_title);
-        $this->seo()->setDescription(@$seo->seo_description);
-        SEOMeta::setKeywords([@$seo->seo_keywords]);
-        $this->seo()->opengraph()->setTitle(@$seo->seo_title);
-        $this->seo()->opengraph()->setDescription(@$seo->seo_description);
-        $this->seo()->twitter()->setTitle(@$seo->seo_title);
-        $this->seo()->twitter()->setDescription(@$seo->seo_description);
-       
-            return view('service',with(['service' => $service,'content' => $content,'faqs' => $faqs]));
-        }else{
+        $service = Service::where('slug', $slug)->where('status', 1)->first();
+        if ($service) {
+            $content = ServiceContent::where('service_id', $service->uuid)->get();
+            $faqs = ServiceFaq::where('service_id', $service->uuid)->get();
+            $seo = Seo::where('route_name', $slug)->first();
+            if ($seo) {
+                $this->seo()->setTitle(@$seo->seo_title);
+                $this->seo()->setDescription(@$seo->seo_description);
+                SEOMeta::setKeywords([@$seo->seo_keywords]);
+                $this->seo()->opengraph()->setTitle(@$seo->seo_title);
+                $this->seo()->opengraph()->setDescription(@$seo->seo_description);
+                $this->seo()->twitter()->setTitle(@$seo->seo_title);
+                $this->seo()->twitter()->setDescription(@$seo->seo_description);
+            } elseif ($service->seo_title) {
+                $this->seo()->setTitle(@$service->seo_title);
+                $this->seo()->setDescription(@$service->seo_description);
+                SEOMeta::setKeywords([@$service->seo_keywords]);
+                $this->seo()->opengraph()->setTitle(@$service->seo_title);
+                $this->seo()->opengraph()->setDescription(@$service->seo_description);
+                $this->seo()->twitter()->setTitle(@$service->seo_title);
+                $this->seo()->twitter()->setDescription(@$service->seo_description);
+            }
+            return view('service', with(['service' => $service, 'content' => $content, 'faqs' => $faqs]));
+        } else {
             abort(404);
         }
     }
