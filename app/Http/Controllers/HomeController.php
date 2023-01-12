@@ -7,7 +7,7 @@ use App\Models\WhyChooseUs;
 use App\Models\OurProjects;
 use App\Models\General;
 use App\Models\Blog;
-use App\Models\BlogList;
+use App\Models\Bloglist;
 use App\Models\HomeSlider;
 use App\Models\Testimonial;
 use App\Models\Service;
@@ -26,7 +26,7 @@ class HomeController extends Controller
         $services=Service::with('faqs','contents')->where('status',1)->get();
         $blog=Blog::first();
         $general=General::first();
-        $blogLists=BlogList::where('status',1)->get();
+        $blogLists=Bloglist::where('status',1)->get();
         $testimonials=Testimonial::where('status',1)->get();
 
         // $this->seo()->setTitle(@$home_settings->seo_title);
