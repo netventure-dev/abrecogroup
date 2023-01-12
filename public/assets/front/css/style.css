@@ -1062,4 +1062,7 @@ body{
 .footer {
   padding: 18px;
 }
+.img-fluid{
+  width: 100%!important;
+}
 }
