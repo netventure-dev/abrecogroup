@@ -592,6 +592,12 @@
                                 <span key="t-file-manager">Services Care</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{route('admin.seo.index')}}" class="waves-effect">
+                                <i class="bx bx-search"></i>
+                                <span key="t-file-manager">SEO</span>
+                            </a>
+                        </li>
                         {{-- <li>
                             <a href="{{ route('admin.roles.index') }}" class=" waves-effect">
                                 <i class="bx bxs-user-detail"></i>
