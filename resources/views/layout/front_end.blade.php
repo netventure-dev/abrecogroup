@@ -111,7 +111,7 @@
                 <p class="text-left"><i class="fa fa-map-marker addr" aria-hidden="true"></i>
                     {!! @$general->address !!}</p>
                 <p class="text-left"><i class="fa fa-mobile addr" aria-hidden="true"></i>
-                    <a href="{{ @$general->mobile }}">{{ @$general->mobile }}</a>
+                    <a href="tel:{{ @$general->mobile }}">{{ @$general->mobile }}</a>
                 </p>
 
                 <div class="Social-media">
