@@ -1065,4 +1065,10 @@ body{
 .img-fluid{
   width: 100%!important;
 }
+.footer .contact-details .fa {
+  font-size: 19px!important;
+}
+.addr {
+  left: 0px;
+}
 }
