@@ -922,7 +922,7 @@ p {
   font-size: 24px!important;
 }
 .footer .contact-details .fa {
-  font-size: 12px!important;
+  font-size: 18px!important;
 }
 .footer .Social-mediat-details .fa {
   padding-right: 5px 5px!important;
@@ -992,7 +992,7 @@ body{
     padding-left: 5px !important;
     top: 5px !important;
     bottom: 5px !important;
-    width: 310px;
+    width: 338px !important;
   }
   
 
@@ -1061,5 +1061,14 @@ body{
 }
 .footer {
   padding: 18px;
+}
+.img-fluid{
+  width: 100%!important;
+}
+.footer .contact-details .fa {
+  font-size: 19px!important;
+}
+.addr {
+  left: 0px;
 }
 }
