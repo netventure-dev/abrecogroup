@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Providers;
+
+use App\Models\Gtm;
 use App\Models\Service;
 
 use Illuminate\Support\ServiceProvider;
@@ -27,7 +29,7 @@ class ViewServiceProvider extends ServiceProvider
     {
 
         View::composer('layout.front_end', function($view) {
-            $view->with('services' , Service::where('status',1)->select('uuid','name','slug')->get());
+            $view->with(['services' => Service::where('status',1)->select('uuid','name','slug')->get(),'gtm' => Gtm::first()]);
         });
     }
 }

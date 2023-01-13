@@ -20,6 +20,7 @@
 
     <div class="row">
         <div class="col-12">
+            <h3>SEO</h3>
             <div class="card">
                 <div class="card-body">
 
@@ -63,6 +64,7 @@
 
     <div class="row">
         <div class="col-md-12">
+           
             <p id="msgbx" style="
         text-align: right;
         color: green;
@@ -122,6 +124,38 @@
         </div>
     </div>
 
+    <div class="row">
+      
+        <div class="col-md-12">
+            <h3>GTM Code</h3>
+            <p id="msgbx1" style="
+        text-align: right;
+        color: green;
+    "></p>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    {{-- {{ $dataTable->table(['class' => 'table table-bordered dt-responsive nowrap w-100'], false) }} --}}
+                    <table class="table table-bordered yajra-datatable">                     
+                            <tr>                              
+                                <th>Head</th>
+                                <td>  <textarea class="form-control my-1 head" id="head"  name="head" rows="2"
+                                    placeholder="Please provide GTM Head"> {{ @$gtm->head }}</textarea>
+                                </td>                               
+                            </tr>
+                            <tr>                              
+                                <th>Body</th>
+                                <td><textarea class="form-control my-1 body" id="body"  name="body" rows="2"
+                                    placeholder="Please provide GTM Body"> {{ @$gtm->body }}</textarea></td>                               
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- end data table -->
 @endsection
 
@@ -133,6 +167,7 @@
     <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script> --}}
 
     <script>
+        
         $('.route_name').on('keyup', function() {
             var id = $(this).attr("seo_id");
             var route = $('#route_name'+id).val()
@@ -216,6 +251,45 @@
                         $('#msgbx').text(response.message);
                         setTimeout(function() {
                             $("#msgbx").text("");
+                        }, 1500);
+                    }
+                }
+            })
+        });
+
+        $('.head').on('keyup', function() {
+            var head = $('#head').val()
+            var url = "{{ route('admin.seo.gtm',) }}";          
+            $.ajax({
+                url: url,
+                type: "GET",
+                data: {
+                    head: head,
+                },
+                success: function(response) {
+                    if (response) {
+                        $('#msgbx1').text(response.message);
+                        setTimeout(function() {
+                            $("#msgbx1").text("");
+                        }, 1500);
+                    }
+                }
+            })
+        });
+        $('.body').on('keyup', function() {
+            var body = $('#body').val()
+            var url = "{{ route('admin.seo.gtm',) }}";          
+            $.ajax({
+                url: url,
+                type: "GET",
+                data: {
+                    body: body,
+                },
+                success: function(response) {
+                    if (response) {
+                        $('#msgbx1').text(response.message);
+                        setTimeout(function() {
+                            $("#msgbx1").text("");
                         }, 1500);
                     }
                 }

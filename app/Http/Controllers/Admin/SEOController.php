@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Gtm;
 use App\Models\Seo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -18,7 +19,8 @@ class SEOController extends Controller
             ['SEO', null],
         ];
         $seo = Seo::paginate(10);
-        return view('admin.seo.index',compact('breadcrumbs','seo'));
+        $gtm = Gtm::first();
+        return view('admin.seo.index',compact('breadcrumbs','seo','gtm'));
    }
 
    public function store(Request $request)
@@ -66,6 +68,27 @@ class SEOController extends Controller
         }
         $res = $seo->update();
 
+
+        if($res){
+            return response()->json(['success' => true,'message' => 'Updated Successfully']);
+        }
+    }
+   }
+
+   public function gtm(Request $request)
+   {
+    
+    if($request->ajax()){
+        $data = Gtm::firstOrCreate();
+        $head = @$request->head;        
+        if($head){            
+        $data->head = $request->head;
+        }
+        $body = @$request->body;
+        if($body){            
+        $data->body = $request->body;
+        }
+        $res = $data->save();
 
         if($res){
             return response()->json(['success' => true,'message' => 'Updated Successfully']);
