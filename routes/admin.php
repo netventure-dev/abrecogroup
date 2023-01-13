@@ -150,4 +150,5 @@ Route::get('request-quote/report',  'Admin\RequestQuoteReportController@index')-
 // Seo
 Route::get('seo','Admin\SEOController@index')->name('seo.index');
 Route::post('seo/create','Admin\SEOController@store')->name('seo.store');
+Route::get('seo/{id}/update','Admin\SEOController@update')->name('seo.update');
 Route::post('seo/destroy/{id}','Admin\SEOController@destroy')->name('seo.destroy');

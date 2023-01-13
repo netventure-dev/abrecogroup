@@ -43,6 +43,35 @@ class SEOController extends Controller
         }
         return redirect()->back();
    }
+   public function update(Request $request, $id)
+   {
+    
+    if($request->ajax()){
+        $seo = Seo::where('uuid',$id)->first();
+        $route = @$request->route;
+        if($route){            
+        $seo->route_name = $request->route;
+        }
+        $title = @$request->title;
+        if($title){            
+            $seo->seo_title = $request->title;
+        }
+        $description = @$request->description;
+        if($description){            
+            $seo->seo_description = $request->description;
+        }
+        $keywords = @$request->keywords;
+        if($keywords){            
+            $seo->seo_keywords = $request->keywords;
+        }
+        $res = $seo->update();
+
+
+        if($res){
+            return response()->json(['success' => true,'message' => 'Updated Successfully']);
+        }
+    }
+   }
 
    public function destroy($id)
    {
