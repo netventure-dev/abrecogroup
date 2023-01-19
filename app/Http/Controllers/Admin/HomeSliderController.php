@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Admin\HomeSliderDatatable;
+use App\DataTables\Admin\HomeSliderDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\HomeSlider;
 use Illuminate\Support\Str;
@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class HomeSliderController extends Controller
 {
-    public function index(HomeSliderDatatable $dataTable)
+    public function index(HomeSliderDataTable $dataTable)
     {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],

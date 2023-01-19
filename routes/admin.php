@@ -15,6 +15,9 @@ Route::get('/home', function () {
   return view('admin.home');
 })->name('home');
 
+//logout
+Route::get('logout', 'AdminAuth\LoginController@logout')->name('logout');
+
 // about us list
 Route::get('about-us/list',  'Admin\AboutUsListController@index')->name('about-us.list.index');
 Route::get('about-us/list/create',  'Admin\AboutUsListController@create')->name('about-us.list.create');
