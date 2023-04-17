@@ -1,7 +1,7 @@
 @extends('layout.front_end')
 @section('content')
     @if ($home_sliders->count() > 0)
-        <section class="slider-section">
+        <section class="slider-section home-slider">
             <div class="slides owl-theme owl-carousel">
                 @foreach ($home_sliders as $home_slider)
                     <div class="shadow-sm border-radius-new">
@@ -150,18 +150,18 @@
         <div class="container">
             <div class="row align-items-start">
                 <div class="col-12 text-center">
-                    <h2><span>READ OUR</span> BLOGS</h2>
+                    <h2 class="mb-5"><span>READ OUR</span> BLOGS</h2>
                 </div>
             </div>
             <div class="row align-items-start">
                 @foreach($blogLists as $key => $bloglist)
                 @if($key == 0)
                     <div class="col-md-6 single-blog">
-                        <img src="{{ asset('assets/front/images/blog.webp') }}" class="img-fluid" alt="EUREKA SERVICES"
-                            height="auto" width="100%">
+                        <div style="background-image: url({{ asset('storage/'.$bloglist->image) }});"></div>
                         <h4>{{@$bloglist->title}}</h4>
                         <p>{!! \Illuminate\Support\Str::limit($bloglist->description, $limit = 150, $end = '...') !!}</p>
-                        <a href="#">Learn More....</a>
+                        <span>Learn More....</span>
+                        <a href="#"></a>
                     </div>
                 @endif
                 @endforeach
@@ -170,11 +170,9 @@
                     @foreach($blogLists as $key => $bloglist)
                     @if($key != 0)
                         <div class="mb-3 blogs">
-                            <a href="" class="d-flex">
-                                <img src="{{ asset('storage/'.$bloglist->image) }}" class="img-fluid mr-2"
-                                    alt="EUREKA SERVICES" height="auto" width="20%">
-                                <p>{{@$bloglist->title}}</p>
-                            </a>
+                            <div style="background-image: url({{ asset('storage/'.$bloglist->image) }});"></div>
+                            <p>{{@$bloglist->title}}</p>
+                            <a href="" class="d-flex"></a>
                         </div>
                     @endif
                     @endforeach

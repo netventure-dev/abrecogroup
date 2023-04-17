@@ -16,24 +16,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" type="image/png"  href="{{ asset('assets/front/images/logo-new.webp') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/front/images/logo-new.webp') }}">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link href="{{ asset('assets/front/css/style.css') }}" rel="stylesheet">
-       {!!@$gtm->head!!}
-       
-       
+    <link href="{{ asset('assets/front/css/css.css') }}" rel="stylesheet">
+    {!! @$gtm->head !!}
+
+
     @yield('css')
 
- 
-    
+
+
 </head>
 
 <body>
 
-{!! @$gtm->body !!}
-       
+    {!! @$gtm->body !!}
+
 
     {{-- @dd($services); --}}
     <!-- HEADER -->
@@ -48,7 +49,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ route('home') }}">HOME <span class="sr-only">(current)</span></a>
                     </li>
@@ -70,19 +71,24 @@
             </div> -->
 
                     </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="https://www.eurekaservices.ae/blog/">BLOG</a>
+                    {{-- 
+                     --}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('blogs.index') }}">BLOG</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.eurekaservices.ae/request-rates/">REQUEST RATES</a>
+                        <a class="nav-link" href="{{ route('request-a-quote.index') }}">REQUEST RATES</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.eurekaservices.ae/about-us/">ABOUT US</a>
+                        <a class="nav-link" href="{{ route('feedback.index') }}">FEEDBACK</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.eurekaservices.ae/contact-us/" id="contact-button">CONTACT
+                        <a class="nav-link" href="{{ route('about') }}">ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('contact-us.index') }}" id="contact-button">CONTACT
                             US</a>
-                    </li> --}}
+                    </li>
 
                 </ul>
                 <!-- <form class="form-inline my-2 my-lg-0">
@@ -99,28 +105,31 @@
     </main>
 
     <footer class="footer section text-left">
+        <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-lg-4 col-md-6 quick-links">
                 <h3>USEFUL LINKS</h3>
                 <ul class="text-left">
                     @foreach ($services->take(5) as $service)
-                    <li><a href="{{ route('service.index', $service->slug) }}">{{ $service->name }}</a></li>                    
-                @endforeach
-
+                        <li><a href="{{ route('service.index', $service->slug) }}">{{ $service->name }}</a></li>
+                    @endforeach
                 </ul>
-
             </div>
             @php
                 $general = \DB::table('generals')->first();
             @endphp
-            <div class="col-md-3 contact-details">
+            <div class="col-lg-3 col-md-6 contact-details">
                 <h3>GET IN TOUCH</h3>
-                <!--Form-->
-                <p class="text-left"><i class="fa fa-map-marker addr" aria-hidden="true"></i>
-                    {!! @$general->address !!}</p>
-                <p class="text-left"><i class="fa fa-mobile addr" aria-hidden="true"></i>
-                    <a href="tel:{{ @$general->mobile }}">{{ @$general->mobile }}</a>
-                </p>
+                <ul>
+                    <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        {!! @$general->address !!}
+                    </li>
+                    <li>
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                        <a href="tel:{{ @$general->mobile }}">{{ @$general->mobile }}</a>
+                    </li>
+                </ul>
 
                 <div class="Social-media">
                     <a target="_blank" href="{{ @$general->facebook }}"><i class="fa fa-facebook"></i></a>
@@ -133,41 +142,54 @@
             @php
                 $services = \DB::table('services')->get();
             @endphp
-            <div class="col-md-6">
+            <div class="col-lg-5 col-md-12 request-form">
                 <h3>REQUEST A QUOTE</h3>
-                <form class="form-inline" action="{{ route('request-a-quote.store') }}"method="post">
-                    @csrf
-                    <label class="sr-only" for="inlineFormInputName2">Name</label>
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="name" name="name"
-                        value="{{ @old('name') }}" placeholder="Name">
+                <form action="{{ route('request-a-quote.store') }}" method="post" role="form"
+                        class="myform php-email-form" data-aos="fade-up" data-aos-delay="100">
+                        @csrf
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" id="name" name="name" value="{{ @old('name') }}" placeholder="Name">
+                            </div>
+                            <div class="col">
+                                <input type="number" class="form-control" id="phone" name="phone"value="{{ @old('phone') }}" placeholder="Phone">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <select id="service" class="form-control" name="service">
+                                    <option selected value="">Select Services</option>
+                                    @foreach ($services as $service)
+                                        <option value="{{ $service->uuid }}">{{ @$service->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="location" name="location" value="{{ @old('location') }}" placeholder="Location">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                {!! NoCaptcha::renderJs() !!}
+                                {!! NoCaptcha::display() !!}
+                            </div>
+                        </div>
+                        <div class="btn-wrap">
+                            <button type="submit" class="">Submit</button>
+                        </div>
+                    </form>
 
-                    <label class="sr-only" for="inlineFormInputPhone">Phone</label>
-                    <input type="number" class="form-control mb-2 mr-sm-2" id="phone"
-                        name="phone"value="{{ @old('phone') }}" placeholder="Phone">
-
-                    <!-- <label for="inputService">Select Services</label> -->
-                    <select id="service" class="form-control mb-2 mr-sm-2" name="service">
-                        <option selected value="">Select Services</option>
-                        @foreach ($services as $service)
-                            <option value="{{ $service->uuid }}">{{ @$service->name }}</option>
-                        @endforeach
-                    </select>
-                    <label class="sr-only" for="inlineFormInputLocation">Location</label>
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="location" name="location"
-                        value="{{ @old('location') }}" placeholder="Location">
-                    {!! NoCaptcha::renderJs() !!}
-                    {!! NoCaptcha::display() !!}
-                    <button type="submit" class="btn btn-danger mb-2">Submit</button>
-                </form>
             </div>
             <!--End Form-->
         </div>
-        <div class="copy-right text-center mt-4">
-            <p class="text-center"> © {{date("Y");}} Eureka Services. All rights reserved. Digitally Empowered by <a
-                    href="https://www.netventure.in/" target="_blank" >NetVenture Digital Solutions Pvt. Ltd.</a> </p>
+        <div class="copy-right text-center mt-5">
+            <p class="text-center"> © {{ date('Y') }} Eureka Services. All rights reserved. Digitally Empowered by
+                <a href="https://www.netventure.in/" target="_blank">NetVenture</a>
+            </p>
         </div>
         <!-- <div class="fixed-bottom text-center">No:1 Maintenance and Handyman Services Company in Dubai</div> -->
 
+            </div>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

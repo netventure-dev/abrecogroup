@@ -14,6 +14,9 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// blogs
+Route::get('blogs','BlogsController@index')->name('blogs.index');
+Route::get('blogs/show','BlogsController@show')->name('blogs.show');
 
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -42,6 +45,8 @@ Route::post('feedback/store', 'FeedbackController@store')->name('feedback.store'
 Route::get('contact-us', 'ContactController@index')->name('contact-us.index');
 Route::post('contact-us/store', 'ContactController@store')->name('contact-us.store');
 
+//about-us
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 
 //request a quote
 Route::get('request-a-quote', 'RequestQuoteController@index')->name('request-a-quote.index');
@@ -50,3 +55,4 @@ Route::post('request-a-quote/store', 'RequestQuoteController@store')->name('requ
 // services
 
 Route::get('{slug}','ServiceController@index')->name('service.index');
+

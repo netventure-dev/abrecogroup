@@ -14,7 +14,7 @@ header.header_area.newClass {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
-  padding: 10px 30px !important;
+  padding: 10px 20px !important;
 }
 
 .dropdown-item {
@@ -28,8 +28,14 @@ header.header_area.newClass {
   font-family: "Exo 2", Sans-serif !important;
 }
 
+.navbar {
+  padding: 0.5rem 3rem;
+}
+
 .navbar-nav .nav-link {
   color: #ffffff;
+  font-family: "Exo 2", Sans-serif !important;
+  font-size: 20px;
 }
 
 .navbar-nav .nav-link.active,
@@ -91,7 +97,7 @@ header.header_area.newClass {
   padding-left: 20px !important;
   top: unset !important;
   bottom: 50px !important;
-  width: 510px;
+  max-width: 700px;
 }
 
 .slider-section .book-service {
@@ -146,24 +152,25 @@ header.header_area.newClass {
 
 /*body*/
 h1 {
-  font-family: "Exo 2", Sans-serif !important;
+  font-family: "Exo 2", Sans-serif;
   font-size: 30px;
 }
 
 h2 {
-  font-family: "Exo 2", Sans-serif !important;
-  font-size: 60px !important;
-  font-weight: bold !important;
-  text-transform: uppercase !important;
+  font-family: "Exo 2", Sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 50px;
 }
 
 h3 {
-  font-family: "Exo 2", Sans-serif !important;
-  font-size: 24px !important;
+  font-family: "Exo 2", Sans-serif;
+  font-size: 24px;
 }
 
 .section {
-  padding: 30px 0;
+  padding: 75px 0;
 }
 
 span {
@@ -171,21 +178,21 @@ span {
 }
 
 h5 {
-  font-family: "Exo 2", Sans-serif !important;
+  font-family: "Exo 2", Sans-serif;
   font-size: 20px;
   font-weight: 500;
 
 }
 
 h3 {
-  font-family: "Exo 2", Sans-serif !important;
+  font-family: "Exo 2", Sans-serif;
   font-size: 25px;
-  font-weight: 600 !important;
+  font-weight: 600;
 
 }
 
 p {
-  font-family: "Exo 2", Sans-serif !important;
+  font-family: "Exo 2", Sans-serif;
   font-size: 18px;
   font-weight: 400;
 }
@@ -367,7 +374,7 @@ position: relative;
   background-color: #f7f8f9;
 }
 .service h3, .section2 h3, .section3 h3, .section4 h3, .section5 h3, .section6 h3 {
-  text-align: left!important;
+  text-align: left;
 }
 
 /*End Our services*/
@@ -481,21 +488,58 @@ img.pb-4.comms {
 /*End satisfied clients*/
 
 /*Blog*/
-.single-blog a {
+.single-blog span {
   color: #ea2f33;
   padding: 0 20px;
   font-weight: 500;
 }
 
-.single-blog a:hover {
+.single-blog a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.single-blog:hover span {
   color: #000000;
   text-decoration: none;
 }
 
 
+.blog-list .blogs {
+  display: flex;
+  gap: 15px;
+  position: relative;
+  align-items: center;
+}
+
+.blog-list .blogs div {
+  width: 20%;
+  height: 80px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.blog-list .blogs p {
+  width: 80%;
+  margin: 0;
+  padding: 10px 10px 10px 0;
+}
+
+.blog-list .blogs a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .blog-list p {
   font-size: 16px;
   color: #000000;
+  font-weight: 600;
 }
 
 .blogs {
@@ -514,7 +558,7 @@ img.pb-4.comms {
 }
 
 .single-blog h4 {
-  padding: 20px 0 20px 20px;
+  padding: 20px 20px 0px 20px;
 }
 
 .single-blog p {
@@ -522,7 +566,7 @@ img.pb-4.comms {
 }
 
 .col-md-6.blog-list {
-  padding-top: 60px;
+  padding-top: 0px;
 }
 
 /*Footer*/
@@ -535,6 +579,7 @@ img.pb-4.comms {
 .footer h3 {
   font-size: 20px !important;
   font-weight: 400 !important;
+  margin-bottom: 30px;
 }
 
 .footer p {
@@ -553,11 +598,6 @@ img.pb-4.comms {
 
 .footer li {
   list-style: none;
-  margin-left: -40px;
-}
-.footer .Social-media .fa:hover {
-  border: none!important;
-  color: #fff!important;
 }
 
 /* .footer .fixed-bottom{
@@ -578,33 +618,15 @@ img.pb-4.comms {
   background-color: #e5ac0d!important;
   border-color:transparent!important;
 }
-.addr {
-  position: absolute;
-  left: -8px;
-}
-/*social media*/
-.footer .Social-media .fa {
-  border: 1px solid #ffffff !important;
-  padding: 6px 10px !important;
-}
-
-.footer .contact-details .fa {
-  font-size: 25px;
-  padding-right: 10px;
-}
-
-.footer .Social-media .fa:hover {
-  color: #e5ac0d;
-  border: 1px solid #e5ac0d !important;
-}
 
 .footer p {
-  font-size: 14px !important;
+  font-size: 16px !important;
   font-family: open sans !important;
+  line-height: 27px;
 }
 
 .footer a {
-  font-size: 14px !important;
+  font-size: 16px !important;
   font-family: open sans !important;
 }
 
@@ -800,10 +822,19 @@ border-color: transparent!important;
 
 
 /*...................Media Queries..................*/
+@media screen and (min-width: 1367px) and (max-width:1600px) {
+
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding: 10px 15px !important;
+    font-size: 17px;
+  }
+}
+
 @media screen and (max-width:1366px) {
 
 .navbar-expand-lg .navbar-nav .nav-link {
-  padding: 10px 30px !important;
+  padding: 10px 10px !important;
+  font-size: 16px;
 }
 .carousel-caption h2 {
   font-size: 40px!important;
@@ -828,7 +859,7 @@ border-color: transparent!important;
   height: 30px !important;
 }
 .navbar-expand-lg .navbar-nav .nav-link {
-  padding: 10px 15px !important;
+  padding: 10px 10px !important;
 }
 .service h3, .section2 h3, .section3 h3, .section4 h3, .section5 h3, .section6 h3 {
   font-size: 30px!important;
@@ -907,7 +938,7 @@ p {
   }
 
   p {
-    font-size: 14px !important;
+    font-size: 16px !important;
   }
 
   .icon-box-icon-list .icon-box-icons i {
@@ -953,7 +984,7 @@ body{
   }
   .navbar-nav .nav-link {
     color: #ffffff !important;
-    font-size: 12px;
+    font-size: 16px;
 }
 .navbar-expand-lg .navbar-nav .nav-link {
   padding: 10px 10px !important;
@@ -965,34 +996,35 @@ body{
 
   .dropdown-menu {
     background-color: #000000 !important;
-    font-size: 12px!important;
+    font-size: 16px !important;
   }
 
   .slider-section h1 {
     font-size: 16px !important;
   }
   .slider-section h2 {
-    font-size: 18px!important;
+    /* font-size: 18px!important; */
 }
   .slider-section p {
-    font-size: 10px !important;
+    /* font-size: 10px !important; */
   }
 
   .slider-section .book-service {
-    padding: 5px !important;
-    font-size: 10px !important;
+    padding: 10px 20px !important;
+    font-size: 14px !important;
   }
 
   .slider-section .carousel-caption {
-    left: 9px !important;
-    padding-right: 5px !important;
+    left: 0px !important;
+    padding-right: 15px !important;
     right: unset !important;
-    text-align: left !important;
+    text-align: center !important;
     background-color: rgba(38, 38, 40, .7) !important;
-    padding-left: 5px !important;
-    top: 5px !important;
+    padding-left: 15px !important;
+    top: 0px !important;
     bottom: 5px !important;
-    width: 338px !important;
+    width: 100% !important;
+    position: relative;
   }
   
 

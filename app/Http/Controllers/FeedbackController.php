@@ -53,4 +53,8 @@ class FeedbackController extends Controller
             return redirect()->back()->with('error', 'Failed to contact us. Please try again.');
         }
     }
+    public function blog_index(){
+        dd(4);
+    }
+
 }

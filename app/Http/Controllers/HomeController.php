@@ -44,4 +44,9 @@ class HomeController extends Controller
         return view('home',compact('general','home_sliders','technical_service','blog','blogLists','technical_services_list','services','our_projects','testimonials'));
     }
 
+    public function about(Request $request)
+    {
+        return view('about');
+    }
+
 }

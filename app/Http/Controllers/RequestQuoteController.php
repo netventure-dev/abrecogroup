@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Admin;
 use App\Models\Quote;
+use App\Models\Service;
 use App\Notifications\QuoteNotification;
 use App\Notifications\QuotessNotification;
 use Illuminate\Http\Request;
@@ -13,7 +14,8 @@ class RequestQuoteController extends Controller
 {
     public function index()
     {
-        return view('request-a-quote.show');
+        $services = Service::get();
+        return view('request-a-quote.show', compact('services'));
     }
     public function store(Request $request)
     {
