@@ -14,16 +14,15 @@ class BlogsController extends Controller
     use SEOToolsTrait;
     public function index()
     {
-        $blogs=Blog::get();
         $blogLists=Bloglist::where('status',1)->get();
-        return view('blogs.index',compact('blogs', 'blogLists'));
+        return view('blogs.index',compact('blogLists'));
     }
 
-    public function show()
+    public function show(Request $request,$slug)
     {
-        // $blog=Blog::where('slug',$slug)->first();
-        // return view('blogs.index',compact('blog'));
-        return view('blogs.show');
+        $blog=Bloglist::where('slug',$slug)->first();
+        $relatedPosts=Bloglist::where('slug', '<>', $slug)->get();
+        return view('blogs.show',compact('blog','relatedPosts'));
     }
 
 }

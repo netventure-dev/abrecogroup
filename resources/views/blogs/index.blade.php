@@ -24,7 +24,7 @@
                         <p>{!! \Illuminate\Support\Str::limit($bloglist->description, $limit = 150, $end = '...') !!}</p>
                         <span>Read More</span>
                     </div>
-                    <a href="{{route('blogs.show')}}" class="blog-link"></a>
+                    <a href="{{route('blogs.show',$bloglist->slug)}}" class="blog-link"></a>
                 </div>
             @endforeach
         </div>
