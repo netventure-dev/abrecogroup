@@ -7,7 +7,7 @@
                 <div class="col-lg-8 blog-data">
                     <h1>{{$blog->title}}</h1>
                     <img src="{{ asset('storage/'.$blog->image) }}" alt="" />
-                    <p>{{$blog->description}}</p>
+                    <p>{!!$blog->description!!}</p>
                 </div>
                 <div class="col-lg-4 related">
                     <h5>Related Posts</h5>
