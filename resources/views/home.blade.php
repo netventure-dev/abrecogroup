@@ -10,7 +10,8 @@
                         <div class="carousel-caption d-md-block">
                             <h1>{{ @$home_slider->title }}</h1>
                             <p>{!! @$home_slider->description !!}</p>
-                            <button type="button" class="btn btn-light book-service">BOOK YOUR SERVICE</button>
+                            <button type="button" class="btn btn-light book-service" data-toggle="modal"
+                                data-target="#popupform">BOOK YOUR SERVICE</button>
                         </div>
                     </div>
                 @endforeach
@@ -32,9 +33,9 @@
                             <div class="icon-box-icon-list">
                                 <div class="icon-box-icons">
                                     <i>
-                                        <img src="{{ asset('storage/' . @$technical_service_list->image) }}" class="img-fluid"
-                            alt="EUREKA SERVICES" style="width:100px;">
-</i>
+                                        <img src="{{ asset('storage/' . @$technical_service_list->image) }}"
+                                            class="img-fluid" alt="EUREKA SERVICES" style="width:100px;">
+                                    </i>
                                 </div>
                                 <div class="icon-box-contents">
                                     <h3>{{ @$technical_service_list->title }} </h3>
@@ -62,16 +63,18 @@
                         <div class="equalHMR eq box-icon">
                             <div class="image">
                                 <a href="#" title="Title Link">
-                                    <img src="{{ asset('storage/' . @$service->logo) }}"
-                                    class="img-circle" alt="EUREKA SERVICES" height="auto" width="80%">
+                                    <img src="{{ asset('storage/' . @$service->logo) }}" class="img-circle"
+                                        alt="EUREKA SERVICES" height="auto" width="80%">
                                 </a>
                             </div>
                             <div class="info">
                                 <h3 class="title"><a href="#" title="Title Link">{{ @$service->name }}</a></h3>
                                 <p>{!! \Illuminate\Support\Str::limit($service->description, $limit = 150, $end = '...') !!}
-                                     
+
                                 </p>
-                                <a href="{{route('service.index', $service->slug)}}" title="{{ @$service->name }}"><p> Learn More ...</p></a>
+                                <a href="{{ route('service.index', $service->slug) }}" title="{{ @$service->name }}">
+                                    <p> Learn More ...</p>
+                                </a>
                                 <div class="more">
                                     <a href="#" title="Title Link">
                                         ENQUIRE NOW <i class="fa fa-angle-double-right"></i>
@@ -84,7 +87,7 @@
             </div>
         </section>
     @endif
-    
+
     @if ($our_projects->count() > 0)
         <section class="our-projects section">
             <div class="container">
@@ -154,31 +157,82 @@
                 </div>
             </div>
             <div class="row align-items-start">
-                @foreach($blogLists as $key => $bloglist)
-                @if($key == 0)
-                    <div class="col-md-6 single-blog">
-                        <div style="background-image: url({{ asset('storage/'.$bloglist->image) }});"></div>
-                        <h4>{{@$bloglist->title}}</h4>
-                        <p>{!! \Illuminate\Support\Str::limit($bloglist->description, $limit = 150, $end = '...') !!}</p>
-                        <span>Learn More....</span>
-                        <a href="#"></a>
-                    </div>
-                @endif
-                @endforeach
-                @if($blogLists->count() > 0)
-                <div class="col-md-6 blog-list">
-                    @foreach($blogLists as $key => $bloglist)
-                    @if($key != 0)
-                        <div class="mb-3 blogs">
-                            <div style="background-image: url({{ asset('storage/'.$bloglist->image) }});"></div>
-                            <p>{{@$bloglist->title}}</p>
-                            <a href="" class="d-flex"></a>
+                @foreach ($blogLists as $key => $bloglist)
+                    @if ($key == 0)
+                        <div class="col-md-6 single-blog">
+                            <div style="background-image: url({{ asset('storage/' . $bloglist->image) }});"></div>
+                            <h4>{{ @$bloglist->title }}</h4>
+                            <p>{!! \Illuminate\Support\Str::limit($bloglist->description, $limit = 150, $end = '...') !!}</p>
+                            <span>Learn More....</span>
+                            <a href="#"></a>
                         </div>
                     @endif
-                    @endforeach
-                </div>
+                @endforeach
+                @if ($blogLists->count() > 0)
+                    <div class="col-md-6 blog-list">
+                        @foreach ($blogLists as $key => $bloglist)
+                            @if ($key != 0)
+                                <div class="mb-3 blogs">
+                                    <div style="background-image: url({{ asset('storage/' . $bloglist->image) }});"></div>
+                                    <p>{{ @$bloglist->title }}</p>
+                                    <a href="" class="d-flex"></a>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
                 @endif
             </div>
         </div>
     </section>
 @endsection
+
+{{-- POPUP FORM --}}
+<div class="modal fade" id="popupform" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <h3 class="text-dark text-center" style="text-align:center !important;"><span>ESTIMATE</span> RATES</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('request-a-quote-rates.store') }}" method="post" role="form" class="php-email-form">
+                <div class="modal-body pb-0">
+                    @csrf
+                    <div class="form-group">
+                        <select class="form-control" name="service" id="service">
+                            <option value="">Choose a Service *</option>
+                            @foreach ($services as $data)
+                                <option value="{{ $data->uuid }}">{{ $data->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" name="name"
+                            value="{{ @old('name') }}" placeholder="Full Name *">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email"
+                            value="{{ @old('email') }}" placeholder="Email Address *">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" id="phone" name="phone"
+                            value="{{ @old('phone') }}" placeholder="Phone Number *">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" id="location" name="location"
+                            value="{{ @old('location') }}" placeholder="Location *">
+                    </div>
+                    <div class="form-group">
+                        {!! NoCaptcha::renderJs() !!}
+                        {!! NoCaptcha::display() !!}
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0 d-flex justify-content-center pt-0">
+                    <button type="submit" class="btn btn-danger px-5 text-uppercase" style="border-radius: 50px;">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
