@@ -40,15 +40,21 @@ class ContactNotification extends Notification
      */
     public function toMail($notifiable)
     {
+        $details  =  $this->details ;
         return (new MailMessage)
-            ->subject('Eureka:Contact Request')
-            ->line('Hi, ' . $this->details['admin_name'])
-            ->line('You have received a Contact request. Details are given below')
-            ->line('Name : ' . $this->details['name'])
-            ->line('Email : ' . $this->details['email'])
-            ->line('Phone : ' . $this->details['phone'])
-            ->line('Message : ' . $this->details['message'])
-            ->line('Thank you!');
+        ->view('emails.contact_us', [
+            'details' => $details,
+        ])
+        ->subject('EUREKA SERVICES :: New Contact Request.');
+        // return (new MailMessage)
+        //     ->subject('Eureka:Contact Request')
+        //     ->line('Hi, ' . $this->details['admin_name'])
+        //     ->line('You have received a Contact request. Details are given below')
+        //     ->line('Name : ' . $this->details['name'])
+        //     ->line('Email : ' . $this->details['email'])
+        //     ->line('Phone : ' . $this->details['phone'])
+        //     ->line('Message : ' . $this->details['message'])
+        //     ->line('Thank you!');
     }
 
     /**

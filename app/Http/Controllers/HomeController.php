@@ -13,6 +13,7 @@ use App\Models\Seo;
 use App\Models\Testimonial;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 use Artesaos\SEOTools\Facades\SEOMeta;
 
@@ -48,5 +49,20 @@ class HomeController extends Controller
     {
         return view('about');
     }
+    public function thankyou(Request $request)
+    { 
+        $status = $request->session()->get('status');
+        $message = $request->session()->get('message');
+        if($status == "1"){
+            if($message){
+            return view('thank_you',compact('message'));
+            }
+            else{
+                return view('thank_you');
 
+            }
+        }else{
+            return abort(404);
+        }
+    }
 }

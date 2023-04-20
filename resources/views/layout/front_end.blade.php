@@ -142,31 +142,50 @@
             @php
                 $services = \DB::table('services')->get();
             @endphp
-            <div class="col-lg-5 col-md-12 request-form">
+            <div class="col-lg-5 col-md-12 request-form" id="request_a_quote">
+                @if (session()->has('success'))
+                    <div class="alert alert-success">
+                        @if(is_array(session('success')))
+                            <ul>
+                                @foreach (session('success') as $message)
+                                    <li>{{ $message }}</li>
+                                @endforeach
+                            </ul>
+                        @else
+                            {{ session('success') }}
+                        @endif
+                    </div>
+                @endif
                 <h3>REQUEST A QUOTE</h3>
                 <form action="{{ route('request-a-quote.store') }}" method="post" role="form"
                         class="myform php-email-form" data-aos="fade-up" data-aos-delay="100">
                         @csrf
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" id="name" name="name" value="{{ @old('name') }}" placeholder="Name">
+                                <input type="text" required class="form-control" id="name" name="name" value="{{ @old('name') }}" placeholder="Name *">
                             </div>
                             <div class="col">
-                                <input type="number" class="form-control" id="phone" name="phone"value="{{ @old('phone') }}" placeholder="Phone">
+                                <input type="number" required class="form-control" id="phone" name="phone"value="{{ @old('phone') }}" placeholder="Phone *">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <select id="service" class="form-control" name="service">
-                                    <option selected value="">Select Services</option>
+                                <select id="service" required class="form-control" name="service">
+                                    <option selected value="">Select Services *</option>
                                     @foreach ($services as $service)
                                         <option value="{{ $service->uuid }}">{{ @$service->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" id="location" name="location" value="{{ @old('location') }}" placeholder="Location">
+                                <input type="text" class="form-control" required id="location" name="location" value="{{ @old('location') }}" placeholder="Location *">
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" required id="email" name="email" value="{{ @old('email') }}" placeholder="Email *">
+                            </div>
+                          
                         </div>
                         <div class="row">
                             <div class="col">

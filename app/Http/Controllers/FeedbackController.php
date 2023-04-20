@@ -47,14 +47,12 @@ class FeedbackController extends Controller
             $details['message'] = $validated['message'];
             $details['admin_name'] = $admin->name;
             Notification::send($admin, new FeedNotification($details));
-            Notification::route('mail', $admin->email)->notify(new FeedBackNotification($admin));
+            Notification::route('mail', $validated['email'])->notify(new FeedBackNotification($details));
             return view('feedback.show');
         } else {
             return redirect()->back()->with('error', 'Failed to contact us. Please try again.');
         }
     }
-    public function blog_index(){
-        dd(4);
-    }
+    
 
 }

@@ -38,16 +38,16 @@
                         <h3 style="color:#fff;"><span style="color:#000;">GET IN TOUCH</span> WITH US</h3>
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="name" value="{{ @old('name') }}" placeholder="Full Name *">
+                            <input required type="text" class="form-control" id="name" name="name" value="{{ @old('name') }}" placeholder="Full Name *">
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" name="email" value="{{ @old('email') }}" placeholder="Email Address *">
+                            <input required type="email" class="form-control" id="email" name="email" value="{{ @old('email') }}" placeholder="Email Address *">
                         </div>
                         <div class="form-group">
-                            <input type="tel" class="form-control" id="phone" name="phone" value="{{ @old('phone') }}" placeholder="Phone Number *">
+                            <input required type="tel" class="form-control" id="phone" name="phone" value="{{ @old('phone') }}" placeholder="Phone Number *">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="message" name="message" rows="4" cols="50" placeholder="Message"></textarea>
+                            <textarea required class="form-control" id="message" name="message" rows="4" cols="50" placeholder="Message *"></textarea>
                         </div>
                         <div class="form-group">
                             {!! NoCaptcha::renderJs() !!}

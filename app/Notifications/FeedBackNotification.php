@@ -40,11 +40,12 @@ class FeedBackNotification extends Notification
      */
     public function toMail($notifiable)
     {
+        $details  =  $this->details ;
         return (new MailMessage)
-            ->subject('Eureka :: FeedBack Request Received.')
-            ->line('Hi, ' . $this->details['name'])
-            ->line('Thank you for your FeedBack ')
-            ->line('Our team will get back you soon');
+        ->view('emails.feedback_ty', [
+            'details' => $details,
+        ])
+        ->subject('EUREKA SERVICES :: Thank You!.');
     }
 
     /**

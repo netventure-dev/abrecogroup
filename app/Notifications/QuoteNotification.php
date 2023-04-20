@@ -40,15 +40,12 @@ class QuoteNotification extends Notification
      */
     public function toMail($notifiable)
     {
+        $details  =  $this->details ;
         return (new MailMessage)
-            ->subject('Eureka:Quote Request')
-            ->line('Hi, ' . $this->details['admin_name'])
-            ->line('You have received a Contact request. Details are given below')
-            ->line('Name : ' . $this->details['name'])
-            ->line('Service : ' . $this->details['service'])
-            ->line('Phone : ' . $this->details['phone'])
-            ->line('Location : ' . $this->details['location'])
-            ->line('Thank you!');
+        ->view('emails.quote', [
+            'details' => $details,
+        ])
+        ->subject('EUREKA SERVICES :: New Request Rates.');
     }
 
     /**

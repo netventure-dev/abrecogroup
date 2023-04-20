@@ -18,6 +18,9 @@ use Illuminate\Http\Request;
 Route::get('blogs','BlogsController@index')->name('blogs.index');
 Route::get('blogs/{slug}','BlogsController@show')->name('blogs.show');
 
+// thankyou
+Route::get('/thank-you', 'HomeController@thankyou')->name('thank-you');
+
 Route::get('/', 'HomeController@index')->name('home');
 
 // calculation
@@ -51,6 +54,7 @@ Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->nam
 //request a quote
 Route::get('request-a-quote', 'RequestQuoteController@index')->name('request-a-quote.index');
 Route::post('request-a-quote/store', 'RequestQuoteController@store')->name('request-a-quote.store');
+Route::post('request-a-quote-rates/store', 'RequestQuoteController@request_store')->name('request-a-quote-rates.store');
 
 // services
 

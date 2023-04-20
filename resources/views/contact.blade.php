@@ -108,23 +108,23 @@
                 </div>
                 <div class="col-md-6 get-in-touch pb-4">
                     <h2 class="pt-4">GET IN TOUCH<span class="text-white"> WITH US</span></h2>
-                    <form class="pt-4 pb-4">
+                    <form class="pt-4 pb-4" method="post" action="{{route('contact-us.store')}}">
                         <div class="mb-3">
                             <label for="name" class="sr-only">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Name">
+                            <input required type="text" class="form-control" id="name" placeholder="Name">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="sr-only">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
+                            <input required type="email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp" placeholder="Email Address">
                             <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="sr-only">Phone</label>
-                            <input type="number" class="form-control" id="name" placeholder="Phone Number">
+                            <input required type="number" class="form-control" id="name" placeholder="Phone Number">
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" placeholder="Message" id="message"></textarea>
+                            <textarea required class="form-control" placeholder="Message *" id="message"></textarea>
                             <label for="message" class="sr-only">Comments</label>
                         </div>
 

@@ -24,7 +24,7 @@ class ContactController extends Controller
                 'name' => 'required|max:255',
                 'email' => 'required|email|max:255',
                 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-                'message' => 'nullable',
+                'message' => 'required',
                 'g-recaptcha-response' => 'required|captcha',
 
             ],
@@ -47,8 +47,8 @@ class ContactController extends Controller
             $details['message'] = $validated['message'];
             $details['admin_name'] = $admin->name;
             Notification::send($admin, new ContactNotification($details));
-             Notification::route('mail', $admin->email)->notify(new ContactusNotification($admin));
-            return view('contact_us.show');
+            Notification::route('mail', $details['email'])->notify(new ContactusNotification($details));
+            return redirect('thank-you')->with('status','1');
         } else {
             return redirect()->back()->with('error', 'Failed to contact us. Please try again.');
         }

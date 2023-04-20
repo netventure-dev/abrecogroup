@@ -84,11 +84,23 @@
     </section>
 
     <section class="section2 section d-flex" style="background: url({{ asset('assets/front/images/feedback-bg.webp') }});background-repeat: no-repeat; background-size: cover;">
-        <div class="container">
+        <div class="container" id="request_a_quote_data">
             <div class="row justify-content-center align-item-center">
                 <div class="col-md-8 pad-y-100 my-5" style="background: #00000096;">
-                    
-                    <form action="{{ route('request-a-quote.store') }}" method="post" role="form"
+                  @if (session()->has('success-data'))
+                      <div class="alert alert-success">
+                          @if(is_array(session('success-data')))
+                              <ul>
+                                  @foreach (session('success-data') as $message)
+                                      <li>{{ $message }}</li>
+                                  @endforeach
+                              </ul>
+                          @else
+                              {{ session('success-data') }}
+                          @endif
+                      </div>
+                  @endif
+                    <form action="{{ route('request-a-quote-rates.store') }}" method="post" role="form"
                         class="myform php-email-form" data-aos="fade-up" data-aos-delay="100">
                         <h3 class="text-light txt-center" style="text-align:center !important;"><span>ESTIMATE</span> RATES</h3>
                         {{-- <p class="text-center text-light mb-4">We would love to hear you thoughts, suggestions, concerns or problems with anything so we can improve!</p> --}}
