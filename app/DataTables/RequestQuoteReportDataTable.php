@@ -26,7 +26,8 @@ class RequestQuoteReportDataTable extends DataTable
                 return $new->name;
             })
             ->editColumn('service', function (Quote $new) {
-                return $new->service;
+
+                return $new->service_doc->name;
             })
             ->editColumn('phone', function (Quote $new) {
                 return $new->phone;
@@ -43,7 +44,7 @@ class RequestQuoteReportDataTable extends DataTable
      */
     public function query(Quote $model)
     {
-        return $model->newQuery();
+        return $model->with('service_doc')->newQuery();
     }
 
     /**

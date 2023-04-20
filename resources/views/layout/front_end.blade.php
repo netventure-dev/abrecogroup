@@ -173,7 +173,7 @@
                                 <select id="service" required class="form-control" name="service">
                                     <option selected value="">Select Services *</option>
                                     @foreach ($services as $service)
-                                        <option value="{{ $service->uuid }}">{{ @$service->name }}</option>
+                                        <option value="{{ @$service->uuid }}">{{ @$service->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
