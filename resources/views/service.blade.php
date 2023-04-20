@@ -165,7 +165,7 @@
                 <div class="text-center">
                     @if (@$content4->button_title)
                         <a> 
-                            <button type="submit" class="btn btn-warning mb-2 data-toggle="modal"
+                            <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
                             data-target="#popupform-service"">{{ $content4->button_title }}</button>
                         </a>
                     @endif
