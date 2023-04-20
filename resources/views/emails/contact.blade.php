@@ -237,7 +237,7 @@
                                                         <tr>
                                                             <td>
                                                                 <p><span style="font-size: 14px; color: #000;"> We
-                                                                        appreciate your interest in our services, and
+                                                                        appreciate your intrest in our services, and
                                                                         our team will get back to you shortly. </span>
                                                                 </p>
                                                             </td>
