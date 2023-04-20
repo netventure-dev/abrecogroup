@@ -1,7 +1,7 @@
 @extends('layout.front_end')
 @section('css')
 <style>
-    bt-disabled {
+    .btn-disabled {
         opacity: 0.25 !important;
         cursor: not-allowed !important;
         pointer-events: none !important;
@@ -478,7 +478,7 @@ aria-hidden="true">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form action="{{ route('services.store') }}" method="post" role="form" class="php-email-form">
+        <form id="my-form-button" action="{{ route('services.store') }}" method="post" role="form" class="php-email-form">
             <div class="modal-body pb-0">
                 @csrf
                 <div class="form-group">
@@ -508,10 +508,26 @@ aria-hidden="true">
                 </div>
             </div>
             <div class="modal-footer border-top-0 d-flex justify-content-center pt-0">
-                <button type="submit" class="btn btn-danger px-5 text-uppercase btn-disabled" style="border-radius: 50px;">Submit</button>
+                <button id="popup_form_data" onclick="form_button();" type="submit" class="btn btn-danger px-5 text-uppercase" style="border-radius: 50px;">Submit</button>
             </div>
         </form>
     </div>
 </div>
 </div>
+@section('script')
+    <script type="text/javascript">
+        //submit the form to the worldline
+        //document.txnSubmitFrm.submit();
+        function form_button(){
+            if ($('input[name="name"]').val() != '' && $('input[name="email"]').val() != '' && $('input[name="phone"]').val() != '' && $('input[name="location"]').val() != '') {
+             
+                $('#popup_form_data').addClass('btn-disabled');
+            } else {
+                // remove class from button
+                $('#popup_form_data').removeClass('btn-disabled');
+            }
+            
+        }
+
+    </script>
 @endsection
