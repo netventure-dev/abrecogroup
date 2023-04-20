@@ -33,7 +33,6 @@ class HomeController extends Controller
         $blogLists=Bloglist::where('status',1)->get();
         $testimonials=Testimonial::where('status',1)->get();
         $seo = Seo::where('route_name','home')->first();
-
         $this->seo()->setTitle(@$seo->seo_title);
         $this->seo()->setDescription(@$seo->seo_description);
         SEOMeta::setKeywords([@$seo->seo_keywords]);
