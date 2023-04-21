@@ -171,7 +171,7 @@
                             <h4>{{ @$bloglist->title }}</h4>
                             <p>{!! \Illuminate\Support\Str::limit($bloglist->description, $limit = 150, $end = '...') !!}</p>
                             <span>Learn More....</span>
-                            <a href="#"></a>
+                            <a href="{{route('blogs.show',$bloglist->slug)}}"></a>
                         </div>
                     @endif
                 @endforeach
@@ -182,7 +182,7 @@
                                 <div class="mb-3 blogs">
                                     <div style="background-image: url({{ asset('storage/' . $bloglist->image) }});"></div>
                                     <p>{{ @$bloglist->title }}</p>
-                                    <a href="" class="d-flex"></a>
+                                    <a href="{{route('blogs.show',$bloglist->slug)}}" class="d-flex"></a>
                                 </div>
                             @endif
                         @endforeach
