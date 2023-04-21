@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Admin;
 use App\Models\Contact;
+use App\Models\Service;
 use App\Notifications\ContactNotification;
 use App\Notifications\ContactusNotification;
 use Illuminate\Http\Request;
@@ -13,7 +14,8 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('contact_us.show');
+        $services = Service::with('faqs', 'contents')->where('status', 1)->get();
+        return view('contact_us.show',compact('services'));
     }
 
     public function store(Request $request)
