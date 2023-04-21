@@ -1,5 +1,12 @@
 @extends('layout.front_end')
 @section('content')
+<style>
+    .btn-disabled {
+        opacity: 0.25 !important;
+        cursor: not-allowed !important;
+        pointer-events: none !important;
+    }
+</style>
     @if ($home_sliders->count() > 0)
         <section class="slider-section home-slider">
             <div class="slides owl-theme owl-carousel">
@@ -230,9 +237,26 @@
                     </div>
                 </div>
                 <div class="modal-footer border-top-0 d-flex justify-content-center pt-0">
-                    <button type="submit" class="btn btn-danger px-5 text-uppercase" style="border-radius: 50px;">Submit</button>
+                    <button id="popup_form_data" onclick="form_button();" type="submit" class="btn btn-danger px-5 text-uppercase" style="border-radius: 50px;">Submit</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+@section('script')
+    <script type="text/javascript">
+        //submit the form to the worldline
+        //document.txnSubmitFrm.submit();
+        function form_button(){
+            if ($('input[name="name"]').val() != '' && $('input[name="email"]').val() != '' && $('input[name="phone"]').val() != '' && $('input[name="location"]').val() != '') {
+             
+                $('#popup_form_data').addClass('btn-disabled');
+            } else {
+                // remove class from button
+                $('#popup_form_data').removeClass('btn-disabled');
+            }
+            
+        }
+
+    </script>
+@endsection
