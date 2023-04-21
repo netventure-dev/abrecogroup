@@ -7,7 +7,7 @@
         pointer-events: none !important;
     }
 </style>
-    <section class="pagebanner" style="background-image:url({{ asset('assets/front/images/feedback.webp') }});">
+    <section class="pagebanner" style="background-image:url({{ asset('assets/front/images/cont-1.webp') }});">
         <img src="{{ asset('assets/front/images/feedback.webp') }}" alt="banner" />
         <div class="carousel-caption d-md-block">
             <h2><span>Contact</span> Us</h2>
