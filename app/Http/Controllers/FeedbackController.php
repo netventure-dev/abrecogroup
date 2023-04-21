@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Admin;
 use App\Models\Feedback;
+use App\Models\Service;
 use App\Notifications\FeedBackNotification;
 use App\Notifications\FeedNotification;
 use Illuminate\Http\Request;
@@ -14,7 +15,9 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-        return view('feedback.show');
+        $services = Service::with('faqs', 'contents')->where('status', 1)->get();
+
+        return view('feedback.show',compact('services'));
     }
 
     public function store(Request $request)
