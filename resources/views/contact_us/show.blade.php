@@ -64,10 +64,10 @@
                             <textarea required class="form-control" id="message" name="message" rows="4" cols="50"
                                 placeholder="Message *"></textarea>
                         </div>
-                        {{-- <div class="form-group">
+                         <div class="form-group">
                             {!! NoCaptcha::renderJs() !!}
                             {!! NoCaptcha::display() !!}
-                        </div> --}}
+                        </div> 
                         <div class="text-center">
                             <button type="submit" class="">Submit</button>
                         </div>

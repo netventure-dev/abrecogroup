@@ -27,7 +27,7 @@ class ContactController extends Controller
                 'email' => 'required|email|max:255',
                 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
                 'message' => 'required',
-                // 'g-recaptcha-response' => 'required|captcha',
+                'g-recaptcha-response' => 'required|captcha',
 
             ],
         );
