@@ -1,4 +1,13 @@
 @extends('layout.front_end')
+@section('css')
+<style>
+    .btn-disabled {
+        opacity: 0.25 !important;
+        cursor: not-allowed !important;
+        pointer-events: none !important;
+    }
+</style>
+@endsection
 @section('content')
 
     <section class="slider-section">
@@ -12,7 +21,8 @@
                     @endphp
                     <h2><span>{{ $firstWord }}</span> {{$restOfSentence}}</h2>
                     <p>{!! $service->cover_description !!} </p>
-                     <button type="button" class="btn btn-light book-service">BOOK YOUR SERVICE</button>
+                     <button type="button" class="btn btn-light book-service" data-toggle="modal"
+                     data-target="#popupform-service">BOOK YOUR SERVICE</button>
                 </div>
             </div>
         </div>
@@ -111,8 +121,9 @@
                 {!! $content2->description !!}
                 <div class="text-center">
                     @if (@$content2->button_title)
-                        <a href="{{ $content2->button_link }}" target="_blank"> 
-                            <button type="submit" class="btn btn-warning mb-2">{{ $content2->button_title }}</button>
+                        <a> 
+                            <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
+                            data-target="#popupform-service">{{ $content2->button_title }}</button>
                         </a>
                     @endif
                 </div>
@@ -126,7 +137,7 @@
                         <h3>{!! @$content2->title !!}</h3>
                         {!! $content2->description !!}
                         @if (@$content2->button_title)
-                            <a href="{{ $content2->button_link }}" target="_blank"> <button type="submit"
+                            <a href="{{ $content2->button_link }}" > <button type="submit"
                                     class="btn btn-warning mb-2"> {{ $content2->button_title }}</button><a>
                         @endif
                     </div>
@@ -153,8 +164,9 @@
                 {!! $content4->description !!}
                 <div class="text-center">
                     @if (@$content4->button_title)
-                        <a href="{{ $content4->button_link }}" target="_blank"> 
-                            <button type="submit" class="btn btn-warning mb-2">{{ $content4->button_title }}</button>
+                        <a> 
+                            <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
+                            data-target="#popupform-service"">{{ $content4->button_title }}</button>
                         </a>
                     @endif
                 </div>
@@ -163,7 +175,7 @@
                     <div class="col-md-6">
                         {!! $content4->description !!}
                         @if (@$content4->button_title)
-                            <a href="{{ $content4->button_link }}" target="_blank"> <button type="submit"
+                            <a href="{{ $content4->button_link }}" > <button type="submit"
                                     class="btn btn-warning mb-2">{{ $content4->button_title }}</button></a>
                         @endif
                     </div>
@@ -194,8 +206,9 @@
                     {!! $content5->description !!}
                     <div class="text-center">
                         @if (@$content5->button_title)
-                            <a href="{{ $content5->button_link }}" target="_blank"> 
-                                <button type="submit" class="btn btn-warning mb-2">{{ $content5->button_title }}</button>
+                            <a> 
+                                <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
+                                data-target="#popupform-service">{{ $content5->button_title }}</button>
                             </a>
                         @endif
                     </div>
@@ -220,8 +233,9 @@
                     {!! $content6->description !!}
                     <div class="text-center">
                         @if (@$content6->button_title)
-                            <a href="{{ $content6->button_link }}" target="_blank"> 
-                                <button type="submit" class="btn btn-warning mb-2">{{ $content6->button_title }}</button>
+                            <a> 
+                                <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
+                                data-target="#popupform-service">{{ $content6->button_title }}</button>
                             </a>
                         @endif
                     </div>
@@ -248,8 +262,9 @@
                     <br>
                     <div class="text-center">
                         @if (@$content7->button_title)
-                            <a href="{{ $content7->button_link }}" target="_blank"> 
-                                <button type="submit" class="btn btn-warning mb-2">{{ $content7->button_title }}</button>
+                            <a> 
+                                <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
+                                data-target="#popupform-service">{{ $content7->button_title }}</button>
                             </a>
                         @endif
                     </div>
@@ -266,8 +281,9 @@
                         <h3 class="text-white">{!! @$content8->title !!}</h3>
                         {!! $content8->description !!}
                         @if (@$content8->button_title)<br>
-                            <a href="{{ $content8->button_link }}" target="_blank"> <button type="submit"
-                                    class="btn btn-warning mb-2">{{ $content8->button_title }}</button></a>
+                            <a> <button type="submit"
+                                    class="btn btn-warning mb-2" data-toggle="modal"
+                                    data-target="#popupform-service">{{ $content8->button_title }}</button></a>
                         @endif
                     </div>
                     <div class="col-md-6">
@@ -302,8 +318,9 @@
                     {!! $content9->description !!}
                     <div class="text-center">
                         @if (@$content9->button_title)
-                            <a href="{{ $content9->button_link }}" target="_blank"> 
-                                <button type="submit" class="btn btn-warning mb-2">{{ $content9->button_title }}</button>
+                            <a > 
+                                <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
+                                data-target="#popupform-service">{{ $content9->button_title }}</button>
                             </a>
                         @endif
                     </div>
@@ -327,8 +344,9 @@
                     {!! $content10->description !!}
                     <div class="text-center">
                         @if (@$content10->button_title)
-                            <a href="{{ $content10->button_link }}" target="_blank"> 
-                                <button type="submit" class="btn btn-warning mb-2">{{ $content10->button_title }}</button>
+                            <a > 
+                                <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
+                                data-target="#popupform-service">{{ $content10->button_title }}</button>
                             </a>
                         @endif
                     </div>
@@ -353,8 +371,9 @@
                     {!! $content11->description !!}
                     <div class="text-center">
                         @if (@$content11->button_title)
-                            <a href="{{ $content11->button_link }}" target="_blank"> 
-                                <button type="submit" class="btn btn-warning mb-2">{{ $content11->button_title }}</button>
+                            <a > 
+                                <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
+                                data-target="#popupform-service">{{ $content11->button_title }}</button>
                             </a>
                         @endif
                     </div>
@@ -379,8 +398,9 @@
                     {!! $content12->description !!}
                     <div class="text-center">
                         @if (@$content12->button_title)
-                            <a href="{{ $content12->button_link }}" target="_blank"> 
-                                <button type="submit" class="btn btn-warning mb-2">{{ $content12->button_title }}</button>
+                            <a> 
+                                <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
+                                data-target="#popupform-service">{{ $content12->button_title }}</button>
                             </a>
                         @endif
                     </div>
@@ -405,8 +425,9 @@
                     {!! $content14->description !!}
                     <div class="text-center">
                         @if (@$content14->button_title)
-                            <a href="{{ $content14->button_link }}" target="_blank"> 
-                                <button type="submit" class="btn btn-warning mb-2">{{ $content14->button_title }}</button>
+                            <a> 
+                                <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
+                                data-target="#popupform-service">{{ $content14->button_title }}</button>
                             </a>
                         @endif
                     </div>
@@ -445,4 +466,68 @@
             </div>
         </section>
     @endif
+
+    {{-- POPUP FORM --}}
+<div class="modal fade" id="popupform-service" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header border-bottom-0">
+            <h3 class="text-dark text-center" style="text-align:center !important;"><span>ESTIMATE</span> RATES</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form id="my-form-button" action="{{ route('services.store') }}" method="post" role="form" class="php-email-form">
+            <div class="modal-body pb-0">
+                @csrf
+                <div class="form-group">
+                    <select required class="form-control" name="service" id="service">
+                        <option selected value="{{ $service->uuid }}">{{ $service->name }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input required type="text" class="form-control" id="name" name="name"
+                        value="{{ @old('name') }}" placeholder="Full Name *">
+                </div>
+                <div class="form-group">
+                    <input required type="email" class="form-control" id="email" name="email"
+                        value="{{ @old('email') }}" placeholder="Email Address *">
+                </div>
+                <div class="form-group">
+                    <input required type="tel" class="form-control" id="phone" name="phone"
+                        value="{{ @old('phone') }}" placeholder="Phone Number *">
+                </div>
+                <div class="form-group">
+                    <input required type="tel" class="form-control" id="location" name="location"
+                        value="{{ @old('location') }}" placeholder="Location *">
+                </div>
+                <div class="form-group">
+                    {!! NoCaptcha::renderJs() !!}
+                    {!! NoCaptcha::display() !!}
+                </div>
+            </div>
+            <div class="modal-footer border-top-0 d-flex justify-content-center pt-0">
+                <button id="popup_form_data" onclick="form_button();" type="submit" class="btn btn-danger px-5 text-uppercase" style="border-radius: 50px;">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+@section('script')
+    <script type="text/javascript">
+        //submit the form to the worldline
+        //document.txnSubmitFrm.submit();
+        function form_button(){
+            if ($('input[name="name"]').val() != '' && $('input[name="email"]').val() != '' && $('input[name="phone"]').val() != '' && $('input[name="location"]').val() != '') {
+             
+                $('#popup_form_data').addClass('btn-disabled');
+            } else {
+                // remove class from button
+                $('#popup_form_data').removeClass('btn-disabled');
+            }
+            
+        }
+
+    </script>
 @endsection

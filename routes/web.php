@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 // blogs
 Route::get('blogs','BlogsController@index')->name('blogs.index');
 Route::get('blogs/{slug}','BlogsController@show')->name('blogs.show');
+Route::post('services/store', 'ServiceController@store')->name('services.store');
 
 // thankyou
 Route::get('/thank-you', 'HomeController@thankyou')->name('thank-you');

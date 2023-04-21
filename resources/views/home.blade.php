@@ -197,11 +197,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('request-a-quote-rates.store') }}" method="post" role="form" class="php-email-form">
+            <form action="{{ route('services.store') }}" method="post" role="form" class="php-email-form">
                 <div class="modal-body pb-0">
                     @csrf
                     <div class="form-group">
-                        <select class="form-control" name="service" id="service">
+                        <select required class="form-control" name="service" id="service">
                             <option value="">Choose a Service *</option>
                             @foreach ($services as $data)
                                 <option value="{{ $data->uuid }}">{{ $data->name }}</option>
@@ -209,19 +209,19 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="name"
+                        <input required type="text" class="form-control" id="name" name="name"
                             value="{{ @old('name') }}" placeholder="Full Name *">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" name="email"
+                        <input required type="email" class="form-control" id="email" name="email"
                             value="{{ @old('email') }}" placeholder="Email Address *">
                     </div>
                     <div class="form-group">
-                        <input type="tel" class="form-control" id="phone" name="phone"
+                        <input required type="tel" class="form-control" id="phone" name="phone"
                             value="{{ @old('phone') }}" placeholder="Phone Number *">
                     </div>
                     <div class="form-group">
-                        <input type="tel" class="form-control" id="location" name="location"
+                        <input required type="tel" class="form-control" id="location" name="location"
                             value="{{ @old('location') }}" placeholder="Location *">
                     </div>
                     <div class="form-group">
