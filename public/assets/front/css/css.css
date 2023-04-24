@@ -481,10 +481,18 @@ a {
 .contact-details .Social-media a {
   width: 40px;
   height: 40px;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   text-align: center;
   line-height: 40px;
   border: 1px solid #fff;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .contact-details .Social-media a:hover {
@@ -511,10 +519,10 @@ a {
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
-  -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-  transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  -webkit-transition: border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
   margin-bottom: 15px;
   height: 50px;
 }
@@ -802,6 +810,11 @@ section#blog-lists .related ul li a {
   font-weight: 500 !important;
 }
 
+.pagebanner .carousel-caption .book-service:hover {
+  background: var(--yellow) !important;
+  color: var(--color03) !important;
+}
+
 @media (min-width: 993px) and (max-width: 1200px) {
   .navbar {
     padding: 0.5rem 1rem;
@@ -908,6 +921,13 @@ section#blog-lists .related ul li a {
   .home-slider .owl-carousel .owl-item {
     height: auto !important;
   }
+  .navbar-nav {
+    max-height: 75vh;
+    overflow-y: scroll;
+  }
+  .navbar-nav .dropdown-menu {
+    padding: 0 0 0 15px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -983,6 +1003,22 @@ section#blog-lists .related ul li a {
   }
   .home-slider .owl-carousel .owl-item {
     height: auto !important;
+  }
+  .request-form form.myform .btn-wrap button {
+    width: 100%;
+    max-width: 100%;
+  }
+  .copy-right p,
+  .copy-right a {
+    font-size: 12px !important;
+    line-height: 18px;
+  }
+  .myform .form-group .form-control {
+    border-radius: 10px;
+    padding: 0 15px;
+  }
+  .myform button {
+    max-width: 100%;
   }
 }
 /*# sourceMappingURL=css.css.map */

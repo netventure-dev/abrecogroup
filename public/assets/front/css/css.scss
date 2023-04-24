@@ -454,6 +454,7 @@ a {
 .quick-links {
     ul {
         padding: 0;
+
         li {
             padding-bottom: 10px;
         }
@@ -463,29 +464,34 @@ a {
 .contact-details {
     ul {
         padding: 0;
+
         li {
             padding-left: 20px;
             position: relative;
+
             i {
                 position: absolute;
                 top: 5px;
                 left: 0;
             }
-            a {
 
-            }
+            a {}
         }
     }
 
     .Social-media {
         margin-top: 20px;
+
         a {
             width: 40px;
             height: 40px;
-            display: inline-block;
+            display: inline-flex;
             text-align: center;
             line-height: 40px;
             border: 1px solid #fff;
+            align-items: center;
+            justify-content: center;
+
             &:hover {
                 border: 1px solid var(--yellow);
                 color: var(--yellow);
@@ -497,8 +503,10 @@ a {
 .request-form {
     form.myform {
         margin: 0;
+
         .col {
             padding-right: 0;
+
             .form-control {
                 display: block;
                 width: 100%;
@@ -510,24 +518,28 @@ a {
                 background-clip: padding-box;
                 border: 1px solid #ced4da;
                 border-radius: 0.25rem;
-                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
                 margin-bottom: 15px;
                 height: 50px;
+
                 option {
                     background-color: var(--yellow);
                     color: #000;
+
                     &:hover {
                         background-color: #000;
                     }
                 }
             }
         }
+
         .btn-wrap {
             button {
                 background-color: #ec3035;
                 padding: 15px 30px;
                 font-size: 15px;
                 width: auto;
+
                 &:hover {
                     background-color: var(--yellow);
                     color: #000000;
@@ -595,6 +607,7 @@ button:focus {
                     display: block;
                     object-fit: cover;
                 }
+
                 .tag {
                     align-self: flex-start;
                     padding: .25em .75em;
@@ -608,7 +621,7 @@ button:focus {
                     text-transform: uppercase;
                     font-weight: 500;
                 }
-            
+
                 .tag+.tag {
                     margin-left: .5em;
                 }
@@ -619,13 +632,14 @@ button:focus {
                 display: flex;
                 flex-direction: column;
                 gap: .5rem;
+
                 h4 {
                     font-size: 18px;
                     line-height: 24px;
                 }
-                p {
 
-                }
+                p {}
+
                 span {
                     position: absolute;
                     bottom: 1.5rem;
@@ -633,6 +647,7 @@ button:focus {
                     transition: .5s;
                 }
             }
+
             .blog-link {
                 position: absolute;
                 top: 0;
@@ -640,8 +655,10 @@ button:focus {
                 width: 100%;
                 height: 100%;
             }
+
             &:hover {
                 box-shadow: 0 .3rem 1rem rgba(0, 0, 0, 0.1);
+
                 .card__body {
                     span {
                         color: var(--color03);
@@ -661,50 +678,57 @@ section#blog-lists {
             font-size: 42px;
             font-weight: 600;
         }
+
         h2 {
             font-size: 36px;
             font-weight: 600;
         }
+
         h3 {
             font-size: 30px;
             font-weight: 600;
         }
+
         h4 {
             font-size: 28px;
             font-weight: 600;
         }
+
         h5 {
             font-size: 24px;
             font-weight: 600;
         }
+
         h6 {
             font-size: 20px;
             font-weight: 600;
         }
+
         img {
             width: 100%;
             margin: 15px 0;
             border-radius: 5px;
         }
-        p {
 
-        }
+        p {}
+
         ul {
             padding: 0;
+
             li {
                 font-family: "Exo 2", Sans-serif;
                 font-size: 18px;
                 font-weight: 400;
             }
         }
-        a {
 
-        }
+        a {}
     }
 
     .related {
         position: sticky;
         top: 100px;
+
         h5 {
             font-size: 24px;
             font-weight: 600;
@@ -714,10 +738,12 @@ section#blog-lists {
             padding: 10px;
             margin: 0;
         }
+
         ul {
             padding: 0;
             background: var(--grey);
             padding: 10px 10px 10px;
+
             li {
                 display: flex;
                 gap: 10px;
@@ -767,10 +793,12 @@ section#blog-lists {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+
     img {
         width: 100%;
         display: none;
     }
+
     .carousel-caption {
         left: 60px !important;
         padding-right: 20px !important;
@@ -781,12 +809,15 @@ section#blog-lists {
         top: unset !important;
         bottom: 50px !important;
         max-width: 550px;
+
         h2 {
-            font-size: 40px!important;
+            font-size: 40px !important;
         }
+
         p {
-            font-size: 17px!important;
+            font-size: 17px !important;
         }
+
         .book-service {
             border-radius: 30px !important;
             padding: 14px 30px !important;
@@ -794,6 +825,10 @@ section#blog-lists {
             background: transparent !important;
             color: #ffffff !important;
             font-weight: 500 !important;
+            &:hover {
+                background: var(--yellow) !important;
+                color: var(--color03) !important;
+            }
         }
     }
 }
@@ -802,13 +837,14 @@ section#blog-lists {
 
 
 @media (min-width: 993px) and (max-width: 1200px) {
-.navbar {
-    padding: 0.5rem 1rem;
-  }  
-  .navbar-nav .nav-link {
-    font-size: 16px;
-    padding: 10px 10px !important;
-  }
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 16px;
+        padding: 10px 10px !important;
+    }
 }
 
 @media (min-width: 992px) {
@@ -825,9 +861,10 @@ section#blog-lists {
 
     .pagebanner {
         min-height: 400px;
+
         .carousel-caption {
             left: 20px !important;
-            right: 20px!important;
+            right: 20px !important;
             bottom: 20px !important;
             max-width: 60%;
         }
@@ -840,6 +877,7 @@ section#blog-lists {
 
     .elementor-icon-list-items {
         flex-direction: column;
+
         .elementor-icon-list-item {
             width: 100%;
         }
@@ -870,43 +908,51 @@ section#blog-lists {
             h1 {
                 font-size: 36px;
             }
+
             h2 {
                 font-size: 32px;
             }
+
             h3 {
                 font-size: 28px;
             }
+
             h4 {
                 font-size: 24px;
             }
+
             h5 {
                 font-size: 22px;
             }
+
             h6 {
                 font-size: 20px;
             }
+
             ul {
                 li {
                     font-size: 16px;
                 }
             }
         }
-    
+
         .related {
             h5 {
                 font-size: 24px;
             }
+
             ul {
                 padding: 10px 10px 10px;
+
                 li {
                     gap: 10px;
                     margin-bottom: 20px;
-    
+
                     img {
                         width: 70px;
                         height: 70px;
                     }
-    
+
                     h4 {
                         font-size: 16px;
                     }
@@ -914,8 +960,17 @@ section#blog-lists {
             }
         }
     }
+
     .home-slider .owl-carousel .owl-item {
         height: auto !important;
+    }
+
+    .navbar-nav {
+        max-height: 75vh;
+        overflow-y: scroll;
+    }
+    .navbar-nav .dropdown-menu {
+        padding: 0 0 0 15px;
     }
 }
 
@@ -924,12 +979,14 @@ section#blog-lists {
     .pagebanner {
         background-image: none !important;
         min-height: auto;
+
         img {
             display: block;
         }
+
         .carousel-caption {
             left: 0px !important;
-            right: 0px!important;
+            right: 0px !important;
             bottom: 0px !important;
             max-width: 100%;
             text-align: center !important;
@@ -940,13 +997,16 @@ section#blog-lists {
     .request-form {
         form.myform {
             margin: 0;
+
             .col {
                 padding-right: 15px;
                 flex-basis: unset;
+
                 .form-control {
                     height: 40px;
                 }
             }
+
             .btn-wrap {
                 button {
                     padding: 15px 30px;
@@ -954,8 +1014,10 @@ section#blog-lists {
             }
         }
     }
+
     .elementor-icon-list-items {
         flex-direction: column;
+
         .elementor-icon-list-item {
             width: 100%;
         }
@@ -993,16 +1055,41 @@ section#blog-lists {
             font-size: 20px;
         }
     }
-    #blog-list {    
-        .container {    
-            .card {    
+
+    #blog-list {
+        .container {
+            .card {
                 .card__header {
                     min-height: 200px;
                 }
             }
         }
     }
+
     .home-slider .owl-carousel .owl-item {
         height: auto !important;
+    }
+
+    .request-form form.myform .btn-wrap button {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .copy-right {
+
+        p,
+        a {
+            font-size: 12px !important;
+            line-height: 18px;
+        }
+    }
+
+    .myform .form-group .form-control {
+        border-radius: 10px;
+        padding: 0 15px;
+    }
+
+    .myform button {
+        max-width: 100%;
     }
 }

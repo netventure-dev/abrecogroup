@@ -165,7 +165,15 @@
                                 <input type="text" required class="form-control" id="name" name="name" value="{{ @old('name') }}" placeholder="Name *">
                             </div>
                             <div class="col">
-                                <input type="number" required class="form-control" id="phone" name="phone"value="{{ @old('phone') }}" placeholder="Phone *">
+                                <input type="tel" required class="form-control" id="phone" name="phone"value="{{ @old('phone') }}" placeholder="Phone *">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" required id="email" name="email" value="{{ @old('email') }}" placeholder="Email *">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" required id="location" name="location" value="{{ @old('location') }}" placeholder="Location *">
                             </div>
                         </div>
                         <div class="row">
@@ -177,14 +185,6 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col">
-                                <input type="text" class="form-control" required id="location" name="location" value="{{ @old('location') }}" placeholder="Location *">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <input type="text" class="form-control" required id="email" name="email" value="{{ @old('email') }}" placeholder="Email *">
-                            </div>
                           
                         </div>
                         <div class="row">
@@ -193,7 +193,7 @@
                                 {!! NoCaptcha::display() !!}
                             </div>
                         </div>
-                        <div class="btn-wrap">
+                        <div class="btn-wrap mt-3">
                             <button type="submit" class="">Submit</button>
                         </div>
                     </form>

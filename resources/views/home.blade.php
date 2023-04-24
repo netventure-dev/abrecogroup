@@ -166,12 +166,14 @@
             <div class="row align-items-start">
                 @foreach ($blogLists as $key => $bloglist)
                     @if ($key == 0)
-                        <div class="col-md-6 single-blog">
-                            <div style="background-image: url({{ asset('storage/' . $bloglist->image) }});"></div>
-                            <h4>{{ @$bloglist->title }}</h4>
-                            <p>{!! \Illuminate\Support\Str::limit($bloglist->description, $limit = 150, $end = '...') !!}</p>
-                            <span>Learn More....</span>
-                            <a href="{{route('blogs.show',$bloglist->slug)}}"></a>
+                        <div class="col-md-6">
+                            <div class="single-blog">
+                                <div style="background-image: url({{ asset('storage/' . $bloglist->image) }});"></div>
+                                <h4>{{ @$bloglist->title }}</h4>
+                                <p>{!! \Illuminate\Support\Str::limit($bloglist->description, $limit = 150, $end = '...') !!}</p>
+                                <span>Learn More....</span>
+                                <a href="{{route('blogs.show',$bloglist->slug)}}"></a>
+                            </div>
                         </div>
                     @endif
                 @endforeach

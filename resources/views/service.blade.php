@@ -119,7 +119,7 @@
 
                 <h3>{!! @$content2->title !!}</h3>
                 {!! $content2->description !!}
-                <div class="text-center">
+                <div class="text-center mt-3">
                     @if (@$content2->button_title)
                         <a> 
                             <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -162,7 +162,7 @@
 
                 <h3>{!! @$content4->title !!}</h3>
                 {!! $content4->description !!}
-                <div class="text-center">
+                <div class="text-center mt-3">
                     @if (@$content4->button_title)
                         <a> 
                             <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -204,7 +204,7 @@
 
                     <h3>{!! @$content5->title !!}</h3>
                     {!! $content5->description !!}
-                    <div class="text-center">
+                    <div class="text-center mt-3">
                         @if (@$content5->button_title)
                             <a> 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -231,7 +231,7 @@
 
                     <h3>{!! @$content6->title !!}</h3>
                     {!! $content6->description !!}
-                    <div class="text-center">
+                    <div class="text-center mt-3">
                         @if (@$content6->button_title)
                             <a> 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -260,7 +260,7 @@
                     <h3>{!! @$content7->title !!}</h3>
                     {!! $content7->description !!}
                     <br>
-                    <div class="text-center">
+                    <div class="text-center mt-3">
                         @if (@$content7->button_title)
                             <a> 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -316,7 +316,7 @@
 
                     <h3>{!! @$content9->title !!}</h3>
                     {!! $content9->description !!}
-                    <div class="text-center">
+                    <div class="text-center mt-3">
                         @if (@$content9->button_title)
                             <a > 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -342,7 +342,7 @@
 
                     <h3>{!! @$content10->title !!}</h3>
                     {!! $content10->description !!}
-                    <div class="text-center">
+                    <div class="text-center mt-3">
                         @if (@$content10->button_title)
                             <a > 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -369,7 +369,7 @@
 
                     <h3>{!! @$content11->title !!}</h3>
                     {!! $content11->description !!}
-                    <div class="text-center">
+                    <div class="text-center mt-3">
                         @if (@$content11->button_title)
                             <a > 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -396,7 +396,7 @@
 
                     <h3>{!! @$content12->title !!}</h3>
                     {!! $content12->description !!}
-                    <div class="text-center">
+                    <div class="text-center mt-3">
                         @if (@$content12->button_title)
                             <a> 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -423,7 +423,7 @@
 
                     <h3>{!! @$content14->title !!}</h3>
                     {!! $content14->description !!}
-                    <div class="text-center">
+                    <div class="text-center mt-3">
                         @if (@$content14->button_title)
                             <a> 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
