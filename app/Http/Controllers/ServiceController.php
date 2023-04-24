@@ -28,8 +28,8 @@ class ServiceController extends Controller
     {
         $service = Service::where('slug', $slug)->where('status', 1)->first();
         if ($service) {
-            $content = ServiceContent::where('service_id', $service->uuid)->where('status',1)->get();
-            // dd($content);
+            $content = ServiceContent::where('status',1)->get();
+            //  dd($content);
             $faqs = ServiceFaq::where('service_id', $service->uuid)->get();
             $seo = Seo::where('route_name', $slug)->first();
             if ($seo) {
