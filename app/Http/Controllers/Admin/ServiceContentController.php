@@ -49,6 +49,7 @@ class ServiceContentController extends Controller
             'order' => 'required|numeric',
             'image_position' => 'required',
             'button_title' => 'nullable',
+            
             'button_link' => 'nullable',
         ]); 
 
@@ -60,6 +61,7 @@ class ServiceContentController extends Controller
         $content->order =  $validated['order'];
         $content->image_position =  $validated['image_position'];
         $content->button_title =  $validated['button_title'];
+        
         $content->button_link =  $validated['button_link'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
@@ -103,6 +105,7 @@ class ServiceContentController extends Controller
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
             'image_position' => 'required',
+            'status' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',
         ]); 
@@ -114,6 +117,7 @@ class ServiceContentController extends Controller
         $content->order =  $validated['order'];
         $content->image_position =  $validated['image_position'];
         $content->button_title =  $validated['button_title'];
+        $content->status = $validated['status'];
         $content->button_link =  $validated['button_link'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
