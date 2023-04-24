@@ -301,17 +301,17 @@
             </div>
         </section>
     @endif
-    @if (@$content9)
+    {{--  @if (@$content9)
         <section class="section3 section d-flex" order='{{ @$content9->order }}' 9>
             <div class="container">
-                <div class="col-md-12">
+                <div class="col-md-12">  --}}
 
                     <!-- left image -->
                     {{-- <img src="{{ asset('storage/' . $content10->image) }}" 
                     class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> --}}
 
                     <!-- right image -->
-                     <img src="{{ asset('storage/' . $content9->image) }}" 
+                     {{--  <img src="{{ asset('storage/' . $content9->image) }}" 
                     class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> 
 
                     <h3>{!! @$content9->title !!}</h3>
@@ -326,7 +326,7 @@
                     </div>
                 </div>
         </section>
-    @endif
+    @endif  --}}
     @if (@$content10)
         <section class="section4 section d-flex" order='{{ @$content10->order }}' 10>
             <div class="container">
