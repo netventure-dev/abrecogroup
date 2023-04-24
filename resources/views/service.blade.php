@@ -119,7 +119,7 @@
 
                 <h3>{!! @$content2->title !!}</h3>
                 {!! $content2->description !!}
-                <div class="text-center mt-3">
+                <div class="text-center">
                     @if (@$content2->button_title)
                         <a> 
                             <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -162,7 +162,7 @@
 
                 <h3>{!! @$content4->title !!}</h3>
                 {!! $content4->description !!}
-                <div class="text-center mt-3">
+                <div class="text-center">
                     @if (@$content4->button_title)
                         <a> 
                             <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -204,7 +204,7 @@
 
                     <h3>{!! @$content5->title !!}</h3>
                     {!! $content5->description !!}
-                    <div class="text-center mt-3">
+                    <div class="text-center">
                         @if (@$content5->button_title)
                             <a> 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -231,7 +231,7 @@
 
                     <h3>{!! @$content6->title !!}</h3>
                     {!! $content6->description !!}
-                    <div class="text-center mt-3">
+                    <div class="text-center">
                         @if (@$content6->button_title)
                             <a> 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -260,7 +260,7 @@
                     <h3>{!! @$content7->title !!}</h3>
                     {!! $content7->description !!}
                     <br>
-                    <div class="text-center mt-3">
+                    <div class="text-center">
                         @if (@$content7->button_title)
                             <a> 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -301,22 +301,22 @@
             </div>
         </section>
     @endif
-    {{--  @if (@$content9)
+    @if (@$content9)
         <section class="section3 section d-flex" order='{{ @$content9->order }}' 9>
             <div class="container">
-                <div class="col-md-12">  --}}
+                <div class="col-md-12">
 
                     <!-- left image -->
                     {{-- <img src="{{ asset('storage/' . $content10->image) }}" 
                     class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> --}}
 
                     <!-- right image -->
-                     {{--  <img src="{{ asset('storage/' . $content9->image) }}" 
+                     <img src="{{ asset('storage/' . $content9->image) }}" 
                     class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> 
 
                     <h3>{!! @$content9->title !!}</h3>
                     {!! $content9->description !!}
-                    <div class="text-center mt-3">
+                    <div class="text-center">
                         @if (@$content9->button_title)
                             <a > 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -326,7 +326,7 @@
                     </div>
                 </div>
         </section>
-    @endif  --}}
+    @endif
     @if (@$content10)
         <section class="section4 section d-flex" order='{{ @$content10->order }}' 10>
             <div class="container">
@@ -342,7 +342,7 @@
 
                     <h3>{!! @$content10->title !!}</h3>
                     {!! $content10->description !!}
-                    <div class="text-center mt-3">
+                    <div class="text-center">
                         @if (@$content10->button_title)
                             <a > 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -369,7 +369,7 @@
 
                     <h3>{!! @$content11->title !!}</h3>
                     {!! $content11->description !!}
-                    <div class="text-center mt-3">
+                    <div class="text-center">
                         @if (@$content11->button_title)
                             <a > 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -396,7 +396,7 @@
 
                     <h3>{!! @$content12->title !!}</h3>
                     {!! $content12->description !!}
-                    <div class="text-center mt-3">
+                    <div class="text-center">
                         @if (@$content12->button_title)
                             <a> 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
@@ -423,7 +423,7 @@
 
                     <h3>{!! @$content14->title !!}</h3>
                     {!! $content14->description !!}
-                    <div class="text-center mt-3">
+                    <div class="text-center">
                         @if (@$content14->button_title)
                             <a> 
                                 <button type="submit" class="btn btn-warning mb-2" data-toggle="modal"
