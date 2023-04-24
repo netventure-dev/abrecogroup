@@ -39,10 +39,10 @@
                                 @csrf
                                 <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}</label>
-                                    <div class="col-sm-9">                                   
+                                    <div class="col-sm-9">
 
-                                            <textarea name="title" class="form-control summernote @if ($errors->has('title')) is-invalid @endif" ro
-                                                placeholder="{{ __('Enter title') }}" required>{{ @old('title', @$content->title) }}</textarea>
+                                        <textarea name="title" class="form-control summernote @if ($errors->has('title')) is-invalid @endif" ro
+                                            placeholder="{{ __('Enter title') }}" required>{{ @old('title', @$content->title) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
                                     </div>
@@ -129,28 +129,28 @@
                                     </div>
                                 </div>
                                 @if (@$content->order == 1)
-                                @if(@$content_list)
-                                    @foreach ($content_list as $list)
-                                        <div class="mb-4 row textboxClass" id="target">                                        
-                                            <label for="list" class="col-sm-3 col-form-label">{{ __('List') }}
-                                            </label>
-                                            <div class="col-sm-7">
-                                                <input id="list" name="list[]" type="text"
-                                                    class="form-control mb-2 @if ($errors->has('list')) is-invalid @endif"
-                                                    placeholder="{{ __('Enter List Data') }}"
-                                                    value="{{ @old('list', @$list->data) }}">
-                                                <div class="invalid-feedback">{{ $errors->first('list') }}
+                                    @if (@$content_list)
+                                        @foreach ($content_list as $list)
+                                            <div class="mb-4 row textboxClass" id="target">
+                                                <label for="list" class="col-sm-3 col-form-label">{{ __('List') }}
+                                                </label>
+                                                <div class="col-sm-7">
+                                                    <input id="list" name="list[]" type="text"
+                                                        class="form-control mb-2 @if ($errors->has('list')) is-invalid @endif"
+                                                        placeholder="{{ __('Enter List Data') }}"
+                                                        value="{{ @old('list', @$list->data) }}">
+                                                    <div class="invalid-feedback">{{ $errors->first('list') }}
+                                                    </div>
                                                 </div>
-                                            </div>                                       
-                                        </div>
-                                    @endforeach
-                                @endif
-                                <div class="col-sm-2">
-                                    <button type="button" id='duplicate' class="duplicate btn btn-success">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                    <div class="mb-4 row textboxClass" id="target">                                        
+                                            </div>
+                                        @endforeach
+                                    @endif
+                                    <div class="col-sm-2">
+                                        <button type="button" id='duplicate' class="duplicate btn btn-success">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div class="mb-4 row textboxClass" id="target">
                                         <label for="list" class="col-sm-3 col-form-label">{{ __('List') }}
                                         </label>
                                         <div class="col-sm-7">
@@ -160,9 +160,19 @@
                                                 value="{{ @old('list', @$content->list) }}">
                                             <div class="invalid-feedback">{{ $errors->first('list') }}
                                             </div>
-                                        </div>                                       
+                                        </div>
                                     </div>
-                                     <div class="mb-4 row">
+
+
+                                    <div class="mb-4 row" id='destination'>
+                                        <div class="col-sm-2">
+                                            <button type="button" class="deleteButtonClass btn btn-danger d-none">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                @endif
+                                <div class="mb-4 row">
                                     <label for="horizontal-firstname-input"
                                         class="col-sm-3 col-form-label">{{ __('Status') }}<span
                                             class="text-danger">*</span></label>
@@ -179,15 +189,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                   
-                                    <div class="mb-4 row" id='destination'>
-                                        <div class="col-sm-2">
-                                            <button type="button"  class="deleteButtonClass btn btn-danger d-none">
-                                                <i class="fas fa-minus"></i>
-                                            </button>
-                                        </div> 
-                                    </div>
-                                @endif
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">
                                         <div>
@@ -225,7 +226,7 @@
             $('.deleteButtonClass').removeClass('d-none');
         });
 
-        $(".deleteButtonClass").click(function(){
+        $(".deleteButtonClass").click(function() {
             $('#destination').remove();
         });
     </script>
