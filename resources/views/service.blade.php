@@ -488,7 +488,7 @@ aria-hidden="true">
                 </div>  --}}
                  <div class="form-group">
                     <input required type="text"readonly class="form-control" id="service" name="service"
-                        value="{{ $service->uuid }}">{{ $service->name }} placeholder="">
+                        value="{{ $service->name }}>
                 </div>
                  
                 <div class="form-group">
