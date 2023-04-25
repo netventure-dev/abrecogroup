@@ -201,7 +201,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header border-bottom-0">
-                <h3 class="text-dark text-center" style="text-align:center !important;"><span>ESTIMATE</span> RATES</h3>
+                <h3 class="text-dark text-center" style="text-align:center !important;"><span>Book A</span> Service</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
