@@ -481,11 +481,16 @@ aria-hidden="true">
         <form id="my-form-button" action="{{ route('services.store') }}" method="post" role="form" class="php-email-form">
             <div class="modal-body pb-0">
                 @csrf
-                <div class="form-group">
+                {{--  <div class="form-group">
                     <select required class="form-control" name="service" id="service">
                         <option selected value="{{ $service->uuid }}">{{ $service->name }}</option>
                     </select>
+                </div>  --}}
+                 <div class="form-group">
+                    <input required type="text"readonly class="form-control" id="service" name="service"
+                        value="{{ $service->uuid }}">{{ $service->name }} placeholder="">
                 </div>
+                 
                 <div class="form-group">
                     <input required type="text" class="form-control" id="name" name="name"
                         value="{{ @old('name') }}" placeholder="Full Name *">
