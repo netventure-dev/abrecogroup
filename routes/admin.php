@@ -89,6 +89,22 @@ Route::get('services/edit/{id}',  'Admin\ServiceController@edit')->name('service
 Route::post('services/update/{id}',  'Admin\ServiceController@update')->name('services.update');
 Route::delete('services/destroy/{id}',  'Admin\ServiceController@destroy')->name('services.destroy');
 
+// industries
+Route::get('industries',  'Admin\IndustriesController@index')->name('industries.index');
+Route::get('industries/create',  'Admin\IndustriesController@create')->name('industries.create');
+Route::post('industries/store',  'Admin\IndustriesController@store')->name('industries.store');
+Route::get('industries/edit/{id}',  'Admin\IndustriesController@edit')->name('industries.edit');
+Route::post('industries/update/{id}',  'Admin\IndustriesController@update')->name('industries.update');
+Route::delete('industries/destroy/{id}',  'Admin\IndustriesController@destroy')->name('industries.destroy');
+
+// industry content
+Route::get('industries/{id}/content',  'Admin\IndustriesContentController@index')->name('industries.content.index');
+Route::get('industries/{id}/content/create',  'Admin\IndustriesContentController@create')->name('industries.content.create');
+Route::post('industries/{id}/content/store',  'Admin\IndustriesContentController@store')->name('industries.content.store');
+Route::get('industries/{id}/content/{uuid}/edit',  'Admin\IndustriesContentController@edit')->name('industries.content.edit');
+Route::post('industries/{id}/content/{uuid}/update',  'Admin\IndustriesContentController@update')->name('industries.content.update');
+Route::post('industries/{id}/content/{uuid}/destroy',  'Admin\IndustriesContentController@destroy')->name('industries.content.destroy');
+
 // our-projects
 Route::get('our-projects',  'Admin\OurProjectsController@index')->name('our-projects.index');
 Route::get('our-projects/create',  'Admin\OurProjectsController@create')->name('our-projects.create');
