@@ -14,7 +14,7 @@ class AddLogoToServicesTable extends Migration
     public function up()
     {
         Schema::table('services', function (Blueprint $table) {
-            $table->string('logo')->after('cover_image');
+            $table->string('logo')->nullable()->after('cover_image');
         });
     }
 

@@ -21,7 +21,6 @@ class CreateServiceContentsTable extends Migration
             $table->longText('description');
             $table->string('order');
             $table->string('image')->nullable();
-            $table->string('image_position')->nullable();
             $table->string('button_title')->nullable();
             $table->string('button_link')->nullable();
             $table->timestamps();

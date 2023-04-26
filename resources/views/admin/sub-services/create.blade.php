@@ -1,6 +1,6 @@
 @extends('admin.layout.backend')
 
-@section('title') {{ __('Create Service') }} @endsection
+@section('title') {{ __('Create Sub Service') }} @endsection
 @section('css')
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 
@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Create Service') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Create Sub Service') }}</h4>
                 <div class="page-title-right">
 
                 </div>
@@ -31,9 +31,23 @@
                 <div class="card-body">
                     <div class="mt-2 row">
                         <div class="col-lg-11">
-                            <form action="{{ route('admin.services.store') }}" method="post"
+                            <form action="{{ route('admin.sub-services.store') }}" method="post"
                                 class="custom-validation" enctype="multipart/form-data">
                                 @csrf
+                                <div class="mb-4 row">
+                                    <label for="name" class="col-sm-3 col-form-label mb-2">{{ __('Services') }}<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" name="service_id">
+                                            <option>--Select Service--</option>
+                                            @foreach ($services as $service)
+                                                <option value="{{$service->uuid}}">{{$service->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="invalid-feedback">{{ $errors->first('name') }}
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="name" class="col-sm-3 col-form-label mb-2">{{ __('Name') }}<span
                                             class="text-danger">*</span></label>
@@ -51,7 +65,7 @@
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="cover_description"
-                                            class="form-control summernote @if ($errors->has('cover_description')) is-invalid @endif" ro placeholder="{{ __('Enter Cover Description Description') }}" required>{{ @old('cover_description')}}</textarea>
+                                            class="form-control summernote @if ($errors->has('cover_description')) is-invalid @endif" placeholder="{{ __('Enter Cover Description Description') }}" required>{{ @old('cover_description')}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('cover_description') }}
                                         </div>
                                     </div>
@@ -64,7 +78,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
-                                 <div class="mt-4 row">
+                                <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Logo') }}<a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9"> 

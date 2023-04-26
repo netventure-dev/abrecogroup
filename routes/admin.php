@@ -113,6 +113,14 @@ Route::get('services/{id}/faq/{uuid}/edit',  'Admin\ServiceFaqController@edit')-
 Route::post('services/{id}/faq/{uuid}/update',  'Admin\ServiceFaqController@update')->name('services.faq.update');
 Route::delete('services/{id}/faq/destroy',  'Admin\ServiceFaqController@destroy')->name('services.faq.destroy');
 
+// sub services
+Route::get('sub-services',  'Admin\SubServiceController@index')->name('sub-services.index');
+Route::get('sub-services/create',  'Admin\SubServiceController@create')->name('sub-services.create');
+Route::post('sub-services/store',  'Admin\SubServiceController@store')->name('sub-services.store');
+Route::get('sub-services/edit/{id}',  'Admin\SubServiceController@edit')->name('sub-services.edit');
+Route::post('sub-services/update/{id}',  'Admin\SubServiceController@update')->name('sub-services.update');
+Route::delete('sub-services/destroy/{id}',  'Admin\SubServiceController@destroy')->name('sub-services.destroy');
+
 // contact-us
 Route::get('contact-us/create',  'Admin\ContactUsController@create')->name('contact-us.create');
 Route::post('contact-us/store',  'Admin\ContactUsController@store')->name('contact-us.store');

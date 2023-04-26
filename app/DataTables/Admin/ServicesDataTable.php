@@ -60,7 +60,7 @@ class ServicesDataTable extends DataTable
                     ->setTableId('services-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->orderBy(1)    ;
+                    ->orderBy(1);
     }
 
     /**
