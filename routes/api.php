@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Api\IndustryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,9 @@ use App\Http\Controllers\Api\HomeController;
 // });
 
 
+// Route::get('/home', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
-
+Route::get('industries',[IndustryController::class,'index']);
+Route::get('industries/{uuid}',[IndustryController::class,'details']);
 // Route::resource('home', HomeController::class);
 
