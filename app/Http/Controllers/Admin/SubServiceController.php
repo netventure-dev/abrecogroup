@@ -79,13 +79,14 @@ class SubServiceController extends Controller
 
     public function edit($id)
     {
-        $services= SubService::where('uuid',$id)->first();
+        $subservice= SubService::where('uuid',$id)->first();
         $breadcrumbs = [
-            [(__('Dashboard')), route('admin.home')],
-            [(__('Sub Services')),  route('admin.sub-services.index')],
-            [$services->title, null],
-    ];
-        return view('admin.sub-services.edit', compact('breadcrumbs','services'));
+                [(__('Dashboard')), route('admin.home')],
+                [(__('Sub Services')),  route('admin.sub-services.index')],
+                [$subservice->name, null],
+        ];
+        $services=Service::where('status',1)->get();
+        return view('admin.sub-services.edit', compact('breadcrumbs','services','subservice'));
     }
 
     public function update(Request $request,$id)
@@ -111,7 +112,7 @@ class SubServiceController extends Controller
         $services->cover_description = $validated['cover_description'];
         $services->status = $validated['status'];  
         $services->title = $validated['title'];
-        $service->service_id = $validated['service_id'];
+        $services->service_id = $validated['service_id'];
         $services->description = $validated['description'];
         $services->seo_title = $validated['seo_title'];
         $services->seo_description = $validated['seo_description'];

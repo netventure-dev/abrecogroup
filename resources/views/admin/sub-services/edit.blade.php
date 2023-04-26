@@ -1,6 +1,6 @@
 @extends('admin.layout.backend')
 
-@section('title') {{ __('Edit Service') }} @endsection
+@section('title') {{ __('Edit Sub Service') }} @endsection
 @section('css')
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 
@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Edit Service') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Edit Sub Service') }}</h4>
                 <div class="page-title-right">
 
                 </div>
@@ -31,16 +31,30 @@
                 <div class="card-body">
                     <div class="mt-2 row">
                         <div class="col-lg-11">
-                            <form action="{{ route('admin.services.update', $services->uuid) }}" method="post"
+                            <form action="{{ route('admin.sub-services.update', $subservice->uuid) }}" method="post"
                                 class="custom-validation" enctype="multipart/form-data">
                                 @csrf
+                                <div class="mb-4 row">
+                                    <label for="name" class="col-sm-3 col-form-label mb-2">{{ __('Services') }}<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" name="service_id">
+                                            <option>--Select Service--</option>
+                                            @foreach ($services as $service)
+                                                <option @if($service->uuid == $subservice->service_id) selected @endif value="{{$service->uuid}}">{{$service->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="invalid-feedback">{{ $errors->first('name') }}
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="name" class="col-sm-3 col-form-label mb-2">{{ __('Name') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <input id="name" name="name" type="text"
                                             class="form-control mb-2 @if ($errors->has('name')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter Name') }}" required value="{{ @old('name',@$services->name) }}">
+                                            placeholder="{{ __('Enter Name') }}" required value="{{ @old('name',@$subservice->name) }}">
                                         <div class="invalid-feedback">{{ $errors->first('name') }}
                                         </div>
                                     </div>
@@ -51,7 +65,7 @@
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="cover_description"
-                                            class="form-control summernote @if ($errors->has('cover_description')) is-invalid @endif" ro placeholder="{{ __('Enter Cover Description Description') }}" required>{{ @old('cover_description',@$services->cover_description)}}</textarea>
+                                            class="form-control summernote @if ($errors->has('cover_description')) is-invalid @endif" ro placeholder="{{ __('Enter Cover Description Description') }}" required>{{ @old('cover_description',@$subservice->cover_description)}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('cover_description') }}
                                         </div>
                                     </div>
@@ -61,8 +75,8 @@
                                         class="text-danger">*</span><a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9"> 
-                                        @if (isset($services->cover_image))
-                                            <img src="{{ asset('storage/'.$services->cover_image) }}" alt="" class="img-fluid" style="width:250px;">
+                                        @if (isset($subservice->cover_image))
+                                            <img src="{{ asset('storage/'.$subservice->cover_image) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
@@ -73,8 +87,8 @@
                                         class="text-danger">*</span><a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9"> 
-                                        @if (isset($services->logo))
-                                            <img src="{{ asset('storage/'.$services->logo) }}" alt="" class="img-fluid" style="width:250px;">
+                                        @if (isset($subservice->logo))
+                                            <img src="{{ asset('storage/'.$subservice->logo) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
                                         <input id="logo" name="logo" type="file" class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif" value="{{ @old('logo') }}">
                                         <div class="invalid-feedback">{{ $errors->first('logo') }}</div>
@@ -86,7 +100,7 @@
                                     <div class="col-sm-9">
                                         <input id="title" name="title" type="text"
                                             class="form-control mb-2 @if ($errors->has('title')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter Title') }}" required value="{{ @old('title',@$services->title) }}">
+                                            placeholder="{{ __('Enter Title') }}" required value="{{ @old('title',@$subservice->title) }}">
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
                                     </div>
@@ -97,7 +111,7 @@
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="description"
-                                            class="form-control summernote @if ($errors->has('description')) is-invalid @endif" ro placeholder="{{ __('Enter Description') }}" required>{{ @old('description',@$services->description)}}</textarea>
+                                            class="form-control summernote @if ($errors->has('description')) is-invalid @endif" ro placeholder="{{ __('Enter Description') }}" required>{{ @old('description',@$subservice->description)}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>
@@ -109,12 +123,12 @@
                                     <div class="col-sm-9">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="status" id="status1"
-                                                value="1" @if ($services->status == 1) checked @endif>
+                                                value="1" @if ($subservice->status == 1) checked @endif>
                                             <label class="form-check-label" for="status1">{{ __('Active') }}</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="status" id="status2"
-                                                value="0" @if ($services->status == 0) checked @endif>
+                                                value="0" @if ($subservice->status == 0) checked @endif>
                                             <label class="form-check-label" for="status2">{{ __('Inactive') }}</label>
                                         </div>
                                     </div>
@@ -125,7 +139,7 @@
                                             </label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="seo_title" name="seo_title"
-                                        placeholder="Please provide the meta title" value="{{ @old('seo_title',@$services->seo_title) }}"
+                                        placeholder="Please provide the meta title" value="{{ @old('seo_title',@$subservice->seo_title) }}"
                                         >
                                         <div class="invalid-feedback">{{ $errors->first('seo_title') }}
                                         </div>
@@ -138,7 +152,7 @@
                                     <div class="col-sm-9">
                                         <textarea class="form-control" id="seo_description" name="seo_description" rows="2"
                                                 placeholder="Please provide meta description"
-                                                >{{ @old('seo_description',@$services->seo_description) }}</textarea>
+                                                >{{ @old('seo_description',@$subservice->seo_description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('seo_description') }}
                                         </div>
                                     </div>
@@ -150,7 +164,7 @@
                                     <div class="col-sm-9">
                                         <textarea class="form-control" id="seo_keywords" name="seo_keywords" rows="2"
                                                 placeholder="Please provide meta keywords"
-                                                >{{ @old('seo_keywords',@$services->seo_keywords) }}</textarea>
+                                                >{{ @old('seo_keywords',@$subservice->seo_keywords) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('seo_keywords') }}
                                         </div>
                                     </div>

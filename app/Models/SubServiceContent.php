@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SubService extends Model
+class SubServiceContent extends Model
 {
     use HasFactory;
     use Sluggable;
@@ -18,10 +18,5 @@ class SubService extends Model
                 'source' => 'services'
             ]
         ];
-    }
-
-    public function services()
-    {
-        return $this->hasOne('App\Models\Service','uuid','service_id');
     }
 }
