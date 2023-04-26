@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class IndustryController extends Controller
 {
     public $successStatus = 200;
-    public $failedStatus = 500;
+    public $failedStatus = 400;
 
     public function index()
     {
@@ -19,7 +19,7 @@ class IndustryController extends Controller
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }
-        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->successStatus);
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
     }
 
     public function details($uuid)
@@ -36,6 +36,6 @@ class IndustryController extends Controller
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }
-        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->successStatus);
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
     }
 }
