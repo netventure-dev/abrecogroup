@@ -15,14 +15,14 @@ use Illuminate\Http\Request;
 |
 */
 // blogs
-Route::get('blogs','BlogsController@index')->name('blogs.index');
-Route::get('blogs/{slug}','BlogsController@show')->name('blogs.show');
-Route::post('services/store', 'ServiceController@store')->name('services.store');
+// Route::get('blogs','BlogsController@index')->name('blogs.index');
+// Route::get('blogs/{slug}','BlogsController@show')->name('blogs.show');
+// Route::post('services/store', 'ServiceController@store')->name('services.store');
 
-// thankyou
-Route::get('/thank-you', 'HomeController@thankyou')->name('thank-you');
+// // thankyou
+// Route::get('/thank-you', 'HomeController@thankyou')->name('thank-you');
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'AdminAuth\LoginController@showLoginForm')->name('home');
 
 // calculation
 
@@ -31,8 +31,8 @@ Route::group(['prefix' => 'admin'], function () {
   Route::post('/login', 'AdminAuth\LoginController@login');
   Route::post('/logout', 'AdminAuth\LoginController@logout')->name('logout');
 
-  Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
-  Route::post('/register', 'AdminAuth\RegisterController@register');
+  // Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
+  // Route::post('/register', 'AdminAuth\RegisterController@register');
 
   Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
   Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
@@ -41,23 +41,23 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
-//feedback
-Route::get('feedback', 'FeedbackController@index')->name('feedback.index');
-Route::post('feedback/store', 'FeedbackController@store')->name('feedback.store');
+// //feedback
+// Route::get('feedback', 'FeedbackController@index')->name('feedback.index');
+// Route::post('feedback/store', 'FeedbackController@store')->name('feedback.store');
 
-//contact-us
-Route::get('contact-us', 'ContactController@index')->name('contact-us.index');
-Route::post('contact-us/store', 'ContactController@store')->name('contact-us.store');
+// //contact-us
+// Route::get('contact-us', 'ContactController@index')->name('contact-us.index');
+// Route::post('contact-us/store', 'ContactController@store')->name('contact-us.store');
 
-//about-us
-Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+// //about-us
+// Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 
-//request a quote
-Route::get('request-a-quote', 'RequestQuoteController@index')->name('request-a-quote.index');
-Route::post('request-a-quote/store', 'RequestQuoteController@store')->name('request-a-quote.store');
-Route::post('request-a-quote-rates/store', 'RequestQuoteController@request_store')->name('request-a-quote-rates.store');
+// //request a quote
+// Route::get('request-a-quote', 'RequestQuoteController@index')->name('request-a-quote.index');
+// Route::post('request-a-quote/store', 'RequestQuoteController@store')->name('request-a-quote.store');
+// Route::post('request-a-quote-rates/store', 'RequestQuoteController@request_store')->name('request-a-quote-rates.store');
 
-// services
+// // services
 
-Route::get('{slug}','ServiceController@index')->name('service.index');
+// Route::get('{slug}','ServiceController@index')->name('service.index');
 

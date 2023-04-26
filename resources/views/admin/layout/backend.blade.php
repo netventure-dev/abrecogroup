@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="utf-8" />
-        <title> EUREKA </title>
+        <title> A3 Logics </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -493,6 +493,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{route('admin.industries.index')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Industry</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{route('admin.our-projects.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Our Projects</span>
@@ -686,7 +692,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            © 2022 EUREKA. All Rights Reserved. Digitally Empowered by <a href="https://www.netventure.in/"> NetVenture Digital Solutions Pvt. Ltd. </a>
+                            © <?php echo date("Y"); ?> A3 Logics. All Rights Reserved. Digitally Empowered by <a href="https://www.netventure.in/"> NetVenture Digital Solutions Pvt. Ltd. </a>
                         </div>
                     </div>
                 </div>

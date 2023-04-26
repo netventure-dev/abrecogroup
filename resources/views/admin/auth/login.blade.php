@@ -60,11 +60,11 @@
                                                 Remember me
                                             </label>
                                         </div>
-                                        
+                                       
                                         <div class="mt-3 d-grid">
                                             <button class="btn btn-primary waves-effect waves-light" type="submit">Log In</button>
                                         </div>
-            
+            {{--  
                                         <div class="mt-4 text-center">
                                             <h5 class="font-size-14 mb-3">Sign in with</h5>
             
@@ -85,7 +85,7 @@
                                                     </a>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> --}}
 
                                         <div class="mt-4 text-center">
                                             <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock me-1"></i> Forgot your password?</a>
@@ -98,7 +98,7 @@
                         <div class="mt-5 text-center">
                             
                             <div>
-                                <p>Don't have an account ? <a href="auth-register.html" class="fw-medium text-primary"> Signup now </a> </p>
+                                {{-- <p>Don't have an account ? <a href="auth-register.html" class="fw-medium text-primary"> Signup now </a> </p> --}}
                                 <p>© <script>document.write(new Date().getFullYear())</script>  Crafted with <i class="mdi mdi-heart text-danger"></i> by Netventure Digital Solutions</p>
                             </div>
                         </div>
