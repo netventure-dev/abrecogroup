@@ -1,6 +1,6 @@
 @extends('admin.layout.backend')
 
-@section('title') {{ __('Create Service Content') }} @endsection
+@section('title') {{ __('Create Sub Service Content') }} @endsection
 @section('css')
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 
@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Create Service Content') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Create Sub Service Content') }}</h4>
                 <div class="page-title-right">
 
                 </div>
@@ -31,7 +31,7 @@
                 <div class="card-body">
                     <div class="mt-2 row">
                         <div class="col-lg-11">
-                            <form action="{{ route('admin.services.content.store',@$services->uuid) }}" method="post"
+                            <form action="{{ route('admin.sub-services.content.store',@$subservice->uuid) }}" method="post"
                                 class="custom-validation" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-4 row">
@@ -73,22 +73,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
-                                <div class="mb-4 row">
-                                    <label for="image_position" class="col-sm-3 col-form-label mb-2">{{ __('Image Position') }}<span
-                                            class="text-danger">*</span></label>
-                                    <div class="col-sm-9">
-                                        <select id="image_position" name="image_position" 
-                                        class="form-control mb-2 @if ($errors->has('image_position')) is-invalid  @endif"
-                                        placeholder="{{ __('Enter image_position') }}" required>
-                                            <option selected value="">Select Position</option>
-                                            <option value="1">Center</option>
-                                            <option value="2">Left</option>
-                                            <option value="3">Right</option>
-                                        </select>
-                                        <div class="invalid-feedback">{{ $errors->first('image_position') }}
-                                        </div>
-                                    </div>
-                                </div>
+                               
                                 <div class="mb-4 row">
                                     <label for="button_title"
                                             class="col-sm-3 col-form-label">{{ __('Button Title') }}

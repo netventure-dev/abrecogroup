@@ -33,7 +33,7 @@ class ServiceContentController extends Controller
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Services')), route('admin.services.index')],
-            [$services->title, null],
+            [$services->title, route('admin.services.content.index',$services->uuid)],
             [(__('Content')), null],
         ];
         return view('admin.services.content.create',compact('services','breadcrumbs'));
@@ -47,7 +47,6 @@ class ServiceContentController extends Controller
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
-            'image_position' => 'required',
             'button_title' => 'nullable',
             
             'button_link' => 'nullable',
@@ -59,7 +58,6 @@ class ServiceContentController extends Controller
         $content->title =  $validated['title'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
-        $content->image_position =  $validated['image_position'];
         $content->button_title =  $validated['button_title'];
         
         $content->button_link =  $validated['button_link'];
@@ -104,7 +102,6 @@ class ServiceContentController extends Controller
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
-            'image_position' => 'required',
             'status' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',
@@ -115,7 +112,6 @@ class ServiceContentController extends Controller
         $content->title =  $validated['title'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
-        $content->image_position =  $validated['image_position'];
         $content->button_title =  $validated['button_title'];
         $content->status = $validated['status'];
         $content->button_link =  $validated['button_link'];

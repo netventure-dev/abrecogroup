@@ -23,6 +23,7 @@ class CreateSubServiceContentsTable extends Migration
             $table->string('image')->nullable();
             $table->string('button_title')->nullable();
             $table->string('button_link')->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

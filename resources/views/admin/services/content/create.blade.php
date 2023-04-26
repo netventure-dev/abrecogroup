@@ -74,22 +74,6 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="image_position" class="col-sm-3 col-form-label mb-2">{{ __('Image Position') }}<span
-                                            class="text-danger">*</span></label>
-                                    <div class="col-sm-9">
-                                        <select id="image_position" name="image_position" 
-                                        class="form-control mb-2 @if ($errors->has('image_position')) is-invalid  @endif"
-                                        placeholder="{{ __('Enter image_position') }}" required>
-                                            <option selected value="">Select Position</option>
-                                            <option value="1">Center</option>
-                                            <option value="2">Left</option>
-                                            <option value="3">Right</option>
-                                        </select>
-                                        <div class="invalid-feedback">{{ $errors->first('image_position') }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4 row">
                                     <label for="button_title"
                                             class="col-sm-3 col-form-label">{{ __('Button Title') }}
                                             </label>

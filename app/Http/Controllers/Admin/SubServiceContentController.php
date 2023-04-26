@@ -26,26 +26,25 @@ class SubServiceContentController extends Controller
 
     public function create($id)
     {
-        $services= Service::where('uuid',$id)->first();
+        $subservice= SubService::where('uuid',$id)->first();
 
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Services')), route('admin.services.index')],
-            [$services->title, null],
+            [(__('Sub Services')), route('admin.sub-services.index')],
+            [$subservice->name , route('admin.sub-services.content.index',$subservice->uuid)],
             [(__('Content')), null],
         ];
-        return view('admin.services.content.create',compact('services','breadcrumbs'));
+        return view('admin.sub-services.content.create',compact('subservice','breadcrumbs'));
     }
 
     public function store(Request $request, $id)
     {
-        $services= Service::where('uuid',$id)->first();
+        $subservice= SubService::where('uuid',$id)->first();
         $validated = $request->validate([
             'title' => 'nullable',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
-            'image_position' => 'required',
             'button_title' => 'nullable',
             
             'button_link' => 'nullable',
@@ -53,13 +52,11 @@ class SubServiceContentController extends Controller
 
         $content = new SubServiceContent();
         $content->uuid = (string) Str::uuid();
-        $content->service_id = $services->uuid;
+        $content->sub_service_id = $subservice->uuid;
         $content->title =  $validated['title'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
-        $content->image_position =  $validated['image_position'];
         $content->button_title =  $validated['button_title'];
-        
         $content->button_link =  $validated['button_link'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
@@ -79,30 +76,28 @@ class SubServiceContentController extends Controller
     public function edit($id,$uuid)
     {
         $content_list = '';
-        $services= Service::where('uuid',$id)->first();
+        $subservice= SubService::where('uuid',$id)->first();
         $content = SubServiceContent::where('uuid',$uuid)->first();
-        $content_list = SubServiceContentList::where('service_content_id',$content->uuid)->get();
 
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Services')), route('admin.services.index')],
-            [$services->title, route('admin.services.content.index',$services->uuid)],
+            [$subservice->name, route('admin.sub-services.content.index',$subservice->uuid)],
             [(__('Content')), null],
         ];
-        return view('admin.services.content.edit',compact('services','breadcrumbs','content','content_list'));
+        return view('admin.sub-services.content.edit',compact('subservice','breadcrumbs','content'));
     }
 
     
     public function update(Request $request, $id,$uuid)
     {
-        $services= Service::where('uuid',$id)->first();
+        $subservice= SubService::where('uuid',$id)->first();
         $content = SubServiceContent::where('uuid',$uuid)->first();
         $validated = $request->validate([
             'title' => 'nullable',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
-            'image_position' => 'required',
             'status' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',
@@ -113,7 +108,6 @@ class SubServiceContentController extends Controller
         $content->title =  $validated['title'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
-        $content->image_position =  $validated['image_position'];
         $content->button_title =  $validated['button_title'];
         $content->status = $validated['status'];
         $content->button_link =  $validated['button_link'];
@@ -122,22 +116,6 @@ class SubServiceContentController extends Controller
             $content->image = $path;
         }
         $res = $content->save();
-
-        if($request->list){
-            $content_list = SubServiceContentList::where('service_content_id',$content->uuid)->delete();     
-            foreach($request->list as $list){
-                if($list){              
-                  
-                    $content_list = new SubServiceContentList();
-                    $content_list->uuid = (string) Str::uuid();
-                    $content_list->service_id = $services->uuid;
-                    $content_list->service_content_id = $content->uuid;
-                    $content_list->data = $list;
-                    $content_list->save();
-                }
-
-            }
-        }
         if ($res) {
             notify()->success(__('Updated successfully'));
         } else {
