@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Industry extends Model
 {
     use HasFactory;
+
+    public function content()
+    {
+        return $this->hasMany(IndustryContent::class,'industries_id','uuid');
+    }
 }
