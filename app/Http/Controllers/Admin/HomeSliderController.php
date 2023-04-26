@@ -52,7 +52,7 @@ class HomeSliderController extends Controller
         $slider->description = $validated['content'];
         $slider->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/image/', $slider->title . $validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/image/',$validated['image']->getClientOriginalName(), 'public');
             $slider->image = $path;
         }
         $res = $slider->save();
@@ -90,7 +90,7 @@ class HomeSliderController extends Controller
         $slider->status = $validated['status'];
         $slider->link = $validated['link'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/image/', $slider->title . $validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/image/', $validated['image']->getClientOriginalName(), 'public');
             $slider->image = $path;
         }
         $res = $slider->save();
