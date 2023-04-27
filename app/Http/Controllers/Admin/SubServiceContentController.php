@@ -129,7 +129,6 @@ class SubServiceContentController extends Controller
         // $this->authorize('delete', $menu);
         // $res = Service::where('uuid',$id);
         $res = SubServiceContent::where('uuid',$uuid)->delete();
-
         if ($res) {
             notify()->success(__('Deleted successfully'));
         } else {

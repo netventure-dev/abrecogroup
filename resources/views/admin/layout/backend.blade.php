@@ -496,11 +496,21 @@
                             <a href="{{route('admin.sub-services.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Sub Services</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.inner-services.index')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Inner Services</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{route('admin.industries.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Industry</span>
                             </a>
                         </li>
+                        
                         <li>
                             <a href="{{route('admin.our-projects.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\DataTables\Admin\SubServiceDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\SubService;
+use App\Models\InnerService;
 use App\Models\Service;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -138,6 +139,7 @@ class SubServiceController extends Controller
     {
         // $this->authorize('delete', $menu);
         $res = SubService::where('uuid',$id)->delete();
+        $inerservice=InnerService::where('sub_service_id',$id)->delete();
         if ($res) {
             notify()->success(__('Deleted successfully'));
         } else {

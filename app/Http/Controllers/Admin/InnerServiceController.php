@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Admin\ServicesDataTable;
+use App\DataTables\Admin\InnerServiceDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Service;
-use App\Models\SubService;
 use App\Models\InnerService;
+use App\Models\SubService;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
-class ServiceController extends Controller
+class InnerServiceController extends Controller
 {
-    public function index(ServicesDataTable $dataTable)
+    public function index(InnerServiceDataTable $dataTable)
     {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Services')), null],
+            [(__('Sub Services')), null],
         ];
-        return $dataTable->render('admin.services.index', ['breadcrumbs' => $breadcrumbs]);
+       
+        return $dataTable->render('admin.inner-services.index', ['breadcrumbs' => $breadcrumbs]);
     }
 
     public function create()
@@ -27,33 +27,36 @@ class ServiceController extends Controller
         // $this->authorize('create', Admin::class);
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['Services', route('admin.services.index')],
-            ['Create', route('admin.services.create')],
+            ['Inner Services', route('admin.inner-services.index')],
+            ['Create', route('admin.inner-services.create')],
         ];
-        return view('admin.services.create', compact('breadcrumbs'));
+        $subservices=SubService::where('status',1)->get();
+        return view('admin.inner-services.create', compact('breadcrumbs','subservices'));
     }
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|unique:services,name',
+            'name' => 'required|unique:inner_services,name',
             'cover_description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'title' => 'required',
             'description' => 'required',
+            'sub_service_id' => 'required',
             'status' => 'required',
             'seo_title' => 'nullable',
             'seo_description' => 'nullable',
             'seo_keywords' => 'nullable',
         ]);
-        $service = new Service();
+        $service = new InnerService();
         $service->uuid = (string) Str::uuid();
-        $service->slug = SlugService::createSlug(Service::class, 'slug', $validated['name'], ['unique' => false]);
         $service->name = $validated['name'];
+        $service->slug = SlugService::createSlug(InnerService::class, 'slug', $validated['name'], ['unique' => false]);
         $service->cover_description = $validated['cover_description'];
         $service->status = $validated['status'];  
         $service->title = $validated['title'];
         $service->description = $validated['description'];
+        $service->sub_service_id = $validated['sub_service_id'];
         $service->seo_title = $validated['seo_title'];
         $service->seo_description = $validated['seo_description'];
         $service->seo_keywords = $validated['seo_keywords'];
@@ -76,26 +79,28 @@ class ServiceController extends Controller
 
     public function edit($id)
     {
-        $services= Service::where('uuid',$id)->first();
+        $innerservice= InnerService::where('uuid',$id)->first();
         $breadcrumbs = [
-            [(__('Dashboard')), route('admin.home')],
-            [(__('Services')),  route('admin.services.index')],
-            [$services->title, null],
-    ];
-        return view('admin.services.edit', compact('breadcrumbs','services'));
+                [(__('Dashboard')), route('admin.home')],
+                [(__('Inner Services')),  route('admin.inner-services.index')],
+                [$innerservice->name, null],
+        ];
+        $subservices=SubService::where('status',1)->get();
+        return view('admin.inner-services.edit', compact('breadcrumbs','innerservice','subservices'));
     }
 
     public function update(Request $request,$id)
     {
         
-        $services = Service::where('uuid',$id)->first();
+        $services = InnerService::where('uuid',$id)->first();
 
         $validated = $request->validate([
-            'name' => 'required|unique:services,name,'.$services->id,
+            'name' => 'required|unique:inner_services,name,'.$services->id,
             'cover_description' => 'required',
             'image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
             'logo' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
             'title' => 'required',
+            'sub_service_id' => 'required',
             'description' => 'required',
             'status' => 'required',
             'seo_title' => 'nullable',
@@ -103,10 +108,11 @@ class ServiceController extends Controller
             'seo_keywords' => 'nullable',
         ]);
         $services->name = $validated['name'];
-        $services->slug = SlugService::createSlug(Service::class, 'slug', $validated['name'], ['unique' => false]);
+        $services->slug = SlugService::createSlug(SubService::class, 'slug', $validated['name'], ['unique' => false]);
         $services->cover_description = $validated['cover_description'];
         $services->status = $validated['status'];  
         $services->title = $validated['title'];
+        $services->sub_service_id = $validated['sub_service_id'];
         $services->description = $validated['description'];
         $services->seo_title = $validated['seo_title'];
         $services->seo_description = $validated['seo_description'];
@@ -131,10 +137,7 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         // $this->authorize('delete', $menu);
-        $res = Service::where('uuid',$id)->delete();
-        $subservice_id=SubService::where('service_id',$id)->first();
-        $subservice=SubService::where('service_id',$id)->delete();
-        $inerservice=InnerService::where('sub_service_id',$subservice_id->uuid)->delete();
+        $res = InnerService::where('uuid',$id)->delete();
         if ($res) {
             notify()->success(__('Deleted successfully'));
         } else {
@@ -142,5 +145,4 @@ class ServiceController extends Controller
         }
         return redirect()->back();
     }
-
 }

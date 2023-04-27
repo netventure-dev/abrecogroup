@@ -137,6 +137,23 @@ Route::get('sub-services/edit/{id}',  'Admin\SubServiceController@edit')->name('
 Route::post('sub-services/update/{id}',  'Admin\SubServiceController@update')->name('sub-services.update');
 Route::delete('sub-services/destroy/{id}',  'Admin\SubServiceController@destroy')->name('sub-services.destroy');
 
+// inner services
+Route::get('inner-services',  'Admin\InnerServiceController@index')->name('inner-services.index');
+Route::get('inner-services/create',  'Admin\InnerServiceController@create')->name('inner-services.create');
+Route::post('inner-services/store',  'Admin\InnerServiceController@store')->name('inner-services.store');
+Route::get('inner-services/edit/{id}',  'Admin\InnerServiceController@edit')->name('inner-services.edit');
+Route::post('inner-services/update/{id}',  'Admin\InnerServiceController@update')->name('inner-services.update');
+Route::delete('inner-services/destroy/{id}',  'Admin\InnerServiceController@destroy')->name('inner-services.destroy');
+
+// inner service content
+Route::get('inner-services/{id}/content',  'Admin\InnerServiceContentController@index')->name('inner-services.content.index');
+Route::get('inner-services/{id}/content/create',  'Admin\InnerServiceContentController@create')->name('inner-services.content.create');
+Route::post('inner-services/{id}/content/store',  'Admin\InnerServiceContentController@store')->name('inner-services.content.store');
+Route::get('inner-services/{id}/content/{uuid}/edit',  'Admin\InnerServiceContentController@edit')->name('inner-services.content.edit');
+Route::post('inner-services/{id}/content/{uuid}/update',  'Admin\InnerServiceContentController@update')->name('inner-services.content.update');
+Route::post('inner-services/{id}/content/{uuid}/destroy',  'Admin\InnerServiceContentController@destroy')->name('inner-services.content.destroy');
+
+
 // service content
 Route::get('sub-services/{id}/content',  'Admin\SubServiceContentController@index')->name('sub-services.content.index');
 Route::get('sub-services/{id}/content/create',  'Admin\SubServiceContentController@create')->name('sub-services.content.create');
