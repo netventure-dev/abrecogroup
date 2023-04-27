@@ -37,7 +37,7 @@
                                 <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}</label>
                                     <div class="col-sm-9">                                        
-                                            <textarea name="title" class="form-control summernote @if ($errors->has('title')) is-invalid @endif" ro
+                                            <textarea name="title" class="form-control @if ($errors->has('title')) is-invalid @endif" ro
                                                 placeholder="{{ __('Enter title') }}" required>{{ @old('title') }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
@@ -49,7 +49,7 @@
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="description"
-                                            class="form-control summernote @if ($errors->has('description')) is-invalid @endif" ro placeholder="{{ __('Enter Description') }}" required>{{ @old('description')}}</textarea>
+                                            class="form-control @if ($errors->has('description')) is-invalid @endif" ro placeholder="{{ __('Enter Description') }}" required>{{ @old('description')}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>
