@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AboutController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HomeController;
@@ -25,5 +26,7 @@ use App\Http\Controllers\Api\IndustryController;
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('industries',[IndustryController::class,'index']);
 Route::get('industries/{uuid}',[IndustryController::class,'details']);
+Route::get('/about-us', [AboutController::class, 'index']);
+
 // Route::resource('home', HomeController::class);
 
