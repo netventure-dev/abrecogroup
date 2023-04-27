@@ -24,10 +24,14 @@ class Service extends Model
     }
     public function faqs()
     {
-        return $this->hasMany('App\Models\ServiceFaq','id','service_id');
+        return $this->hasMany('App\Models\ServiceFaq','service_id','uuid');
     }
     public function contents()
     {
-        return $this->hasMany('App\Models\ServiceContent','id','service_id');
+        return $this->hasMany('App\Models\ServiceContent','service_id','uuid');
+    }
+    public function subservices()
+    {
+        return $this->hasMany('App\Models\SubService','service_id','uuid');
     }
 }

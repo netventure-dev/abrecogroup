@@ -21,7 +21,19 @@ class HomeController extends Controller
    {
       $data['home_sliders'] = HomeSlider::where('status', 1)->select('title', 'description', 'image', 'link')->get();
       // 
-      $data['services'] = Service::with('faqs', 'contents')->where('status', 1)->get();
+      $data['services'] = Service::select('id', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description','status')
+                                ->with(['faqs'=> function($query) {
+                                    $query->select('id','service_id', 'uuid', 'title','description','order')->where('status',1);
+                                }, 'contents' => function($query) {
+                                    $query->select('id','service_id', 'uuid', 'title','description','order','image')->where('status',1);
+                                },'subservices' => function($query) {
+                                    $query->select('id','service_id', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
+                                },'subservices.innerservices'=> function($query) {
+                                    $query->select('id','sub_service_id', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
+                                },])
+                                ->where('status', 1)
+                                ->orderBy('created_at', 'desc')
+                                ->get();
       // 
       // $data['blog']=Blog::select('uuid','title','description','image')->where('status',1)->get();
       $data['general'] = General::select('address', 'mobile', 'logo', 'facebook', 'instagram', 'twitter', 'linkdln', 'youtube')->first();

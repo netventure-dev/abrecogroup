@@ -24,4 +24,8 @@ class SubService extends Model
     {
         return $this->hasOne('App\Models\Service','uuid','service_id');
     }
+    public function innerservices()
+    {
+        return $this->hasMany('App\Models\InnerService','sub_service_id','uuid');
+    }
 }
