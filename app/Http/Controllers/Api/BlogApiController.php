@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\BlogList;
+use App\Models\Bloglist;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 
