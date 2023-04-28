@@ -51,7 +51,7 @@
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="description"
-                                            class="form-control summernote @if ($errors->has('description')) is-invalid @endif" ro placeholder="{{ __('Enter  Description') }}" required>{{ @old('description')}}</textarea>
+                                            class="form-control @if ($errors->has('description')) is-invalid @endif" ro placeholder="{{ __('Enter  Description') }}" required>{{ @old('description')}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>

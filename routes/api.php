@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\IndustryController;
 use App\Http\Controllers\Api\ServiceApiController;
+use App\Http\Controllers\Api\BlogApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,6 +29,7 @@ Route::get('industries',[IndustryController::class,'index']);
 Route::get('industries/{uuid}',[IndustryController::class,'details']);
 Route::get('/about-us', [AboutController::class, 'index']);
 Route::get('/services', [ServiceApiController::class, 'index']);
+Route::get('/blogs', [BlogApiController::class, 'index']);
 
 // Route::resource('home', HomeController::class);
 
