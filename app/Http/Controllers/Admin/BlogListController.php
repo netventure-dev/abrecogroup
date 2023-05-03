@@ -25,8 +25,8 @@ class BlogListController extends Controller
         // $this->authorize('create', Admin::class);
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['Slider', route('admin.home-slider.index')],
-            ['Create', route('admin.home-slider.create')],
+            ['Blog', route('admin.blog-list.index')],
+            ['Create', route('admin.blog-list.create')],
         ];
         return view('admin.bloglist.create', compact('breadcrumbs'));
     }
@@ -66,7 +66,7 @@ class BlogListController extends Controller
         $blog = Bloglist::where('uuid', $id)->first();
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Slider')),  route('admin.home-slider.index')],
+            [(__('Blog')),  route('admin.blog-list.index')],
             [$blog->title, null],
         ];
         return view('admin.bloglist.edit', compact('breadcrumbs', 'blog'));
