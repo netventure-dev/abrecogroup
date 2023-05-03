@@ -55,4 +55,20 @@ class ServiceApiController extends Controller
          }
          return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
     }
+    public function sub_services($uuid,$sub_id)
+    {
+        $data['sub_services'] = SubService::select('id','service_id','uuid', 'name','cover_image','logo','slug','cover_description','title','description','status')
+                                ->with(['innerservices'=> function($query) {
+                                    $query->select('id','sub_service_id', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
+                                }])
+                                ->where('uuid', $sub_id)
+                                ->where('service_id', $uuid)
+                                ->where('status', 1)
+                                ->orderBy('created_at', 'desc')
+                                ->first();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+         }
+         return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
 }
