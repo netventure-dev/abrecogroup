@@ -64,7 +64,7 @@
                                     <label for="content" class="col-sm-3 col-form-label">{{ __('Content') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea name="content" class="form-control summernote @if ($errors->has('content')) is-invalid @endif" ro
+                                        <textarea name="content" class="form-control  @if ($errors->has('content')) is-invalid @endif" ro
                                             placeholder="{{ __('Enter Description') }}" required>{{ @old('content', @$data->description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
@@ -74,7 +74,7 @@
                                     <label for="address" class="col-sm-3 col-form-label">{{ __('address') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea name="address" class="form-control summernote @if ($errors->has('address')) is-invalid @endif" ro
+                                        <textarea name="address" class="form-control  @if ($errors->has('address')) is-invalid @endif" ro
                                             placeholder="{{ __('Enter Description') }}" required>{{ @old('address', @$data->address) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('address') }}
                                         </div>

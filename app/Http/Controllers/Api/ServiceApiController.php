@@ -33,4 +33,26 @@ class ServiceApiController extends Controller
          }
          return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
     }
+
+    public function details($uuid)
+    {
+        $data['services'] = Service::select('id', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description','status')
+                                ->with(['faqs'=> function($query) {
+                                    $query->select('id','service_id', 'uuid', 'title','description','order')->where('status',1);
+                                }, 'contents' => function($query) {
+                                    $query->select('id','service_id', 'uuid', 'title','description','order','image')->where('status',1);
+                                },'subservices' => function($query) {
+                                    $query->select('id','service_id', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
+                                },'subservices.innerservices'=> function($query) {
+                                    $query->select('id','sub_service_id', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
+                                },])
+                                ->where('uuid', $uuid)
+                                ->where('status', 1)
+                                ->orderBy('created_at', 'desc')
+                                ->first();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+         }
+         return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
 }
