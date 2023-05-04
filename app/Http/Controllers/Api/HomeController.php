@@ -27,9 +27,9 @@ class HomeController extends Controller
                                 }, 'contents' => function($query) {
                                     $query->select('id','service_id', 'uuid', 'title','description','order','image')->where('status',1);
                                 },'subservices' => function($query) {
-                                    $query->select('id','service_id', 'service','uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
+                                    $query->select('id','service_id', 'service as service_name','uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
                                 },'subservices.innerservices'=> function($query) {
-                                    $query->select('id','sub_service_id','subservice', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
+                                    $query->select('id','sub_service_id','subservice as subservice_name', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
                                 },])
                                 ->where('status', 1)
                                 ->orderBy('created_at', 'desc')
