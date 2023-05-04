@@ -48,6 +48,7 @@ class InnerServiceController extends Controller
             'seo_description' => 'nullable',
             'seo_keywords' => 'nullable',
         ]);
+        $sub_service_name=SubService::where('uuid',$validated['sub_service_id'])->first();
         $service = new InnerService();
         $service->uuid = (string) Str::uuid();
         $service->name = $validated['name'];
@@ -57,6 +58,7 @@ class InnerServiceController extends Controller
         $service->title = $validated['title'];
         $service->description = $validated['description'];
         $service->sub_service_id = $validated['sub_service_id'];
+        $service->subservice = $sub_service_name->name;
         $service->seo_title = $validated['seo_title'];
         $service->seo_description = $validated['seo_description'];
         $service->seo_keywords = $validated['seo_keywords'];
@@ -107,12 +109,14 @@ class InnerServiceController extends Controller
             'seo_description' => 'nullable',
             'seo_keywords' => 'nullable',
         ]);
+        $sub_service_name=SubService::where('uuid',$validated['sub_service_id'])->first();
         $services->name = $validated['name'];
         $services->slug = SlugService::createSlug(SubService::class, 'slug', $validated['name'], ['unique' => false]);
         $services->cover_description = $validated['cover_description'];
         $services->status = $validated['status'];  
         $services->title = $validated['title'];
         $services->sub_service_id = $validated['sub_service_id'];
+        $services->subservice = $sub_service_name->name;
         $services->description = $validated['description'];
         $services->seo_title = $validated['seo_title'];
         $services->seo_description = $validated['seo_description'];
