@@ -29,8 +29,8 @@ Route::get('industries',[IndustryController::class,'index']);
 Route::get('industries/{uuid}',[IndustryController::class,'details']);
 Route::get('/about-us', [AboutController::class, 'index']);
 Route::get('/services', [ServiceApiController::class, 'index']);
-Route::get('/services/{uuid}', [ServiceApiController::class, 'details']);
-Route::get('/services/{uuid}/subservices/{id}', [ServiceApiController::class, 'sub_services']);
+Route::get('/service/{uuid}', [ServiceApiController::class, 'details']);
+Route::get('/service/{uuid}/level-1/{id}', [ServiceApiController::class, 'sub_services']);
 Route::get('/blogs', [BlogApiController::class, 'index']);
 
 // Route::resource('home', HomeController::class);
