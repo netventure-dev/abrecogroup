@@ -31,6 +31,7 @@ Route::get('/about-us', [AboutController::class, 'index']);
 Route::get('/services', [ServiceApiController::class, 'index']);
 Route::get('/service/{uuid}', [ServiceApiController::class, 'details']);
 Route::get('/service/{uuid}/level-1/{id}', [ServiceApiController::class, 'sub_services']);
+Route::get('/service-level-2/{id}', [ServiceApiController::class, 'inner_services']);
 Route::get('/blogs', [BlogApiController::class, 'index']);
 
 // Route::resource('home', HomeController::class);
