@@ -38,7 +38,7 @@ class HomeController extends Controller
       // $data['blog']=Blog::select('uuid','title','description','image')->where('status',1)->get();
       $data['general'] = General::select('address', 'mobile', 'logo', 'facebook', 'instagram', 'twitter', 'linkdln', 'youtube')->first();
       $data['blogLists'] = Bloglist::select('uuid', 'title', 'description', 'image', 'slug')->where('status', 1)->get();
-      $data['testimonials'] = Testimonial::select('uuid', 'title', 'description', 'image')->where('status', 1)->get();
+      $data['testimonials'] = Testimonial::select('uuid', 'title','position' ,'description', 'image')->where('status', 1)->get();
       if (!empty($data)) {
          return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
       }

@@ -86,6 +86,7 @@ class TestimonialsDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
             Column::make('title')->title(__('Title')),
+            Column::make('position')->title(__('Position')),
             Column::make('image')->title(__('Image')),
             Column::make('status')->title(__('Status')),
             Column::computed('action')
