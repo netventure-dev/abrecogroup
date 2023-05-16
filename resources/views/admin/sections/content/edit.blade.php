@@ -1,7 +1,7 @@
 @extends('admin.layout.backend')
 
 @section('title')
-    {{ __('Edit Service Content') }}
+    {{ __('Edit Section Content') }}
 @endsection
 @section('css')
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Edit Service Content') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Edit Section Content') }}</h4>
                 <div class="page-title-right">
 
                 </div>
@@ -34,26 +34,42 @@
                     <div class="mt-2 row">
                         <div class="col-lg-11">
                             <form
-                                action="{{ route('admin.services.content.update', ['id' => @$services->uuid, 'uuid' => @$content->uuid]) }}"
+                                action="{{ route('admin.sections.content.update', ['id' => @$section->uuid, 'uuid' => @$content->uuid]) }}"
                                 method="post" class="custom-validation" enctype="multipart/form-data">
                                 @csrf
+                                <div class="mb-4 row">
+                                    <label for="description"
+                                            class="col-sm-3 col-form-label">{{ __('Icon Content') }}<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <textarea required name="content"
+                                            class="form-control @if ($errors->has('content')) is-invalid @endif" placeholder="{{ __('Enter content') }}">{{ @old('content',@$content->icon_content)}}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('content') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="image">{{ __('Icon') }} <a
+                                            href="#" class="tool_tip js-tooltip-enabled"
+                                            data-toggle="tooltip"></a></label>
+                                    <div class="col-sm-9">
+                                        @if (isset($content->image))
+                                            <img src="{{ asset('storage/' . $content->image) }}" alt=""
+                                                class="img-fluid" style="width:250px;">
+                                        @endif
+                                        <input id="image" name="image" type="file"
+                                            class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif"
+                                            value="{{ @old('image') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('image') }}</div>
+                                    </div>
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}</label>
                                     <div class="col-sm-9">
 
                                         <textarea name="title" class="form-control @if ($errors->has('title')) is-invalid @endif" ro
-                                            placeholder="{{ __('Enter title') }}" required>{{ @old('title', @$content->title) }}</textarea>
+                                            placeholder="{{ __('Enter title') }}" >{{ @old('title', @$content->title) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4 row">
-                                    <label for="description" class="col-sm-3 col-form-label">{{ __('Description') }}
-                                        <span class="text-danger">*</span></label>
-                                    <div class="col-sm-9">
-                                        <textarea name="description" class="form-control @if ($errors->has('description')) is-invalid @endif" ro
-                                            placeholder="{{ __('Enter Description') }}" required>{{ @old('description', @$content->description) }}</textarea>
-                                        <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>
                                 </div>
@@ -69,21 +85,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-4 row">
-                                    <label class="col-sm-3 col-form-label" for="image">{{ __('Cover Image') }} <a
-                                            href="#" class="tool_tip js-tooltip-enabled"
-                                            data-toggle="tooltip"></a></label>
-                                    <div class="col-sm-9">
-                                        @if (isset($content->image))
-                                            <img src="{{ asset('storage/' . $content->image) }}" alt=""
-                                                class="img-fluid" style="width:250px;">
-                                        @endif
-                                        <input id="image" name="image" type="file"
-                                            class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif"
-                                            value="{{ @old('image') }}">
-                                        <div class="invalid-feedback">{{ $errors->first('image') }}</div>
-                                    </div>
-                                </div>
+                              
                                 <div class="mb-4 row">
                                     <label for="button_title" class="col-sm-3 col-form-label">{{ __('Button Title') }}
                                     </label>
@@ -108,50 +110,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                @if (@$content->order == 1)
-                                    @if (@$content_list)
-                                        @foreach ($content_list as $list)
-                                            <div class="mb-4 row textboxClass" id="target">
-                                                <label for="list" class="col-sm-3 col-form-label">{{ __('List') }}
-                                                </label>
-                                                <div class="col-sm-7">
-                                                    <input id="list" name="list[]" type="text"
-                                                        class="form-control mb-2 @if ($errors->has('list')) is-invalid @endif"
-                                                        placeholder="{{ __('Enter List Data') }}"
-                                                        value="{{ @old('list', @$list->data) }}">
-                                                    <div class="invalid-feedback">{{ $errors->first('list') }}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                    <div class="col-sm-2">
-                                        <button type="button" id='duplicate' class="duplicate btn btn-success">
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </div>
-                                    <div class="mb-4 row textboxClass" id="target">
-                                        <label for="list" class="col-sm-3 col-form-label">{{ __('List') }}
-                                        </label>
-                                        <div class="col-sm-7">
-                                            <input id="list" name="list[]" type="text"
-                                                class="form-control mb-2 @if ($errors->has('list')) is-invalid @endif"
-                                                placeholder="{{ __('Enter List Data') }}"
-                                                value="{{ @old('list', @$content->list) }}">
-                                            <div class="invalid-feedback">{{ $errors->first('list') }}
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="mb-4 row" id='destination'>
-                                        <div class="col-sm-2">
-                                            <button type="button" class="deleteButtonClass btn btn-danger d-none">
-                                                <i class="fas fa-minus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                @endif
                                 <div class="mb-4 row">
                                     <label for="horizontal-firstname-input"
                                         class="col-sm-3 col-form-label">{{ __('Status') }}<span

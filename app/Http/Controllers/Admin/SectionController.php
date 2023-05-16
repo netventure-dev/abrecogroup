@@ -39,6 +39,7 @@ class SectionController extends Controller
             'b_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
+            'button_title' => 'nullable',
             'status' => 'required',
             'order' => 'nullable',
         ]);
@@ -51,6 +52,7 @@ class SectionController extends Controller
         $section->status = $validated['status'];  
         $section->subtitle = $validated['sub_title'];
         $section->link = $validated['link'];
+        $section->button_title = $validated['button_title'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $section->image1 = $path;
@@ -94,6 +96,7 @@ class SectionController extends Controller
             'b_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
+            'button_title' => 'nullable',
             'status' => 'required',
             'order' => 'nullable',
         ]);
@@ -104,6 +107,7 @@ class SectionController extends Controller
         $section->status = $validated['status'];  
         $section->subtitle = $validated['sub_title'];
         $section->link = $validated['link'];
+        $section->button_title = $validated['button_title'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $section->image1 = $path;

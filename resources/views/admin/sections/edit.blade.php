@@ -99,6 +99,18 @@
                                     </div>
                                 </div>    
                                 <div class="mb-4 row">
+                                    <label for="button_title"
+                                            class="col-sm-3 col-form-label">{{ __('Button Title') }}
+                                            </label>
+                                    <div class="col-sm-9">
+                                        <input id="button_title" name="button_title" type="text"
+                                        class="form-control mb-2 @if ($errors->has('button_title')) is-invalid  @endif"
+                                        placeholder="{{ __('Enter Button Title') }}"  value="{{ @old('button_title',@$section->button_title) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('button_title') }}
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="mb-4 row">
                                     <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Link') }}</label>
                                     <div class="col-sm-9">
                                         <input id="link" name="link" type="text"

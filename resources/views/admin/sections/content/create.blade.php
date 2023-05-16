@@ -1,6 +1,6 @@
 @extends('admin.layout.backend')
 
-@section('title') {{ __('Create Service Content') }} @endsection
+@section('title') {{ __('Create Section Content') }} @endsection
 @section('css')
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 
@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Create Service Content') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Create Section Content') }}</h4>
                 <div class="page-title-right">
 
                 </div>
@@ -31,26 +31,35 @@
                 <div class="card-body">
                     <div class="mt-2 row">
                         <div class="col-lg-11">
-                            <form action="{{ route('admin.services.content.store',@$services->uuid) }}" method="post"
+                            <form action="{{ route('admin.sections.content.store',@$section->uuid) }}" method="post"
                                 class="custom-validation" enctype="multipart/form-data">
                                 @csrf
+                                <div class="mb-4 row">
+                                    <label for="description"
+                                            class="col-sm-3 col-form-label">{{ __('Icon Content') }}<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <textarea required name="content"
+                                            class="form-control @if ($errors->has('content')) is-invalid @endif" placeholder="{{ __('Enter content') }}">{{ @old('content')}}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('content') }}
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="image">{{ __('Icon') }} <a
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                    <div class="col-sm-9"> 
+                                        <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('image') }}</div>
+                                    </div>
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}</label>
                                     <div class="col-sm-9">                                        
                                             <textarea name="title" class="form-control @if ($errors->has('title')) is-invalid @endif" ro
-                                                placeholder="{{ __('Enter title') }}" required>{{ @old('title') }}</textarea>
+                                                placeholder="{{ __('Enter title') }}" >{{ @old('title') }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4 row">
-                                    <label for="description"
-                                            class="col-sm-3 col-form-label">{{ __('Description') }}
-                                            <span class="text-danger">*</span></label>
-                                    <div class="col-sm-9">
-                                        <textarea name="description"
-                                            class="form-control @if ($errors->has('description')) is-invalid @endif" ro placeholder="{{ __('Enter Description') }}" required>{{ @old('description')}}</textarea>
-                                        <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>
                                 </div>
@@ -63,14 +72,6 @@
                                             placeholder="{{ __('Enter order') }}" required value="{{ @old('order') }}">
                                         <div class="invalid-feedback">{{ $errors->first('order') }}
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="mt-4 row">
-                                    <label class="col-sm-3 col-form-label" for="image">{{ __('Cover Image') }} <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
-                                    <div class="col-sm-9"> 
-                                        <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
-                                        <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">

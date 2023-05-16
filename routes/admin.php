@@ -90,12 +90,12 @@ Route::post('sections/update/{id}',  'Admin\SectionController@update')->name('se
 Route::delete('sections/destroy/{id}',  'Admin\SectionController@destroy')->name('sections.destroy');
 
 // section content
-Route::get('sections/{id}/content',  'Admin\ServiceContentController@index')->name('sections.content.index');
-Route::get('sections/{id}/content/create',  'Admin\ServiceContentController@create')->name('sections.content.create');
-Route::post('sections/{id}/content/store',  'Admin\ServiceContentController@store')->name('sections.content.store');
-Route::get('sections/{id}/content/{uuid}/edit',  'Admin\ServiceContentController@edit')->name('sections.content.edit');
-Route::post('sections/{id}/content/{uuid}/update',  'Admin\ServiceContentController@update')->name('sections.content.update');
-Route::post('sections/{id}/content/{uuid}/destroy',  'Admin\ServiceContentController@destroy')->name('sections.content.destroy');
+Route::get('sections/{id}/content',  'Admin\SectionContentController@index')->name('sections.content.index');
+Route::get('sections/{id}/content/create',  'Admin\SectionContentController@create')->name('sections.content.create');
+Route::post('sections/{id}/content/store',  'Admin\SectionContentController@store')->name('sections.content.store');
+Route::get('sections/{id}/content/{uuid}/edit',  'Admin\SectionContentController@edit')->name('sections.content.edit');
+Route::post('sections/{id}/content/{uuid}/update',  'Admin\SectionContentController@update')->name('sections.content.update');
+Route::post('sections/{id}/content/{uuid}/destroy',  'Admin\SectionContentController@destroy')->name('sections.content.destroy');
 
 // services
 Route::get('services',  'Admin\ServiceController@index')->name('services.index');

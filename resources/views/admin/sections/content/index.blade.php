@@ -1,6 +1,6 @@
 @extends('admin.layout.backend')
 
-@section('title') {{ __('Services') }} @endsection
+@section('title') {{ __('Section Content') }} @endsection
 
 @section('css')
     <!-- DataTables -->
@@ -19,7 +19,7 @@
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                 <h4 class="mb-sm-0 font-size-18">{{ __('Service Content') }}</h4>
                 <div class="page-title-right">
-                         <a href="{{ route('admin.services.content.create',@$services->uuid) }}"
+                         <a href="{{ route('admin.sections.content.create',@$section->uuid) }}"
                             class="btn btn-primary w-md">{{ __('Create Content') }}</a> 
                 </div>
             </div>
@@ -49,12 +49,12 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{!! $content->title !!}</td>
                                 <td>{{$content->order}}</td>
-                                <td> <a href="{{ route('admin.services.content.edit',['id' => $services->uuid, 'uuid' =>$content->uuid]) }}" class="first btn btn-primary edit"> Edit</a>
+                                <td> <a href="{{ route('admin.sections.content.edit',['id' => $section->uuid, 'uuid' =>$content->uuid]) }}" class="first btn btn-primary edit"> Edit</a>
                                 <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this row')}}')){
                                     document.getElementById('delete-data-{{ $content->uuid }}').submit();}">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
-                                <form id="delete-data-{{ $content->uuid }}" action="{{ route('admin.services.content.destroy',['id' => $services->uuid, 'uuid' =>$content->uuid]) }}"
+                                <form id="delete-data-{{ $content->uuid }}" action="{{ route('admin.sections.content.destroy',['id' => $section->uuid, 'uuid' =>$content->uuid]) }}"
                                     method="POST">
                                     @csrf
                                 </form>
