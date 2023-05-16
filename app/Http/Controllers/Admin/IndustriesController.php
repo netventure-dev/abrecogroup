@@ -76,7 +76,7 @@ class IndustriesController extends Controller
         $services->status = $validated['status'];          
         $res = $services->save();
         if ($res) {
-            notify()->success(__('Updated successfully'));
+            notify()->success(__('Updated Successfully'));
         } else {
             notify()->error(__('Failed to Update. Please try again'));
         }

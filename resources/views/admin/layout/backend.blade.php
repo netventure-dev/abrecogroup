@@ -485,7 +485,13 @@
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Home Slider</span>
                             </a>
-                        </li>      
+                        </li>  
+                        <li>
+                            <a href="{{route('admin.sections.index')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Sections</span>
+                            </a>
+                        </li>    
                         <li>
                             <a href="{{route('admin.services.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
