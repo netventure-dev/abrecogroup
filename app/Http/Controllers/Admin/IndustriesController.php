@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Industry;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class IndustriesController extends Controller
 {
@@ -37,6 +38,7 @@ class IndustriesController extends Controller
         ]);
         $service = new Industry();
         $service->uuid = (string) Str::uuid();
+        $service->slug = SlugService::createSlug(Industry::class, 'slug', $validated['name'], ['unique' => false]);
         $service->name = $validated['name'];
         $service->status = $validated['status'];  
         $res = $service->save();
@@ -69,6 +71,7 @@ class IndustriesController extends Controller
             'name' => 'required|unique:industries,name,'.$services->id,
             'status' => 'required',
         ]);
+        $services->slug = SlugService::createSlug(Industry::class, 'slug', $validated['name'], ['unique' => false]);
         $services->name = $validated['name'];
         $services->status = $validated['status'];          
         $res = $services->save();
