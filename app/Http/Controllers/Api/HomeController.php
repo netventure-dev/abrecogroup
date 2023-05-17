@@ -42,7 +42,7 @@ class HomeController extends Controller
         $data['sections'] = Section::with(['contents' => function ($query) {
                                 $query->select('uuid', 'section_id', 'slug', 'title', 'icon', 'icon_content', 'button_title', 'link', 'order')->where('status', 1);
                             }])
-                            ->select('uuid', 'slug', 'title', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
+                            ->select('uuid', 'title', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
                             ->where('status', 1)
                             ->get();
         if (!empty($data)) {
