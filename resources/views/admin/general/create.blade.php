@@ -72,6 +72,20 @@
                                         <div class="invalid-feedback">{{ $errors->first('logo') }}</div>
                                     </div>
                                 </div>
+                                <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="favicon">{{ __('Favicon') }}<a href="#"
+                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                    <div class="col-sm-9">
+                                        @if (isset($data->favicon))
+                                            <img src="{{ asset('/storage/' . @$data->favicon) }}" alt=""
+                                                class="img-fluid" style="width:100px;">
+                                        @endif
+                                        <input id="favicon" name="favicon" type="file"
+                                            class="form-control mb-2 @if ($errors->has('favicon')) is-invalid @endif"
+                                            value="{{ @old('favicon') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('favicon') }}</div>
+                                    </div>
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Facebook') }}<span
                                         class="text-danger">*</span></label>
