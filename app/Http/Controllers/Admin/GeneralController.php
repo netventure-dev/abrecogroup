@@ -33,6 +33,7 @@ class GeneralController extends Controller
             'linkdln' => 'required',
             'youtube' => 'required',
             'twitter' => 'required',
+            'favicon' => 'required',
         ]);
         $data = General::firstOrCreate();
         $data->uuid = (string) Str::uuid();
@@ -46,6 +47,10 @@ class GeneralController extends Controller
         if ($request->hasFile('logo')) {
             $path =  $request->file('logo')->storeAs('media/general/image/',$validated['logo']->getClientOriginalName(), 'public');
             $data->logo = $path;
+        }
+        if ($request->hasFile('favicon')) {
+            $path1 =  $request->file('favicon')->storeAs('media/general/image/',$validated['favicon']->getClientOriginalName(), 'public');
+            $data->favicon = $path1;
         }
         $res = $data->save();
         if ($res) {
