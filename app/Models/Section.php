@@ -19,4 +19,8 @@ class Section extends Model
             ]
         ];
     }
+    public function contents()
+    {
+        return $this->hasMany('App\Models\SectionContent','section_id','uuid');
+    }
 }

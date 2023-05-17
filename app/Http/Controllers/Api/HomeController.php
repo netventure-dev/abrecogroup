@@ -8,6 +8,7 @@ use App\Models\Bloglist;
 use App\Models\General;
 use App\Models\HomeSlider;
 use App\Models\Service;
+use App\Models\Section;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
@@ -39,6 +40,7 @@ class HomeController extends Controller
       $data['general'] = General::select('address', 'mobile', 'logo', 'facebook', 'instagram', 'twitter', 'linkdln', 'youtube')->first();
       $data['blogLists'] = Bloglist::select('uuid', 'title', 'description', 'image', 'slug')->where('status', 1)->get();
       $data['testimonials'] = Testimonial::select('uuid', 'title','position' ,'description', 'image')->where('status', 1)->get();
+      $data['sections'] = Section::select('uuid', 'title','position' ,'description', 'image')->where('status', 1)->get();
       if (!empty($data)) {
          return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
       }
