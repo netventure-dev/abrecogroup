@@ -22,7 +22,7 @@ class SubService extends Model
 
     public function services()
     {
-        return $this->hasOne('App\Models\Service','uuid','service_id');
+        return $this->hasOne('App\Models\Service','service_id','uuid');
     }
     public function innerservices()
     {
