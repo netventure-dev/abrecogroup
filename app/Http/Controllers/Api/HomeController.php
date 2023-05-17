@@ -40,9 +40,9 @@ class HomeController extends Controller
         $data['blogLists'] = Bloglist::select('uuid', 'title', 'description', 'image', 'slug')->where('status', 1)->get();
         $data['testimonials'] = Testimonial::select('uuid', 'title', 'position', 'description', 'image')->where('status', 1)->get();
         $data['sections'] = Section::with(['contents' => function ($query) {
-                                $query->select('uuid', 'section_id', 'slug', 'title', 'icon', 'icon_content', 'button_title', 'link', 'order')->where('status', 1);
+                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'link', 'order')->where('status', 1);
                             }])
-                            ->select('uuid', 'title', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
                             ->where('status', 1)
                             ->get();
         if (!empty($data)) {
