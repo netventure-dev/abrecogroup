@@ -45,11 +45,11 @@ class GeneralController extends Controller
         $data->twitter = $validated['twitter'];
         $data->youtube = $validated['youtube'];
         if ($request->hasFile('logo')) {
-            $path =  $request->file('logo')->storeAs('media/general/image/',$validated['logo']->getClientOriginalName(), 'public');
+            $path =  $request->file('logo')->storeAs('media/general/image',$validated['logo']->getClientOriginalName(), 'public');
             $data->logo = $path;
         }
         if ($request->hasFile('favicon')) {
-            $path1 =  $request->file('favicon')->storeAs('media/general/image/',$validated['favicon']->getClientOriginalName(), 'public');
+            $path1 =  $request->file('favicon')->storeAs('media/general/image',$validated['favicon']->getClientOriginalName(), 'public');
             $data->favicon = $path1;
         }
         $res = $data->save();
