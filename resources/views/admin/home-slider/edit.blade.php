@@ -79,6 +79,19 @@
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
+
+                                <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="mobile_slider">{{ __('Mobile Slider Image') }}<span
+                                        class="text-danger">*</span> <a
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                    <div class="col-sm-9">
+                                        @if (isset($slider->mobile_slider))
+                                            <img src="{{ asset('storage/'.$slider->mobile_slider) }}" alt="" class="img-fluid" style="width:250px;">
+                                        @endif
+                                        <input id="mobile_slider" name="mobile_slider" type="file" class="form-control mb-2 @if ($errors->has('mobile_slider')) is-invalid @endif" value="{{ @old('mobile_slider') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('mobile_slider') }}</div>
+                                    </div>
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="button_title" class="col-sm-3 col-form-label mb-2">{{ __('Button Title') }}<span
                                             class="text-danger">*</span></label>

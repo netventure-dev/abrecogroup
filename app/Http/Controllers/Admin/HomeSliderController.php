@@ -45,6 +45,7 @@ class HomeSliderController extends Controller
             'content' => 'required',
             'link' => 'nullable',
             'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_slider' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $slider = new HomeSlider;
@@ -58,6 +59,10 @@ class HomeSliderController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image/',$validated['image']->getClientOriginalName(), 'public');
             $slider->image = $path;
+        }
+        if ($request->hasFile('mobile_slider')) {
+            $path =  $request->file('mobile_slider')->storeAs('media/image/',$validated['mobile_slider']->getClientOriginalName(), 'public');
+            $slider->mobile_slider = $path;
         }
         $res = $slider->save();
         if ($res) {
@@ -89,6 +94,7 @@ class HomeSliderController extends Controller
             'content' => 'required',
             'link' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_slider' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $slider->title = $validated['title'];
@@ -100,6 +106,10 @@ class HomeSliderController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image/', $validated['image']->getClientOriginalName(), 'public');
             $slider->image = $path;
+        }
+        if ($request->hasFile('mobile_slider')) {
+            $path =  $request->file('mobile_slider')->storeAs('media/image/',$validated['mobile_slider']->getClientOriginalName(), 'public');
+            $slider->mobile_slider = $path;
         }
         $res = $slider->save();
         if ($res) {
