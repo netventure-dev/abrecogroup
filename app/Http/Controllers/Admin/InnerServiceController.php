@@ -6,6 +6,7 @@ use App\DataTables\Admin\InnerServiceDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\InnerService;
 use App\Models\SubService;
+use App\Models\Service;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -49,6 +50,7 @@ class InnerServiceController extends Controller
             'seo_keywords' => 'nullable',
         ]);
         $sub_service_name=SubService::where('uuid',$validated['sub_service_id'])->first();
+        $service_data=Service::where('uuid',$sub_service_name->service_id)->first();
         $service = new InnerService();
         $service->uuid = (string) Str::uuid();
         $service->name = $validated['name'];
@@ -58,7 +60,10 @@ class InnerServiceController extends Controller
         $service->title = $validated['title'];
         $service->description = $validated['description'];
         $service->sub_service_id = $validated['sub_service_id'];
-        $service->subservice = $sub_service_name->name;
+        $service->subservice = @$sub_service_name->name;
+        $service->sub_service_slug = @$sub_service_name->slug;
+        $service->service_name = @$service_data->name;
+        $service->service_slug = @$service_data->slug;
         $service->seo_title = $validated['seo_title'];
         $service->seo_description = $validated['seo_description'];
         $service->seo_keywords = $validated['seo_keywords'];
@@ -110,13 +115,17 @@ class InnerServiceController extends Controller
             'seo_keywords' => 'nullable',
         ]);
         $sub_service_name=SubService::where('uuid',$validated['sub_service_id'])->first();
+        $service_data=Service::where('uuid',$sub_service_name->service_id)->first();
         $services->name = $validated['name'];
         $services->slug = SlugService::createSlug(SubService::class, 'slug', $validated['name'], ['unique' => false]);
         $services->cover_description = $validated['cover_description'];
         $services->status = $validated['status'];  
         $services->title = $validated['title'];
         $services->sub_service_id = $validated['sub_service_id'];
-        $services->subservice = $sub_service_name->name;
+        $services->subservice = @$sub_service_name->name;
+        $services->sub_service_slug = @$sub_service_name->slug;
+        $services->service_name = @$service_data->name;
+        $services->service_slug = @$service_data->slug;
         $services->description = $validated['description'];
         $services->seo_title = $validated['seo_title'];
         $services->seo_description = $validated['seo_description'];

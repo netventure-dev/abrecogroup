@@ -60,9 +60,7 @@ class ServiceApiController extends Controller
         $data['sub_services'] = SubService::select('id','service_id','uuid', 'name','cover_image','logo','slug','cover_description','title','description','status')
                                 ->with(['innerservices'=> function($query) {
                                     $query->select('id','sub_service_id','subservice as subservice_name', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
-                                },'services'=> function($query) {
-                                    $query->select('name as service_name','slug as service_slug')->where('status',1);
-                                },])
+                                }])
                                 ->where('uuid', $sub_id)
                                 ->where('service_id', $uuid)
                                 ->where('status', 1)

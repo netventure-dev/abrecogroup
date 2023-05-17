@@ -60,6 +60,7 @@ class SubServiceController extends Controller
         $service->description = $validated['description'];
         $service->service_id = $validated['service_id'];
         $service->service = $service_name->name;
+        $service->service_slug = $service_name->slug;
         $service->seo_title = $validated['seo_title'];
         $service->seo_description = $validated['seo_description'];
         $service->seo_keywords = $validated['seo_keywords'];
@@ -118,6 +119,7 @@ class SubServiceController extends Controller
         $services->title = $validated['title'];
         $services->service_id = $validated['service_id'];
         $services->service = $service_name->name;
+        $services->service_slug = $service_name->slug;
         $services->description = $validated['description'];
         $services->seo_title = $validated['seo_title'];
         $services->seo_description = $validated['seo_description'];
