@@ -65,6 +65,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="mb-4 row">
+                                    <label for="cover_description"
+                                            class="col-sm-3 col-form-label">{{ __('Extra Content') }}</label>
+                                    <div class="col-sm-9">
+                                        <textarea name="content2"
+                                            class="form-control @if ($errors->has('content2')) is-invalid @endif" placeholder="{{ __('Enter content') }}" >{{ @old('content2',@$section->content2)}}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('content2') }}
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Image') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
