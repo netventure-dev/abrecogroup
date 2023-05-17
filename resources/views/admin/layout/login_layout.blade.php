@@ -2,14 +2,18 @@
 <html lang="en">
 
     <head>
-        
+        @php
+        $general = App\Models\General::first();
+        $logo =  $general->logo;
+        $fav =  $general->favicon;
+    @endphp
         <meta charset="utf-8" />
         <title>Login A3 Logics Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="" name="description" />
         <meta content="" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
+        <link rel="shortcut icon" href="{{asset('storage/'.@$fav)}}">
 
         <!-- owl.carousel css -->
         <link rel="stylesheet" href="{{asset('assets/libs/owl.carousel/assets/owl.carousel.min.css')}}">

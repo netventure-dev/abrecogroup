@@ -2,14 +2,18 @@
 <html lang="en">
 
     <head>
-        
+        @php
+            $general = App\Models\General::first();
+            $logo =  $general->logo;
+            $fav =  $general->favicon;
+        @endphp
         <meta charset="utf-8" />
         <title> A3 Logics </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
+        <link rel="shortcut icon" href="{{asset('storage/'.@$fav)}}">
 
         <!-- owl.carousel css -->
         <link rel="stylesheet" href="{{asset('assets/libs/owl.carousel/assets/owl.carousel.min.css')}}">
@@ -41,10 +45,10 @@
                     <div class="navbar-brand-box">
                         <a href="index.html" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="{{ asset('assets/images/logo.svg')}}" alt="" height="22">
+                                <img src="{{asset('storage/'.@$logo)}}" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset('assets/images/logo-dark.png')}}" alt="" height="17">
+                                <img src="{{asset('storage/'.@$logo)}}" alt="" height="17">
                             </span>
                         </a>
 
