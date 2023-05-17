@@ -25,6 +25,7 @@ use App\Http\Controllers\Api\BlogApiController;
 
 // Route::get('/home', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
+Route::get('/general', [HomeController::class, 'general']);
 Route::get('industries',[IndustryController::class,'index']);
 Route::get('industries/{uuid}',[IndustryController::class,'details']);
 Route::get('/about-us', [AboutController::class, 'index']);
