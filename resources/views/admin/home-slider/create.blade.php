@@ -46,6 +46,17 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
+                                    <label for="sub_title" class="col-sm-3 col-form-label mb-2">{{ __('Sub Title') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="sub_title" name="sub_title" type="text"
+                                            class="form-control mb-2 @if ($errors->has('sub_title')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter sub title') }}"  value="{{ @old('sub_title') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('sub_title') }}
+                                        </div>
+                                    </div>
+                                </div>
+                             
+                                <div class="mb-4 row">
                                     <label for="content"
                                             class="col-sm-3 col-form-label">{{ __('Content') }}
                                             <span class="text-danger">*</span></label>
@@ -63,6 +74,16 @@
                                     <div class="col-sm-9"> 
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
+                                    <label for="button_title" class="col-sm-3 col-form-label mb-2">{{ __('Button Title') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="button_title" name="button_title" type="text"
+                                            class="form-control mb-2 @if ($errors->has('button_title')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter button title') }}"  value="{{ @old('button_title') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('button_title') }}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">

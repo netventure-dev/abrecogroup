@@ -40,6 +40,8 @@ class HomeSliderController extends Controller
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
             'title' => 'required|unique:home_sliders,title',
+            'sub_title' => 'nullable',
+            'button_title' => 'nullable',
             'content' => 'required',
             'link' => 'nullable',
             'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
@@ -48,6 +50,8 @@ class HomeSliderController extends Controller
         $slider = new HomeSlider;
         $slider->uuid = (string) Str::uuid();
         $slider->title = $validated['title'];
+        $slider->sub_title = $validated['sub_title'];
+        $slider->button_title = $validated['button_title'];
         $slider->link = $validated['link'];
         $slider->description = $validated['content'];
         $slider->status = $validated['status'];
@@ -80,12 +84,16 @@ class HomeSliderController extends Controller
         $slider= HomeSlider::where('uuid',$id)->first();
         $validated = $request->validate([
             'title' => 'required|unique:home_sliders,title,'.$slider->id,
+            'sub_title' => 'nullable',
+            'button_title' => 'nullable',
             'content' => 'required',
             'link' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $slider->title = $validated['title'];
+        $slider->sub_title = $validated['sub_title'];
+        $slider->button_title = $validated['button_title'];
         $slider->description = $validated['content'];
         $slider->status = $validated['status'];
         $slider->link = $validated['link'];

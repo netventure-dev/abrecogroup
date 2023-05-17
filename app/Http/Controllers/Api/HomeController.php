@@ -19,7 +19,7 @@ class HomeController extends Controller
 
    public function index()
    {
-      $data['home_sliders'] = HomeSlider::where('status', 1)->select('title', 'description', 'image', 'link')->get();
+      $data['home_sliders'] = HomeSlider::where('status', 1)->select('title','sub_title' ,'description', 'image','button_title','link')->get();
       // 
       $data['services'] = Service::select('id', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description','status')
                                 ->with(['faqs'=> function($query) {
