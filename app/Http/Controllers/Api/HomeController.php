@@ -40,11 +40,11 @@ class HomeController extends Controller
         $data['blogLists'] = Bloglist::select('uuid', 'title', 'description', 'image', 'slug')->where('status', 1)->get();
         $data['testimonials'] = Testimonial::select('uuid', 'title', 'position', 'description', 'image')->where('status', 1)->get();
         $data['sections'] = Section::with(['contents' => function ($query) {
-            $query->select('uuid', 'section_id', 'slug', 'title', 'subtitle', 'icon', 'icon_content', 'button_title', 'link', 'order')->where('status', 1);
-        },])
-            ->select('uuid', 'slug', 'title', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
-            ->where('status', 1)
-            ->get();
+                                $query->select('uuid', 'section_id', 'slug', 'title', 'subtitle', 'icon', 'icon_content', 'button_title', 'link', 'order')->where('status', 1);
+                            },])
+                            ->select('uuid', 'slug', 'title', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
+                            ->where('status', 1)
+                            ->get();
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }
