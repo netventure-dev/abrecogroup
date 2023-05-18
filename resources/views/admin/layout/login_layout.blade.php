@@ -4,8 +4,8 @@
     <head>
         @php
         $general = App\Models\General::first();
-        $logo =  $general->logo;
-        $fav =  $general->favicon;
+        $logo =  @$general->logo;
+        $fav =  @$general->favicon;
     @endphp
         <meta charset="utf-8" />
         <title>Login A3 Logics Dashboard</title>

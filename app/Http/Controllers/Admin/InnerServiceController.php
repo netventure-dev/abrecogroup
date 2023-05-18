@@ -62,6 +62,7 @@ class InnerServiceController extends Controller
         $service->sub_service_id = $validated['sub_service_id'];
         $service->subservice = @$sub_service_name->name;
         $service->sub_service_slug = @$sub_service_name->slug;
+        $service->service_id = @$service_data->uuid;
         $service->service_name = @$service_data->name;
         $service->service_slug = @$service_data->slug;
         $service->seo_title = $validated['seo_title'];
@@ -122,6 +123,7 @@ class InnerServiceController extends Controller
         $services->status = $validated['status'];  
         $services->title = $validated['title'];
         $services->sub_service_id = $validated['sub_service_id'];
+        $services->service_id = @$service_data->uuid;
         $services->subservice = @$sub_service_name->name;
         $services->sub_service_slug = @$sub_service_name->slug;
         $services->service_name = @$service_data->name;
