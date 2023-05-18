@@ -73,7 +73,7 @@ class ServiceApiController extends Controller
     }
     public function inner_services($id,$uuid,$sub_id)
     {
-        $data['inner_services'] = InnerService::select('id','sub_service_id','service as service_name','service_slug','subservice as subservice_name', 'sub_service_slug','uuid', 'name','cover_image','logo','slug','cover_description','title','description','status')
+        $data['inner_services'] = InnerService::select('id','sub_service_id','service_name','service_slug','subservice as subservice_name', 'sub_service_slug','uuid', 'name','cover_image','logo','slug','cover_description','title','description','status')
                                 ->where('uuid', $sub_id)
                                 ->where('sub_service_id', $uuid)
                                 ->where('status', 1)
