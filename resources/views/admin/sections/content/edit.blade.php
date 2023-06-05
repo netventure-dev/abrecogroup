@@ -63,6 +63,16 @@
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
+                                 <div class="mb-4 row">
+                                    <label for="alt_text" class="col-sm-3 col-form-label mb-2">{{ __('Alt text') }}</label>
+                                    <div class="col-sm-9">
+
+                                        <textarea name="alt_text" class="form-control @if ($errors->has('alt_text')) is-invalid @endif" ro
+                                            placeholder="{{ __('Enter alt_text') }}" >{{ @old('title', @$content->alt_text) }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('alt_text') }}
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}</label>
                                     <div class="col-sm-9">

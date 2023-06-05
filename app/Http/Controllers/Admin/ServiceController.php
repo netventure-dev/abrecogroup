@@ -39,6 +39,7 @@ class ServiceController extends Controller
             'cover_description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'alt_text' => 'nullable',
             'title' => 'required',
             'description' => 'required',
             'status' => 'required',
@@ -53,6 +54,8 @@ class ServiceController extends Controller
         $service->cover_description = $validated['cover_description'];
         $service->status = $validated['status'];  
         $service->title = $validated['title'];
+        $service->alt_text = $validated['alt_text'];
+
         $service->description = $validated['description'];
         $service->seo_title = $validated['seo_title'];
         $service->seo_description = $validated['seo_description'];
@@ -97,6 +100,7 @@ class ServiceController extends Controller
             'logo' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
             'title' => 'required',
             'description' => 'required',
+            'alt_text' => 'nullable',
             'status' => 'required',
             'seo_title' => 'nullable',
             'seo_description' => 'nullable',
@@ -107,6 +111,8 @@ class ServiceController extends Controller
         $services->cover_description = $validated['cover_description'];
         $services->status = $validated['status'];  
         $services->title = $validated['title'];
+        $services->alt_text = $validated['alt_text'];
+
         $services->description = $validated['description'];
         $services->seo_title = $validated['seo_title'];
         $services->seo_description = $validated['seo_description'];

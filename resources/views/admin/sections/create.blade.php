@@ -83,12 +83,33 @@
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
+                                 <div class="mb-4 row">
+                                    <label for="alt_text" class="col-sm-3 col-form-label mb-2">{{ __('Alt image text') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="alt_text" name="alt_text" type="text"
+                                            class="form-control mb-2 @if ($errors->has('alt_text')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter Alt text') }}"  value="{{ @old('alt_text') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('alt_text') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="b_image">{{ __('Background Image') }}<a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9"> 
                                         <input id="b_image" name="b_image" type="file" class="form-control mb-2 @if ($errors->has('b_image')) is-invalid @endif" value="{{ @old('b_image') }}">
                                         <div class="invalid-feedback">{{ $errors->first('b_image') }}</div>
+                                    </div>
+                                </div>
+                                 <div class="mb-4 row">
+                                    <label for="alt_background" class="col-sm-3 col-form-label mb-2">{{ __('Alt background text') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="alt_background" name="alt_background" type="text"
+                                            class="form-control mb-2 @if ($errors->has('alt_background')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter Alt text') }}"  value="{{ @old('alt_background') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('alt_background') }}
+                                        </div>
                                     </div>
                                 </div>
                                  <div class="mt-4 row">

@@ -37,6 +37,8 @@ class SectionController extends Controller
             'content2' => 'nullable',
             'sub_title' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'alt_text' => 'nullable',
+            'alt_background' =>'nullable',
             'b_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
@@ -49,6 +51,9 @@ class SectionController extends Controller
         $section->slug = SlugService::createSlug(Section::class, 'slug', $validated['title'], ['unique' => false]);
         $section->title = $validated['title'];
         $section->content = $validated['content'];
+        $section->alt_text = $validated['alt_text'];
+        $section->alt_background = $validated['alt_background'];
+
         $section->content2 = $validated['content2'];
         $section->order = $validated['order'];
         $section->status = $validated['status'];  
@@ -95,6 +100,8 @@ class SectionController extends Controller
             'content' => 'nullable',
             'content2' => 'nullable',
             'sub_title' => 'nullable',
+            'alt_text' => 'nullable',
+            'alt_background' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'b_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
@@ -108,7 +115,9 @@ class SectionController extends Controller
         $section->content = $validated['content'];
         $section->content2 = $validated['content2'];
         $section->order = $validated['order'];
-        $section->status = $validated['status'];  
+        $section->status = $validated['status'];
+        $section->alt_text = $validated['alt_text'];
+        $section->alt_background = $validated['alt_background'];
         $section->subtitle = $validated['sub_title'];
         $section->link = $validated['link'];
         $section->button_title = $validated['button_title'];

@@ -46,6 +46,8 @@ class SectionContentController extends Controller
             'title' => 'nullable',
             'content' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'alt_text' => 'nullable',
+
             'order' => 'required|numeric',
             'icon_content' => 'nullable',
             'button_title' => 'nullable',
@@ -56,6 +58,8 @@ class SectionContentController extends Controller
         $content->uuid = (string) Str::uuid();
         $content->section_id = $section->uuid;
         $content->title =  $validated['title'];
+        $content->alt_text =  $validated['alt_text'];
+
         $content->icon_content =  $validated['content'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
@@ -97,6 +101,8 @@ class SectionContentController extends Controller
             'title' => 'nullable',
             'content' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'alt_text' => 'nullable',
+
             'order' => 'required|numeric',
             'icon_content' => 'nullable',
             'button_title' => 'nullable',
@@ -107,6 +113,8 @@ class SectionContentController extends Controller
         // $content->service_id = $services->uuid;
         $content->section_id = $section->uuid;
         $content->title =  $validated['title'];
+        $content->alt_text =  $validated['alt_text'];
+
         $content->icon_content =  $validated['content'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];

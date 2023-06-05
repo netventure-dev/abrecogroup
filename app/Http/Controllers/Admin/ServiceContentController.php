@@ -47,7 +47,9 @@ class ServiceContentController extends Controller
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
+            'alt_text' => 'nullable',
             'button_title' => 'nullable',
+
             
             'button_link' => 'nullable',
         ]); 
@@ -56,6 +58,8 @@ class ServiceContentController extends Controller
         $content->uuid = (string) Str::uuid();
         $content->service_id = $services->uuid;
         $content->title =  $validated['title'];
+        $content->alt_text =  $validated['alt_text'];
+
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
@@ -103,6 +107,8 @@ class ServiceContentController extends Controller
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
             'status' => 'required',
+            'alt_text' => 'nullable',
+
             'button_title' => 'nullable',
             'button_link' => 'nullable',
         ]); 
@@ -113,6 +119,8 @@ class ServiceContentController extends Controller
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
+        $content->alt_text =  $validated['alt_text'];
+
         $content->status = $validated['status'];
         $content->button_link =  $validated['button_link'];
         if ($request->hasFile('image')) {
