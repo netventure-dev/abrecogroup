@@ -54,6 +54,14 @@ Route::get('why-choose-us/list/edit/{id}',  'Admin\ChooseListController@edit')->
 Route::post('why-choose-us/list/update/{id}',  'Admin\ChooseListController@update')->name('why-choose-us.list.update');
 Route::delete('why-choose-us/list/destroy/{id}',  'Admin\ChooseListController@destroy')->name('why-choose-us.list.destroy');
 
+// Additional pages
+Route::get('additional_pages',  'Admin\AdditionalPagesController@index')->name('additional-pages.index');
+Route::get('additional_pages/create',  'Admin\AdditionalPagesController@create')->name('additional-pages.create');
+Route::post('additional_pages/store',  'Admin\AdditionalPagesController@store')->name('additional-pages.store');
+Route::get('additional_pages/edit/{id}',  'Admin\AdditionalPagesController@edit')->name('additional-pages.edit');
+Route::post('additional_pages/update/{id}',  'Admin\AdditionalPagesController@update')->name('additional-pages.update');
+Route::delete('additional_pages/destroy/{id}',  'Admin\AdditionalPagesController@destroy')->name('additional-pages.destroy');
+
 // why choose us settings
 Route::get('why-choose-us/settings/create',  'Admin\ChooseSettingsController@create')->name('why-choose-us.settings.create');
 Route::post('why-choose-us/settings/store',  'Admin\ChooseSettingsController@store')->name('why-choose-us.settings.store');
