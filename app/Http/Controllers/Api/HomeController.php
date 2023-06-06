@@ -39,10 +39,19 @@ class HomeController extends Controller
         // $data['blog']=Blog::select('uuid','title','description','image')->where('status',1)->get();     
         $data['blogLists'] = Bloglist::select('uuid', 'title', 'description', 'image', 'slug')->where('status', 1)->get();
         $data['testimonials'] = Testimonial::select('uuid', 'title', 'position', 'description', 'image')->where('status', 1)->get();
-        $data['sections'] = Section::with(['contents' => function ($query) {
+        $data['all_sections'] = Section::with(['contents' => function ($query) {
+                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
+                            }])
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content','content2', 'button_title', 'link', 'order')
+                            ->where('status', 1)
+                            ->get();
+
+        // section 1
+        $data['section_3_driven'] = Section::with(['contents' => function ($query) {
                                 $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
                             }])
                             ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
+                            ->where('order',3);
                             ->where('status', 1)
                             ->get();
         if (!empty($data)) {
