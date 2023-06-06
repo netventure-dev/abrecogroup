@@ -41,13 +41,17 @@ class AboutUsListController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:about_us_lists,title',
             'content' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
+            'image' => 'required| max:2000',
+            'alt_text' => 'nullable',
+
             'status' => 'required',
         ]);
         $data = new AboutUsList;
         $data->uuid = (string) Str::uuid();
         $data->title = $validated['title'];
         $data->content = $validated['content'];
+        $data->alt_text = $validated['alt_text'];
+
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/aboutus/image/',$validated['image']->getClientOriginalName(), 'public');
@@ -79,12 +83,15 @@ class AboutUsListController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:about_us_lists,title,'.$data->id,
             'content' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp | max:2000',
+            'alt_text' => 'nullable',
+            'image' => 'nullable| max:2000',
             'status' => 'required',
         ]);
         $data->title = $validated['title'];
         $data->content = $validated['content'];
         $data->status = $validated['status'];
+        $data->alt_text = $validated['alt_text'];
+
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/aboutus/image/',$validated['image']->getClientOriginalName(), 'public');
             $data->icon = $path;

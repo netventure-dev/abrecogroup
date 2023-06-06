@@ -37,8 +37,9 @@ class AboutUsController extends Controller
             'title' => 'required',
             'content' => 'required',
             'cover_content' => 'required',
-            'banner_image' => 'sometimes|required|mimes:jpg,jpeg,png,webp | max:2000',
-            'image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
+            'alt_text' => 'nullable',
+            'banner_image' => 'sometimes|required| max:2000',
+            'image' => 'required| max:2000',
             'link' => 'nullable',
             'status' => 'required',
         ]);
@@ -47,6 +48,7 @@ class AboutUsController extends Controller
         $data->cover_title = $validated['title'];
         $data->cover_content = $validated['cover_content'];
         $data->content = $validated['content'];
+        $data->alt_text = $validated['alt_text'];
         $data->link = $validated['link'];
         $data->status = $validated['status'];
         if ($request->hasFile('banner_image')) {

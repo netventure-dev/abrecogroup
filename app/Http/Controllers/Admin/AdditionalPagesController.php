@@ -37,8 +37,10 @@ class AdditionalPagesController extends Controller
             'content2' => 'nullable',
             'sub_title' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'alt_text' => 'nullable',
             'b_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'logo_alt_text' => 'nullable',
             'link' => 'nullable',
             'button_title' => 'nullable',
             'status' => 'required',
@@ -50,6 +52,10 @@ class AdditionalPagesController extends Controller
         $page->title = $validated['title'];
         $page->content = $validated['content'];
         $page->content2 = $validated['content2'];
+        $page->logo_alt_text = $validated['logo_alt_text'];
+
+        $page->alt_text = $validated['alt_text'];
+
         $page->order = $validated['order'];
         $page->status = $validated['status'];  
         $page->subtitle = $validated['sub_title'];
@@ -102,6 +108,10 @@ class AdditionalPagesController extends Controller
             'button_title' => 'nullable',
             'status' => 'required',
             'order' => 'nullable',
+            'alt_text' => 'nullable',
+            'logo_alt_text' => 'nullable',
+
+
         ]);
         $page->slug = SlugService::createSlug(AdditionalPage::class, 'slug', $validated['title'], ['unique' => false]);
         $page->title = $validated['title'];
@@ -110,6 +120,8 @@ class AdditionalPagesController extends Controller
         $page->order = $validated['order'];
         $page->status = $validated['status'];  
         $page->subtitle = $validated['sub_title'];
+        $page->logo_alt_text = $validated['logo_alt_text'];
+        $page->alt_text = $validated['alt_text'];
         $page->link = $validated['link'];
         $page->button_title = $validated['button_title'];
         if ($request->hasFile('image')) {

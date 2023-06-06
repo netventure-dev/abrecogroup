@@ -20,7 +20,7 @@
                 <div class="page-title-right">
                     {{-- @can('create', App\Models\Admin::class) --}}
                         <a href="{{ route('admin.inner-services.create') }}"
-                            class="btn btn-primary w-md">{{ __('Create Inner Services') }}</a>
+                            class="btn btn-primary w-md">{{ __('Create Inner Services ') }}</a>
                     {{-- @endcan --}}
                 </div>
             </div>
