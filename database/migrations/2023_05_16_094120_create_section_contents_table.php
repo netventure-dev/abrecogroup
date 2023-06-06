@@ -19,7 +19,7 @@ class CreateSectionContentsTable extends Migration
             $table->string('title')->nullable();
             $table->string('section_id');
             $table->string('icon')->nullable();
-            $table->string('icon_content')->nullable();
+            $table->longText('icon_content')->nullable();
             $table->string('button_title')->nullable();
             $table->string('button_link')->nullable();
             $table->boolean('status')->default(1);
