@@ -13,7 +13,7 @@
     <section class="slider-section">
         <div class="slides owl-theme owl-carousel">
             <div class="shadow-sm border-radius-new">
-                <img src="{{ asset('storage/' . $service->cover_image) }}" class="img-fluid d-block" alt="EUREKA SERVICES">
+                <img src="{{ asset('storage/' . $service->cover_image) }}" class="img-fluid d-block" alt="A3LOGICS">
                 <div class="carousel-caption d-md-block">
                     @php 
                      $firstWord = strtok($service->name, " ");
@@ -111,11 +111,11 @@
 
                 <!-- left image -->
                 <img src="{{ asset('storage/' . $content2->image) }}" 
-                class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES">
+                class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS">
 
                 <!-- right image -->
                 <!-- <img src="{{ asset('storage/' . $content2->image) }}" 
-                class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> -->
+                class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS"> -->
 
                 <h3>{!! @$content2->title !!}</h3>
                 {!! $content2->description !!}
@@ -131,7 +131,7 @@
                 {{-- <div class="row col-md-12  align-items-center">
                     <div class="col-md-6 mt-5">
                         <img src="{{ asset('storage/' . $content2->image) }}" class="float-left pr-4  rounded img-fluid d-block"
-                            alt="EUREKA SERVICES">
+                            alt="A3LOGICS">
                     </div>
                     <div class="col-md-6">
                         <h3>{!! @$content2->title !!}</h3>
@@ -154,11 +154,11 @@
 
                 <!-- left image -->
                 {{-- <img src="{{ asset('storage/' . $content4->image) }}" 
-                class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> --}}
+                class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS"> --}}
 
                 <!-- right image -->
                <img src="{{ asset('storage/' . $content4->image) }}" 
-                class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> 
+                class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS"> 
 
                 <h3>{!! @$content4->title !!}</h3>
                 {!! $content4->description !!}
@@ -181,7 +181,7 @@
                     </div>
                     <div class="col-md-6">
                         <img src="{{ asset('storage/' . $content4->image) }}" class="img-fluid rounded d-block"
-                            alt="EUREKA SERVICES">
+                            alt="A3LOGICS">
                     </div>
                 </div> --}}
             @endif
@@ -196,11 +196,11 @@
 
                     <!-- left image -->
                     <img src="{{ asset('storage/' . $content5->image) }}" 
-                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES">
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS">
 
                     <!-- right image -->
                     <!-- <img src="{{ asset('storage/' . $content5->image) }}" 
-                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> -->
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS"> -->
 
                     <h3>{!! @$content5->title !!}</h3>
                     {!! $content5->description !!}
@@ -223,11 +223,11 @@
 
                     <!-- left image -->
                     {{-- <img src="{{ asset('storage/' . $content6->image) }}" 
-                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> --}}
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS"> --}}
 
                     <!-- right image -->
                      <img src="{{ asset('storage/' . $content6->image) }}" 
-                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> 
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS"> 
 
                     <h3>{!! @$content6->title !!}</h3>
                     {!! $content6->description !!}
@@ -251,11 +251,11 @@
 
                     <!-- left image -->
                     <img src="{{ asset('storage/' . $content7->image) }}" 
-                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES">
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS">
 
                     <!-- right image -->
                     <!-- <img src="{{ asset('storage/' . $content7->image) }}" 
-                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> -->
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS"> -->
 
                     <h3>{!! @$content7->title !!}</h3>
                     {!! $content7->description !!}
@@ -308,11 +308,11 @@
 
                     <!-- left image -->
                     {{-- <img src="{{ asset('storage/' . $content10->image) }}" 
-                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> --}}
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS"> --}}
 
                     <!-- right image -->
                      <img src="{{ asset('storage/' . $content9->image) }}" 
-                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> 
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS"> 
 
                     <h3>{!! @$content9->title !!}</h3>
                     {!! $content9->description !!}
@@ -334,11 +334,11 @@
 
                     <!-- left image -->
                     <img src="{{ asset('storage/' . $content10->image) }}" 
-                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES">
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS">
 
                     <!-- right image -->
                     <!-- <img src="{{ asset('storage/' . $content10->image) }}" 
-                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> -->
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS"> -->
 
                     <h3>{!! @$content10->title !!}</h3>
                     {!! $content10->description !!}
@@ -361,11 +361,11 @@
 
                     <!-- left image -->
                     {{-- <img src="{{ asset('storage/' . $content10->image) }}" 
-                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> --}}
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS"> --}}
 
                     <!-- right image -->
                     <img src="{{ asset('storage/' . $content11->image) }}" 
-                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> 
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS"> 
 
                     <h3>{!! @$content11->title !!}</h3>
                     {!! $content11->description !!}
@@ -388,11 +388,11 @@
 
                     <!-- left image -->
                     <img src="{{ asset('storage/' . $content12->image) }}" 
-                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES">
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS">
 
                     <!-- right image -->
                     {{-- <img src="{{ asset('storage/' . $content11->image) }}" 
-                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES">  --}}
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS">  --}}
 
                     <h3>{!! @$content12->title !!}</h3>
                     {!! $content12->description !!}
@@ -415,11 +415,11 @@
 
                     <!-- left image -->
                     {{-- <img src="{{ asset('storage/' . $content12->image) }}" 
-                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES"> --}}
+                    class="float-left pr-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS"> --}}
 
                     <!-- right image -->
                     <img src="{{ asset('storage/' . $content14->image) }}" 
-                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="EUREKA SERVICES">  
+                    class="float-right pl-4 pb-4 w-50 shadow rounded img-fluid img1 m-0" alt="A3LOGICS">  
 
                     <h3>{!! @$content14->title !!}</h3>
                     {!! $content14->description !!}
