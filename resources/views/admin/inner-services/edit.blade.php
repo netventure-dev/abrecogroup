@@ -82,6 +82,17 @@
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
+                                 <div class="mb-4 row">
+                                    <label for="alt_text" class="col-sm-3 col-form-label mb-2">{{ __('Alt text') }}<span
+                                            class="text-danger"></span></label>
+                                    <div class="col-sm-9">
+                                        <input id="alt_text" name="alt_text" type="text"
+                                            class="form-control mb-2 @if ($errors->has('alt_text')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter Alt text') }}" required value="{{ @old('alt_text',@$innerservice->alt_text) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('alt_text') }}
+                                        </div>
+                                    </div>
+                                </div>
                                  <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Logo') }} <span
                                         class="text-danger">*</span><a

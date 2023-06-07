@@ -42,6 +42,7 @@ class InnerServiceController extends Controller
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'title' => 'required',
+            'alt_text' => 'nullable',
             'description' => 'required',
             'sub_service_id' => 'required',
             'status' => 'required',
@@ -54,6 +55,8 @@ class InnerServiceController extends Controller
         $service = new InnerService();
         $service->uuid = (string) Str::uuid();
         $service->name = $validated['name'];
+        $service->alt_text = $validated['alt_text'];
+
         $service->slug = SlugService::createSlug(InnerService::class, 'slug', $validated['name'], ['unique' => false]);
         $service->cover_description = $validated['cover_description'];
         $service->status = $validated['status'];  
@@ -107,6 +110,7 @@ class InnerServiceController extends Controller
             'cover_description' => 'required',
             'image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
             'logo' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
+            'alt_text' => 'nullable',
             'title' => 'required',
             'sub_service_id' => 'required',
             'description' => 'required',
@@ -118,6 +122,8 @@ class InnerServiceController extends Controller
         $sub_service_name=SubService::where('uuid',$validated['sub_service_id'])->first();
         $service_data=Service::where('uuid',$sub_service_name->service_id)->first();
         $services->name = $validated['name'];
+        $services->alt_text = $validated['alt_text'];
+
         $services->slug = SlugService::createSlug(SubService::class, 'slug', $validated['name'], ['unique' => false]);
         $services->cover_description = $validated['cover_description'];
         $services->status = $validated['status'];  

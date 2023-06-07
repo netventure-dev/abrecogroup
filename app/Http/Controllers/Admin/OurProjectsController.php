@@ -40,10 +40,12 @@ class OurProjectsController extends Controller
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
             'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
+            'alt_text' => 'nullable',
             'status' => 'required',
         ]);
         $data = new OurProjects;
         $data->uuid = (string) Str::uuid();
+        $data->alt_text = $validated['alt_text'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/projects/image/',$validated['image']->getClientOriginalName(), 'public');
@@ -73,9 +75,12 @@ class OurProjectsController extends Controller
         $data= OurProjects::where('uuid',$id)->first();
         $validated = $request->validate([
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'alt_text' => 'nullable',
             'status' => 'required',
         ]);
         $data->status = $validated['status'];
+        $data->alt_text = $validated['alt_text'];
+
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/projects/image/',$validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
