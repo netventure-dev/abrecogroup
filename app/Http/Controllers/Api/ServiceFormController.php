@@ -27,6 +27,7 @@ class ServiceFormController extends Controller
                 'name' => 'required|max:255',
                 'email' => 'required|email|max:255',
                 'service' => 'required',
+                'type' => 'required',
                 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
                 'message' => 'nullable',
                 // 'g-recaptcha-response' => 'required|captcha',
@@ -37,6 +38,7 @@ class ServiceFormController extends Controller
         $request->name = $validated['name'];
         $request->email = $validated['email'];
         $request->service = $validated['service'];
+        $request->type = $validated['type'];
         $request->phone = $validated['phone'];
         $request->message = $validated['message'];
         // dd($feedbacks);
@@ -50,6 +52,7 @@ class ServiceFormController extends Controller
             $details['service'] = $validated['service'];
             $details['phone'] = $validated['phone'];
             $details['email'] = $validated['email'];
+            $details['type'] = $validated['type'];
             $details['message'] = $validated['message'];
             $details['admin_name'] = $admin->name;
             Notification::send($admin, new QuoteNotification($details));

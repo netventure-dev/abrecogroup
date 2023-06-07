@@ -44,7 +44,7 @@ Route::get('/section_7_industries', [HomeController::class, 'section_7']);
 Route::get('/section_8_why', [HomeController::class, 'section_8']);
 
 // Serivce
-Route::post('/service-form', [ServiceFormController::class, 'store']);
+Route::post('/form', [ServiceFormController::class, 'store']);
 
 
 // Route::resource('home', HomeController::class);
