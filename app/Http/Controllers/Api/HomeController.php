@@ -45,15 +45,6 @@ class HomeController extends Controller
                             ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content','content2', 'button_title', 'link', 'order')
                             ->where('status', 1)
                             ->get();
-
-        // section 1
-        $data['section_3_driven'] = Section::with(['contents' => function ($query) {
-                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
-                            }])
-                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
-                            ->where('order',3);
-                            ->where('status', 1)
-                            ->get();
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }
@@ -68,4 +59,79 @@ class HomeController extends Controller
         }
         return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
     }   
+    public function section_3()
+    {
+       // section 1
+       $data['section_3_driven'] = Section::with(['contents' => function ($query) {
+                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
+                            }])
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content','content2','button_title', 'link', 'order')
+                            ->where('order',3)
+                            ->where('status', 1)
+                            ->first();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }   
+    public function section_5()
+    {
+       // section 1
+       $data['section_5_Services'] = Section::with(['contents' => function ($query) {
+                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
+                            }])
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
+                            ->where('order',5)
+                            ->where('status', 1)
+                            ->first();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }   
+    public function section_6()
+    {
+       // section 1
+       $data['section_6_case'] = Section::with(['contents' => function ($query) {
+                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
+                            }])
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
+                            ->where('order',6)
+                            ->where('status', 1)
+                            ->first();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }   
+    public function section_7()
+    {
+       // section 1
+       $data['section_7_industries'] = Section::with(['contents' => function ($query) {
+                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
+                            }])
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
+                            ->where('order',7)
+                            ->where('status', 1)
+                            ->first();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }  
+    public function section_8()
+    {
+       // section 1
+       $data['section_8_why'] = Section::with(['contents' => function ($query) {
+                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
+                            }])
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
+                            ->where('order',8)
+                            ->where('status', 1)
+                            ->first();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }    
 }
