@@ -103,7 +103,7 @@ class SectionController extends Controller
             'alt_text' => 'nullable',
             'alt_background' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-            'b_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'background_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
             'button_title' => 'nullable',
@@ -125,8 +125,8 @@ class SectionController extends Controller
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $section->image1 = $path;
         }
-        if ($request->hasFile('b_image')) {
-            $path =  $request->file('b_image')->storeAs('media/image',  $validated['b_image']->getClientOriginalName(), 'public');
+        if ($request->hasFile('background_image')) {
+            $path =  $request->file('background_image')->storeAs('media/image',  $validated['background_image']->getClientOriginalName(), 'public');
             $section->background_image = $path;
         }
         if ($request->hasFile('logo')) {
