@@ -14,8 +14,8 @@ class AddAltTextToAdditionalPagesTable extends Migration
     public function up()
     {
         Schema::table('additional_pages', function (Blueprint $table) {
-            $table->string('alt_text')->nullable()->after('image1')->nullable();
-            $table->string('logo_alt_text')->nullable()->after('image2')->nullable();
+            $table->string('alt_text')->after('image1')->nullable();
+            $table->string('logo_alt_text')->after('image2')->nullable();
 
 
         });

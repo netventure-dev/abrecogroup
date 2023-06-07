@@ -14,7 +14,7 @@ class AddAltTextToAboutUsListsTable extends Migration
     public function up()
     {
         Schema::table('about_us_lists', function (Blueprint $table) {
-            $table->string('alt_text')->nullable()->after('icon')->nullable();
+            $table->string('alt_text')->after('icon')->nullable();
 
         });
     }

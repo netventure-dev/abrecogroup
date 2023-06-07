@@ -14,8 +14,8 @@ class AddAltTextToSectionsTable extends Migration
     public function up()
     {
         Schema::table('sections', function (Blueprint $table) {
-            $table->string('alt_text')->nullable()->after('image1')->nullable();
-            $table->string('alt_background')->nullable()->after('background_image')->nullable();
+            $table->string('alt_text')->after('image1')->nullable();
+            $table->string('alt_background')->after('background_image')->nullable();
 
 
         });

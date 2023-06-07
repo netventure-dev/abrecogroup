@@ -14,7 +14,7 @@ class AddAltTextToOurProjectsTable extends Migration
     public function up()
     {
         Schema::table('our_projects', function (Blueprint $table) {
-            $table->string('alt_text')->nullable()->after('image')->nullable();
+            $table->string('alt_text')->after('image')->nullable();
 
         });
     }

@@ -14,7 +14,7 @@ class AddAltTextToInnerServicesTable extends Migration
     public function up()
     {
         Schema::table('inner_services', function (Blueprint $table) {
-            $table->string('alt_text')->nullable()->after('logo')->nullable();
+            $table->string('alt_text')->after('logo')->nullable();
 
         });
     }

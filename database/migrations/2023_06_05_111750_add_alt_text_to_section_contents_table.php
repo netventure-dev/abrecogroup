@@ -14,7 +14,7 @@ class AddAltTextToSectionContentsTable extends Migration
     public function up()
     {
         Schema::table('section_contents', function (Blueprint $table) {
-            $table->string('alt_text')->nullable()->after('icon')->nullable();
+            $table->string('alt_text')->after('icon')->nullable();
         });
     }
 

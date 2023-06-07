@@ -14,7 +14,7 @@ class AddAltTextToAboutUsTable extends Migration
     public function up()
     {
         Schema::table('about_us', function (Blueprint $table) {
-            $table->string('alt_text')->nullable()->after('content_image')->nullable();
+            $table->string('alt_text')->after('content_image')->nullable();
 
         });
     }

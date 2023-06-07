@@ -14,7 +14,7 @@ class AddAltTextToServicesTable extends Migration
     public function up()
     {
         Schema::table('services', function (Blueprint $table) {
-            $table->string('alt_text')->nullable()->after('logo')->nullable();
+            $table->string('alt_text')->after('logo')->nullable();
 
         });
     }
