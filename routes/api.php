@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\IndustryController;
 use App\Http\Controllers\Api\ServiceApiController;
 use App\Http\Controllers\Api\BlogApiController;
 use App\Http\Controllers\Api\ServiceFormController;
+use App\Http\Controllers\Api\TestimonialsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -45,6 +46,9 @@ Route::get('/section_8_why', [HomeController::class, 'section_8']);
 
 // Serivce
 Route::post('/form', [ServiceFormController::class, 'store']);
+
+// Testimonials
+Route::get('/testimonials', [TestimonialsController::class, 'index']);
 
 
 // Route::resource('home', HomeController::class);
