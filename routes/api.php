@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\IndustryController;
 use App\Http\Controllers\Api\ServiceApiController;
 use App\Http\Controllers\Api\BlogApiController;
+use App\Http\Controllers\Api\ServiceFormController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -41,6 +42,9 @@ Route::get('/section_5_Services', [HomeController::class, 'section_5']);
 Route::get('/section_6_case', [HomeController::class, 'section_6']);
 Route::get('/section_7_industries', [HomeController::class, 'section_7']);
 Route::get('/section_8_why', [HomeController::class, 'section_8']);
+
+// Serivce
+Route::post('/service', [ServiceFormController::class, 'store']);
 
 
 // Route::resource('home', HomeController::class);
