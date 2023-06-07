@@ -45,7 +45,7 @@ class ContactNotification extends Notification
         ->view('emails.contact_us', [
             'details' => $details,
         ])
-        ->subject('EUREKA SERVICES :: New Contact Request.');
+        ->subject('A3LOGICS :: New Contact Request.');
         // return (new MailMessage)
         //     ->subject('Eureka:Contact Request')
         //     ->line('Hi, ' . $this->details['admin_name'])

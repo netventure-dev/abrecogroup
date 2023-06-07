@@ -28,8 +28,8 @@
     <!-- HEADER -->
     <header class="fixed-top header_area">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#"><img src="images/logo-new.webp" alt="EUREKA SERVICES" height="50px"
-                    width="auto" />EUREKA SERVICES</a>
+            <a class="navbar-brand" href="#"><img src="images/logo-new.webp" alt="A3LOGICS" height="50px"
+                    width="auto" />A3LOGICS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -76,7 +76,7 @@
     <section class="slider-section">
         <div class="slides owl-theme owl-carousel">
             <div class="shadow-sm border-radius-new">
-                <img src="images/cont-1.webp" class="img-fluid d-block" alt="EUREKA SERVICES" height="auto"
+                <img src="images/cont-1.webp" class="img-fluid d-block" alt="A3LOGICS" height="auto"
                     width="100%">
                 <div class="carousel-caption d-md-block">
                     <h2><span>CONTACT </span>US</h2>
@@ -204,7 +204,7 @@
             <!--End Form-->
         </div>
         <div class="copy-right text-center mt-4">
-            <p class="text-center"> © 2022 Eureka Services. All rights reserved. Digitally Empowered by <a
+            <p class="text-center"> © 2022 A3LOGICS. All rights reserved. Digitally Empowered by <a
                     href="https://www.netventure.in/" target="_blank">NetVenture Digital Solutions Pvt. Ltd.</a> </p>
         </div>
         <!-- <div class="fixed-bottom text-center">No:1 Maintenance and Handyman Services Company in Dubai</div> -->

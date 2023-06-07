@@ -13,7 +13,7 @@
                 @foreach ($home_sliders as $home_slider)
                     <div class="shadow-sm border-radius-new">
                         <img src="{{ asset('storage/' . @$home_slider->image) }}" class="img-fluid d-block"
-                            alt="EUREKA SERVICES">
+                            alt="A3LOGICS">
                         <div class="carousel-caption d-md-block">
                             <h1>{{ @$home_slider->title }}</h1>
                             <p>{!! @$home_slider->description !!}</p>
@@ -41,7 +41,7 @@
                                 <div class="icon-box-icons">
                                     <i>
                                         <img src="{{ asset('storage/' . @$technical_service_list->image) }}"
-                                            class="img-fluid" alt="EUREKA SERVICES" style="width:100px;">
+                                            class="img-fluid" alt="A3LOGICS" style="width:100px;">
                                     </i>
                                 </div>
                                 <div class="icon-box-contents">
@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-md-4">
                         <img src="{{ asset('storage/' . @$technical_service->image) }}" class="img-fluid"
-                            alt="EUREKA SERVICES">
+                            alt="A3LOGICS">
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                             <div class="image">
                                 <a href="#" title="Title Link">
                                     <img src="{{ asset('storage/' . @$service->logo) }}" class="img-circle"
-                                        alt="EUREKA SERVICES" height="auto" width="80%">
+                                        alt="A3LOGICS" height="auto" width="80%">
                                 </a>
                             </div>
                             <div class="info">
@@ -118,7 +118,7 @@
                             @foreach ($our_projects as $our_project)
                                 <div class="col-md-6 mb-4 mt-5">
                                     <img src="{{ asset('storage/' . @$our_project->image) }}" class="img-fluid"
-                                        alt="EUREKA SERVICES">
+                                        alt="A3LOGICS">
                                 </div>
                             @endforeach
                         </div>

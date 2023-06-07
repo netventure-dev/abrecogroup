@@ -45,7 +45,7 @@ class QuotessNotification extends Notification
         ->view('emails.contact', [
             'details' => $details,
         ])
-        ->subject('EUREKA SERVICES :: Thank You!.');
+        ->subject('A3LOGICS :: Thank You!.');
        
     }
 

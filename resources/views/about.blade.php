@@ -16,7 +16,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <img src="{{ asset('assets/front/images/about-us-.webp') }}" class="img-fluid d-block"
-                        alt="EUREKA SERVICES">
+                        alt="A3LOGICS">
                 </div>
                 <div class="col-md-6">
                     <h3><span>WHO</span> WE ARE</h3>

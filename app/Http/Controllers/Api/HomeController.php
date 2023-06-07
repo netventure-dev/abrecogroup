@@ -43,6 +43,7 @@ class HomeController extends Controller
                                 $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
                             }])
                             ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content','content2', 'button_title', 'link', 'order')
+                            ->whereIn('order',[1,2,4,9])
                             ->where('status', 1)
                             ->get();
         if (!empty($data)) {

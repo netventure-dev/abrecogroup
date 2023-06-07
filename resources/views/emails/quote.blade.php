@@ -318,7 +318,7 @@
                                                 style="font-size:0px;padding:13px 0px 0px 0px;word-break:break-word;">
                                                 <div
                                                     style="font-family:Ubuntu, sans-serif;font-size:11px;line-height:1.5;text-align:center;color:#ffffff;">
-                                                    <p><span style="font-size:14px;"><span style="color:#ffffff;"> © EUREKA SERVICES. All rights reserved. </span></span></p>
+                                                    <p><span style="font-size:14px;"><span style="color:#ffffff;"> © A3LOGICS. All rights reserved. </span></span></p>
                                                 </div>
                                             </td>
                                         </tr>
@@ -499,8 +499,7 @@
                                                                 style="padding-bottom:30px;padding-left:15px;padding-right:15px;padding-top:10px;text-align:center;width:100%;">
                                                                 <h1
                                                                     style="margin: 0; color: #ffffff; direction: ltr; font-family: 'Lato', Tahoma, Verdana, Segoe, sans-serif; font-size: 35px; font-weight: 400; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;">
-                                                                    <span class="tinyMce-placeholder"><strong>EUREKA
-                                                                            SERVICES</strong></span></h1>
+                                                                    <span class="tinyMce-placeholder"><strong>A3LOGICS</strong></span></h1>
                                                             </td>
                                                         </tr>
                                                     </table>

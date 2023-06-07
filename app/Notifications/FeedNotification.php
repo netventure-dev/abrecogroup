@@ -45,7 +45,7 @@ class FeedNotification extends Notification
         ->view('emails.feedback', [
             'details' => $details,
         ])
-        ->subject('EUREKA SERVICES :: Feedback Request.');
+        ->subject('A3LOGICS :: Feedback Request.');
     }
 
     /**
