@@ -94,7 +94,7 @@ class HomeSliderController extends Controller
             'content' => 'required',
             'link' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-            'mobile_slider' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_slider' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $slider->title = $validated['title'];

@@ -108,7 +108,7 @@
                                     <div class="col-sm-9">
                                         <input id="link" name="link" type="text"
                                             class="form-control mb-2 @if ($errors->has('link',@$slider->link)) is-invalid  @endif"
-                                            placeholder="{{ __('Enter link') }}"  value="{{ @old('link') }}">
+                                            placeholder="{{ __('Enter link') }}"  value="{{ @old('link',@$slider->link) }}">
                                         <div class="invalid-feedback">{{ $errors->first('link') }}
                                         </div>
                                     </div>
