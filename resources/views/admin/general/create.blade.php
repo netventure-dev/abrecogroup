@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-4 row">
-                                    <label class="col-sm-3 col-form-label" for="logo">{{ __('Logo') }}<a href="#"
+                                    <label class="col-sm-3 col-form-label" for="logo">{{ __('Dark Logo') }}<a href="#"
                                             class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
                                         @if (isset($data->logo))
@@ -70,6 +70,20 @@
                                             class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif"
                                             value="{{ @old('logo') }}">
                                         <div class="invalid-feedback">{{ $errors->first('logo') }}</div>
+                                    </div>
+                                </div>
+                                 <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="light_logo">{{ __('Light Logo') }}<a href="#"
+                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                    <div class="col-sm-9">
+                                        @if (isset($data->light_logo))
+                                            <img src="{{ asset('/storage/' . @$data->light_logo) }}" alt=""
+                                                class="img-fluid" style="width:100px;">
+                                        @endif
+                                        <input id="light_logo" name="light_logo" type="file"
+                                            class="form-control mb-2 @if ($errors->has('light_logo')) is-invalid @endif"
+                                            value="{{ @old('light_logo') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('light_logo') }}</div>
                                     </div>
                                 </div>
                                 <div class="mt-4 row">

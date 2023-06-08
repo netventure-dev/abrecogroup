@@ -28,6 +28,8 @@ class GeneralController extends Controller
             'address' => 'required',
             'phone' => 'nullable|numeric',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'light_logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+
             'facebook' => 'required',
             'instagram' => 'required',
             'linkdln' => 'required',
@@ -47,6 +49,10 @@ class GeneralController extends Controller
         if ($request->hasFile('logo')) {
             $path =  $request->file('logo')->storeAs('media/general/image',$validated['logo']->getClientOriginalName(), 'public');
             $data->logo = $path;
+        }
+        if ($request->hasFile('light_logo')) {
+            $path =  $request->file('light_logo')->storeAs('media/general/image', $validated['light_logo']->getClientOriginalName(), 'public');
+            $data->light_logo = $path;
         }
         if ($request->hasFile('favicon')) {
             $path1 =  $request->file('favicon')->storeAs('media/general/image',$validated['favicon']->getClientOriginalName(), 'public');
