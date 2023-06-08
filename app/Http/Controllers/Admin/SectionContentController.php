@@ -45,7 +45,7 @@ class SectionContentController extends Controller
         $validated = $request->validate([
             'title' => 'nullable',
             'content' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'icon' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'alt_text' => 'nullable',
 
             'order' => 'required|numeric',
@@ -64,8 +64,8 @@ class SectionContentController extends Controller
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
         $content->button_link =  $validated['button_link'];
-        if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
+        if ($request->hasFile('icon')) {
+            $path =  $request->file('icon')->storeAs('media/image',  $validated['icon']->getClientOriginalName(), 'public');
             $content->icon = $path;
         }
         $res = $content->save();
@@ -100,7 +100,7 @@ class SectionContentController extends Controller
         $validated = $request->validate([
             'title' => 'nullable',
             'content' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'icon' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'alt_text' => 'nullable',
 
             'order' => 'required|numeric',
@@ -109,7 +109,7 @@ class SectionContentController extends Controller
             'button_link' => 'nullable',
         ]); 
 
-        // $content = new ServiceContent();
+        // $content = new ServiceContent(); 
         // $content->service_id = $services->uuid;
         $content->section_id = $section->uuid;
         $content->title =  $validated['title'];
@@ -119,8 +119,8 @@ class SectionContentController extends Controller
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
         $content->button_link =  $validated['button_link'];
-        if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
+        if ($request->hasFile('icon')) {
+            $path =  $request->file('icon')->storeAs('media/image',  $validated['icon']->getClientOriginalName(), 'public');
             $content->icon = $path;
         }
         $res = $content->save();

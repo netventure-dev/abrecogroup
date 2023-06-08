@@ -47,11 +47,11 @@
                                 </div>
                                
                                 <div class="mt-4 row">
-                                    <label class="col-sm-3 col-form-label" for="image">{{ __('Icon') }} <a
+                                    <label class="col-sm-3 col-form-label" for="icon">{{ __('Icon') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9"> 
-                                        <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
-                                        <div class="invalid-feedback">{{ $errors->first('image') }}</div>
+                                        <input id="icon" name="icon" type="file" class="form-control mb-2 @if ($errors->has('icon')) is-invalid @endif" value="{{ @old('image') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('icon') }}</div>
                                     </div>
                                 </div>
                                  <div class="mb-4 row">
