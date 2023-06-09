@@ -57,11 +57,11 @@ class HomeSliderController extends Controller
         $slider->description = $validated['content'];
         $slider->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/image/',$validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/image',$validated['image']->getClientOriginalName(), 'public');
             $slider->image = $path;
         }
         if ($request->hasFile('mobile_slider')) {
-            $path =  $request->file('mobile_slider')->storeAs('media/image/',$validated['mobile_slider']->getClientOriginalName(), 'public');
+            $path =  $request->file('mobile_slider')->storeAs('media/image',$validated['mobile_slider']->getClientOriginalName(), 'public');
             $slider->mobile_slider = $path;
         }
         $res = $slider->save();

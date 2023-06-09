@@ -48,7 +48,7 @@ class OurProjectsController extends Controller
         $data->alt_text = $validated['alt_text'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/projects/image/',$validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/projects/image',$validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
         }
         $res = $data->save();
@@ -82,7 +82,7 @@ class OurProjectsController extends Controller
         $data->alt_text = $validated['alt_text'];
 
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/projects/image/',$validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/projects/image',$validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
         }
         $res = $data->save();

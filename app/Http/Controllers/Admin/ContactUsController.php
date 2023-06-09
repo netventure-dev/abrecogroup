@@ -48,7 +48,7 @@ class ContactUsController extends Controller
         $data->seo_keywords = $validated['seo_keywords'];
         $data->seo_description = $validated['seo_description'];
         if ($request->hasFile('banner_image')) {
-            $path =  $request->file('banner_image')->storeAs('media/aboutus/image/',$validated['banner_image']->getClientOriginalName(), 'public');
+            $path =  $request->file('banner_image')->storeAs('media/aboutus/image',$validated['banner_image']->getClientOriginalName(), 'public');
             $data->image = $path;
         }
         $res = $data->save();
