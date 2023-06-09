@@ -49,7 +49,7 @@ class MissionVisionController extends Controller
         $data->description = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/aboutus/image/',$validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/aboutus/image',$validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
         }
         $res = $data->save();
@@ -85,7 +85,7 @@ class MissionVisionController extends Controller
         $data->description = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/aboutus/image/',$validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/aboutus/image',$validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
         }
         $res = $data->save();

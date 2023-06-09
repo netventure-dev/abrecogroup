@@ -52,11 +52,11 @@ class AboutUsController extends Controller
         $data->link = $validated['link'];
         $data->status = $validated['status'];
         if ($request->hasFile('banner_image')) {
-            $path =  $request->file('banner_image')->storeAs('media/aboutus/image/',$validated['banner_image']->getClientOriginalName(), 'public');
+            $path =  $request->file('banner_image')->storeAs('media/aboutus/image',$validated['banner_image']->getClientOriginalName(), 'public');
             $data->banner_image = $path;
         }
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/aboutus/image/',$validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/aboutus/image',$validated['image']->getClientOriginalName(), 'public');
             $data->content_image = $path;
         }
         $res = $data->save();
