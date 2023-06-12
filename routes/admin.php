@@ -186,6 +186,20 @@ Route::get('sub-services/{id}/content/{uuid}/edit',  'Admin\SubServiceContentCon
 Route::post('sub-services/{id}/content/{uuid}/update',  'Admin\SubServiceContentController@update')->name('sub-services.content.update');
 Route::post('sub-services/{id}/content/{uuid}/destroy',  'Admin\SubServiceContentController@destroy')->name('sub-services.content.destroy');
 
+//sub service extras
+Route::get('content/{uuid}/extra',  'Admin\SubServiceExtraController@index')->name('sub-services.extra.index');
+Route::get('content/{uuid}/extra/create',  'Admin\SubServiceExtraController@create')->name('sub-services.extra.create');
+Route::post('content/{uuid}/extra/store',  'Admin\SubServiceExtraController@store')->name('sub-services.extra.store');
+Route::get('content/{id}/extra/{uuid}/edit',  'Admin\SubServiceExtraController@edit')->name('sub-services.extra.edit');
+Route::post('content/{id}/extra/{uuid}/update',  'Admin\SubServiceExtraController@update')->name('sub-services.extra.update');
+Route::post('content/{id}/extra/{uuid}/destroy',  'Admin\SubServiceExtraController@destroy')->name('sub-services.extra.destroy');
+
+
+
+
+
+
+
 // contact-us
 Route::get('contact-us/create',  'Admin\ContactUsController@create')->name('contact-us.create');
 Route::post('contact-us/store',  'Admin\ContactUsController@store')->name('contact-us.store');

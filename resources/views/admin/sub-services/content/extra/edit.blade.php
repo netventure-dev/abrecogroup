@@ -34,7 +34,7 @@
                     <div class="mt-2 row">
                         <div class="col-lg-11">
                             <form
-                                action="{{ route('admin.sub-services.content.update', ['id' => @$subservice->uuid, 'uuid' => @$content->uuid]) }}"
+                                action="{{ route('admin.sub-services.extra.update', ['id' => @$subservice->uuid, 'uuid' => @$content->uuid]) }}"
                                 method="post" class="custom-validation" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-4 row">
