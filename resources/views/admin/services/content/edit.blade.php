@@ -89,7 +89,7 @@
                                     <div class="col-sm-9">
 
                                         <textarea name="alt_text" class="form-control @if ($errors->has('alt_text')) is-invalid @endif" ro
-                                            placeholder="{{ __('Enter alt_text') }}" required>{{ @old('alt_text', @$content->alt_text) }}</textarea>
+                                            placeholder="{{ __('Enter alt_text') }}" >{{ @old('alt_text', @$content->alt_text) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('alt_text') }}
                                         </div>
                                     </div>
