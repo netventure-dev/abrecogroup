@@ -48,7 +48,7 @@ class BlogListController extends Controller
         $blogs->status = $validated['status'];
         $blogs->slug = SlugService::createSlug(Bloglist::class, 'slug', $validated['title'], ['unique' => false]);
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/blogs/image/', $validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/blogs/image', $validated['image']->getClientOriginalName(), 'public');
             $blogs->image = $path;
         }
         $res = $blogs->save();
@@ -88,7 +88,7 @@ class BlogListController extends Controller
         $blog->slug = SlugService::createSlug(Bloglist::class, 'slug', $validated['title'], ['unique' => false]);
        
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/image/', $validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/image', $validated['image']->getClientOriginalName(), 'public');
             $blog->image = $path;
         }
         $res = $blog->save();

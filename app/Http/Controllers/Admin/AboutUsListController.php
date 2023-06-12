@@ -54,7 +54,7 @@ class AboutUsListController extends Controller
 
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/aboutus/image/',$validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/aboutus/image',$validated['image']->getClientOriginalName(), 'public');
             $data->icon = $path;
         }
         $res = $data->save();
@@ -93,7 +93,7 @@ class AboutUsListController extends Controller
         $data->alt_text = $validated['alt_text'];
 
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/aboutus/image/',$validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('image')->storeAs('media/aboutus/image',$validated['image']->getClientOriginalName(), 'public');
             $data->icon = $path;
         }
         $res = $data->save();
