@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Create Sub Service Content') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Create Inner Service Content') }}</h4>
                 <div class="page-title-right">
 
                 </div>
@@ -31,7 +31,7 @@
                 <div class="card-body">
                     <div class="mt-2 row">
                         <div class="col-lg-11">
-                            <form action="{{ route('admin.sub-services.content.store',@$subservice->uuid) }}" method="post"
+                            <form action="{{ route('admin.inner-services.content.store',@$subservice->uuid) }}" method="post"
                                 class="custom-validation" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-4 row">
