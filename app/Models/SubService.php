@@ -28,4 +28,8 @@ class SubService extends Model
     {
         return $this->hasMany('App\Models\InnerService','sub_service_id','uuid');
     }
+    public function contents()
+    {
+        return $this->hasMany('App\Models\SubServiceContent','sub_service_id','uuid');
+    }
 }

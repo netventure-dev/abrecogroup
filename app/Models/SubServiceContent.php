@@ -19,4 +19,8 @@ class SubServiceContent extends Model
             ]
         ];
     }
+    public function extra_contents()
+    {
+        return $this->hasMany('App\Models\SubServiceExtra','sub_service_content_id','uuid');
+    }
 }
