@@ -24,4 +24,8 @@ class InnerService extends Model
     {
         return $this->hasOne('App\Models\SubService','uuid','sub_service_id');
     }
+    public function contents()
+    {
+        return $this->hasMany('App\Models\InnerServiceContent', 'inner_service_id', 'uuid');
+    }
 }
