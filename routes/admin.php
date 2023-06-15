@@ -140,6 +140,15 @@ Route::get('industries/{id}/content/{uuid}/edit',  'Admin\IndustriesContentContr
 Route::post('industries/{id}/content/{uuid}/update',  'Admin\IndustriesContentController@update')->name('industries.content.update');
 Route::post('industries/{id}/content/{uuid}/destroy',  'Admin\IndustriesContentController@destroy')->name('industries.content.destroy');
 
+// industry extra content
+Route::get('industries/{id}/extra-content',  'Admin\IndustryExtraContentController@index')->name('industries.content.extra.index');
+Route::get('industries/{id}/extra-content/create',  'Admin\IndustryExtraContentController@create')->name('industries.content.extra.create');
+Route::post('industries/{id}/extra-content/store',  'Admin\IndustryExtraContentController@store')->name('industries.content.extra.store');
+Route::get('industries/{id}/extra-content/{uuid}/edit',  'Admin\IndustryExtraContentController@edit')->name('industries.content.extra.edit');
+Route::post('industries/{id}/extra-content/{uuid}/update',  'Admin\IndustryExtraContentController@update')->name('industries.content.extra.update');
+Route::post('industries/{id}/extra-content/{uuid}/destroy',  'Admin\IndustryExtraContentController@destroy')->name('industries.content.extra.destroy');
+
+
 // our-projects
 Route::get('our-projects',  'Admin\OurProjectsController@index')->name('our-projects.index');
 Route::get('our-projects/create',  'Admin\OurProjectsController@create')->name('our-projects.create');

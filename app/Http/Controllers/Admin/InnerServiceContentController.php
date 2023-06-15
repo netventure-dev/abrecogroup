@@ -18,6 +18,7 @@ class InnerServiceContentController extends Controller
         $contents = InnerServiceContent::where('inner_service_id', $subservice->uuid)->get();
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.inner-services.index')],
+            ['Inner Services', route('admin.inner-services.index')],
             [$subservice->title, null],
         ];
         // dd( $services );

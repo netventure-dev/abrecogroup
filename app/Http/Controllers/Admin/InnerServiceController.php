@@ -17,7 +17,7 @@ class InnerServiceController extends Controller
     {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Sub Services')), null],
+            [(__('Inner Services')), null],
         ];
        
         return $dataTable->render('admin.inner-services.index', ['breadcrumbs' => $breadcrumbs]);

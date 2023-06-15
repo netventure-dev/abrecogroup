@@ -17,10 +17,10 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Industry Content') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Industry Extra Content') }}</h4>
                 <div class="page-title-right">
-                         <a href="{{ route('admin.industries.content.create',@$industries->uuid) }}"
-                            class="btn btn-primary w-md">{{ __('Create Content') }}</a> 
+                         <a href="{{ route('admin.industries.content.extra.create',@$industries->uuid) }}"
+                            class="btn btn-primary w-md">{{ __('Create Extra Content') }}</a> 
                 </div>
             </div>
         </div>
@@ -59,13 +59,12 @@
 
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.industries.content.extra.index',$content->uuid) }}" class="first btn btn-primary edit"> content</a> 
-                                    <a href="{{ route('admin.industries.content.edit',['id' => $industries->uuid, 'uuid' =>$content->uuid]) }}" class="first btn btn-primary edit"> Edit</a>
+                                    <a href="{{ route('admin.industries.content.extra.edit',['id' => $industries->uuid, 'uuid' =>$content->uuid]) }}" class="first btn btn-primary edit"> Edit</a>
                                 <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this row')}}')){
                                     document.getElementById('delete-data-{{ $content->uuid }}').submit();}">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
-                                <form id="delete-data-{{ $content->uuid }}" action="{{ route('admin.industries.content.destroy',['id' => $industries->uuid, 'uuid' =>$content->uuid]) }}"
+                                <form id="delete-data-{{ $content->uuid }}" action="{{ route('admin.industries.content.extra.destroy',['id' => $industries->uuid, 'uuid' =>$content->uuid]) }}"
                                     method="POST">
                                     @csrf
                                 </form>
