@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\RequestQuoteReportDataTable;
+use App\DataTables\Admin\RequestQuoteReportDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
