@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Admin\ContactUsReportDatatable;
+use App\DataTables\Admin\ContactUsReportDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Support\Str;
@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class ContactUsReportController extends Controller
 {
-    public function index(ContactUsReportDatatable $dataTable)
+    public function index(ContactUsReportDataTable $dataTable)
     {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
