@@ -33,7 +33,7 @@ class IndustriesContentController extends Controller
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Industries')), route('admin.industries.index')],
-            [$industries->name, null],
+            [$industries->name, route('admin.industries.content.index',@$industries->uuid)],
             [(__('Content')), null],
         ];
         return view('admin.industries.content.create',compact('industries','breadcrumbs'));
@@ -44,6 +44,8 @@ class IndustriesContentController extends Controller
         $industries= Industry::where('uuid',$id)->first();
         $validated = $request->validate([
             'title' => 'nullable',
+            'sub_title' => 'nullable',
+            'content' => 'nullable',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
@@ -54,6 +56,8 @@ class IndustriesContentController extends Controller
         $content->uuid = (string) Str::uuid();
         $content->industries_id = $industries->uuid;
         $content->title =  $validated['title'];
+        $content->subtitle = $validated['sub_title'];
+        $content->content = $validated['content'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
@@ -98,6 +102,8 @@ class IndustriesContentController extends Controller
         $content = IndustryContent::where('uuid',$uuid)->first();
         $validated = $request->validate([
             'title' => 'nullable',
+            'sub_title' => 'nullable',
+            'content' => 'nullable',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
@@ -109,6 +115,8 @@ class IndustriesContentController extends Controller
         // $content = new ServiceContent();
         // $content->service_id = $services->uuid;
         $content->title =  $validated['title'];
+        $content->subtitle = $validated['sub_title'];
+        $content->content = $validated['content'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];

@@ -20,7 +20,7 @@ class Industry extends Model
         ];
     }
 
-    public function content()
+    public function contents()
     {
         return $this->hasMany(IndustryContent::class,'industries_id','uuid');
     }

@@ -34,13 +34,33 @@ class IndustriesController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|unique:industries,name',
+            'sub_title' => 'nullable',
+            'content' => 'nullable',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'icon' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'link' => 'nullable',
+            'button_title' => 'nullable',
             'status' => 'required',
+            'order' => 'nullable',
         ]);
         $service = new Industry();
         $service->uuid = (string) Str::uuid();
         $service->slug = SlugService::createSlug(Industry::class, 'slug', $validated['name'], ['unique' => false]);
         $service->name = $validated['name'];
+        $service->content = $validated['content'];
+        $service->order = $validated['order'];
         $service->status = $validated['status'];  
+        $service->subtitle = $validated['sub_title'];
+        $service->link = $validated['link'];
+        $service->button_title = $validated['button_title'];
+        if ($request->hasFile('image')) {
+            $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
+            $service->image1 = $path;
+        }
+        if ($request->hasFile('icon')) {
+            $path =  $request->file('icon')->storeAs('media/image',  $validated['icon']->getClientOriginalName(), 'public');
+            $service->icon = $path;
+        }  
         $res = $service->save();
         if ($res) {
             notify()->success(__('Created successfully'));
@@ -69,11 +89,31 @@ class IndustriesController extends Controller
 
         $validated = $request->validate([
             'name' => 'required|unique:industries,name,'.$services->id,
+            'sub_title' => 'nullable',
+            'content' => 'nullable',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'icon' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'link' => 'nullable',
+            'button_title' => 'nullable',
             'status' => 'required',
+            'order' => 'nullable',
         ]);
         $services->slug = SlugService::createSlug(Industry::class, 'slug', $validated['name'], ['unique' => false]);
         $services->name = $validated['name'];
-        $services->status = $validated['status'];          
+        $services->content = $validated['content'];
+        $services->order = $validated['order'];
+        $services->status = $validated['status'];  
+        $services->subtitle = $validated['sub_title'];
+        $services->link = $validated['link'];
+        $services->button_title = $validated['button_title'];
+        if ($request->hasFile('image')) {
+            $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
+            $services->image1 = $path;
+        }
+        if ($request->hasFile('icon')) {
+            $path =  $request->file('icon')->storeAs('media/image',  $validated['icon']->getClientOriginalName(), 'public');
+            $services->icon = $path;
+        }  
         $res = $services->save();
         if ($res) {
             notify()->success(__('Updated Successfully'));
