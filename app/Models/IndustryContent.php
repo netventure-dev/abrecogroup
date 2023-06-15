@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class IndustryContent extends Model
 {
     use HasFactory;
+    
+    public function extra_contents()
+    {
+        return $this->hasMany('App\Models\IndustryExtraContent','industries_content_id','uuid');
+    }
 }
