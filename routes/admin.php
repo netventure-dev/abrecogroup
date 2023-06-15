@@ -97,6 +97,17 @@ Route::get('sections/edit/{id}',  'Admin\SectionController@edit')->name('section
 Route::post('sections/update/{id}',  'Admin\SectionController@update')->name('sections.update');
 Route::delete('sections/destroy/{id}',  'Admin\SectionController@destroy')->name('sections.destroy');
 
+// case studies
+Route::get('case-study',  'Admin\CaseStudyController@index')->name('casestudies.index');
+Route::get('case-study/create',  'Admin\CaseStudyController@create')->name('casestudies.create');
+Route::post('case-study/store',  'Admin\CaseStudyController@store')->name('casestudies.store');
+Route::get('case-study/edit/{id}',  'Admin\CaseStudyController@edit')->name('casestudies.edit');
+Route::post('case-study/update/{id}',  'Admin\CaseStudyController@update')->name('casestudies.update');
+Route::delete('case-study/destroy/{id}',  'Admin\CaseStudyController@destroy')->name('casestudies.destroy');
+Route::get('case-study/change_service',  'Admin\CaseStudyController@change_service')->name('casestudies.change_service');
+Route::get('case-study/change_subservice',  'Admin\CaseStudyController@change_subservice')->name('casestudies.change_subservice');
+
+
 // section content
 Route::get('sections/{id}/content',  'Admin\SectionContentController@index')->name('sections.content.index');
 Route::get('sections/{id}/content/create',  'Admin\SectionContentController@create')->name('sections.content.create');

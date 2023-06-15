@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\ServiceApiController;
 use App\Http\Controllers\Api\BlogApiController;
 use App\Http\Controllers\Api\ServiceFormController;
 use App\Http\Controllers\Api\TestimonialsController;
+use App\Http\Controllers\Api\CaseStudyApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -50,6 +51,8 @@ Route::post('/form', [ServiceFormController::class, 'store']);
 // Testimonials
 Route::get('/testimonials', [TestimonialsController::class, 'index']);
 
+// case studies
+Route::get('/case-studies', [CaseStudyApiController::class, 'index']);
 
 // Route::resource('home', HomeController::class);
 

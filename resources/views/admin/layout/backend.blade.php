@@ -495,6 +495,12 @@
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Sections</span>
                             </a>
+                        </li> 
+                        <li>
+                            <a href="{{route('admin.casestudies.index')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Case Study</span>
+                            </a>
                         </li>    
                         <li>
                             <a href="{{route('admin.services.index')}}" class="waves-effect">
