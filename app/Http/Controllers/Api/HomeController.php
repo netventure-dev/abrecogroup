@@ -55,6 +55,15 @@ class HomeController extends Controller
     public function general()
     {
         $data['general'] = General::select('address', 'mobile', 'logo', 'facebook', 'instagram', 'twitter', 'linkdln', 'youtube')->first();
+        $data['all_services'] = Service::select('id', 'uuid', 'name')
+                            ->with(['subservices' => function ($query) {
+                                $query->select('id', 'service_id', 'service as service_name', 'uuid', 'name')->where('status', 1);
+                            }, 'subservices.innerservices' => function ($query) {
+                                $query->select('id', 'sub_service_id', 'subservice as subservice_name', 'uuid', 'name')->where('status', 1);
+                            },])
+                            ->where('status', 1)
+                            ->orderBy('created_at', 'desc')
+                            ->get(); 
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }
