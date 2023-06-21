@@ -44,6 +44,7 @@ class SubServiceContentController extends Controller
             'title' => 'nullable',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
             'button_title' => 'nullable',
             
@@ -61,6 +62,10 @@ class SubServiceContentController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $content->image = $path;
+        }
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/mobile/image',  $validated['image']->getClientOriginalName(), 'public');
+            $content->mobile_image = $path;
         }
         $res = $content->save();
         if ($res) {
@@ -97,6 +102,7 @@ class SubServiceContentController extends Controller
             'title' => 'nullable',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
             'status' => 'required',
             'button_title' => 'nullable',
@@ -114,6 +120,10 @@ class SubServiceContentController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $content->image = $path;
+        }
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/mobile/image',  $validated['image']->getClientOriginalName(), 'public');
+            $content->mobile_image = $path;
         }
         $res = $content->save();
         if ($res) {
