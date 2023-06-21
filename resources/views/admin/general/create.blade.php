@@ -58,6 +58,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="mb-4 row">
+                                    <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Email') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="email" name="email" type="text"
+                                            class="form-control mb-2 @if ($errors->has('email')) is-invalid @endif"
+                                            placeholder="{{ __('Enter email') }}" value="{{ @old('email', @$data->email) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('email') }}
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="logo">{{ __('Dark Logo') }}<a href="#"
                                             class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>

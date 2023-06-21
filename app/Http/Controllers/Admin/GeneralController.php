@@ -26,21 +26,22 @@ class GeneralController extends Controller
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
             'address' => 'required',
-            'phone' => 'nullable|numeric',
+            'phone' => 'nullable',
+            'email' => 'nullable',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'light_logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-
             'facebook' => 'required',
             'instagram' => 'required',
             'linkdln' => 'required',
             'youtube' => 'required',
             'twitter' => 'required',
-            'favicon' => 'required',
+            'favicon' => 'nullable',
         ]);
         $data = General::firstOrCreate();
         $data->uuid = (string) Str::uuid();
         $data->address = $validated['address'];
         $data->mobile = $validated['phone'];
+        $data->email = $validated['email'];
         $data->facebook = $validated['facebook'];
         $data->instagram = $validated['instagram'];
         $data->linkdln = $validated['linkdln'];
