@@ -64,7 +64,7 @@ class SubServiceContentController extends Controller
             $content->image = $path;
         }
         if ($request->hasFile('mobile_image')) {
-            $path =  $request->file('mobile_image')->storeAs('media/mobile/image',  $validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('mobile_image')->storeAs('media/mobile/image',  $validated['mobile_image']->getClientOriginalName(), 'public');
             $content->mobile_image = $path;
         }
         $res = $content->save();
@@ -122,7 +122,7 @@ class SubServiceContentController extends Controller
             $content->image = $path;
         }
         if ($request->hasFile('mobile_image')) {
-            $path =  $request->file('mobile_image')->storeAs('media/mobile/image',  $validated['image']->getClientOriginalName(), 'public');
+            $path =  $request->file('mobile_image')->storeAs('media/mobile/image',  $validated['mobile_image']->getClientOriginalName(), 'public');
             $content->mobile_image = $path;
         }
         $res = $content->save();
