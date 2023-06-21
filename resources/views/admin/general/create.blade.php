@@ -59,9 +59,10 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Email') }}</label>
+                                    <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Email') }}<span
+                                        class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <input id="email" name="email" type="text"
+                                        <input required id="email" name="email" type="text"
                                             class="form-control mb-2 @if ($errors->has('email')) is-invalid @endif"
                                             placeholder="{{ __('Enter email') }}" value="{{ @old('email', @$data->email) }}">
                                         <div class="invalid-feedback">{{ $errors->first('email') }}

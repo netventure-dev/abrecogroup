@@ -27,7 +27,7 @@ class GeneralController extends Controller
         $validated = $request->validate([
             'address' => 'required',
             'phone' => 'nullable',
-            'email' => 'nullable',
+            'email' => 'required',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'light_logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'facebook' => 'required',
