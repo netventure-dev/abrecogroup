@@ -26,6 +26,7 @@ class GeneralController extends Controller
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
             'address' => 'required',
+            'site_title' => 'required',
             'phone' => 'nullable',
             'email' => 'required',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
@@ -39,6 +40,7 @@ class GeneralController extends Controller
         ]);
         $data = General::firstOrCreate();
         $data->uuid = (string) Str::uuid();
+        $data->site_title = $validated['site_title'];
         $data->address = $validated['address'];
         $data->mobile = $validated['phone'];
         $data->email = $validated['email'];
