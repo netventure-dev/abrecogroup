@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddMobileImageToSubServiceContents extends Migration
+class AddInnerStatusToSubServiceContents extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddMobileImageToSubServiceContents extends Migration
     public function up()
     {
         Schema::table('sub_service_contents', function (Blueprint $table) {
-            $table->string('mobile_image')->nullable()->after('image');
+            $table->boolean('inner_status')->default(0)->after('status');
         });
     }
 

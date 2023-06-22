@@ -47,7 +47,8 @@ class SubServiceContentController extends Controller
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
             'button_title' => 'nullable',
-            
+            'status' => 'required',
+            'inner_status' => 'required',
             'button_link' => 'nullable',
         ]); 
 
@@ -59,6 +60,8 @@ class SubServiceContentController extends Controller
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
         $content->button_link =  $validated['button_link'];
+        $content->status =  $validated['status'];
+        $content->inner_status =  $validated['inner_status'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $content->image = $path;
@@ -105,6 +108,7 @@ class SubServiceContentController extends Controller
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
             'status' => 'required',
+            'inner_status' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',
         ]); 
@@ -115,7 +119,8 @@ class SubServiceContentController extends Controller
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
-        $content->status = $validated['status'];
+        $content->status =  $validated['status'];
+        $content->inner_status =  $validated['inner_status'];
         $content->button_link =  $validated['button_link'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
