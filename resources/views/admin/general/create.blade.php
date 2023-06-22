@@ -37,6 +37,17 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-4 row">
+                                    <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Site Title') }}<span
+                                        class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input required id="site_title" name="site_title" type="text"
+                                            class="form-control mb-2 @if ($errors->has('site_title')) is-invalid @endif"
+                                            placeholder="{{ __('Enter site title') }}" value="{{ @old('site_title', @$data->site_title) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('site_title') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
                                     <label for="address" class="col-sm-3 col-form-label">{{ __('Address') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
