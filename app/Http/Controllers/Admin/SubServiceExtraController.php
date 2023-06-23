@@ -23,7 +23,6 @@ class SubServiceExtraController extends Controller
              [$subservice->name, route('admin.sub-services.extra.index', $subservice->uuid)],
             [(__('Sub Services Extra')),null],
         ];
-        ];
         
         
         // dd( $services );
