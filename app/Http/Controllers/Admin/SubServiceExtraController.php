@@ -19,7 +19,7 @@ class SubServiceExtraController extends Controller
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Sub Services')), route('admin.sub-services.index')],
-             [$subservice->name, route('admin.sub-services.extra.index', $subservice->uuid)],
+             [$subservice->title, route('admin.sub-services.extra.index', $subservice->uuid)],
             [(__('Sub Services Extra')),null],
         ];
         
@@ -36,8 +36,8 @@ class SubServiceExtraController extends Controller
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Sub Services')), route('admin.sub-services.index')],
-             [$subservice->name, route('admin.sub-services.extra.index', $subservice->uuid)],
-            [(__('Sub Services Extra')), route('admin.sub-services.index')],
+             [$subservice->title, route('admin.sub-services.content.index', $subservice->uuid)],
+            [(__('Sub Services Extra')), route('admin.sub-services.extra.index')],
             [(__('Content')), null],
         ];
         return view('admin.sub-services.content.extra.create', compact('subservice','breadcrumbs'));
@@ -87,7 +87,7 @@ class SubServiceExtraController extends Controller
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Sub Services')), route('admin.sub-services.index')],
-             [$subservice->name, route('admin.sub-services.extra.index', $subservice->uuid)],
+             [$subservice->title, route('admin.sub-services.extra.index', $subservice->uuid)],
             [(__('Sub Services Extra')), route('admin.sub-services.index')],
             [$content->title, null],
         ];
