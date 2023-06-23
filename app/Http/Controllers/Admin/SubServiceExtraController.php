@@ -17,7 +17,6 @@ class SubServiceExtraController extends Controller
         $subservice = SubServiceContent::where('uuid', $id)->first();
         $contents = SubServiceExtra::where('sub_service_content_id', $subservice->uuid)->get();
         $breadcrumbs = [
-            $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Sub Services')), route('admin.sub-services.index')],
              [$subservice->name, route('admin.sub-services.extra.index', $subservice->uuid)],
