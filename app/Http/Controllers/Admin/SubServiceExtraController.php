@@ -17,9 +17,12 @@ class SubServiceExtraController extends Controller
         $subservice = SubServiceContent::where('uuid', $id)->first();
         $contents = SubServiceExtra::where('sub_service_content_id', $subservice->uuid)->get();
         $breadcrumbs = [
+            $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            // [(__('Sub Services')),  route('admin.sub-services.extra.index')],
-            [$subservice->name, null],
+            [(__('Sub Services')), route('admin.sub-services.index')],
+             [$subservice->name, route('admin.sub-services.extra.index', $subservice->uuid)],
+            [(__('Sub Services Extra')),null],
+        ];
         ];
         
         
@@ -34,8 +37,9 @@ class SubServiceExtraController extends Controller
 
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
+            [(__('Sub Services')), route('admin.sub-services.index')],
+             [$subservice->name, route('admin.sub-services.extra.index', $subservice->uuid)],
             [(__('Sub Services Extra')), route('admin.sub-services.index')],
-            [$subservice->name, route('admin.sub-services.extra.index', $subservice->uuid)],
             [(__('Content')), null],
         ];
         return view('admin.sub-services.content.extra.create', compact('subservice','breadcrumbs'));
@@ -84,9 +88,10 @@ class SubServiceExtraController extends Controller
 
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Services')), route('admin.services.index')],
-            [$subservice->name, route('admin.sub-services.extra.index', $subservice->uuid)],
-            [(__('Content')), null],
+            [(__('Sub Services')), route('admin.sub-services.index')],
+             [$subservice->name, route('admin.sub-services.extra.index', $subservice->uuid)],
+            [(__('Sub Services Extra')), route('admin.sub-services.index')],
+            [$content->title, null],
         ];
         return view('admin.sub-services.content.extra.edit', compact('subservice', 'content', 'breadcrumbs'));
     }
