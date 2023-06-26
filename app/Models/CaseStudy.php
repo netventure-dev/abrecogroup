@@ -20,4 +20,9 @@ class CaseStudy extends Model
             ]
         ];
     }
+
+    public function contents()
+    {
+        return $this->hasMany('App\Models\CaseStudyContent', 'case_id', 'uuid');
+    }
 }
