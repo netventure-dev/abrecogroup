@@ -19,7 +19,7 @@ class CaseStudyApiController extends Controller
         $data['case_studies'] = CaseStudy::select('id','service_id','inner_service_id','sub_service_id','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status')
                                 ->with(['contents' => function ($query) {
                                     $query->select('id', 'case_id', 'uuid','title', 'subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
-                                }, 'contents.extra_contents'])
+                                }])
                                 ->where('status', 1)
                                 ->orderBy('created_at', 'desc')
                                 ->get();
