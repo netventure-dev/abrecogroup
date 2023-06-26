@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\Admin\CaseStudyDataTable;
 use App\Models\CaseStudy;
+use App\Models\CaseStudyContent;
 use App\Models\Service;
 use App\Models\SubService;
 use App\Models\InnerService;
@@ -158,6 +159,7 @@ class CaseStudyController extends Controller
     {
         // $this->authorize('delete', $menu);
         $res = CaseStudy::where('uuid',$id)->delete();
+        $contents = CaseStudyContent::where('case_id', $id)->delete();
         // $content=SubService::where('section_id',$id)->first();
        
         if ($res) {
