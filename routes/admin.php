@@ -133,6 +133,15 @@ Route::get('services/edit/{id}',  'Admin\ServiceController@edit')->name('service
 Route::post('services/update/{id}',  'Admin\ServiceController@update')->name('services.update');
 Route::delete('services/destroy/{id}',  'Admin\ServiceController@destroy')->name('services.destroy');
 
+// service extras
+Route::get('service/{uuid}/extra',  'Admin\ServiceExtraController@index')->name('services.extra.index');
+Route::get('service/{uuid}/extra/create',  'Admin\ServiceExtraController@create')->name('services.extra.create');
+Route::post('service/{uuid}/extra/store',  'Admin\ServiceExtraController@store')->name('services.extra.store');
+Route::get('service/{id}/extra/{uuid}/edit',  'Admin\ServiceExtraController@edit')->name('services.extra.edit');
+Route::post('service/{id}/extra/{uuid}/update',  'Admin\ServiceExtraController@update')->name('services.extra.update');
+Route::post('service/{id}/extra/{uuid}/destroy',  'Admin\ServiceExtraController@destroy')->name('services.extra.destroy');
+
+
 // industries
 Route::get('industries',  'Admin\IndustriesController@index')->name('industries.index');
 Route::get('industries/create',  'Admin\IndustriesController@create')->name('industries.create');
