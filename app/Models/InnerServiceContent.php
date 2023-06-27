@@ -20,4 +20,9 @@ public function sluggable(): array
         ]
     ];
 }
+
+public function extra_contents()
+    {
+        return $this->hasMany('App\Models\InnerServiceExtra','inner_service_content_id','uuid');
+    }
 }
