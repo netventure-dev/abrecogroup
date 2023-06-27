@@ -217,6 +217,14 @@ Route::get('inner-services/{id}/content/{uuid}/edit',  'Admin\InnerServiceConten
 Route::post('inner-services/{id}/content/{uuid}/update',  'Admin\InnerServiceContentController@update')->name('inner-services.content.update');
 Route::post('inner-services/{id}/content/{uuid}/destroy',  'Admin\InnerServiceContentController@destroy')->name('inner-services.content.destroy');
 
+// inner service extras
+Route::get('inner-service/{uuid}/extra',  'Admin\InnerServiceExtraController@index')->name('inner-services.extra.index');
+Route::get('inner-service/{uuid}/extra/create',  'Admin\InnerServiceExtraController@create')->name('inner-services.extra.create');
+Route::post('inner-service/{uuid}/extra/store',  'Admin\InnerServiceExtraController@store')->name('inner-services.extra.store');
+Route::get('inner-service/{id}/extra/{uuid}/edit',  'Admin\InnerServiceExtraController@edit')->name('inner-services.extra.edit');
+Route::post('inner-service/{id}/extra/{uuid}/update',  'Admin\InnerServiceExtraController@update')->name('inner-services.extra.update');
+Route::post('inner-service/{id}/extra/{uuid}/destroy',  'Admin\InnerServiceExtraController@destroy')->name('inner-services.extra.destroy');
+
 
 // service content
 Route::get('sub-services/{id}/content',  'Admin\SubServiceContentController@index')->name('sub-services.content.index');

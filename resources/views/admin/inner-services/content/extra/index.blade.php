@@ -1,6 +1,6 @@
 @extends('admin.layout.backend')
 
-@section('title') {{ __('Sub service Content') }} @endsection
+@section('title') {{ __('Inner Service Extra Content') }} @endsection
 
 @section('css')
     <!-- DataTables -->
@@ -17,10 +17,10 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Inner Service Content') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Service Extra Content') }}</h4>
                 <div class="page-title-right">
-                         <a href="{{ route('admin.inner-services.content.create',@$subservice->uuid) }}"
-                            class="btn btn-primary w-md">{{ __('Create Content') }}</a> 
+                         <a href="{{ route('admin.inner-services.extra.create',@$service->uuid) }}"
+                            class="btn btn-primary w-md">{{ __('Create Inner Service Extra Content') }}</a> 
                 </div>
             </div>
         </div>
@@ -49,13 +49,13 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{!! $content->title !!}</td>
                                 <td>{{$content->order}}</td>
-                                <td> <a href="{{ route('admin.inner-services.content.edit',['id' => $subservice->uuid, 'uuid' =>$content->uuid]) }}" class="first btn btn-primary edit"> Edit</a>
-                                    <a href="{{ route('admin.inner-services.extra.index',$content->uuid) }}" class="first btn btn-primary edit"> Content</a> 
+                                <td> <a href="{{ route('admin.inner-services.extra.edit',['id' => $service->uuid, 'uuid' =>$content->uuid]) }}" class="first btn btn-primary edit"> Edit</a>
+                                    
                                 <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this row')}}')){
                                     document.getElementById('delete-data-{{ $content->uuid }}').submit();}">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
-                                <form id="delete-data-{{ $content->uuid }}" action="{{ route('admin.inner-services.content.destroy',['id' => $subservice->uuid, 'uuid' =>$content->uuid]) }}"
+                                <form id="delete-data-{{ $content->uuid }}" action="{{ route('admin.inner-services.extra.destroy',['id' => $service->uuid, 'uuid' =>$content->uuid]) }}"
                                     method="POST">
                                     @csrf
                                 </form>
