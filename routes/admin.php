@@ -62,6 +62,8 @@ Route::get('additional_pages/edit/{id}',  'Admin\AdditionalPagesController@edit'
 Route::post('additional_pages/update/{id}',  'Admin\AdditionalPagesController@update')->name('additional-pages.update');
 Route::delete('additional_pages/destroy/{id}',  'Admin\AdditionalPagesController@destroy')->name('additional-pages.destroy');
 
+
+
 // why choose us settings
 Route::get('why-choose-us/settings/create',  'Admin\ChooseSettingsController@create')->name('why-choose-us.settings.create');
 Route::post('why-choose-us/settings/store',  'Admin\ChooseSettingsController@store')->name('why-choose-us.settings.store');
@@ -214,6 +216,14 @@ Route::post('sub-services/{id}/content/store',  'Admin\SubServiceContentControll
 Route::get('sub-services/{id}/content/{uuid}/edit',  'Admin\SubServiceContentController@edit')->name('sub-services.content.edit');
 Route::post('sub-services/{id}/content/{uuid}/update',  'Admin\SubServiceContentController@update')->name('sub-services.content.update');
 Route::post('sub-services/{id}/content/{uuid}/destroy',  'Admin\SubServiceContentController@destroy')->name('sub-services.content.destroy');
+
+// Additional pages content
+Route::get('additional_content/{id}/content',  'Admin\AdditionalPageContentController@index')->name('additional-content.content.index');
+Route::get('additional_content/{id}/content/create',  'Admin\AdditionalPageContentController@create')->name('additional-content.create');
+ Route::post('additional_content/{id}/content/store',  'Admin\AdditionalPageContentController@store')->name('additional-content.store');
+Route::get('additional_content/{id}/content/{uuid}/edit',  'Admin\AdditionalPageContentController@edit')->name('additional-content.edit');
+Route::post('additional_content/{id}/content/{uuid}/update',  'Admin\AdditionalPageContentController@update')->name('additional-content.update');
+Route::post('additional_content/{id}/content/{uuid}/destroy',  'Admin\AdditionalPageContentController@destroy')->name('additional-content.destroy');
 
 //sub service extras
 Route::get('content/{uuid}/extra',  'Admin\SubServiceExtraController@index')->name('sub-services.extra.index');

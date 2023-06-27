@@ -1,5 +1,5 @@
 <div class="mt-2 btn-group btn-group-sm" role="group" aria-label="Admin Action">
-    {{-- <a href="{{ route('admin.additional-pages.index',$page->uuid) }}" class="first btn btn-primary edit"> Content</a> --}}
+    <a href="{{ route('admin.additional-content.content.index',$page->uuid) }}" class="first btn btn-primary edit"> Content</a>
     {{-- <a href="{{ route('admin.additional-pages.faq.index',$page->uuid) }}" class="first btn btn-primary edit"> Faq</a> --}}
     {{-- @can('update', $admin) --}}
     <a href="{{ route('admin.additional-pages.edit',$page->uuid) }}" class="first btn btn-primary edit"><i class="fas fa-pencil-alt"
