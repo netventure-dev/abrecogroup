@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AboutController;
+use App\Http\Controllers\Api\AdditionalPageApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HomeController;
@@ -55,4 +56,8 @@ Route::get('/testimonials', [TestimonialsController::class, 'index']);
 Route::get('/case-studies', [CaseStudyApiController::class, 'index']);
 
 // Route::resource('home', HomeController::class);
+
+//Additional page
+
+Route::get('/additionals', [AdditionalPageApiController::class, 'index']);
 
