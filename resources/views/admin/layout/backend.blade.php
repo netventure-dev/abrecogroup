@@ -571,7 +571,7 @@
                                 <span key="t-file-manager">Contact Us</span>
                             </a>
                         </li>
-                         <li>
+                        <li>
                             <a href="#" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Feedback</span>
@@ -611,13 +611,13 @@
                                 <span key="t-file-manager">Enquiries</span>
                             </a>
                         </li>
-                         <li>
+                        <li>
                             <a href="{{route('admin.feedbackenquiry.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Feedback</span>
                             </a>
                         </li>
-                         <li>
+                        <li>
                             <a href="{{ route('admin.requestenquiry.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Request</span>
@@ -635,6 +635,12 @@
                             <a href="{{route('admin.service-care.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Services Care</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.schema.index')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Schema</span>
                             </a>
                         </li>
                         <li>
