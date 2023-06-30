@@ -606,7 +606,7 @@
                          
                         <li class="menu-title" key="t-apps">Reports</li>
                         <li>
-                            <a href="{{route('admin.enquiries.index')}}" class="waves-effect">
+                            <a href="{{ route('admin.requestenquiry.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Enquiries</span>
                             </a>
@@ -617,12 +617,12 @@
                                 <span key="t-file-manager">Feedback</span>
                             </a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{ route('admin.requestenquiry.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Request</span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="menu-title" key="t-apps">Settings</li>
                          
                         <li>

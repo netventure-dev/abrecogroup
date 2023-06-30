@@ -27,7 +27,7 @@ class RequestQuoteReportDataTable extends DataTable
             })
             ->editColumn('service', function (Quote $new) {
 
-                return $new->service_doc->name;
+                return $new->service;
             })
             ->editColumn('phone', function (Quote $new) {
                 return $new->phone;
@@ -81,7 +81,7 @@ class RequestQuoteReportDataTable extends DataTable
             Column::make('name')->title(__('Name')),
             Column::make('service')->title(__('Service')),
             Column::make('phone')->title(__('Phone')),
-            Column::make('location')->title(__('Location')),
+            Column::make('email')->title(__('Email')),
         ];
     }
 
