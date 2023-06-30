@@ -2,14 +2,14 @@
 
 namespace App\DataTables\Admin;
 
-use App\Models\Quote;
+use App\Models\SchemaMarkup;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class RequestQuoteReportDataTable extends DataTable
+class SchemaDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -17,34 +17,35 @@ class RequestQuoteReportDataTable extends DataTable
      * @param mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
-    public function dataTable($query) 
+    public function dataTable($query)
     {
         return datatables()
-            ->eloquent($query)
+        ->eloquent($query)
             ->addIndexColumn()
-            ->editColumn('name', function (Quote $new) {
-                return $new->name;
+            ->editColumn('status', function (SchemaMarkup $schema) {
+                if ($schema->status) {
+                    return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
+                } else {
+                    return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
+                }
             })
-            ->editColumn('service', function (Quote $new) {
+            ->addColumn('action', function (SchemaMarkup $schema) {
+                return view('admin.schema.action', compact('schema'));
+            })
+    
 
-                return $new->service;
-            })
-            ->editColumn('phone', function (Quote $new) {
-                return $new->phone;
-            })
-
-            ->rawColumns(['title', 'image', 'status']);
+            ->rawColumns(['status','action']);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\RequestQuoteReportDataTable $model
+     * @param \App\Models\SchemaDataTable $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Quote $model)
+    public function query(SchemaMarkup $model)
     {
-        return $model->with('service_doc')->newQuery();
+        return $model->newQuery();
     }
 
     /**
@@ -55,7 +56,7 @@ class RequestQuoteReportDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('requestquotereportdatatable-table')
+                    ->setTableId('schemadatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -78,10 +79,14 @@ class RequestQuoteReportDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
-            Column::make('name')->title(__('Name')),
-            Column::make('service')->title(__('Service')),
-            Column::make('phone')->title(__('Phone')),
-            Column::make('email')->title(__('Email')),
+            Column::make('title')->title(__('Title')),
+            Column::make('status')->title(__('Status')),
+            Column::computed('action')
+            ->title(__('Action'))
+            ->exportable(false)
+            ->printable(false)
+            ->width(60)
+            ->addClass('text-center'),
         ];
     }
 
@@ -92,6 +97,6 @@ class RequestQuoteReportDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'RequestQuoteReport_' . date('YmdHis');
+        return 'Schema_' . date('YmdHis');
     }
 }
