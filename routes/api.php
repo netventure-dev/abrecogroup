@@ -11,6 +11,8 @@ use App\Http\Controllers\Api\BlogApiController;
 use App\Http\Controllers\Api\ServiceFormController;
 use App\Http\Controllers\Api\TestimonialsController;
 use App\Http\Controllers\Api\CaseStudyApiController;
+use App\Http\Controllers\Api\PolicyPageApiController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -63,7 +65,7 @@ Route::get('/additionals', [AdditionalPageApiController::class, 'index']);
 
 
 // // terms & condition
-// Route::get('/terms', [TermsPageApiController::class, 'index']);
+Route::get('/terms', [PolicyPageApiController::class, 'terms']);
 
 
 
