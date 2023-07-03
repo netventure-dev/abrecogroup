@@ -42,7 +42,7 @@ class SubServiceContentController extends Controller
         $subservice= SubService::where('uuid',$id)->first();
         $validated = $request->validate([
             'title' => 'nullable',
-            'description' => 'required',
+            'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
@@ -103,7 +103,7 @@ class SubServiceContentController extends Controller
         $content = SubServiceContent::where('uuid',$uuid)->first();
         $validated = $request->validate([
             'title' => 'nullable',
-            'description' => 'required',
+            'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',

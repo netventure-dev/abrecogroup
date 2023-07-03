@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Create Sub Service Content') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Create Sub Service Content    ') }}</h4>
                 <div class="page-title-right">
 
                 </div>
@@ -46,7 +46,7 @@
                                 <div class="mb-4 row">
                                     <label for="description"
                                             class="col-sm-3 col-form-label">{{ __('Description') }}
-                                            <span class="text-danger">*</span></label>
+                                            <span class="text-danger"></span></label>
                                     <div class="col-sm-9">
                                         <textarea name="description"
                                             class="form-control @if ($errors->has('description')) is-invalid @endif" ro placeholder="{{ __('Enter Description') }}" >{{ @old('description')}}</textarea>

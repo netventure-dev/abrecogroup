@@ -18,7 +18,7 @@ class CreateSubServiceContentsTable extends Migration
             $table->string('uuid');
             $table->string('sub_service_id');
             $table->longText('title');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->string('order');
             $table->string('image')->nullable();
             $table->string('button_title')->nullable();
