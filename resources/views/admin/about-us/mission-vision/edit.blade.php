@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="mb-4 row">
                                     <label for="content"
-                                            class="col-sm-3 col-form-label">{{ __('Content') }}
+                                            class="col-sm-3 col-form-label">{{ __('Sub Title') }}
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="content"
