@@ -67,5 +67,7 @@ Route::get('/additionals', [AdditionalPageApiController::class, 'index']);
 // // terms & condition
 Route::get('/terms', [PolicyPageApiController::class, 'terms']);
 
+//privacy & policy
+Route::get('/policy',[PolicyPageApiController::class,'policy']);
 
 
