@@ -72,5 +72,5 @@ Route::get('/terms', [PolicyPageApiController::class, 'terms']);
 Route::get('/policy',[PolicyPageApiController::class,'policy']);
 
 //cookie
-Route::get('/cookie',[PolicyController::class,'cookie']);
+Route::get('/cookie',[PolicyPageApiController::class,'cookie']);
 
