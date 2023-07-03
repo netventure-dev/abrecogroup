@@ -1,6 +1,6 @@
 <div class="mt-2 btn-group btn-group-sm" role="group" aria-label="Admin Action">
     {{-- @can('update', $admin) --}}
-    <a href="{{ route('admin.requestenquiry.view',$blog->id) }}" class="first btn btn-primary edit"><i class="fa fa-eye"
+    <a href="{{ route('admin.requestenquiry.view',$new->id) }}" class="first btn btn-primary edit"><i class="fa fa-eye"
             data-toggle="tooltip" title="Edit"></i></a>
     {{-- @endcan @can('delete', $admin) --}}
     {{-- <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this row')}}')){
