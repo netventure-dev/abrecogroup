@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cookie;
 use App\Models\Privacy;
 use App\Models\Terms;
 use Illuminate\Http\Request;
@@ -32,7 +33,7 @@ class PolicyPageApiController extends Controller
    public function cookie()
    {
 
-    $data['pages'] = Privacy::select('uuid', 'title','content','image')->get();
+    $data['pages'] = Cookie::select('uuid', 'title','content','image')->get();
     if (!empty($data)) {
         return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
     }
