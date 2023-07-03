@@ -61,3 +61,9 @@ Route::get('/case-studies', [CaseStudyApiController::class, 'index']);
 
 Route::get('/additionals', [AdditionalPageApiController::class, 'index']);
 
+
+// // terms & condition
+// Route::get('/terms', [TermsPageApiController::class, 'index']);
+
+
+

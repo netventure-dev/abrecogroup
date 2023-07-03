@@ -307,3 +307,7 @@ Route::post('seo/create','Admin\SEOController@store')->name('seo.store');
 Route::get('seo/{id}/update','Admin\SEOController@update')->name('seo.update');
 Route::get('seo/gtm','Admin\SEOController@gtm')->name('seo.gtm');
 Route::post('seo/destroy/{id}','Admin\SEOController@destroy')->name('seo.destroy');
+
+//terms & condition
+Route::get('terms','Admin\TermsController@index')->name('terms.create');
+Route::post('terms/store','Admin\TermsController@store')->name('terms.store');
