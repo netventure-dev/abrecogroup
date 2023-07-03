@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdministratorController;
 use App\Http\Controllers\Admin\SalesDifficultyController;
+use App\Http\Controllers\Admin\PolicyController;
 
 
 Route::get('/home', function () {
@@ -311,3 +312,11 @@ Route::post('seo/destroy/{id}','Admin\SEOController@destroy')->name('seo.destroy
 //terms & condition
 Route::get('terms','Admin\TermsController@index')->name('terms.create');
 Route::post('terms/store','Admin\TermsController@store')->name('terms.store');
+
+//privacy & policy
+Route::get('privacy','Admin\PolicyController@index')->name('policy.index');
+Route::post('privacy/store','Admin\PolicyController@store')->name('policy.store');
+
+//cokkie & policy
+Route::get('cookie','Admin\CookieController@index')->name('cookie.index');
+Route::post('cookie/store','Admin\CookieController@store')->name('cookie.store');

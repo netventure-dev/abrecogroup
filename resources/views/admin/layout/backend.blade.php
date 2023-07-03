@@ -27,7 +27,7 @@
         <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{asset('assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
-        
+
         @yield('css')
     </head>
 <body data-sidebar="dark">
@@ -422,7 +422,7 @@
                                                         key="t-hours-ago">1 hours ago</span></p>
                                             </div>
                                         </div>
-                                    </div>  
+                                    </div>
                                 </a>
                             </div>
                             <div class="p-2 border-top d-grid">
@@ -447,14 +447,14 @@
                             {{--  <a class="dropdown-item" href="#"><i
                                     class="bx bx-user font-size-16 align-middle me-1"></i> <span
                                     key="t-profile">Profile</span></a>  --}}
-                           
-                           
-                           
+
+
+
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-danger" href="{{route('logout')}}"><i
                                     class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                     key="t-logout">Logout</span></a>
-                        </div> 
+                        </div>
                     </div>
 
                     <div class="dropdown d-inline-block">
@@ -483,25 +483,25 @@
                                 <i class="bx bx-home-circle"></i>
                                 <span key="t-dashboards">Dashboards</span>
                             </a>
-                        </li>     
+                        </li>
                         <li>
                             <a href="{{route('admin.home-slider.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Home Slider</span>
                             </a>
-                        </li>  
+                        </li>
                         <li>
                             <a href="{{route('admin.sections.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Sections</span>
                             </a>
-                        </li> 
+                        </li>
                         <li>
                             <a href="{{route('admin.casestudies.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Case Study</span>
                             </a>
-                        </li>    
+                        </li>
                         <li>
                             <a href="{{route('admin.services.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
@@ -526,7 +526,7 @@
                                 <span key="t-file-manager">Industry</span>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="{{route('admin.our-projects.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
@@ -542,7 +542,7 @@
                                 <li><a href="{{route('admin.why-choose-us.settings.create')}}" key="t-products">Settings</a></li>
                                 <li><a href="{{route('admin.why-choose-us.list.index')}}" key="t-product-detail">List</a></li>
                             </ul>
-                        </li>   
+                        </li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
@@ -552,7 +552,7 @@
                                 <li><a href="{{route('admin.additional-pages.create')}}" key="t-products">Add</a></li>
                                 <li><a href="{{route('admin.additional-pages.index')}}" key="t-product-detail">View</a></li>
                             </ul>
-                        </li>    
+                        </li>
                         <li class="menu-title" key="t-apps">Pages</li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -610,11 +610,11 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{route('admin.terms.create')}}" key="t-products">Terms & Condition</a></li>
-                                <li><a href="#" key="t-product-detail">Cookie Policy</a></li>
-                                <li><a href="#" key="t-product-detail">Privacy Policy</a></li>
+                                <li><a href="{{route('admin.cookie.index')}}" key="t-product-detail">Cookie Policy</a></li>
+                                <li><a href="{{route('admin.policy.index')}}" key="t-product-detail">Privacy Policy</a></li>
                             </ul>
                         </li>
-                         
+
                         <li class="menu-title" key="t-apps">Reports</li>
                         <li>
                             <a href="{{ route('admin.requestenquiry.index') }}" class="waves-effect">
@@ -635,7 +635,7 @@
                             </a>
                         </li> --}}
                         <li class="menu-title" key="t-apps">Settings</li>
-                         
+
                         <li>
                             <a href="{{route('admin.general.create')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
