@@ -317,6 +317,6 @@ Route::post('terms/store','Admin\TermsController@store')->name('terms.store');
 Route::get('privacy','Admin\PolicyController@index')->name('policy.index');
 Route::post('privacy/store','Admin\PolicyController@store')->name('policy.store');
 
-//cokkie & policy
+//cookie & policy
 Route::get('cookie','Admin\CookieController@index')->name('cookie.index');
 Route::post('cookie/store','Admin\CookieController@store')->name('cookie.store');

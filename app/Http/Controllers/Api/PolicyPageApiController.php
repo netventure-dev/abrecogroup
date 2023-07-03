@@ -22,6 +22,16 @@ class PolicyPageApiController extends Controller
 
    public function policy()
    {
+    $data['privacy'] = Privacy::select('uuid', 'title','content','image')->get();
+    if (!empty($data)) {
+        return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+    }
+    return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+   }
+
+   public function cookie()
+   {
+
     $data['pages'] = Privacy::select('uuid', 'title','content','image')->get();
     if (!empty($data)) {
         return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);

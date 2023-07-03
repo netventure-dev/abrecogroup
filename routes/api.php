@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PolicyController;
 use App\Http\Controllers\Api\AboutController;
 use App\Http\Controllers\Api\AdditionalPageApiController;
 use Illuminate\Http\Request;
@@ -70,4 +71,6 @@ Route::get('/terms', [PolicyPageApiController::class, 'terms']);
 //privacy & policy
 Route::get('/policy',[PolicyPageApiController::class,'policy']);
 
+//cookie
+Route::get('/cookie',[PolicyController::class,'cookie']);
 
