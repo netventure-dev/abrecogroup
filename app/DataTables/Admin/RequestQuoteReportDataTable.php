@@ -32,6 +32,9 @@ class RequestQuoteReportDataTable extends DataTable
             ->editColumn('phone', function (Quote $new) {
                 return $new->phone;
             })
+            ->addColumn('action', function (Quote $data) {
+                return view('admin.reports.action', compact('data'));
+            })
 
             ->rawColumns(['title', 'image', 'status']);
     }
@@ -83,6 +86,11 @@ class RequestQuoteReportDataTable extends DataTable
             Column::make('phone')->title(__('Phone')),
             Column::make('email')->title(__('Email')),
             Column::make('type')->title(__('Type')),
+            Column::computed('action')
+            ->exportable(false)
+            ->printable(false)
+            ->width(60)
+            ->addClass('text-center'),
 
 
         ];
