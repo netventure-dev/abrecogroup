@@ -54,6 +54,8 @@ class HomeController extends Controller
 
     public function general()
     {
+        $data['home_sliders'] = HomeSlider::where('status', 1)->select('title', 'sub_title','mobile_slider', 'description', 'image', 'button_title', 'link')->get();
+
         $data['general'] = General::select('address', 'mobile','email', 'logo','light_logo','site_title', 'facebook', 'instagram', 'twitter', 'linkdln', 'youtube')->first();
         $data['all_services'] = Service::select('id', 'uuid', 'name')
                             ->with(['subservices' => function ($query) {
