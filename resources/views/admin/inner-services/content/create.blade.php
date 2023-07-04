@@ -47,7 +47,7 @@
                                     <label for="sub_title" class="col-sm-3 col-form-label mb-2">{{ __('Sub Title') }}</label>
                                     <div class="col-sm-9">                                        
                                             <textarea name="sub_title" class="form-control  @if ($errors->has('sub_title')) is-invalid @endif" ro
-                                                placeholder="{{ __('Enter sub title') }}" required>{{ @old('sub_title') }}</textarea>
+                                                placeholder="{{ __('Enter sub title') }}">{{ @old('sub_title') }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('sub_title') }}
                                         </div>
                                     </div>
