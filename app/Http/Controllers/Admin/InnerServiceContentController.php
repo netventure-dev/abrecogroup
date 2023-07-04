@@ -45,7 +45,7 @@ class InnerServiceContentController extends Controller
         $validated = $request->validate([
             'title' => 'nullable',
             'sub_title' => 'nullable',
-            'description' => 'required',
+            'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
             // 'alt_text' => 'nullable',
@@ -107,7 +107,7 @@ class InnerServiceContentController extends Controller
         $validated = $request->validate([
             'title' => 'nullable',
             'sub_title' => 'nullable',
-            'description' => 'required',
+            'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
             'status' => 'required',
