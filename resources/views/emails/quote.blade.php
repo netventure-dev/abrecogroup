@@ -478,13 +478,13 @@
                                                                     class="alignment" role="presentation"
                                                                     style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                                     <tr>
-                                                                        <td
+                                                                        {{-- <td
                                                                             style="vertical-align: middle; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px;">
                                                                             <img align="center" class="icon"
                                                                                 height="64"
                                                                                 src="{{ asset('assets/front/images/logo-new.webp') }}"
                                                                                 style="display: block; height: auto; margin: 0 auto; border: 0;"
-                                                                                width="64" /></td>
+                                                                                width="64" /></td> --}}
                                                                     </tr>
                                                                 </table>
                                                             </td>
@@ -551,7 +551,7 @@
                                                                 <div
                                                                     style="color:#333332;direction:ltr;font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif;font-size:18px;font-weight:400;letter-spacing:0px;line-height:150%;text-align:center;mso-line-height-alt:27px;">
                                                                     <p style="margin: 0;"> Hi {{@$details['admin_name']}} </p>
-                                                                        <p>You have received a Feedback request.</p>
+                                                                        <p>You have received a request.</p>
                                                                         <p>Have a good one.</p>
                                                                 </div>
                                                             </td>
@@ -599,12 +599,24 @@
                                                          <tr style="background: #ffff;">
                                                             <td style="padding: 10px;" align="left">
                                                                 <p><span
-                                                                        style="font-size: 14px; color: #000;">{{ 'Location' }}:</span>
+                                                                        style="font-size: 14px; color: #000;">{{ 'Type' }}:</span>
                                                                 </p>
                                                             </td>
                                                             <td style="padding: 10px;" align="left">
                                                                 <p><span
-                                                                        style="font-size: 14px; color: #000;">{{ @$details['location'] }}</span>
+                                                                        style="font-size: 14px; color: #000;">{{ @$details['type'] }}</span>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="background: #ffff;">
+                                                            <td style="padding: 10px;" align="left">
+                                                                <p><span
+                                                                        style="font-size: 14px; color: #000;">{{ 'Message' }}:</span>
+                                                                </p>
+                                                            </td>
+                                                            <td style="padding: 10px;" align="left">
+                                                                <p><span
+                                                                        style="font-size: 14px; color: #000;">{{ @$details['message'] }}</span>
                                                                 </p>
                                                             </td>
                                                         </tr>
@@ -618,11 +630,12 @@
                                                                 <div align="center" class="alignment">
                                                                     <div
                                                                         style="text-decoration:none;display:inline-block;color:#000000;background-color:#f9bf0f;border-radius:4px;width:auto;border-top:0px solid transparent;font-weight:400;border-right:0px solid transparent;border-bottom:0px solid transparent;border-left:0px solid transparent;padding-top:5px;padding-bottom:5px;font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif;font-size:17px;text-align:center;mso-border-alt:none;word-break:keep-all;">
-                                                                        <a href="http://www.eurekatechnicalservices.com"><span
+                                                                        {{-- <a href="http://www.eurekatechnicalservices.com"><span
                                                                                 style="padding-left:20px;padding-right:20px;font-size:17px;display:inline-block;letter-spacing:normal;"><span
                                                                                     dir="ltr"
                                                                                     style="word-break: break-word; line-height: 34px;">Go
-                                                                                    to Website</span></span></a></div>
+                                                                                    to Website</span></span></a> --}}
+                                                                                </div>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -683,7 +696,7 @@
                                                         style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;"
                                                         width="100%">
                                                         <tr>
-                                                            <td class="pad"
+                                                            {{-- <td class="pad"
                                                                 style="vertical-align: middle; color: #000000; font-family: inherit; font-size: 14px; text-align: center;">
                                                                 <table align="center" cellpadding="0" cellspacing="0"
                                                                     class="alignment" role="presentation"
@@ -698,7 +711,7 @@
                                                                                 width="64" /></td>
                                                                     </tr>
                                                                 </table>
-                                                            </td>
+                                                            </td> --}}
                                                         </tr>
                                                     </table>
                                                     <table border="0" cellpadding="0" cellspacing="0"
@@ -716,7 +729,7 @@
                                                                         width="180px">
                                                                         <tr>
                                                                             <td style="padding:0 2px 0 2px;"><a
-                                                                                    href="https://www.facebook.com/people/Eureka-Technical-Services-LLC-Dubai/100085633715185/"
+                                                                                    {{-- href="https://www.facebook.com/people/Eureka-Technical-Services-LLC-Dubai/100085633715185/" --}}
                                                                                     target="_blank"><img
                                                                                         alt="facebook" height="32"
                                                                                         src="{{ asset('assets/front/images/facebook2x.png') }}"
@@ -724,7 +737,7 @@
                                                                                         title="facebook"
                                                                                         width="32" /></a></td>
                                                                             <td style="padding:0 2px 0 2px;"><a
-                                                                                    href="https://www.instagram.com/eurekatechnicalservicesdubai/"
+                                                                                    {{-- href="https://www.instagram.com/eurekatechnicalservicesdubai/" --}}
                                                                                     target="_blank"><img
                                                                                         alt="instagram" height="32"
                                                                                         src="{{ asset('assets/front/images/instagram.png') }}"
@@ -732,7 +745,7 @@
                                                                                         title="instagram"
                                                                                         width="32" /></a></td>
                                                                             <td style="padding:0 2px 0 2px;"><a
-                                                                                    href="https://twitter.com/Eurekaservices1"
+                                                                                    {{-- href="https://twitter.com/Eurekaservices1" --}}
                                                                                     target="_blank"><img
                                                                                         alt="twitter" height="32"
                                                                                         src= "{{ asset('assets/front/images/twitter.png') }}"
@@ -740,7 +753,7 @@
                                                                                         title="twitter"
                                                                                         width="32" /></a></td>
                                                                             <td style="padding:0 2px 0 2px;"><a
-                                                                                    href="https://www.linkedin.com/authwall?trk=gf&trkInfo=AQEl25Qf7D9r3QAAAYeiMy6gIydSKgyjW_yJPcMYpVz5rRb0NOlS_UEwdXzK9Zo9LzG_MIKALBR21Xcf8NWZn9Aa764I54pR_Z5MH-ZwfJaVGUVU2PRZqrz9ALQh_umj4y_uJ9M=&original_referer=https://www.eurekaservices.ae/&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Feureka-technical-services-llc-100755246%2F"
+                                                                                    {{-- href="https://www.linkedin.com/authwall?trk=gf&trkInfo=AQEl25Qf7D9r3QAAAYeiMy6gIydSKgyjW_yJPcMYpVz5rRb0NOlS_UEwdXzK9Zo9LzG_MIKALBR21Xcf8NWZn9Aa764I54pR_Z5MH-ZwfJaVGUVU2PRZqrz9ALQh_umj4y_uJ9M=&original_referer=https://www.eurekaservices.ae/&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Feureka-technical-services-llc-100755246%2F" --}}
                                                                                     target="_blank"><img
                                                                                         alt="linkedin" height="32"
                                                                                         src= "{{ asset('assets/front/images/linkedin.png') }}"
@@ -770,8 +783,7 @@
                                                                 style="padding-bottom:5px;padding-top:5px;">
                                                                 <div
                                                                     style="color:#ffffff;direction:ltr;font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif;font-size:14px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;mso-line-height-alt:16.8px;">
-                                                                    <p style="margin: 0;"> Eureka Technical Services
-                                                                        LLC</p>
+                                                                    <p style="margin: 0;"> A3 Logics</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -785,8 +797,7 @@
                                                                 style="padding-bottom:10px;padding-top:10px;">
                                                                 <div
                                                                     style="color:#ffffff;direction:ltr;font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif;font-size:13px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;mso-line-height-alt:15.6px;">
-                                                                    <p style="margin: 0;"> Office no: 1102, Shobha
-                                                                        Ivory 2, Business Bay, Dubai, UAE</p>
+                                                            
                                                                 </div>
                                                             </td>
                                                         </tr>

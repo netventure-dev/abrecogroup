@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notification;
 class QuoteNotification extends Notification
 {
     use Queueable;
+    public $details;    
 
     /**
      * Create a new notification instance.
@@ -19,6 +20,7 @@ class QuoteNotification extends Notification
     public function __construct($details)
     {
         $this->details = $details;
+        
     }
 
     /**
