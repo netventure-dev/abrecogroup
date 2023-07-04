@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Create Inner Service Content') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Create Inner Service Content ') }}</h4>
                 <div class="page-title-right">
 
                 </div>
@@ -40,6 +40,15 @@
                                             <textarea name="title" class="form-control  @if ($errors->has('title')) is-invalid @endif" ro
                                                 placeholder="{{ __('Enter title') }}" required>{{ @old('title') }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
+                                    <label for="sub_title" class="col-sm-3 col-form-label mb-2">{{ __('Sub Title') }}</label>
+                                    <div class="col-sm-9">                                        
+                                            <textarea name="sub_title" class="form-control  @if ($errors->has('sub_title')) is-invalid @endif" ro
+                                                placeholder="{{ __('Enter sub title') }}" required>{{ @old('sub_title') }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('sub_title') }}
                                         </div>
                                     </div>
                                 </div>
