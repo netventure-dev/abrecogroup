@@ -499,7 +499,7 @@
                                                                 style="padding-bottom:30px;padding-left:15px;padding-right:15px;padding-top:10px;text-align:center;width:100%;">
                                                                 <h1
                                                                     style="margin: 0; color: #ffffff; direction: ltr; font-family: 'Lato', Tahoma, Verdana, Segoe, sans-serif; font-size: 35px; font-weight: 400; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;">
-                                                                    <span class="tinyMce-placeholder"><strong>A3LOGICS</strong></span></h1>
+                                                                    <span class="tinyMce-placeholder"><strong>Logo</strong></span></h1>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -640,7 +640,7 @@
                                                             </td>
                                                         </tr>
                                                     </table>
-                                                    <table border="0" cellpadding="0" cellspacing="0"
+                                                    {{-- <table border="0" cellpadding="0" cellspacing="0"
                                                         class="image_block block-4" role="presentation"
                                                         style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;"
                                                         width="100%">
@@ -655,7 +655,7 @@
                                                                         title="Chocolate eggs" width="680" /></div>
                                                             </td>
                                                         </tr>
-                                                    </table>
+                                                    </table> --}}
                                                 </td>
                                             </tr>
                                         </tbody>
