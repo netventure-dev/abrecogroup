@@ -48,11 +48,21 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
+                                    <label for="sub_title" class="col-sm-3 col-form-label mb-2">{{ __('Sub Title') }}</label>
+                                    <div class="col-sm-9">
+
+                                        <textarea name="sub_title" class="form-control @if ($errors->has('sub_title')) is-invalid @endif" ro
+                                            placeholder="{{ __('Enter Sub title') }}" >{{ @old('sub_title', @$content->sub_title) }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('sub_title') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
                                     <label for="description" class="col-sm-3 col-form-label">{{ __('Description') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="description" class="form-control @if ($errors->has('description')) is-invalid @endif" ro
-                                            placeholder="{{ __('Enter Description') }}" required>{{ @old('description', @$content->description) }}</textarea>
+                                            placeholder="{{ __('Enter Description') }}" >{{ @old('description', @$content->description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>
@@ -84,7 +94,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
-                                 <div class="mb-4 row">
+                                 {{-- <div class="mb-4 row">
                                     <label for="alt_text" class="col-sm-3 col-form-label mb-2">{{ __('Alt text') }}</label>
                                     <div class="col-sm-9">
 
@@ -93,7 +103,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('alt_text') }}
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="mb-4 row">
                                     <label for="button_title" class="col-sm-3 col-form-label">{{ __('Button Title') }}
                                     </label>

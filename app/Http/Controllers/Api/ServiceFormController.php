@@ -32,8 +32,10 @@ class ServiceFormController extends Controller
                 'message' => 'nullable',
                 // 'g-recaptcha-response' => 'required|captcha',
 
+
             ],
         );
+        
         $request = new Quote();
         $request->name = $validated['name'];
         $request->email = $validated['email'];

@@ -10,6 +10,8 @@ use Illuminate\Notifications\Notification;
 class QuotessNotification extends Notification
 {
     use Queueable;
+    public $details;    
+
 
     /**
      * Create a new notification instance.

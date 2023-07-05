@@ -44,10 +44,11 @@ class ServiceContentController extends Controller
         $services= Service::where('uuid',$id)->first();
         $validated = $request->validate([
             'title' => 'nullable',
-            'description' => 'required',
+            'sub_title' => 'nullable',
+            'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
-            'alt_text' => 'nullable',
+            // 'alt_text' => 'nullable',
             'button_title' => 'nullable',
 
             
@@ -58,7 +59,9 @@ class ServiceContentController extends Controller
         $content->uuid = (string) Str::uuid();
         $content->service_id = $services->uuid;
         $content->title =  $validated['title'];
-        $content->alt_text =  $validated['alt_text'];
+        $content->sub_title =  $validated['sub_title'];
+
+        // $content->alt_text =  $validated['alt_text'];
 
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
@@ -103,11 +106,13 @@ class ServiceContentController extends Controller
         $content = ServiceContent::where('uuid',$uuid)->first();
         $validated = $request->validate([
             'title' => 'nullable',
-            'description' => 'required',
+            'sub_title' => 'nullable',
+
+            'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
             'status' => 'required',
-            'alt_text' => 'nullable',
+            // 'alt_text' => 'nullable',
 
             'button_title' => 'nullable',
             'button_link' => 'nullable',
@@ -116,10 +121,12 @@ class ServiceContentController extends Controller
         // $content = new ServiceContent();
         // $content->service_id = $services->uuid;
         $content->title =  $validated['title'];
+        $content->sub_title =  $validated['sub_title'];
+
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
-        $content->alt_text =  $validated['alt_text'];
+        // $content->alt_text =  $validated['alt_text'];
 
         $content->status = $validated['status'];
         $content->button_link =  $validated['button_link'];

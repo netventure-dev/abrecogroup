@@ -23,7 +23,7 @@ class CreateSubServicesTable extends Migration
             $table->text('cover_description');
             $table->string('cover_image')->nullable();
             $table->string('title');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->boolean('status')->default(0);
             $table->text('seo_title')->nullable();
             $table->text('seo_description')->nullable();

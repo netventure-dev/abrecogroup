@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Create Inner Service Content') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Create Inner Service Content ') }}</h4>
                 <div class="page-title-right">
 
                 </div>
@@ -44,12 +44,21 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
+                                    <label for="sub_title" class="col-sm-3 col-form-label mb-2">{{ __('Sub Title') }}</label>
+                                    <div class="col-sm-9">                                        
+                                            <textarea name="sub_title" class="form-control  @if ($errors->has('sub_title')) is-invalid @endif" ro
+                                                placeholder="{{ __('Enter sub title') }}">{{ @old('sub_title') }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('sub_title') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
                                     <label for="description"
                                             class="col-sm-3 col-form-label">{{ __('Description') }}
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="description"
-                                            class="form-control  @if ($errors->has('description')) is-invalid @endif" ro placeholder="{{ __('Enter Description') }}" required>{{ @old('description')}}</textarea>
+                                            class="form-control  @if ($errors->has('description')) is-invalid @endif" ro placeholder="{{ __('Enter Description') }}" >{{ @old('description')}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>
