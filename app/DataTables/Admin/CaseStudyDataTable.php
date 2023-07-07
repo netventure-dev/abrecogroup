@@ -58,7 +58,7 @@ class CaseStudyDataTable extends DataTable
      */
     public function query(CaseStudy $model)
     {
-        return $model->with('service_name','sub_service','inner_service')->newQuery();
+        return $model->with('service_name')->with('sub_service')->with('inner_service')->newQuery();
     }
 
     /**
