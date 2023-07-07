@@ -76,7 +76,7 @@ class CaseStudyContentController extends Controller
     {
         $casestudy = CaseStudy::where('uuid', $id)->first();
         $content = CaseStudyContent::where('uuid', $uuid)->first();
-        $validated = $request->validate(['title' => 'required|unique:case_study_contents,title',
+        $validated = $request->validate(['title' => 'required',
             'content' => 'nullable',
             'sub_title' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
