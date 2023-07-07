@@ -17,6 +17,7 @@ class CaseStudyController extends Controller
 {
     public function index(CaseStudyDataTable $dataTable)
     {
+        // return 1;   
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Case Study')), null],

@@ -29,12 +29,21 @@ class CaseStudyDataTable extends DataTable
                     return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
                 }
             })
+            ->editColumn('service_id', function (CaseStudy $case) {
+
+                return $case->service_name->name;
+            })
+            ->editColumn('sub_service_id', function (CaseStudy $case) {
+
+                return $case->sub_service->name;    
+            })
+            
             ->addColumn('action', function (CaseStudy $case) {
                 return view('admin.casestudy.action', compact('case'));
             })
     
 
-            ->rawColumns(['status','action']);
+            ->rawColumns(['status','action','service']);
     }
 
     /**
@@ -45,7 +54,7 @@ class CaseStudyDataTable extends DataTable
      */
     public function query(CaseStudy $model)
     {
-        return $model->newQuery();
+        return $model->with('service_name')->newQuery();
     }
 
     /**
@@ -81,7 +90,10 @@ class CaseStudyDataTable extends DataTable
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
             Column::make('title')->title(__('Title')),
             Column::make('order')->title(__('Order')),
-            Column::make('status')->title(__('Status')),
+            // Column::make('service')->title(__('Service')),
+            Column::make('service_id')->title(__('Service')),
+            Column::make('sub_service_id')->title(__('Sub_Service')),
+            Column::make('status')->title(__('Status')),    
             Column::computed('action')
             ->title(__('Action'))
             ->exportable(false)

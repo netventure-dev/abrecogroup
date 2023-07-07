@@ -24,5 +24,15 @@ class CaseStudy extends Model
     public function contents()
     {
         return $this->hasMany('App\Models\CaseStudyContent', 'case_id', 'uuid');
+    }   
+
+    public function service_name()
+    {
+        return $this->hasOne('App\Models\Service','uuid','service_id');
+    }
+
+    public function sub_service()
+    {
+        return $this->hasOne('App\Models\SubService','uuid','sub_service_id');
     }
 }
