@@ -35,4 +35,8 @@ class CaseStudy extends Model
     {
         return $this->hasOne('App\Models\SubService','uuid','sub_service_id');
     }
+    public function inner_service()
+    {
+        return $this->hasOne('App\Models\InnerService','uuid','inner_service_id');
+    }
 }

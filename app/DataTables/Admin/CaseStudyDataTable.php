@@ -37,6 +37,10 @@ class CaseStudyDataTable extends DataTable
 
                 return $case->sub_service->name;    
             })
+            ->editColumn('inner_service_id', function (CaseStudy $case) {
+
+                return $case->inner_service->name;    
+            })
             
             ->addColumn('action', function (CaseStudy $case) {
                 return view('admin.casestudy.action', compact('case'));
@@ -54,7 +58,7 @@ class CaseStudyDataTable extends DataTable
      */
     public function query(CaseStudy $model)
     {
-        return $model->with('service_name')->newQuery();
+        return $model->with('service_name','sub_service','inner_service')->newQuery();
     }
 
     /**
@@ -92,7 +96,9 @@ class CaseStudyDataTable extends DataTable
             Column::make('order')->title(__('Order')),
             // Column::make('service')->title(__('Service')),
             Column::make('service_id')->title(__('Service')),
-            Column::make('sub_service_id')->title(__('Sub_Service')),
+            Column::make('sub_service_id')->title(__('Sub Service')),
+            Column::make('inner_service_id')->title(__('Inner Service')),
+
             Column::make('status')->title(__('Status')),    
             Column::computed('action')
             ->title(__('Action'))
