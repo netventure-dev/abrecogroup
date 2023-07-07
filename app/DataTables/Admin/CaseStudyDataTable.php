@@ -31,15 +31,15 @@ class CaseStudyDataTable extends DataTable
             })
             ->editColumn('service_id', function (CaseStudy $case) {
 
-                return $case->service_name->name;
+                return @$case->service_name->name;
             })
             ->editColumn('sub_service_id', function (CaseStudy $case) {
 
-                return $case->sub_service->name;    
+                return @$case->sub_service->name;    
             })
             ->editColumn('inner_service_id', function (CaseStudy $case) {
 
-                return $case->inner_service->name;    
+                return @$case->inner_service->name;    
             })
             
             ->addColumn('action', function (CaseStudy $case) {
