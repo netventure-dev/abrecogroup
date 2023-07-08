@@ -13,7 +13,7 @@ use App\Http\Controllers\Api\ServiceFormController;
 use App\Http\Controllers\Api\TestimonialsController;
 use App\Http\Controllers\Api\CaseStudyApiController;
 use App\Http\Controllers\Api\PolicyPageApiController;
-
+use App\Http\Controllers\Api\ContactUsApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -51,6 +51,10 @@ Route::get('/section_8_why', [HomeController::class, 'section_8']);
 
 // Serivce
 Route::post('/form', [ServiceFormController::class, 'store']);
+
+
+// Contact
+Route::post('/contact-form', [ContactUsApiController::class, 'store']);
 
 // Testimonials
 Route::get('/testimonials', [TestimonialsController::class, 'index']);
