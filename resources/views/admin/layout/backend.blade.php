@@ -619,7 +619,7 @@
                         <li>
                             <a href="{{ route('admin.requestenquiry.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Enquiries</span>
+                                <span key="t-file-manager">Service Enquiries</span>
                             </a>
                         </li>
                         <li>
@@ -628,12 +628,12 @@
                                 <span key="t-file-manager">Feedback</span>
                             </a>
                         </li>
-                        {{-- <li>
-                            <a href="{{ route('admin.requestenquiry.index') }}" class="waves-effect">
+                        <li>
+                            <a href="{{ route('admin.enquiries.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Request</span>
+                                <span key="t-file-manager">Contact Request</span>
                             </a>
-                        </li> --}}
+                        </li>
                         <li class="menu-title" key="t-apps">Settings</li>
 
                         <li>

@@ -6,23 +6,29 @@
         <h2 class="content-heading">View Details</h2>
         <table style="width:100%">
             <tr>
-                <td>Name</td><br>
-                <td>Email</td>
-                <td>Type</td>
-                <td>Service</td>
-                <td>Phone</td>
-                <td>message</td>
+                <td style="width:50%">Name</td>
+                <td style="width:10%">:</td>
+                <td style="width:40%">{{ @$quote->name }}</td>
             </tr>
             <tr>
-                <td>{{ @$quote->name }}</td>
-                <td>{{ @$quote->email }}</td>
-                <td>{{ @$quote->type }}</td>
-                <td>{{ @$quote->service }}</td>
-                <td>{{ @$quote->phone }}</td>
-                <td>{{ @$quote->message }}</td>
-
-
-
+                <td style="width:50%">Email</td>
+                <td style="width:10%">:</td>
+                <td style="width:40%">{{ @$quote->email }}</td>
+            </tr>
+            <tr>
+                <td style="width:50%">Service</td>
+                <td style="width:10%">:</td>
+                <td style="width:40%">{{ @$quote->service }}</td>
+            </tr>
+            <tr>
+                <td style="width:50%">Phone</td>
+                <td style="width:10%">:</td>
+                <td style="width:40%">{{ @$quote->phone }}</td>
+            </tr>
+            <tr>
+                <td style="width:50%">Message</td>
+                <td style="width:10%">:</td>
+                <td style="width:40%">{{ @$quote->message }}</td>
             </tr>
         </table>
     </div>
