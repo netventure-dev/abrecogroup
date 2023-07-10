@@ -29,6 +29,7 @@ class ContactUsApiController extends Controller
                 'message' => 'required',
                 'organization' => 'required',
                 'job' => 'required',
+                'reason' => 'required',
                 'refer' => 'required',
                 // 'g-recaptcha-response' => 'required|captcha',
 
@@ -41,6 +42,7 @@ class ContactUsApiController extends Controller
         $data->phone = $validated['phone'];
         $data->organization = $validated['organization'];
         $data->job = $validated['job'];
+        $data->reason = $validated['reason'];
         $data->refer = $validated['refer'];
         $data->message = $validated['message'];
         // dd($data);
@@ -55,6 +57,7 @@ class ContactUsApiController extends Controller
             $details['organization'] = $validated['organization'];
             $details['job'] = $validated['job'];
             $details['refer'] = $validated['refer'];
+            $details['reason'] = $validated['reason'];
             $details['message'] = $validated['message'];
             $details['admin_name'] = $admin->name;
             Notification::send($admin, new ContactNotification($details));
