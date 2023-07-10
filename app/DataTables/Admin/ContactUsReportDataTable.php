@@ -74,7 +74,7 @@ class ContactUsReportDataTable extends DataTable
             Column::make('phone')->title(__('Phone')),
             Column::make('organization')->title(__('Organization')),
             Column::make('job')->title(__('Job')),
-            Column::make('refer')->title(__('Here From')),
+            Column::make('refer')->title(__('From')),
         ];
     }
 
