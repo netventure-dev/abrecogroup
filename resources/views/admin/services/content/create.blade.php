@@ -82,6 +82,14 @@
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
+                                 <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="mobile_image">{{ __('Mobile Image') }} <a
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                    <div class="col-sm-9"> 
+                                        <input id="mobile_image" name="mobile_image" type="file" class="form-control mb-2 @if ($errors->has('mobile_image')) is-invalid @endif" value="{{ @old('mobile_image') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('mobile_image') }}</div>
+                                    </div>
+                                </div>
                                  {{-- <div class="mb-4 row">
                                     <label for="alt_text" class="col-sm-3 col-form-label mb-2">{{ __('Alt text') }}</label>
                                     <div class="col-sm-9">                                        

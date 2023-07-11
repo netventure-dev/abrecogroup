@@ -40,7 +40,7 @@ class ServiceApiController extends Controller
                                 ->with(['faqs'=> function($query) {
                                     $query->select('id','service_id', 'uuid', 'title','description','order')->where('status',1);
                                 }, 'contents' => function($query) {
-                                    $query->select('id','service_id', 'uuid', 'title','description','order','image')->where('status',1);
+                                    $query->select('id','service_id', 'uuid', 'title','description','order','image','mobile_image')->where('status',1);
                                 },'subservices' => function($query) {
                                     $query->select('id','service_id','service as service_name','service_slug', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
                                 },'subservices.innerservices'=> function($query) {
