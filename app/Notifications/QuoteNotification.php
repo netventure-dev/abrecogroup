@@ -47,7 +47,7 @@ class QuoteNotification extends Notification
         ->view('emails.quote', [
             'details' => $details,
         ])
-        ->subject('A3LOGICS :: New Service Request.');
+        ->subject('Intelect Works :: New Service Request.');
     }
 
     /**

@@ -16,6 +16,7 @@ class QuotessNotification extends Notification
     /**
      * Create a new notification instance.
      *
+     * 
      * @return void
      */
     public function __construct($details)
@@ -47,7 +48,7 @@ class QuotessNotification extends Notification
         ->view('emails.contact', [
             'details' => $details,
         ])
-        ->subject('A3LOGICS :: Thank You!.');
+        ->subject('Intellect Works :: Thank You for Your Enquiry');
        
     }
 

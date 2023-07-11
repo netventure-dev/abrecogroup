@@ -45,7 +45,7 @@ class ContactusNotification extends Notification
         ->view('emails.contact', [
             'details' => $details,
         ])
-        ->subject('A3LOGICS :: Thank You!.');
+        ->subject('Intellect Works :: Thank You!.');
      
     }
 

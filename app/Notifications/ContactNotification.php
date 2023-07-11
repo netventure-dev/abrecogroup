@@ -47,7 +47,7 @@ class ContactNotification extends Notification
         // ])
         // ->subject('A3LOGICS :: New Contact Request.');
         return (new MailMessage)
-            ->subject('A3LOGICS:Contact Request')
+            ->subject('Intellect Works:Contact Request')
             ->line('Hi, ' . $this->details['admin_name'])
             ->line('You have received a Contact request. Details are given below')
             ->line('Name : ' . $this->details['name'])

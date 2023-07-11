@@ -64,3 +64,5 @@ class ServiceFormController extends Controller
         return response()->json(['code' => 404, 'message' => 'Failed to submit data', 'data' => $details], $this->failedStatus);
     }
 }
+
+
