@@ -47,7 +47,7 @@ class QuotessNotification extends Notification
         return (new MailMessage)
         ->view('emails.contact', [
             'details' => $details,
-        ])
+        ])INTELLECT WORKS
         ->subject('Intellect Works :: Thank You for Your Enquiry');
        
     }

@@ -41,8 +41,8 @@
     <header class="fixed-top header_area">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="{{ route('home') }}"><img
-                    src="{{ asset('assets/front/images/logo-new.webp') }}" alt="A3LOGICS" height="80px"
-                    width="auto" />A3LOGICS</a>
+                    src="{{ asset('assets/front/images/logo-new.webp') }}" alt="INTELLECT WORKS" height="80px"
+                    width="auto" />INTELLECT WORKS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -202,7 +202,7 @@
             <!--End Form-->
         </div>
         <div class="copy-right text-center mt-5">
-            <p class="text-center"> © {{ date('Y') }} A3LOGICS. All rights reserved. Digitally Empowered by
+            <p class="text-center"> © {{ date('Y') }} INTELLECT WORKS. All rights reserved. Digitally Empowered by
                 <a href="https://www.netventure.in/" target="_blank">NetVenture</a>
             </p>
         </div>

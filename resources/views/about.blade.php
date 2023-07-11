@@ -16,7 +16,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <img src="{{ asset('assets/front/images/about-us-.webp') }}" class="img-fluid d-block"
-                        alt="A3LOGICS">
+                        alt="INTELLECT WORKS">
                 </div>
                 <div class="col-md-6">
                     <h3><span>WHO</span> WE ARE</h3>

@@ -318,7 +318,7 @@
                                                 style="font-size:0px;padding:13px 0px 0px 0px;word-break:break-word;">
                                                 <div
                                                     style="font-family:Ubuntu, sans-serif;font-size:11px;line-height:1.5;text-align:center;color:#ffffff;">
-                                                    <p><span style="font-size:14px;"><span style="color:#ffffff;"> © A3LOGICS. All rights reserved. </span></span></p>
+                                                    <p><span style="font-size:14px;"><span style="color:#ffffff;"> © INTELLECT WORKS. All rights reserved. </span></span></p>
                                                 </div>
                                             </td>
                                         </tr>
@@ -783,7 +783,7 @@
                                                                 style="padding-bottom:5px;padding-top:5px;">
                                                                 <div
                                                                     style="color:#ffffff;direction:ltr;font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif;font-size:14px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;mso-line-height-alt:16.8px;">
-                                                                    <p style="margin: 0;"> A3 Logics</p>
+                                                                    <p style="margin: 0;"> INTELLECT WORKS</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
