@@ -42,23 +42,23 @@
             <div class="navbar-header">
                 <div class="d-flex">
                     <!-- LOGO -->
-                    <div class="navbar-brand-box">
+                    <div class="navbar-brand-box" style="background-color:#060332 !important ">
                         <a href="index.html" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="{{asset('storage/'.@$logo)}}" alt="" height="22">
+                                <img src="{{asset('assets/images/logo.jpg')}}" alt="" height="50">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{asset('storage/'.@$logo)}}" alt="" height="17">
+                                <img src="{{asset('assets/images/logo.jpg')}}" alt="" height="50">
                             </span>
                         </a>
 
                         <a href="index.html" class="logo logo-light">
-                            {{--  <span class="logo-sm">
-                                <img src="{{ asset('assets/images/logo-light.svg')}}" alt="" height="22">
-                            </span>  --}}
-                            {{--  <span class="logo-lg">
-                                <img src="{{ asset('assets/images/logo-light.png')}}" alt="" height="19">
-                            </span>  --}}
+                             <span class="logo-sm">
+                                <img src="{{asset('assets/images/logo.jpg')}}" alt="" height="50">
+                            </span>
+                             <span class="logo-lg">
+                                <img src="{{ asset('assets/images/logo.jpg')}}" alt="" height="50">
+                            </span> 
                         </a>
                     </div>
 
@@ -468,7 +468,7 @@
         </header>
 
         <!-- ========== Left Sidebar Start ========== -->
-        <div class="vertical-menu">
+        <div class="vertical-menu" style="background-color:#060332 !important">
 
             <div data-simplebar class="h-100">
 
