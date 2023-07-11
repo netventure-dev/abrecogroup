@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ServiceContent;
 use App\Models\ServiceExtra;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -11,10 +12,12 @@ class ServiceExtraController extends Controller
     public function index($id)
     {
         $service = ServiceContent::where('uuid', $id)->first();
+        $service_data = Service::where('uuid', $service->service_id)->first();
         $contents = ServiceExtra::where('service_content_id', $service->uuid)->get();
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Services')), route('admin.services.index')],
+            [$service_data->title, route('admin.services.content.index',$service_data->uuid)],
              [$service->title, route('admin.services.content.index', $service->service_id)],
             [(__('Service Extras')),null],
         ];
@@ -78,11 +81,12 @@ class ServiceExtraController extends Controller
         
         $service = ServiceContent::where('uuid', $id)->first();
         $content = ServiceExtra::where('uuid', $uuid)->first();
-
+        $service_data = Service::where('uuid', $service->service_id)->first();
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Services')), route('admin.services.index')],
-             [$service->title, route('admin.services.content.index', $service->service_id)],
+            [$service_data->title, route('admin.services.content.index',$service_data->uuid)],
+            [$service->title, route('admin.services.content.index', $service->service_id)],
             [(__('Service Extras')), route('admin.services.extra.index', $service->uuid)],
             [$content->title, null],
         ];

@@ -94,11 +94,11 @@ class ServiceContentController extends Controller
             [(__('Dashboard')), route('admin.home')],
             [(__('Services')), route('admin.services.index')],
             [$services->title, route('admin.services.content.index',$services->uuid)],
-            [(__('Content')), null],
+            [ $content->title, null],
         ];
         return view('admin.services.content.edit',compact('services','breadcrumbs','content','content_list'));
     }
-
+   
     
     public function update(Request $request, $id,$uuid)
     {
