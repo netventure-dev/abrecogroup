@@ -21,7 +21,7 @@
                             </div>
                             <div class="card-body pt-0"> 
                                 <div class="auth-logo">
-                                    <a href="index.html" class="auth-logo-light">
+                                    <a class="auth-logo-light">
                                         <div class="avatar-md profile-user-wid mb-4">
                                             <span class="avatar-title rounded-circle bg-light">
                                                 <img src="{{asset('assets/images/logo.jpg')}}" alt="" class="rounded-circle" height="34">
@@ -29,10 +29,10 @@
                                         </div>
                                     </a>
 
-                                    <a href="index.html" class="auth-logo-dark">
+                                    <a  class="auth-logo-dark">
                                         <div class="avatar-md profile-user-wid mb-4">
-                                            <span">
-                                                <img src="{{asset('assets/images/logo.jpg')}}" alt="" class="rounded-circle" height="52">
+                                            <span class="rounded-circle">
+                                                <img src="{{asset('assets/images/logo_small.png')}}" alt="" class="rounded-circle" height="70">
                                             </span>
                                         </div>
                                     </a>
