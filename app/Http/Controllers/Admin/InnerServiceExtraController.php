@@ -46,7 +46,7 @@ class InnerServiceExtraController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => 'required|numeric',
             'button_title' => 'nullable',
             'button_link' => 'nullable',
@@ -98,7 +98,7 @@ class InnerServiceExtraController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => 'required|numeric',
             'status' => 'required',
             'button_title' => 'nullable',

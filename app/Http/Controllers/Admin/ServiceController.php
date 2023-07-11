@@ -37,8 +37,8 @@ class ServiceController extends Controller
         $validated = $request->validate([
             'name' => 'required|unique:services,name',
             'cover_description' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-            'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'image' => 'nullable|mimes:jpg,jpeg,png,svg,webp|max:2000',
+            'logo' => 'nullable|mimes:jpg,jpeg,png,svg,webp|max:2000',
             'alt_text' => 'nullable',
             'title' => 'required',
             'description' => 'required',
@@ -96,8 +96,8 @@ class ServiceController extends Controller
         $validated = $request->validate([
             'name' => 'required|unique:services,name,'.$services->id,
             'cover_description' => 'required',
-            'image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
-            'logo' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
+            'image' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
+            'logo' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'title' => 'required',
             'description' => 'required',
             'alt_text' => 'nullable',

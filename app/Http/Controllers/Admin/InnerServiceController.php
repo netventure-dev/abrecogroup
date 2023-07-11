@@ -39,8 +39,8 @@ class InnerServiceController extends Controller
         $validated = $request->validate([
             'name' => 'required|unique:inner_services,name',
             'cover_description' => 'required',
-            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-            'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
+            'logo' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'title' => 'required',
             'alt_text' => 'nullable',
             'description' => 'required',
@@ -108,8 +108,8 @@ class InnerServiceController extends Controller
         $validated = $request->validate([
             'name' => 'required|unique:inner_services,name,'.$services->id,
             'cover_description' => 'required',
-            'image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
-            'logo' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
+            'image' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
+            'logo' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'alt_text' => 'nullable',
             'title' => 'required',
             'sub_service_id' => 'required',
