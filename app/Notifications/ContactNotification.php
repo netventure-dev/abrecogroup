@@ -47,7 +47,7 @@ class ContactNotification extends Notification
         // ])
         // ->subject('INTELLECT WORKS :: New Contact Request.');
         return (new MailMessage)
-            ->subject('INTELLECT WORKSt Works:Contact Request')
+            ->subject('INTELLECT WORKS:Contact Request')
             ->line('Hi, ' . $this->details['admin_name'])
             ->line('You have received a Contact request. Details are given below')
             ->line('Name : ' . $this->details['name'])

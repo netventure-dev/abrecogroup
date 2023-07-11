@@ -45,7 +45,7 @@ class ContactusNotification extends Notification
         ->view('emails.contact_us', [
             'details' => $details,
         ])
-        ->subject('INTELLECT WORKSt Works :: Thank You!.');
+        ->subject('INTELLECT WORKS :: Thank You!.');
      
     }
 
