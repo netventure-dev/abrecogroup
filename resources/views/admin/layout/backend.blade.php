@@ -45,7 +45,7 @@
                     <div class="navbar-brand-box" style="background-color:#060332 !important ">
                         <a href="index.html" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="{{asset('assets/images/logo.jpg')}}" alt="" height="50">
+                                <img src="{{asset('assets/images/logo_small.png')}}" alt="" height="30">
                             </span>
                             <span class="logo-lg">
                                 <img src="{{asset('assets/images/logo.jpg')}}" alt="" height="50">
@@ -54,7 +54,7 @@
 
                         <a href="index.html" class="logo logo-light">
                              <span class="logo-sm">
-                                <img src="{{asset('assets/images/logo.jpg')}}" alt="" height="50">
+                                <img src="{{asset('assets/images/logo_small.png')}}" alt="" height="30">
                             </span>
                              <span class="logo-lg">
                                 <img src="{{ asset('assets/images/logo.jpg')}}" alt="" height="50">
