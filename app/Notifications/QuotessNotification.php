@@ -6,10 +6,10 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-
-class QuotessNotification extends Notification
+use Illuminate\Queue\SerializesModels;
+class QuotessNotification extends Notification implements ShouldQueue
 {
-    use Queueable;
+    use Queueable,SerializesModels;
     public $details;    
 
 

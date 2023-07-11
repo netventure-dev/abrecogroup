@@ -6,11 +6,11 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-
-class ContactusNotification extends Notification
+use Illuminate\Queue\SerializesModels;
+class ContactusNotification extends Notification implements ShouldQueue
 {
-    use Queueable;
-
+    use Queueable,SerializesModels;
+    public $details;  
     /**
      * Create a new notification instance.
      *

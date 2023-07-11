@@ -21,6 +21,7 @@ class ServiceFormController extends Controller
 
     public function store(Request $request)
     {
+       
         $details=[];
         $validated = $request->validate(
             [
@@ -46,7 +47,6 @@ class ServiceFormController extends Controller
         // dd($feedbacks);
         $res = $request->save();
         //  return view('request-a-quote.show'); 
-        
         if($res) {
 
             $admin = Admin::first();
