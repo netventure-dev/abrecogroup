@@ -58,7 +58,7 @@
                             </span>
                              <span class="logo-lg">
                                 <img src="{{ asset('assets/images/logo.jpg')}}" alt="" height="50">
-                            </span> 
+                            </span>
                         </a>
                     </div>
 
@@ -451,9 +451,16 @@
 
 
                             <div class="dropdown-divider"></div>
+                            <div class="dropdown-divider"></div>
+
+                            <a class="dropdown-item " href="{{ route('admin.settings.show') }}"><i
+                                class="fa fa-cog"></i> <span
+                                key="t-logout">Settings</span></a>
+
                             <a class="dropdown-item text-danger" href="{{route('logout')}}"><i
                                     class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                     key="t-logout">Logout</span></a>
+
                         </div>
                     </div>
 
