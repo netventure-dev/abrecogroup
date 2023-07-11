@@ -8,7 +8,7 @@
             $fav =  @$general->favicon;
         @endphp
         <meta charset="utf-8" />
-        <title> A3 Logics </title>
+        <title> INTELLECT WORKS </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -748,7 +748,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            © <?php echo date("Y"); ?> A3 Logics. All Rights Reserved. Digitally Empowered by <a href="https://www.netventure.in/"> NetVenture Digital Solutions Pvt. Ltd. </a>
+                            © <?php echo date("Y"); ?> INTELLECT WORKS. All Rights Reserved. Digitally Empowered by <a href="https://www.netventure.in/"> NetVenture Digital Solutions Pvt. Ltd. </a>
                         </div>
                     </div>
                 </div>
