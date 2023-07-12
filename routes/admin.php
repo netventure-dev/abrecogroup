@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdministratorController;
 use App\Http\Controllers\Admin\SalesDifficultyController;
 use App\Http\Controllers\Admin\PolicyController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ProfileController;
 
 
 Route::get('/home', function () {
@@ -323,3 +325,11 @@ Route::post('privacy/store','Admin\PolicyController@store')->name('policy.store'
 //cookie & policy
 Route::get('cookie','Admin\CookieController@index')->name('cookie.index');
 Route::post('cookie/store','Admin\CookieController@store')->name('cookie.store');
+
+//password reset
+Route::get('settings','Admin\AdminController@show')->name('settings.show');
+Route::post('settings/store','Admin\AdminController@store')->name('settings.store');
+
+//update admin
+Route::post('setting/update','Admin\ProfileController@update')->name('profile.update');
+Route::get('/settings/profile','Admin\ProfileController@index')->name('profile.index');
