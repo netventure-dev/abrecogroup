@@ -17,7 +17,7 @@ class AboutController extends Controller
     {
         $data['about'] = AboutUs::select('cover_title','cover_content','banner_image','content_image','content','link')->first();
         $data['about_list'] = AboutUsList::select('id','title','content','icon','link')->where('status',1)->get();
-        $data['mission_vision']=MissionVision::select('id','uuid','title','description','image')->where('status',1)->get();
+        $data['mission_vision']=MissionVision::select('id','uuid','title','description','image','mobile_image')->where('status',1)->get();
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
          }

@@ -41,6 +41,8 @@ class MissionVisionController extends Controller
             'title' => 'required|unique:about_us_lists,title',
             'content' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
+
             'status' => 'required',
         ]);
         $data = new MissionVision;
@@ -51,6 +53,10 @@ class MissionVisionController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/aboutus/image',$validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
+        }
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/aboutus/image',$validated['mobile_image']->getClientOriginalName(), 'public');
+            $data->mobile_image = $path;
         }
         $res = $data->save();
         if ($res) {
@@ -79,6 +85,8 @@ class MissionVisionController extends Controller
             'title' => 'required|unique:about_us_lists,title,'.$data->id,
             'content' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+
             'status' => 'required',
         ]);
         $data->title = $validated['title'];
@@ -87,6 +95,10 @@ class MissionVisionController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/aboutus/image',$validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
+        }
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/aboutus/image',$validated['mobile_image']->getClientOriginalName(), 'public');
+            $data->mobile_image = $path;
         }
         $res = $data->save();
         if ($res) {
