@@ -137,7 +137,7 @@ class IndustriesContentController extends Controller
         }
         if ($request->hasFile('mobile_image')) {
             $path =  $request->file('mobile_image')->storeAs('media/image',  $validated['mobile_image']->getClientOriginalName(), 'public');
-            $content->immobile_imageage = $path;
+            $content->mobile_image = $path;
         }
         $res = $content->save();
 
