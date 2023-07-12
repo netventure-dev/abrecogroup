@@ -48,6 +48,8 @@ class IndustriesContentController extends Controller
             'content' => 'nullable',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+
             'order' => 'required|numeric',
             'button_title' => 'nullable',
             'button_link' => 'nullable',
@@ -66,6 +68,11 @@ class IndustriesContentController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $content->image = $path;
+        }
+
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/image',  $validated['mobile_image']->getClientOriginalName(), 'public');
+            $content->mobile_image = $path;
         }
         $res = $content->save();
         if ($res) {
@@ -106,6 +113,8 @@ class IndustriesContentController extends Controller
             'content' => 'nullable',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+
             'order' => 'required|numeric',
             'status' => 'required',
             'button_title' => 'nullable',
@@ -125,6 +134,10 @@ class IndustriesContentController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $content->image = $path;
+        }
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/image',  $validated['mobile_image']->getClientOriginalName(), 'public');
+            $content->immobile_imageage = $path;
         }
         $res = $content->save();
 

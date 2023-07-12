@@ -35,7 +35,7 @@ class IndustryController extends Controller
             ->select('id', 'uuid', 'name','slug')
             ->with(['contents' => function ($query) {
                 $query->where('status', 1)
-                    ->select('id', 'uuid', 'industries_id', 'title','subtitle', 'description', 'order', 'image', 'button_title', 'button_link')
+                    ->select('id', 'uuid', 'industries_id', 'title','subtitle', 'description', 'order', 'image','mobile_image', 'button_title', 'button_link')
                     ->orderBy('order', 'ASC');
             },'contents.extra_contents'])->first();
         // $data['industry']['industry_content'] =  $data['industry']->contents->where('status',1);
