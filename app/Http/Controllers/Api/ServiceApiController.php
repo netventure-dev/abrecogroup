@@ -21,8 +21,7 @@ class ServiceApiController extends Controller
                                 }, 'contents' => function($query) {
                                     $query->select('id','service_id', 'uuid', 'title','sub_title','description','order','image')->where('status',1);
                                 },'subservices' => function($query) {
-                                    $query->select('id','service_id','service as service_name', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description');
-                                    ->where('status',1);
+                                    $query->select('id','service_id','service as service_name', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
                                 },'subservices.innerservices'=> function($query) {
                                     $query->select('id','service_id','sub_service_id','subservice as subservice_name','service_name','service_slug', 'uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
                                 },'contents.extra_contents'])
