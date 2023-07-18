@@ -65,7 +65,7 @@ class ServiceApiController extends Controller
                                 },'contents.extra_contents'])
                                 ->where('uuid', $sub_id)
                                 ->where('service_id', $uuid)
-                                ->where('status', 1)
+                                // ->where('status', 1)
                                 ->orderBy('created_at', 'desc')
                                 ->first();
         if (!empty($data)) {
