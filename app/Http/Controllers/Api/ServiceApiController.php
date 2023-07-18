@@ -59,15 +59,13 @@ class ServiceApiController extends Controller
     {
         $data['sub_services'] = SubService::select('id','service_id','service as service_name','service_slug','uuid', 'name','cover_image','logo','slug','cover_description','title','description','status')
                                 ->with(['innerservices'=> function($query) {
-                                    $query->select('id','service_id','sub_service_id','service_name','service_slug','subservice as subservice_name', 'sub_service_slug','uuid', 'name','cover_image','logo','slug','cover_description','title','description');
-                                    ->where('status',1);
+                                    $query->select('id','service_id','sub_service_id','service_name','service_slug','subservice as subservice_name', 'sub_service_slug','uuid', 'name','cover_image','logo','slug','cover_description','title','description')->where('status',1);
                                 },'contents' => function($query) {
-                                    $query->select('id','sub_service_id', 'uuid', 'title','sub_title','description','order','image','mobile_image');
-                                    // ->where('status',1);
+                                    $query->select('id','sub_service_id', 'uuid', 'title','sub_title','description','order','image','mobile_image')->where('status',1);
                                 },'contents.extra_contents'])
                                 ->where('uuid', $sub_id)
                                 ->where('service_id', $uuid)
-                                // ->where('status', 1)
+                                ->where('status', 1)
                                 ->orderBy('created_at', 'desc')
                                 ->first();
         if (!empty($data)) {
