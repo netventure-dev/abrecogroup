@@ -38,8 +38,8 @@
                                     <label for="name" class="col-sm-3 col-form-label mb-2">{{ __('Services') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <select class="form-control" name="sub_service_id">
-                                            <option>--Select Sub Service--</option>
+                                        <select class="form-control" name="sub_service_id" required>
+                                            <option selected value="">--Select Sub Service--</option>
                                             @foreach ($subservices as $service)
                                                 <option value="{{$service->uuid}}">{{$service->name}}</option>
                                             @endforeach

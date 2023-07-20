@@ -39,7 +39,7 @@
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <select class="form-control" name="service_id">
-                                            <option>--Select Service--</option>
+                                            <option selected value="">--Select Service--</option>
                                             @foreach ($services as $service)
                                                 <option @if($service->uuid == $subservice->service_id) selected @endif value="{{$service->uuid}}">{{$service->name}}</option>
                                             @endforeach
