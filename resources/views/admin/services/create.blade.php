@@ -123,6 +123,16 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
+                                    <label for="custom_url" class="col-sm-3 col-form-label mb-2">{{ __('Custome Url') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="custom_url" name="custom_url" type="text"
+                                            class="form-control mb-2 @if ($errors->has('custom_url')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter Url') }}"  value="{{ @old('custom_url') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('custom_url') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
                                     <label for="seo_title"
                                             class="col-sm-3 col-form-label">{{ __('Seo Title') }}
                                             </label>

@@ -333,3 +333,27 @@ Route::post('settings/store','Admin\AdminController@store')->name('settings.stor
 //update admin
 Route::post('setting/update','Admin\ProfileController@update')->name('profile.update');
 Route::get('/settings/profile','Admin\ProfileController@index')->name('profile.index');
+
+
+//Demo industries
+Route::get('demo_industries',  'Admin\DemoIndustriesController@index')->name('demo_industries.index');
+Route::get('demo_industries/create',  'Admin\DemoIndustriesController@create')->name('demo_industries.create');
+Route::post('demo_industries/store',  'Admin\DemoIndustriesController@store')->name('demo_industries.store');
+Route::get('demo_industries/edit/{id}',  'Admin\DemoIndustriesController@edit')->name('demo_industries.edit');
+Route::post('demo_industries/update/{id}',  'Admin\DemoIndustriesController@update')->name('demo_industries.update');
+Route::delete('demo_industries/destroy/{id}',  'Admin\DemoIndustriesController@destroy')->name('demo_industries.destroy');
+//Demo industry content
+Route::get('demo_industries/{id}/content',  'Admin\DemoIndustriesContentController@index')->name('demo_industries.content.index');
+Route::get('demo_industries/{id}/content/create',  'Admin\DemoIndustriesContentController@create')->name('demo_industries.content.create');
+Route::post('demo_industries/{id}/content/store',  'Admin\DemoIndustriesContentController@store')->name('demo_industries.content.store');
+Route::get('demo_industries/{id}/content/{uuid}/edit',  'Admin\DemoIndustriesContentController@edit')->name('demo_industries.content.edit');
+Route::post('demo_industries/{id}/content/{uuid}/update',  'Admin\DemoIndustriesContentController@update')->name('demo_industries.content.update');
+Route::post('demo_industries/{id}/content/{uuid}/destroy',  'Admin\DemoIndustriesContentController@destroy')->name('demo_industries.content.destroy');
+
+//Demo industry extra content
+Route::get('demo_industries/{id}/extra-content',  'Admin\DemoIndustryExtraContentController@index')->name('demo_industries.content.extra.index');
+Route::get('demo_industries/{id}/extra-content/create',  'Admin\DemoIndustryExtraContentController@create')->name('demo_industries.content.extra.create');
+Route::post('demo_industries/{id}/extra-content/store',  'Admin\DemoIndustryExtraContentController@store')->name('demo_industries.content.extra.store');
+Route::get('demo_industries/{id}/extra-content/{uuid}/edit',  'Admin\DemoIndustryExtraContentController@edit')->name('demo_industries.content.extra.edit');
+Route::post('demo_industries/{id}/extra-content/{uuid}/update',  'Admin\DemoIndustryExtraContentController@update')->name('demo_industries.content.extra.update');
+Route::post('demo_industries/{id}/extra-content/{uuid}/destroy',  'Admin\DemoIndustryExtraContentController@destroy')->name('demo_industries.content.extra.destroy');

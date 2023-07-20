@@ -41,6 +41,7 @@ class ServiceController extends Controller
             'logo' => 'nullable|mimes:jpg,jpeg,png,svg,webp|max:2000',
             'alt_text' => 'nullable',
             'title' => 'required',
+            'custom_url' => 'nullable',
             'description' => 'required',
             'status' => 'required',
             'seo_title' => 'nullable',
@@ -51,6 +52,7 @@ class ServiceController extends Controller
         $service->uuid = (string) Str::uuid();
         $service->slug = SlugService::createSlug(Service::class, 'slug', $validated['name'], ['unique' => false]);
         $service->name = $validated['name'];
+        $service->custom_url = $validated['custom_url'];
         $service->cover_description = $validated['cover_description'];
         $service->status = $validated['status'];  
         $service->title = $validated['title'];
@@ -99,6 +101,7 @@ class ServiceController extends Controller
             'image' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'logo' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'title' => 'required',
+            'custom_url' => 'nullable',
             'description' => 'required',
             'alt_text' => 'nullable',
             'status' => 'required',
@@ -112,7 +115,7 @@ class ServiceController extends Controller
         $services->status = $validated['status'];  
         $services->title = $validated['title'];
         $services->alt_text = $validated['alt_text'];
-
+        $services->custom_url = $validated['custom_url'];
         $services->description = $validated['description'];
         $services->seo_title = $validated['seo_title'];
         $services->seo_description = $validated['seo_description'];

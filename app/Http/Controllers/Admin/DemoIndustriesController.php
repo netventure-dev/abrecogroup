@@ -2,66 +2,67 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Admin\IndustryDataTable;
+use App\DataTables\Admin\DemoIndustryDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Industry;
+use App\Models\DemoIndustry;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
-class IndustriesController extends Controller
+class DemoIndustriesController extends Controller
 {
-    public function index(IndustryDataTable $dataTable)
+    public function index(DemoIndustryDataTable $dataTable)
     {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('industries')), null],
+            [(__('Demo industries')), null],
         ];
-        return $dataTable->render('admin.industries.index', ['breadcrumbs' => $breadcrumbs]);
+        return $dataTable->render('admin.demo_industries.index', ['breadcrumbs' => $breadcrumbs]);
     }
     public function create()
     {
         // $this->authorize('create', Admin::class);
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['Industries', route('admin.industries.index')],
-            ['Create', route('admin.industries.create')],
+            ['Demo Industries', route('admin.demo_industries.index')],
+            ['Create', route('admin.demo_industries.create')],
         ];
-        return view('admin.industries.create', compact('breadcrumbs'));
+        return view('admin.demo_industries.create', compact('breadcrumbs'));
     }
 
     public function store(Request $request)
     {
+        
         $validated = $request->validate([
-            'name' => 'required|unique:industries,name',
+            'title' => 'required|unique:demo_industries,title',
             'sub_title' => 'nullable',
-            'custom_url' => 'nullable',
             'content' => 'nullable',
+            'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-            'icon' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
             'button_title' => 'nullable',
             'status' => 'required',
             'order' => 'nullable',
         ]);
-        $service = new Industry();
+        $service = new DemoIndustry();
         $service->uuid = (string) Str::uuid();
-        $service->slug = SlugService::createSlug(Industry::class, 'slug', $validated['name'], ['unique' => false]);
-        $service->name = $validated['name'];
+        $service->slug = SlugService::createSlug(DemoIndustry::class, 'slug', $validated['title'], ['unique' => false]);
+        $service->title = $validated['title'];
         $service->content = $validated['content'];
-        $service->custom_url = $validated['custom_url'];
+        $service->description = $validated['description'];
         $service->order = $validated['order'];
         $service->status = $validated['status'];  
         $service->subtitle = $validated['sub_title'];
-        $service->link = $validated['link'];
+        $service->button_link = $validated['link'];
         $service->button_title = $validated['button_title'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $service->image1 = $path;
         }
-        if ($request->hasFile('icon')) {
-            $path =  $request->file('icon')->storeAs('media/image',  $validated['icon']->getClientOriginalName(), 'public');
-            $service->icon = $path;
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/image',  $validated['mobile_image']->getClientOriginalName(), 'public');
+            $service->mobile_image = $path;
         }  
         $res = $service->save();
         if ($res) {
@@ -75,48 +76,48 @@ class IndustriesController extends Controller
     
     public function edit($id)
     {
-        $services= Industry::where('uuid',$id)->first();
+        $services= DemoIndustry::where('uuid',$id)->first();
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Industry')),  route('admin.industries.index')],
-            [$services->name, null],
+            [$services->title, null],
     ];
-        return view('admin.industries.edit', compact('breadcrumbs','services'));
+        return view('admin.demo_industries.edit', compact('breadcrumbs','services'));
     }
 
     public function update(Request $request,$id)
     {
         
-        $services = Industry::where('uuid',$id)->first();
+        $services = DemoIndustry::where('uuid',$id)->first();
 
         $validated = $request->validate([
-            'name' => 'required|unique:industries,name,'.$services->id,
+            'title' => 'required|unique:demo_industries,title,'.$services->id,
             'sub_title' => 'nullable',
             'content' => 'nullable',
-            'custom_url' => 'nullable',
+            'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-            'icon' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
             'button_title' => 'nullable',
             'status' => 'required',
             'order' => 'nullable',
         ]);
-        $services->slug = SlugService::createSlug(Industry::class, 'slug', $validated['name'], ['unique' => false]);
-        $services->name = $validated['name'];
+        $services->slug = SlugService::createSlug(DemoIndustry::class, 'slug', $validated['title'], ['unique' => false]);
+        $services->title = $validated['title'];
         $services->content = $validated['content'];
+        $services->description = $validated['description'];
         $services->order = $validated['order'];
         $services->status = $validated['status'];  
-        $services->custom_url = $validated['custom_url'];
         $services->subtitle = $validated['sub_title'];
-        $services->link = $validated['link'];
+        $services->button_link = $validated['link'];
         $services->button_title = $validated['button_title'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $services->image1 = $path;
         }
-        if ($request->hasFile('icon')) {
-            $path =  $request->file('icon')->storeAs('media/image',  $validated['icon']->getClientOriginalName(), 'public');
-            $services->icon = $path;
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/image',  $validated['mobile_image']->getClientOriginalName(), 'public');
+            $services->mobile_image = $path;
         }  
         $res = $services->save();
         if ($res) {
@@ -130,7 +131,7 @@ class IndustriesController extends Controller
     public function destroy($id)
     {
         // $this->authorize('delete', $menu);
-        $res = Industry::where('uuid',$id)->delete();
+        $res = DemoIndustry::where('uuid',$id)->delete();
         if ($res) {
             notify()->success(__('Deleted successfully'));
         } else {
