@@ -128,7 +128,7 @@
                                     </div>
                                 </div>     
                                 <div class="mb-4 row">
-                                    <label for="custom_url" class="col-sm-3 col-form-label mb-2">{{ __('Custome Url') }}</label>
+                                    <label for="custom_url" class="col-sm-3 col-form-label mb-2">{{ __('Custom Url') }}</label>
                                     <div class="col-sm-9">
                                         <input id="custom_url" name="custom_url" type="text"
                                             class="form-control mb-2 @if ($errors->has('custom_url')) is-invalid  @endif"
