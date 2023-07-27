@@ -61,6 +61,9 @@ Route::get('/testimonials', [TestimonialsController::class, 'index']);
 
 // case studies
 Route::get('/case-studies', [CaseStudyApiController::class, 'index']);
+Route::get('/case-studies/level-1/{uuid}', [CaseStudyApiController::class, 'level_1']);
+Route::get('/case-studies/{uuid}/level-2/{id}', [CaseStudyApiController::class, 'level_2']);
+Route::get('/case-studies/{uuid}/level-2/{id}/level-3/{idd}', [CaseStudyApiController::class, 'level_3']);
 
 // Route::resource('home', HomeController::class);
 
