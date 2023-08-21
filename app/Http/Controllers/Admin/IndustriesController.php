@@ -57,7 +57,7 @@ class IndustriesController extends Controller
         $service->button_title = $validated['button_title'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
-            $service->image1 = $path;
+            $service->image = $path;
         }
         if ($request->hasFile('icon')) {
             $path =  $request->file('icon')->storeAs('media/image',  $validated['icon']->getClientOriginalName(), 'public');
@@ -112,7 +112,7 @@ class IndustriesController extends Controller
         $services->button_title = $validated['button_title'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
-            $services->image1 = $path;
+            $services->image = $path;
         }
         if ($request->hasFile('icon')) {
             $path =  $request->file('icon')->storeAs('media/image',  $validated['icon']->getClientOriginalName(), 'public');
