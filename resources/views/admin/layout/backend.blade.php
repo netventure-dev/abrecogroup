@@ -533,12 +533,12 @@
                                 <span key="t-file-manager">Industry</span>
                             </a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('admin.demo_industries.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Demo Industry</span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{route('admin.our-projects.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
