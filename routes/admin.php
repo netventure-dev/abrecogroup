@@ -50,12 +50,9 @@ Route::post('home-slider/update/{id}',  'Admin\HomeSliderController@update')->na
 Route::delete('home-slider/destroy/{id}',  'Admin\HomeSliderController@destroy')->name('home-slider.destroy');
 
 // Schema
-Route::get('schema',  'Admin\SchemaController@index')->name('schema.index');
-Route::get('schema/create',  'Admin\SchemaController@create')->name('schema.create');
-Route::post('schema/store',  'Admin\SchemaController@store')->name('schema.store');
-Route::get('schema/edit/{id}',  'Admin\SchemaController@edit')->name('schema.edit');
-Route::post('schema/update/{id}',  'Admin\SchemaController@update')->name('schema.update');
-Route::delete('schema/destroy/{id}',  'Admin\SchemaController@destroy')->name('schema.destroy');
+Route::get('schema','Admin\SchemaController@index')->name('schema.index');
+Route::post('schema/create','Admin\SchemaController@store')->name('schema.store');
+Route::get('schema/{id}/update','Admin\SchemaController@update')->name('schema.update');
 
 // why choose us list
 Route::get('why-choose-us/list',  'Admin\ChooseListController@index')->name('why-choose-us.list.index');

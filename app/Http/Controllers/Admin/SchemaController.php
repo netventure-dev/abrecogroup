@@ -11,86 +11,60 @@ use Illuminate\Support\Str;
 
 class SchemaController extends Controller
 {
-    public function index(SchemaDataTable $dataTable)
-    {
+    public function index()
+   {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Schema')), null],
+            [(__('Schema')),  route('admin.schema.index')],
+            ['Schema', null],
         ];
-        return $dataTable->render('admin.schema.index', ['breadcrumbs' => $breadcrumbs]);
-    }
-    public function create()
-    {
-        // $this->authorize('create', Admin::class);
-        $breadcrumbs = [
-            ['Dashboard', route('admin.home')],
-            ['Schema', route('admin.schema.index')],
-            [(__('Create')),  null],
-        ];
-        return view('admin.schema.create', compact('breadcrumbs'));
-    }
-    public function store(Request $request)
-    {
-        // $this->authorize('create', Gender::class);
-        $validated = $request->validate([
-            'title' => 'required|unique:schema_markups,title',
-            'content' => 'required',
-            'status' => 'required'
+        $schema = SchemaMarkup::paginate(10);
+        return view('admin.schema.index',compact('breadcrumbs','schema'));
+   }
+
+   public function store(Request $request)
+   {
+        $validated = $request->validate([      
+            'slug' => 'required',
+            'title' => 'nullable',
+            'description' => 'nullable',
         ]);
-        $data = new SchemaMarkup;
-        $data->uuid = (string) Str::uuid();
-        $data->title = $validated['title'];
-        $data->description = $validated['content'];
-        $data->status = $validated['status'];
-        $res = $data->save();
+        $schema = new SchemaMarkup();
+        $schema->uuid = (string) Str::uuid();
+        $schema->route_name = $validated['slug'];
+        $schema->title =  $validated['title'];
+        $schema->description =  $validated['description'];
+        $res = $schema->save();
         if ($res) {
             notify()->success(__('Created successfully'));
         } else {
             notify()->error(__('Failed to create. Please try again'));
         }
         return redirect()->back();
-    }
-    public function edit($id)
-    {
-        // $this->authorize('update', $menu);
-        $data= SchemaMarkup::where('uuid',$id)->first();
-        $breadcrumbs = [
-            [(__('Dashboard')), route('admin.home')],
-            [(__('Schema')),  route('admin.schema.index')],
-            [$data->title, null],
-    ];
-        return view('admin.schema.edit', compact('breadcrumbs','data'));
-    }
-    public function update(Request $request,$id)
-    {
-        // $this->authorize('create', Gender::class);
-        $data= SchemaMarkup::where('uuid',$id)->first();
-        $validated = $request->validate([
-            'title' => 'required|unique:schema_markups,title,'.$data->id,
-            'content' => 'required',
-            'status' => 'required'
+   }
+   public function update(Request $request, $id)
+   {
+    
+    if($request->ajax()){
+        $schema = SchemaMarkup::where('uuid',$id)->first();
+        $route = @$request->route;
+        if($route){            
+        $schema->route_name = $request->route;
+        }
+        $title = @$request->title;
+        if($title){            
+            $schema->title = $request->title;
+        }
+        $description = @$request->description;
+        if($description){            
+            $schema->description = $request->description;
+        }
+        $res = $schema->update();
 
-        ]);
-        $data->title = $validated['title'];
-        $data->description = $validated['content'];
-        $data->status = $validated['status'];
-        $res = $data->save();
-        if ($res) {
-            notify()->success(__('Updated Successfully'));
-        } else {
-            notify()->error(__('Failed to create. Please try again'));
+
+        if($res){
+            return response()->json(['success' => true,'message' => 'Updated Successfully']);
         }
-        return redirect()->back();
     }
-    public function destroy($id)
-    {
-        // $this->authorize('delete', $menu);
-        $res = SchemaMarkup::where('uuid',$id)->delete();
-        if ($res) {
-            notify()->success(__('Deleted successfully'));
-        } else {
-            notify()->error(__('Failed to Delete. Please try again'));
-        }
-        return redirect()->back();
-    }
+   }
 }
