@@ -31,7 +31,7 @@ class IndustryController extends Controller
 
     public function details($uuid)
     {
-        $data['industry'] = Industry::where('uuid', $uuid)->where('status', 1)
+        $data['industry'] = Industry::where('slug', $uuid)->where('status', 1)
             ->select('id', 'uuid', 'custom_url','name','slug')
             ->with(['contents' => function ($query) {
                 $query->where('status', 1)
