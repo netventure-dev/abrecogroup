@@ -86,7 +86,7 @@
                                     <div class="col-sm-9">
                                         <input id="alt_text" name="alt_text" type="text"
                                             class="form-control mb-2 @if ($errors->has('alt_text')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter alt_text') }}" required value="{{ @old('alt_text',@$services->alt_text) }}">
+                                            placeholder="{{ __('Enter alt text') }}" required value="{{ @old('alt_text',@$services->alt_text) }}">
                                         <div class="invalid-feedback">{{ $errors->first('alt_text') }}
                                         </div>
                                     </div>

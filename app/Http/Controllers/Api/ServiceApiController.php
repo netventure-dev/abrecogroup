@@ -63,8 +63,8 @@ class ServiceApiController extends Controller
                                 },'contents' => function($query) {
                                     $query->select('id','sub_service_id', 'uuid', 'title','sub_title','description','order','image','mobile_image')->where('status',1);
                                 },'contents.extra_contents'])
-                                ->where('uuid', $sub_id)
-                                ->where('service_id', $uuid)
+                                ->where('slug', $sub_id)
+                                ->where('service_slug', $uuid)
                                 ->where('status', 1)
                                 ->orderBy('created_at', 'desc')
                                 ->first();
@@ -79,8 +79,8 @@ class ServiceApiController extends Controller
         ->with(['contents' => function($query){
         $query->select('id', 'inner_service_id','uuid', 'title','sub_title', 'description', 'order','image')->where('status',1);
                                 },'contents.extra_contents'])
-                                ->where('uuid', $sub_id)
-                                ->where('sub_service_id', $uuid)
+                                ->where('slug', $sub_id)
+                                ->where('sub_service_slug', $uuid)
                                 ->where('status', 1)
                                 ->orderBy('created_at', 'desc')
                                 ->first();
