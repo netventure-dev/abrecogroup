@@ -21,4 +21,16 @@ class BlogApiController extends Controller
         }
         return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
    }
+
+   public function details($uuid)
+   {
+        $data['blogLists'] = Bloglist::select('uuid', 'title', 'description', 'image', 'slug')
+                            ->where('slug', $uuid)
+                            ->where('status', 1)
+                            ->first();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+   }
 }

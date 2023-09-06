@@ -41,6 +41,7 @@ Route::get('/service/level-1/{uuid}', [ServiceApiController::class, 'details']);
 Route::get('/service/{uuid}/level-2/{id}', [ServiceApiController::class, 'sub_services']);
 Route::get('/service/{uuid}/level-2/{id}/level-3/{idd}', [ServiceApiController::class, 'inner_services']);
 Route::get('/blogs', [BlogApiController::class, 'index']);
+Route::get('/blogs/details/{uuid}', [BlogApiController::class, 'details']);
 
 // /sections
 Route::get('/section_3_driven', [HomeController::class, 'section_3']);
