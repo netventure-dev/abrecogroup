@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\TestimonialsController;
 use App\Http\Controllers\Api\CaseStudyApiController;
 use App\Http\Controllers\Api\PolicyPageApiController;
 use App\Http\Controllers\Api\ContactUsApiController;
+use App\Http\Controllers\Api\CareerApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -56,6 +57,10 @@ Route::post('/form', [ServiceFormController::class, 'store']);
 
 // Contact
 Route::post('/contact-form', [ContactUsApiController::class, 'store']);
+
+// Career
+Route::post('/career-form', [CareerApiController::class, 'store']);
+
 
 // Testimonials
 Route::get('/testimonials', [TestimonialsController::class, 'index']);
