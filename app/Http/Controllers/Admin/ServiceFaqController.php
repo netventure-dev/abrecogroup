@@ -43,6 +43,7 @@ class ServiceFaqController extends Controller
             'title' => 'required',
             'description' => 'required',
             'order' => 'required|numeric',
+            'status' => 'required',
         ]); 
 
         $faq = new ServiceFaq();
@@ -51,6 +52,7 @@ class ServiceFaqController extends Controller
         $faq->title =  $validated['title'];
         $faq->description =  $validated['description'];
         $faq->order =  $validated['order'];
+        $faq->status = $validated['status'];  
         $res = $faq->save();
         if ($res) {
             notify()->success(__('Created successfully'));
@@ -84,6 +86,7 @@ class ServiceFaqController extends Controller
             'title' => 'required',
             'description' => 'required',
             'order' => 'required|numeric',
+            'status' => 'required',
         ]); 
 
         // $faq = new ServiceFaq();
@@ -92,6 +95,7 @@ class ServiceFaqController extends Controller
         $faq->title =  $validated['title'];
         $faq->description =  $validated['description'];
         $faq->order =  $validated['order'];
+        $faq->status = $validated['status'];  
         $res = $faq->save();
         if ($res) {
             notify()->success(__('Updated successfully'));
