@@ -17,8 +17,8 @@ class CookieController extends Controller
              // [(__('SEO')),  route('admin.seo.index')],
              // ['SEO', null],
          ];
-
-         return view('admin.policy.cookie',compact('breadcrumbs'));
+        $cookie=Cookie::first();
+         return view('admin.policy.cookie',compact('breadcrumbs','cookie'));
     }
     public function store(Request $request)
    {

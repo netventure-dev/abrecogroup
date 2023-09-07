@@ -14,7 +14,7 @@ class PolicyPageApiController extends Controller
     public $failedStatus = 400;
     public function terms()
    {
-        $data['pages'] = Terms::select('uuid', 'title','content','image')->get();
+        $data['terms'] = Terms::select('uuid', 'title','content','image')->first();
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }
@@ -23,7 +23,7 @@ class PolicyPageApiController extends Controller
 
    public function policy()
    {
-    $data['privacy'] = Privacy::select('uuid', 'title','content','image')->get();
+    $data['privacy'] = Privacy::select('uuid', 'title','content','image')->first();
     if (!empty($data)) {
         return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
     }
@@ -33,7 +33,7 @@ class PolicyPageApiController extends Controller
    public function cookie()
    {
 
-    $data['pages'] = Cookie::select('uuid', 'title','content','image')->get();
+    $data['cookie'] = Cookie::select('uuid', 'title','content','image')->first();
     if (!empty($data)) {
         return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
     }

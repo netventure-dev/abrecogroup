@@ -85,7 +85,7 @@ class ServiceApiController extends Controller
         ->with(['contents' => function($query){
         $query->select('id', 'inner_service_id','uuid', 'title','sub_title', 'description', 'order','image')->where('status',1);
                                 }, 'casestudy' => function($query) {
-                                    $query->select('id','service_id','sub_service_id', 'uuid', 'title','subtitle','image1','content','image2')->where('status',1);
+                                    $query->select('id','service_id','sub_service_id', 'inner_service_id','uuid', 'title','subtitle','image1','content','image2')->where('status',1);
                                 },'contents.extra_contents'])
                                 ->where('slug', $sub_id)
                                 ->where('sub_service_slug', $uuid)

@@ -38,7 +38,7 @@
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}</label>
                                     <div class="col-sm-9">
                                             <textarea name="title" class="form-control @if ($errors->has('title')) is-invalid @endif" ro
-                                                placeholder="{{ __('Enter title') }}" required>{{ @old('title') }}</textarea>
+                                                placeholder="{{ __('Enter title') }}" required>{{ @old('title',@$policy->title) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
                                     </div>
@@ -49,7 +49,7 @@
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="content"
-                                            class="form-control @if ($errors->has('content')) is-invalid @endif" ro placeholder="{{ __('Enter Content') }}" required>{{ @old('content')}}</textarea>
+                                            class="form-control @if ($errors->has('content')) is-invalid @endif"  placeholder="{{ __('Enter Content') }}" required>{{ @old('content',@$policy->content)}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
                                     </div>
@@ -59,6 +59,9 @@
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Cover Image') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
+                                        @if (isset($policy->image))
+                                            <img src="{{ asset('storage/'.$policy->image) }}" alt="" class="img-fluid" style="width:250px;">
+                                        @endif
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>

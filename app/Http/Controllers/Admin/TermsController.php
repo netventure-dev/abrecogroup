@@ -16,8 +16,8 @@ class TermsController extends Controller
             // [(__('SEO')),  route('admin.seo.index')],
             // ['SEO', null],
         ];
-       
-        return view('admin.policy.terms',compact('breadcrumbs'));
+       $terms=Terms::first();
+        return view('admin.policy.terms',compact('breadcrumbs','terms'));
    }
 
 

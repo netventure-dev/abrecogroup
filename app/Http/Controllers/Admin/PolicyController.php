@@ -16,8 +16,8 @@ class PolicyController extends Controller
              // [(__('SEO')),  route('admin.seo.index')],
              // ['SEO', null],
          ];
-
-         return view('admin.policy.policy',compact('breadcrumbs'));
+         $policy=Privacy::first();
+         return view('admin.policy.policy',compact('breadcrumbs','policy'));
     }
 
     public function store(Request $request)
