@@ -28,4 +28,8 @@ class InnerService extends Model
     {
         return $this->hasMany('App\Models\InnerServiceContent', 'inner_service_id', 'uuid');
     }
+    public function casestudy()
+    {
+        return $this->hasMany('App\Models\CaseStudy','inner_service_id','uuid');
+    }
 }

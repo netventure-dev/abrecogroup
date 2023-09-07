@@ -34,4 +34,8 @@ class Service extends Model
     {
         return $this->hasMany('App\Models\SubService','service_id','uuid');
     }
+    public function casestudy()
+    {
+        return $this->hasMany('App\Models\CaseStudy','service_id','uuid');
+    }
 }

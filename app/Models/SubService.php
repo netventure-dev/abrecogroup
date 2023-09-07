@@ -32,4 +32,8 @@ class SubService extends Model
     {
         return $this->hasMany('App\Models\SubServiceContent','sub_service_id','uuid');
     }
+    public function casestudy()
+    {
+        return $this->hasMany('App\Models\CaseStudy','sub_service_id','uuid');
+    }
 }
