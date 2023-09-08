@@ -46,7 +46,7 @@ class IndustriesContentController extends Controller
             'title' => 'nullable',
             'sub_title' => 'nullable',
             'content' => 'nullable',
-            'description' => 'required',
+            'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
 
@@ -111,7 +111,7 @@ class IndustriesContentController extends Controller
             'title' => 'nullable',
             'sub_title' => 'nullable',
             'content' => 'nullable',
-            'description' => 'required',
+            'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
 

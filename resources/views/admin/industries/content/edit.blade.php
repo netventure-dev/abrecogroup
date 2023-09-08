@@ -68,11 +68,10 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="description" class="col-sm-3 col-form-label">{{ __('Description') }}
-                                        <span class="text-danger">*</span></label>
+                                    <label for="description" class="col-sm-3 col-form-label">{{ __('Description') }}</label>
                                     <div class="col-sm-9">
                                         <textarea name="description" class="form-control  @if ($errors->has('description')) is-invalid @endif" ro
-                                            placeholder="{{ __('Enter Description') }}" required>{{ @old('description', @$content->description) }}</textarea>
+                                            placeholder="{{ __('Enter Description') }}">{{ @old('description', @$content->description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>
