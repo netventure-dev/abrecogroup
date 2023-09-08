@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\SalesDifficultyController;
 use App\Http\Controllers\Admin\PolicyController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProfileController;
-
+use App\Http\Controllers\Admin\CareerOpeningController;
 
 Route::get('/home', function () {
   $users[] = Auth::user();
@@ -354,3 +354,11 @@ Route::post('demo_industries/{id}/extra-content/store',  'Admin\DemoIndustryExtr
 Route::get('demo_industries/{id}/extra-content/{uuid}/edit',  'Admin\DemoIndustryExtraContentController@edit')->name('demo_industries.content.extra.edit');
 Route::post('demo_industries/{id}/extra-content/{uuid}/update',  'Admin\DemoIndustryExtraContentController@update')->name('demo_industries.content.extra.update');
 Route::post('demo_industries/{id}/extra-content/{uuid}/destroy',  'Admin\DemoIndustryExtraContentController@destroy')->name('demo_industries.content.extra.destroy');
+
+// career opening
+Route::get('career-opening','Admin\CareerOpeningController@index')->name('career-opening.index');
+Route::get('career-opening/create','Admin\CareerOpeningController@create')->name('career-opening.create');
+Route::post('career-opening/store','Admin\CareerOpeningController@store')->name('career-opening.store');
+Route::get('career-opening/edit/{id}','Admin\CareerOpeningController@edit')->name('career-opening.edit');
+Route::post('career-opening/update/{id}','Admin\CareerOpeningController@update')->name('career-opening.update');
+Route::delete('career-opening/destroy/{id}','Admin\CareerOpeningController@destroy')->name('career-opening.destroy');
