@@ -54,12 +54,24 @@ class CaseStudyController extends Controller
             'status' => 'required',
             'order' => 'nullable',
         ]);
+        $sub_service="";
+        $inner_service="";
+        $service=Service::where('uuid',$validated['service'])->first();
+        $sub_service=SubService::where('uuid',$validated['sub_service'])->first();
+        $inner_service=InnerService::where('uuid',$validated['inner_service'])->first();
         $case = new CaseStudy();
         $case->uuid = (string) Str::uuid();
         $case->slug = SlugService::createSlug(CaseStudy::class, 'slug', $validated['title'], ['unique' => false]);
         $case->title = $validated['title'];
         $case->service_id = $validated['service'];
+        $case->service_slug = $service->slug;
         $case->sub_service_id = $validated['sub_service'];
+        if($sub_service != ""){
+            $case->sub_service_slug = $sub_service->slug;
+        }
+        if($inner_service != ""){
+            $case->inner_service_id = $inner_service->slug;
+        }
         $case->inner_service_id = $validated['inner_service'];
         $case->content = $validated['content'];
         $case->content2 = $validated['content2'];
@@ -124,11 +136,23 @@ class CaseStudyController extends Controller
             'status' => 'required',
             'order' => 'nullable',
         ]);
+        $sub_service="";
+        $inner_service="";
+        $service=Service::where('uuid',$validated['service'])->first();
+        $sub_service=SubService::where('uuid',$validated['sub_service'])->first();
+        $inner_service=InnerService::where('uuid',$validated['inner_service'])->first();
         $case->slug = SlugService::createSlug(CaseStudy::class, 'slug', $validated['title'], ['unique' => false]);
         $case->title = $validated['title'];
         $case->service_id = $validated['service'];
+        $case->service_slug = $service->slug;
         $case->sub_service_id = $validated['sub_service'];
         $case->inner_service_id = $validated['inner_service'];
+        if($sub_service != ""){
+            $case->sub_service_slug = $sub_service->slug;
+        }
+        if($inner_service != ""){
+            $case->inner_service_id = $inner_service->slug;
+        }
         $case->content = $validated['content'];
         $case->content2 = $validated['content2'];
         $case->order = $validated['order'];
