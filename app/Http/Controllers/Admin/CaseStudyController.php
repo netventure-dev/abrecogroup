@@ -151,7 +151,7 @@ class CaseStudyController extends Controller
             $case->sub_service_slug = $sub_service->slug;
         }
         if($inner_service != ""){
-            $case->inner_service_id = $inner_service->slug;
+            $case->inner_service_slug = $inner_service->slug;
         }
         $case->content = $validated['content'];
         $case->content2 = $validated['content2'];

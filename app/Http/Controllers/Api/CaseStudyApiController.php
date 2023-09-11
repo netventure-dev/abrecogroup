@@ -16,7 +16,7 @@ class CaseStudyApiController extends Controller
     public $failedStatus = 400;
     public function index()
     {
-        $data['case_studies'] = CaseStudy::select('id','service_id','slug','inner_service_id','sub_service_id','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status')
+        $data['case_studies'] = CaseStudy::select('id','slug','service_id','service_slug','inner_service_id','inner_service_slug','sub_service_id','sub_service_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status')
                                 ->with(['contents' => function ($query) {
                                     $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
                                 }])
@@ -30,11 +30,11 @@ class CaseStudyApiController extends Controller
     }
     public function level_1($uuid)
     {
-        $data['case_studies'] = CaseStudy::select('id','service_id','slug','inner_service_id','sub_service_id','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status')
+        $data['case_studies'] = CaseStudy::select('id','slug','service_id','service_slug','inner_service_id','inner_service_slug','sub_service_id','sub_service_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status')
                                 ->with(['contents' => function ($query) {
                                     $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
                                 }])
-                                ->where('service_id', $uuid)
+                                ->where('service_slug', $uuid)
                                 ->where('status', 1)
                                 ->orderBy('created_at', 'desc')
                                 ->get();
@@ -45,12 +45,12 @@ class CaseStudyApiController extends Controller
     }
     public function level_2($uuid,$id)
     {
-        $data['case_studies'] = CaseStudy::select('id','service_id','slug','inner_service_id','sub_service_id','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status')
+        $data['case_studies'] = CaseStudy::select('id','slug','service_id','service_slug','inner_service_id','inner_service_slug','sub_service_id','sub_service_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status')
                                 ->with(['contents' => function ($query) {
                                     $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
                                 }])
-                                ->where('service_id', $uuid)
-                                ->where('sub_service_id', $id)
+                                ->where('service_slug', $uuid)
+                                ->where('sub_service_slug', $id)
                                 ->where('status', 1)
                                 ->orderBy('created_at', 'desc')
                                 ->get();
@@ -65,9 +65,9 @@ class CaseStudyApiController extends Controller
                                 ->with(['contents' => function ($query) {
                                     $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
                                 }])
-                                ->where('service_id', $uuid)
-                                ->where('sub_service_id', $id)
-                                ->where('inner_service_id', $idd)
+                                ->where('service_slug', $uuid)
+                                ->where('sub_service_slug', $id)
+                                ->where('inner_service_slug', $idd)
                                 ->where('status', 1)
                                 ->orderBy('created_at', 'desc')
                                 ->get();
