@@ -14,6 +14,6 @@ class CareerReportController extends Controller
             [(__('Dashboard')), route('admin.home')],
             [(__('Career Report')), null],
         ];
-        return $dataTable->render('admin.reports.career', ['breadcrumbs' => $breadcrumbs]);
+        return $dataTable->render('admin.reports.career.index', ['breadcrumbs' => $breadcrumbs]);
     }
 }
