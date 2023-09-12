@@ -637,7 +637,7 @@
                         <li>
                             <a href="{{route('admin.career-opening.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Carrier Opening</span>
+                                <span key="t-file-manager">Career Opening</span>
                             </a>
                         </li>
                         <li>

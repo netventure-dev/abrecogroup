@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Career;
+use App\Models\CareerOpening;
 use App\Admin;
 use App\Notifications\CareerNotification;
 use App\Notifications\CareerAdminNotification;
@@ -18,6 +19,13 @@ class CareerApiController extends Controller
     public $successStatus = 200;
     public $failedStatus = 400;
 
+    public function index(Request $request){
+        $data['career'] = CareerOpening::select('uuid', 'position', 'description', 'experience')->where('status', 1)->get();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
     public function store(Request $request)
     {
         //return 2;
