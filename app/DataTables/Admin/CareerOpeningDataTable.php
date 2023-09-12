@@ -25,9 +25,6 @@ class CareerOpeningDataTable extends DataTable
         ->editColumn('position', function (CareerOpening $new) {
             return $new->position;
         })
-        ->editColumn('description', function (CareerOpening $new) {
-            return @$new->description;
-        })
         ->editColumn('experience', function (CareerOpening $new) {
             return @$new->experience;
         })
@@ -44,7 +41,7 @@ class CareerOpeningDataTable extends DataTable
             return view('admin.career-opening.action', compact('career'));
         })
 
-        ->rawColumns(['position','description','status','experience']);
+        ->rawColumns(['position','status','experience']);
     }
 
     /**
@@ -82,7 +79,6 @@ class CareerOpeningDataTable extends DataTable
         return [
         Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
             Column::make('position')->title(__('Position')),
-            Column::make('description')->title(__('Description')),
             Column::make('status')->title(__('Status')),
             Column::computed('action')
                 ->title(__('Action'))
