@@ -635,11 +635,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('admin.career-opening.index')}}" class="waves-effect">
+                            <a href="{{ route('admin.careerenquiry.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Career Opening</span>
+                                <span key="t-file-manager">Career Enquiries</span>
                             </a>
                         </li>
+                      
                         <li>
                             <a href="{{route('admin.feedbackenquiry.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
@@ -658,6 +659,12 @@
                             <a href="{{route('admin.general.create')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">General</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.career-opening.index')}}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Career Opening</span>
                             </a>
                         </li>
                         <li>
