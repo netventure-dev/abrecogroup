@@ -63,7 +63,7 @@ class CareerOpeningController extends Controller
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('career')),  route('admin.career-opening.index')],
-            [$career->title, null],
+            [$career->position, null],
     ];
         return view('admin.career-opening.edit', compact('breadcrumbs','career'));
     }
