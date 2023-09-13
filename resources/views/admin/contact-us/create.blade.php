@@ -87,7 +87,7 @@
                                     <div class="col-sm-9">
                                         @if (isset($data->image))
                                             <img src="{{ asset('/storage/' . @$data->image) }}" alt=""
-                                                class="img-fluid" style="width:100px;">
+                                                class="img-fluid" style="width:100px;" required>
                                         @endif
                                         <input id="banner_image" name="banner_image" type="file"
                                             class="form-control mb-2 @if ($errors->has('banner_image')) is-invalid @endif"
