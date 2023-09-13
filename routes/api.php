@@ -15,6 +15,8 @@ use App\Http\Controllers\Api\CaseStudyApiController;
 use App\Http\Controllers\Api\PolicyPageApiController;
 use App\Http\Controllers\Api\ContactUsApiController;
 use App\Http\Controllers\Api\CareerApiController;
+use App\Http\Controllers\Api\SeoApiController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -88,3 +90,5 @@ Route::get('/policy',[PolicyPageApiController::class,'policy']);
 //cookie
 Route::get('/cookie',[PolicyPageApiController::class,'cookie']);
 
+//seo
+Route::get('/seo/{slug}',[SeoApiController::class,'index']);

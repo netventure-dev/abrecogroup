@@ -258,12 +258,6 @@ Route::get('content/{id}/extra/{uuid}/edit',  'Admin\SubServiceExtraController@e
 Route::post('content/{id}/extra/{uuid}/update',  'Admin\SubServiceExtraController@update')->name('sub-services.extra.update');
 Route::post('content/{id}/extra/{uuid}/destroy',  'Admin\SubServiceExtraController@destroy')->name('sub-services.extra.destroy');
 
-
-
-
-
-
-
 // contact-us
 Route::get('contact-us/create',  'Admin\ContactUsController@create')->name('contact-us.create');
 Route::post('contact-us/store',  'Admin\ContactUsController@store')->name('contact-us.store');
