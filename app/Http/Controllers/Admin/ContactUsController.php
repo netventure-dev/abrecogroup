@@ -29,7 +29,7 @@ class ContactUsController extends Controller
             'content' => 'required',
             'address' => 'required',
             'phone' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|min:9',
-            'banner_image' => 'required|mimes:jpg,jpeg,png,webp | max:2000',
+            'banner_image' => 'sometimes|mimes:jpg,jpeg,png,webp | max:2000',
             'link' => 'nullable',
             'map_link' => 'nullable',
             'seo_title' => 'nullable',
