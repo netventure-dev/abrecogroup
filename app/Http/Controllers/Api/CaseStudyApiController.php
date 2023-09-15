@@ -43,6 +43,22 @@ class CaseStudyApiController extends Controller
          }
          return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
     }
+    public function level_1_slug($uuid,$case_slug)
+    {
+        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status')
+                                ->with(['contents' => function ($query) {
+                                    $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
+                                }])
+                                ->where('service_slug', $uuid)
+                                ->where('slug', $case_slug)
+                                ->where('status', 1)
+                                ->orderBy('created_at', 'desc')
+                                ->get();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+         }
+         return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
     public function level_2($uuid,$id)
     {
         $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status')
@@ -51,6 +67,24 @@ class CaseStudyApiController extends Controller
                                 }])
                                 ->where('service_slug', $uuid)
                                 ->where('sub_service_slug', $id)
+                                ->where('status', 1)
+                                ->orderBy('created_at', 'desc')
+                                ->get();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+         }
+         return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
+
+    public function level_2_slug($uuid,$id,$case_slug)
+    {
+        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status')
+                                ->with(['contents' => function ($query) {
+                                    $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
+                                }])
+                                ->where('service_slug', $uuid)
+                                ->where('sub_service_slug', $id)
+                                ->where('slug',$case_slug)
                                 ->where('status', 1)
                                 ->orderBy('created_at', 'desc')
                                 ->get();
@@ -68,6 +102,24 @@ class CaseStudyApiController extends Controller
                                 ->where('service_slug', $uuid)
                                 ->where('sub_service_slug', $id)
                                 ->where('inner_service_slug', $idd)
+                                ->where('status', 1)
+                                ->orderBy('created_at', 'desc')
+                                ->get();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+         }
+         return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
+    public function level_3_slug($uuid,$id,$idd,$case_slug)
+    {
+        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status')
+                                ->with(['contents' => function ($query) {
+                                    $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
+                                }])
+                                ->where('service_slug', $uuid)
+                                ->where('sub_service_slug', $id)
+                                ->where('inner_service_slug', $idd)
+                                ->where('slug',$case_slug)
                                 ->where('status', 1)
                                 ->orderBy('created_at', 'desc')
                                 ->get();
