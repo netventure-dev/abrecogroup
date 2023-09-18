@@ -129,6 +129,42 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="mb-4 row">
+                                    <label for="seo_title"
+                                            class="col-sm-3 col-form-label">{{ __('Seo Title') }}
+                                            </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="seo_title" name="seo_title"
+                                        placeholder="Please provide the meta title" value="{{ @old('seo_title') }}"
+                                        >
+                                        <div class="invalid-feedback">{{ $errors->first('seo_title') }}
+                                        </div>
+                                    </div>
+                                </div>   
+                                <div class="mb-4 row">
+                                    <label for="seo_description"
+                                            class="col-sm-3 col-form-label">{{ __('Seo Description') }}
+                                            </label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" id="seo_description" name="seo_description" rows="2"
+                                                placeholder="Please provide meta description"
+                                                >{{ @old('seo_description') }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('seo_description') }}
+                                        </div>
+                                    </div>
+                                </div>   
+                                <div class="mb-4 row">
+                                    <label for="seo_keywords"
+                                            class="col-sm-3 col-form-label">Meta Keywords <small>Seperated by comma</small>
+                                            </label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" id="seo_keywords" name="seo_keywords" rows="2"
+                                                placeholder="Please provide meta keywords"
+                                                >{{ @old('seo_keywords') }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('seo_keywords') }}
+                                        </div>
+                                    </div>
+                                </div>   
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">
                                         <div>

@@ -42,6 +42,9 @@ class AboutUsController extends Controller
             'image' => 'required| max:2000',
             'link' => 'nullable',
             'status' => 'required',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_keywords' => 'nullable',
         ]);
         $data = AboutUs::firstOrCreate();
         $data->uuid = (string) Str::uuid();
@@ -50,6 +53,9 @@ class AboutUsController extends Controller
         $data->content = $validated['content'];
         $data->alt_text = $validated['alt_text'];
         $data->link = $validated['link'];
+        $data->seo_title = $validated['seo_title'];
+        $data->seo_description = $validated['seo_description'];
+        $data->seo_keywords = $validated['seo_keywords'];
         $data->status = $validated['status'];
         if ($request->hasFile('banner_image')) {
             $path =  $request->file('banner_image')->storeAs('media/aboutus/image',$validated['banner_image']->getClientOriginalName(), 'public');

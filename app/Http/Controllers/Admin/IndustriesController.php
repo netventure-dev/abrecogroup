@@ -42,6 +42,9 @@ class IndustriesController extends Controller
             'link' => 'nullable',
             'button_title' => 'nullable',
             'status' => 'required',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_keywords' => 'nullable',
             'order' => 'nullable',
         ]);
         $service = new Industry();
@@ -52,6 +55,9 @@ class IndustriesController extends Controller
         $service->custom_url = $validated['custom_url'];
         $service->order = $validated['order'];
         $service->status = $validated['status'];  
+        $services->seo_title = $validated['seo_title'];
+        $services->seo_description = $validated['seo_description'];
+        $services->seo_keywords = $validated['seo_keywords'];
         $service->subtitle = $validated['sub_title'];
         $service->link = $validated['link'];
         $service->button_title = $validated['button_title'];
@@ -98,6 +104,9 @@ class IndustriesController extends Controller
             'icon' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
             'button_title' => 'nullable',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_keywords' => 'nullable',
             'status' => 'required',
             'order' => 'nullable',
         ]);
@@ -108,6 +117,9 @@ class IndustriesController extends Controller
         $services->status = $validated['status'];  
         $services->custom_url = $validated['custom_url'];
         $services->subtitle = $validated['sub_title'];
+        $services->seo_title = $validated['seo_title'];
+        $services->seo_description = $validated['seo_description'];
+        $services->seo_keywords = $validated['seo_keywords'];
         $services->link = $validated['link'];
         $services->button_title = $validated['button_title'];
         if ($request->hasFile('image')) {

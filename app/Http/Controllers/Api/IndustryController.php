@@ -12,6 +12,8 @@ class IndustryController extends Controller
     public $successStatus = 200;
     public $failedStatus = 400;
 
+
+    
     public function index()
     {
         $data['industries'] = Industry::with(['contents' => function ($query) {
@@ -19,7 +21,7 @@ class IndustryController extends Controller
                             ->select('id', 'uuid', 'industries_id', 'title','subtitle', 'description', 'order', 'image', 'button_title', 'button_link')
                             ->orderBy('order', 'ASC');
                     },'contents.extra_contents'])
-                    ->where('status', 1)->select('id', 'uuid','slug', 'name','custom_url','subtitle','icon','image','content','button_title','link')
+                    ->where('status', 1)->select('id', 'uuid','slug', 'name','custom_url','subtitle','icon','image','content','button_title','link','seo_title','seo_description','seo_keywords')
                     ->orderBy('created_at', 'desc')
                     ->get();
 

@@ -15,7 +15,7 @@ class AboutController extends Controller
  
     public function index()
     {
-        $data['about'] = AboutUs::select('cover_title','cover_content','banner_image','content_image','content','link')->first();
+        $data['about'] = AboutUs::select('cover_title','cover_content','banner_image','content_image','content','link','seo_title','seo_description','seo_keywords')->first();
         $data['about_list'] = AboutUsList::select('id','title','content','icon','link')->where('status',1)->get();
         $data['mission_vision']=MissionVision::select('id','uuid','title','description','image','mobile_image')->where('status',1)->get();
         if (!empty($data)) {

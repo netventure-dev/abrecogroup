@@ -47,6 +47,9 @@ class HomeSliderController extends Controller
             'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_slider' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_keywords' => 'nullable',
         ]);
         $slider = new HomeSlider;
         $slider->uuid = (string) Str::uuid();
@@ -55,6 +58,9 @@ class HomeSliderController extends Controller
         $slider->button_title = $validated['button_title'];
         $slider->link = $validated['link'];
         $slider->description = $validated['content'];
+        $slider->seo_title = $validated['seo_title'];
+        $slider->seo_description = $validated['seo_description'];
+        $slider->seo_keywords = $validated['seo_keywords'];
         $slider->status = $validated['status'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',$validated['image']->getClientOriginalName(), 'public');
@@ -96,12 +102,18 @@ class HomeSliderController extends Controller
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_slider' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_keywords' => 'nullable',
         ]);
         $slider->title = $validated['title'];
         $slider->sub_title = $validated['sub_title'];
         $slider->button_title = $validated['button_title'];
         $slider->description = $validated['content'];
         $slider->status = $validated['status'];
+        $slider->seo_title = $validated['seo_title'];
+        $slider->seo_description = $validated['seo_description'];
+        $slider->seo_keywords = $validated['seo_keywords'];
         $slider->link = $validated['link'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image/', $validated['image']->getClientOriginalName(), 'public');
