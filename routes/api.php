@@ -59,7 +59,7 @@ Route::post('/form', [ServiceFormController::class, 'store']);
 
 // Contact
 Route::post('/contact-form', [ContactUsApiController::class, 'store']);
-Route::get('/contact', [ContactUsApiController::class, 'contact']);
+Route::get('/contact', [ContactUsApiController::class, 'contact-us']);
 
 
 // Career
