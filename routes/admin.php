@@ -135,6 +135,7 @@ Route::get('sections/{id}/content/{uuid}/edit',  'Admin\SectionContentController
 Route::post('sections/{id}/content/{uuid}/update',  'Admin\SectionContentController@update')->name('sections.content.update');
 Route::post('sections/{id}/content/{uuid}/destroy',  'Admin\SectionContentController@destroy')->name('sections.content.destroy');
 
+
 // services
 Route::get('services',  'Admin\ServiceController@index')->name('services.index');
 Route::get('services/create',  'Admin\ServiceController@create')->name('services.create');
