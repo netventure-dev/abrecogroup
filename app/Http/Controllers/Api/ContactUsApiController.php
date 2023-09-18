@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\ContactUs;
 use App\Admin;
 use App\Notifications\ContactNotification;
 use App\Notifications\ContactusNotification;
@@ -17,24 +18,30 @@ class ContactUsApiController extends Controller
 {
     public $successStatus = 200;
     public $failedStatus = 400;
-
+    //ContactUs
+    public function contact()
+    {
+        // dd(1);
+        $data['contact'] = ContactUs::select('title', 'description', 'link', 'phone', 'address', 'map_link', 'image', 'seo_title', 'seo_description', 'seo_keywords')->get();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
     public function store(Request $request)
     {
         //return 2;
-        $validated = $request->validate(
-            [
-                'name' => 'required|max:255',
-                'email' => 'required|email|max:255',
-                'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-                'message' => 'required',
-                'organization' => 'required',
-                'job' => 'required',
-                'reason' => 'required',
-                'refer' => 'required',
-                // 'g-recaptcha-response' => 'required|captcha',
-
-            ],
-        );
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'message' => 'required',
+            'organization' => 'required',
+            'job' => 'required',
+            'reason' => 'required',
+            'refer' => 'required',
+            // 'g-recaptcha-response' => 'required|captcha',
+        ]);
         // return 1;
         $data = new Contact();
         $data->name = $validated['name'];

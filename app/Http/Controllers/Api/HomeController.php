@@ -71,6 +71,7 @@ class HomeController extends Controller
         }
         return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
     }   
+   
     public function section_3()
     {
        // section 1
