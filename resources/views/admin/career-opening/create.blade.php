@@ -1,14 +1,16 @@
 @extends('admin.layout.backend')
 
-@section('title') {{ __('Create Slider') }} @endsection
+@section('title')
+    {{ __('Create Slider') }}
+@endsection
 @section('css')
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 @endsection
 @section('content')
 
     @component('admin.components.breadcrumb', ['breadcrumbs' => $breadcrumbs])
-        @slot('title') @endslot
+        @slot('title')
+        @endslot
     @endcomponent
     <!-- start page title -->
     <div class="row">
@@ -39,8 +41,9 @@
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <input id="position" name="position" type="text"
-                                            class="form-control mb-2 @if ($errors->has('position')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter Position') }}" required value="{{ @old('position') }}">
+                                            class="form-control mb-2 @if ($errors->has('position')) is-invalid @endif"
+                                            placeholder="{{ __('Enter Position') }}" required
+                                            value="{{ @old('position') }}">
                                         <div class="invalid-feedback">{{ $errors->first('position') }}
                                         </div>
                                     </div>
@@ -48,22 +51,22 @@
 
 
                                 <div class="mb-4 row">
-                                    <label for="description"
-                                            class="col-sm-3 col-form-label">{{ __('Description') }}
-                                            <span class="text-danger">*</span></label>
+                                    <label for="description" class="col-sm-3 col-form-label">{{ __('Description') }}
+                                        <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea name="description"
-                                            class="form-control  @if ($errors->has('description')) is-invalid @endif" ro placeholder="{{ __('Enter Content Description') }}">{{ @old('description')}}</textarea>
+                                        <textarea name="description" class="form-control  @if ($errors->has('description')) is-invalid @endif" ro
+                                            placeholder="{{ __('Enter Content Description') }}">{{ @old('description') }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="experience" class="col-sm-3 col-form-label mb-2">{{ __('Experience') }}</label>
+                                    <label for="experience"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Experience') }}</label>
                                     <div class="col-sm-9">
                                         <input id="experience" name="experience" type="text"
-                                            class="form-control mb-2 @if ($errors->has('experience')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter Experience') }}"  value="{{ @old('experience') }}">
+                                            class="form-control mb-2 @if ($errors->has('experience')) is-invalid @endif"
+                                            placeholder="{{ __('Enter Experience') }}" value="{{ @old('experience') }}">
                                         <div class="invalid-feedback">{{ $errors->first('experience') }}
                                         </div>
                                     </div>
@@ -86,10 +89,43 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="mb-4 row">
+                                    <label for="seo_title" class="col-sm-3 col-form-label">{{ __('Seo Title') }}
+                                    </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="seo_title" name="seo_title"
+                                            placeholder="Please provide the meta title" value="{{ @old('seo_title') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('seo_title') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
+                                    <label for="seo_description"
+                                        class="col-sm-3 col-form-label">{{ __('Seo Description') }}
+                                    </label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" id="seo_description" name="seo_description" rows="2"
+                                            placeholder="Please provide meta description">{{ @old('seo_description') }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('seo_description') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
+                                    <label for="seo_keywords" class="col-sm-3 col-form-label">Meta Keywords <small>Seperated
+                                            by comma</small>
+                                    </label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" id="seo_keywords" name="seo_keywords" rows="2"
+                                            placeholder="Please provide meta keywords">{{ @old('seo_keywords') }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('seo_keywords') }}
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">
                                         <div>
-                                            <button type="submit" class="btn btn-primary w-md">{{ __('Submit') }}</button>
+                                            <button type="submit"
+                                                class="btn btn-primary w-md">{{ __('Submit') }}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -113,8 +149,8 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
     <script>
-    $(document).ready(function() {
-        $('.summernote').summernote('fontName', 'Poppins');
-});
-</script>
+        $(document).ready(function() {
+            $('.summernote').summernote('fontName', 'Poppins');
+        });
+    </script>
 @endsection

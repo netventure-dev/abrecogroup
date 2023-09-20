@@ -20,7 +20,7 @@ class CareerApiController extends Controller
     public $failedStatus = 400;
 
     public function index(Request $request){
-        $data['career'] = CareerOpening::select('uuid', 'position', 'description', 'experience')->where('status', 1)->get();
+        $data['career'] = CareerOpening::select('uuid', 'position', 'description', 'experience', 'seo_title', 'seo_description', 'seo_keywords')->where('status', 1)->get();
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }

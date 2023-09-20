@@ -41,12 +41,19 @@ class CareerOpeningController extends Controller
             'description' => 'nullable',
             'experience' => 'nullable',
             'status' => 'required',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_keywords' => 'nullable',
+
         ]);
         $career = new CareerOpening;
         $career->uuid = (string) Str::uuid();
         $career->position = $validated['position'];
         $career->description = $validated['description'];
         $career->experience = $validated['experience'];
+        $career->seo_title = $validated['seo_title'];
+        $career->seo_description = $validated['seo_description'];
+        $career->seo_keywords = $validated['seo_keywords'];
         $career->status = $validated['status'];
         $res = $career->save();
         if ($res) {
@@ -76,11 +83,17 @@ class CareerOpeningController extends Controller
             'description' => 'nullable',
             'experience' => 'nullable',
             'status' => 'required',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_keywords' => 'nullable',
         ]);
         $career->position = $validated['position'];
         $career->description = $validated['description'];
         $career->experience = $validated['experience'];
         $career->status = $validated['status'];
+        $career->seo_title = $validated['seo_title'];
+        $career->seo_description = $validated['seo_description'];
+        $career->seo_keywords = $validated['seo_keywords'];
         $res = $career->save();
         if ($res) {
             notify()->success(__('Updated successfully'));
