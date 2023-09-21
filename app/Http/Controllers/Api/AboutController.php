@@ -20,7 +20,7 @@ class AboutController extends Controller
         $data['mission_vision'] = MissionVision::select('id', 'uuid', 'title', 'description', 'image', 'mobile_image','status')->get()
        
         ->map(function ($item) {
-            // dd($item);
+             dd($item);
             if ($item->status == 0) {
                 return [
                     'id' => null,

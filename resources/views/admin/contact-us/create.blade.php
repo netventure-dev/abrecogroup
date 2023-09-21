@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 @endsection
 @section('content')
-
     @component('admin.components.breadcrumb', ['breadcrumbs' => $breadcrumbs])
         @slot('title')
         @endslot
@@ -122,7 +121,8 @@
                                     <div class="col-sm-9">
                                         <input id="seo_title" name="seo_title" type="text"
                                             class="form-control mb-2 @if ($errors->has('seo_title')) is-invalid @endif"
-                                            placeholder="{{ __('Enter seo title') }}" value="{{ @old('seo_title') }}">
+                                            placeholder="{{ __('Enter seo title') }}"
+                                            value="{{ @old('seo_title', @$data->seo_title) }}">
                                         <div class="invalid-feedback">{{ $errors->first('seo_title') }}
                                         </div>
                                     </div>
@@ -134,7 +134,7 @@
                                         <input id="seo_keywords" name="seo_keywords" type="text"
                                             class="form-control mb-2 @if ($errors->has('seo_keywords')) is-invalid @endif"
                                             placeholder="{{ __('Enter seo keyword') }}"
-                                            value="{{ @old('seo_keywords') }}">
+                                            value="{{ @old('seo_keywords', @$data->seo_keywords) }}">
                                         <div class="invalid-feedback">{{ $errors->first('seo_keywords') }}
                                         </div>
                                     </div>
@@ -145,7 +145,7 @@
                                     <div class="col-sm-9">
                                         <textarea id="seo_description" name="seo_description" type="text"
                                             class="form-control mb-2 @if ($errors->has('seo-description	')) is-invalid @endif"
-                                            placeholder="{{ __('Enter Seo Description') }}">{{ @old('seo_description') }}</textarea>
+                                            placeholder="{{ __('Enter Seo Description') }}"> {{ @old('seo_keywords', @$data->seo_description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('seo_description	') }}
                                         </div>
                                     </div>
@@ -168,7 +168,6 @@
     </div>
 
     <!-- end administrator create form -->
-
 @endsection
 
 @section('script')

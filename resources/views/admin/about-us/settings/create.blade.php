@@ -135,7 +135,7 @@
                                             </label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="seo_title" name="seo_title"
-                                        placeholder="Please provide the meta title" value="{{ @old('seo_title') }}"
+                                        placeholder="Please provide the meta title" value="{{ @old('seo_title',@$data->seo_title) }}"
                                         >
                                         <div class="invalid-feedback">{{ $errors->first('seo_title') }}
                                         </div>
@@ -148,7 +148,7 @@
                                     <div class="col-sm-9">
                                         <textarea class="form-control" id="seo_description" name="seo_description" rows="2"
                                                 placeholder="Please provide meta description"
-                                                >{{ @old('seo_description') }}</textarea>
+                                               >{{ @old('seo_keywords',@$data->seo_description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('seo_description') }}
                                         </div>
                                     </div>
@@ -160,7 +160,7 @@
                                     <div class="col-sm-9">
                                         <textarea class="form-control" id="seo_keywords" name="seo_keywords" rows="2"
                                                 placeholder="Please provide meta keywords"
-                                                >{{ @old('seo_keywords') }}</textarea>
+                                                >{{ @old('seo_keywords',@$data->seo_keywords) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('seo_keywords') }}
                                         </div>
                                     </div>
