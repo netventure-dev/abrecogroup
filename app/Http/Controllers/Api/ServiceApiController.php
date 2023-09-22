@@ -58,7 +58,7 @@ class ServiceApiController extends Controller
 
     public function details($uuid)
     {
-        $data['services'] = Service::select('id', 'uuid', 'name', 'custom_url', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status')
+        $data['services'] = Service::select('id', 'uuid', 'name', 'custom_url', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status', 'seo_title', 'seo_description', 'seo_keywords')
             ->with(['faqs' => function ($query) {
                 $query->select('id', 'service_id', 'uuid', 'title', 'description', 'order')->where('status', 1);
             }, 'contents' => function ($query) {
@@ -85,7 +85,7 @@ class ServiceApiController extends Controller
             ->with(['innerservices' => function ($query) {
                 $query->select('id', 'service_id', 'sub_service_id', 'service_name', 'service_slug', 'subservice as subservice_name', 'sub_service_slug', 'uuid', 'name', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'seo_title', 'seo_description', 'seo_keywords')->where('status', 1);
             }, 'contents' => function ($query) {
-                $query->select('id', 'sub_service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image', 'mobile_image')->where('status', 1);
+                $query->select('id', 'sub_service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image', 'mobile_image','status');
             }, 'casestudy' => function ($query) {
                 $query->select('id', 'slug as case_study_slug', 'service_slug as service_id_slug', 'sub_service_id', 'sub_service_slug as sub_service_id_slug', 'inner_service_slug as inner_service_id_slug', 'uuid', 'title', 'subtitle', 'image1', 'content', 'image2')->where('status', 1);
             }, 'contents.extra_contents'])
@@ -94,7 +94,25 @@ class ServiceApiController extends Controller
             ->where('status', 1)
             ->orderBy('created_at', 'desc')
             ->first();
-        if (!empty($data)) {
+        if (!$data['sub_services']->isEmpty()) {
+            // Loop through each service and their associated contents
+            $data['sub_services']->each(function ($service) {
+                // Set fields to null for contents with status 0
+                $service->contents->map(function ($content) {
+                    if ($content->status == 0) {
+                        $content->sub_service_id = null;
+                        $content->uuid = null;
+                        $content->title = null;
+                        $content->sub_title = null;
+                        $content->description = null;
+                        $content->order = null;
+                        $content->image = null;
+                    } else {
+                        return $content;
+                    }
+                });
+            });
+
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }
         return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
