@@ -24,6 +24,7 @@ class HomeController extends Controller
     public function index(){
         
         $home_sliders=HomeSlider::where('status',1)->get();
+        dd(1);
         $technical_service=WhyChooseUsSettings::first();
         $our_projects=OurProjects::where('status',1)->get();
         $technical_services_list=WhyChooseUs::where('status',1)->get();

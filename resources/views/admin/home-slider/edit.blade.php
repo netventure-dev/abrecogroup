@@ -144,7 +144,7 @@
                                 </div>   
                                 <div class="mb-4 row">
                                     <label for="seo_description"
-                                            class="col-sm-3 col-form-label">{{ __('Seo Description ghfg') }}
+                                            class="col-sm-3 col-form-label">{{ __('Seo Description ') }}
                                             </label>
                                     <div class="col-sm-9">
                                         <textarea class="form-control" id="seo_description" name="seo_description" rows="2"

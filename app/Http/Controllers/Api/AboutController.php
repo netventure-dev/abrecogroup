@@ -25,9 +25,9 @@ class AboutController extends Controller
                 return [
                     'id' => null,
                     'title' => null,
-                    'content' => null,
-                    'icon' => null,
-                    'link' => null,
+                    'description' => null,
+                    'image' => null,
+                    'mobile_image' => null,
                     
                 ];
             } else {
