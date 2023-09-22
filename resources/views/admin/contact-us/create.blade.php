@@ -90,7 +90,7 @@
                                         @endif
                                         <input id="banner_image" name="banner_image" type="file"
                                             class="form-control mb-2 @if ($errors->has('banner_image')) is-invalid @endif"
-                                            value="{{ @old('banner_image') }}">
+                                            value="{{ @old('banner_image') }}" required>
                                         <div class="invalid-feedback">{{ $errors->first('banner_image') }}</div>
                                     </div>
                                 </div>

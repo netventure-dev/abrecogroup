@@ -46,9 +46,10 @@
                             <div class="col-sm-4">
                                 <div class="avatar-md profile-user-wid mb-4">
                                     <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt=""
-                                        class="img-thumbnail rounded-circle">
+                                        class="img-thumbnail rounded-circle">     
                                 </div>
-                                <h5 class="font-size-15 text-truncate">Developer</h5>
+
+                              
                             </div>
 
                            
@@ -59,8 +60,80 @@
 
 
             </div>
+      
+           
+            @php
+               
+                $referal = DB::table('quotes')->count();
+                
+            @endphp
+
+            <div class="col-xl-4">
+                <a href="{{ route('admin.requestenquiry.index') }}">
+                    <div class="card overflow-hidden">
+                        <div class="bg-primary bg-soft">
+                            <div class="row">
+
+                                <div class="col-5 align-self-end text-right">
+                                    <img src="{{ asset('assets/images/enquiry.png') }}" alt="" class="img-fluid">
+                                    {{--  <i class="ico-icon fa fa-times" style="background: #f00;width: 60px;height: 60px;line-height: 60px;text-align: center;border-radius: 100%;color: #fff;font-size: 24px;"></i>  --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+
+                                    <h5 class="font-size-15 text-truncate"> Total Service Enquiries
+
+                                        : {{ @$referal }}</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+      
+                
+             @php
+               
+                $data = DB::table('careers')->count();
+                
+            @endphp
+
+            <div class="col-xl-4">
+                <a href="{{ route('admin.careerenquiry.index') }}">
+                    <div class="card overflow-hidden">
+                        <div class="bg-primary bg-soft">
+                            <div class="row">
+
+                                <div class="col-5 align-self-end">
+                                    <img src="{{ asset('assets/images/enquiry.png') }}" alt="" class="img-fluid">
+                                    {{--  <i class="ico-icon fa fa-times" style="background: #f00;width: 60px;height: 60px;line-height: 60px;text-align: center;border-radius: 100%;color: #fff;font-size: 24px;"></i>  --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+
+                                    <h5 class="font-size-15 text-truncate">  Total Career Enquiries
+
+                                    : {{ @$data }}</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
-        <!-- end row -->
+        
+        </div>
+        
+
+            </div>
     </div>
     <!-- end modal -->
 

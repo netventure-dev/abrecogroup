@@ -47,7 +47,10 @@ class RequestQuoteReportDataTable extends DataTable
      */
     public function query(Quote $model)
     {
-        return $model->with('service_doc')->newQuery();
+        // return $model->with('service_doc')->newQuery();
+        return $model->with('service_doc')
+        ->orderBy('created_at', 'desc') 
+        ->newQuery();
     }
 
     /**
