@@ -55,9 +55,9 @@ class IndustriesController extends Controller
         $service->custom_url = $validated['custom_url'];
         $service->order = $validated['order'];
         $service->status = $validated['status'];  
-        $services->seo_title = $validated['seo_title'];
-        $services->seo_description = $validated['seo_description'];
-        $services->seo_keywords = $validated['seo_keywords'];
+        $service->seo_title = $validated['seo_title'];
+        $service->seo_description = $validated['seo_description'];
+        $service->seo_keywords = $validated['seo_keywords'];
         $service->subtitle = $validated['sub_title'];
         $service->link = $validated['link'];
         $service->button_title = $validated['button_title'];
@@ -114,7 +114,7 @@ class IndustriesController extends Controller
         $services->name = $validated['name'];
         $services->content = $validated['content'];
         $services->order = $validated['order'];
-        $services->status = $validated['status'];  
+        $services->status = $validated['status'];   
         $services->custom_url = $validated['custom_url'];
         $services->subtitle = $validated['sub_title'];
         $services->seo_title = $validated['seo_title'];
