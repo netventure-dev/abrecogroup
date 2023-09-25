@@ -94,24 +94,6 @@ class ServiceApiController extends Controller
             ->where('status', 1)
             ->orderBy('created_at', 'desc')
             ->first();
-        // if (!$data['sub_services']->isEmpty()) {
-        //     // Loop through each service and their associated contents
-        //     $data['sub_services']->each(function ($service) {
-        //         // Set fields to null for contents with status 0
-        //         $service->contents->map(function ($content) {
-        //             if ($content->status == 0) {
-        //                 $content->sub_service_id = null;
-        //                 $content->uuid = null;
-        //                 $content->title = null;
-        //                 $content->sub_title = null;
-        //                 $content->description = null;
-        //                 $content->order = null;
-        //                 $content->image = null;
-        //             } else {
-        //                 return $content;
-        //             }
-        //         });
-        //     });
         if (!empty($data)) {
 
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
@@ -131,24 +113,6 @@ class ServiceApiController extends Controller
             ->where('status', 1)
             ->orderBy('created_at', 'desc')
             ->first();
-        // if (!$data['inner_services']->isEmpty()) {
-        //     // Loop through each service and their associated contents
-        //     $data['inner_services']->each(function ($service) {
-        //         // Set fields to null for contents with status 0
-        //         $service->contents->map(function ($content) {
-        //             if ($content->status == 0) {
-        //                 $content->sub_service_id = null;
-        //                 $content->uuid = null;
-        //                 $content->title = null;
-        //                 $content->sub_title = null;
-        //                 $content->description = null;
-        //                 $content->order = null;
-        //                 $content->image = null;
-        //             } else {
-        //                 return $content;
-        //             }
-        //         });
-        //     });
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }
