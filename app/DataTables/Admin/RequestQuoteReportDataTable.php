@@ -17,7 +17,7 @@ class RequestQuoteReportDataTable extends DataTable
      * @param mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
-    public function dataTable($query) 
+    public function dataTable($query)
     {
         return datatables()
             ->eloquent($query)
@@ -49,7 +49,7 @@ class RequestQuoteReportDataTable extends DataTable
     {
         // return $model->with('service_doc')->newQuery();
         return $model->with('service_doc')
-        ->orderBy('created_at', 'desc') 
+        ->orderBy('created_at', 'desc')
         ->newQuery();
     }
 
@@ -68,9 +68,10 @@ class RequestQuoteReportDataTable extends DataTable
                     ->orderBy(1)
                     ->buttons(
                         Button::make('create'),
-                        Button::make('export'),
+                        Button::make('excel'),
+                        Button::make('csv'),
                         Button::make('print'),
-                        Button::make('reset'),
+                        // Button::make('reset'),
                         Button::make('reload')
                     );
     }

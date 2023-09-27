@@ -38,7 +38,7 @@ class SubServiceDataTable extends DataTable
             ->addColumn('action', function (SubService $subservice) {
                 return view('admin.sub-services.action', compact('subservice'));
             })
-    
+
 
             ->rawColumns(['status','action']);
     }
@@ -52,7 +52,7 @@ class SubServiceDataTable extends DataTable
     public function query(SubService $model)
     {
          return $model->with('services')->newQuery();
-        
+
     }
 
     /**
@@ -70,9 +70,10 @@ class SubServiceDataTable extends DataTable
                     ->orderBy(1)
                     ->buttons(
                         Button::make('create'),
-                        Button::make('export'),
+                        Button::make('excel'),
+                        Button::make('csv'),
                         Button::make('print'),
-                        Button::make('reset'),
+                        // Button::make('reset'),
                         Button::make('reload')
                     );
     }

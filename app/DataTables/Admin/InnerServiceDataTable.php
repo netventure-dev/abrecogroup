@@ -38,7 +38,7 @@ class InnerServiceDataTable extends DataTable
             ->addColumn('action', function (InnerService $innerservice) {
                 return view('admin.inner-services.action', compact('innerservice'));
             })
-    
+
 
             ->rawColumns(['status','action']);
     }
@@ -69,9 +69,10 @@ class InnerServiceDataTable extends DataTable
                     ->orderBy(1)
                     ->buttons(
                         Button::make('create'),
-                        Button::make('export'),
+                        Button::make('excel'),
+                        Button::make('csv'),
                         Button::make('print'),
-                        Button::make('reset'),
+                        // Button::make('reset'),
                         Button::make('reload')
                     );
     }

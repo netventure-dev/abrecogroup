@@ -32,7 +32,7 @@ class AdditionalPageDataTable extends DataTable
             ->addColumn('action', function (AdditionalPage $page) {
                 return view('admin.pages.action', compact('page'));
             })
-    
+
 
             ->rawColumns(['status','action']);
     }
@@ -63,9 +63,10 @@ class AdditionalPageDataTable extends DataTable
                     ->orderBy(1)
                     ->buttons(
                         Button::make('create'),
-                        Button::make('export'),
+                        Button::make('excel'),
+                        Button::make('csv'),
                         Button::make('print'),
-                        Button::make('reset'),
+                        // Button::make('reset'),
                         Button::make('reload')
                     );
     }

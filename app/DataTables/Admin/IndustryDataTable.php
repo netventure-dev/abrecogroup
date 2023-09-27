@@ -32,7 +32,7 @@ class IndustryDataTable extends DataTable
             ->addColumn('action', function (Industry $services) {
                 return view('admin.industries.action', compact('services'));
             })
-    
+
 
             ->rawColumns(['status','action']);
 
@@ -61,7 +61,15 @@ class IndustryDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
-                    ->orderBy(1);
+                    ->orderBy(1)
+                    ->buttons(
+                        Button::make('create'),
+                        Button::make('excel'),
+                        Button::make('csv'),
+                        Button::make('print'),
+                        // Button::make('reset'),
+                        Button::make('reload')
+                    );
     }
 
     /**

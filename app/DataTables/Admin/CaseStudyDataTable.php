@@ -35,17 +35,17 @@ class CaseStudyDataTable extends DataTable
             })
             ->editColumn('sub_service_id', function (CaseStudy $case) {
 
-                return @$case->sub_service->name;    
+                return @$case->sub_service->name;
             })
             ->editColumn('inner_service_id', function (CaseStudy $case) {
 
-                return @$case->inner_service->name;    
+                return @$case->inner_service->name;
             })
-            
+
             ->addColumn('action', function (CaseStudy $case) {
                 return view('admin.casestudy.action', compact('case'));
             })
-    
+
 
             ->rawColumns(['status','action','service']);
     }
@@ -76,9 +76,10 @@ class CaseStudyDataTable extends DataTable
                     ->orderBy(1)
                     ->buttons(
                         Button::make('create'),
-                        Button::make('export'),
+                        Button::make('excel'),
+                        Button::make('csv'),
                         Button::make('print'),
-                        Button::make('reset'),
+                        // Button::make('reset'),
                         Button::make('reload')
                     );
     }
@@ -99,7 +100,7 @@ class CaseStudyDataTable extends DataTable
             Column::make('sub_service_id')->title(__('Sub Service')),
             Column::make('inner_service_id')->title(__('Inner Service')),
 
-            Column::make('status')->title(__('Status')),    
+            Column::make('status')->title(__('Status')),
             Column::computed('action')
             ->title(__('Action'))
             ->exportable(false)
