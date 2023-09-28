@@ -66,8 +66,11 @@ class CareerReportDataTable extends DataTable
                     ->dom('Bfrtip')
                     ->orderBy(1)
                     ->buttons(
-                        Button::make('export'),
-                        Button::make('print')
+                        Button::make('excel'),
+                        Button::make('csv'),
+                        Button::make('print'),
+                        // Button::make('reset'),
+
                     );
     }
 
