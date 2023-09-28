@@ -75,7 +75,7 @@
                                         @if (isset($data->banner_image))
                                             <img src="{{ asset("/storage/".@$data->banner_image) }}" alt="" class="img-fluid" style="width:100px;">
                                         @endif
-                                        <input id="banner_image" name="banner_image" type="file" class="form-control mb-2 @if ($errors->has('banner_image')) is-invalid @endif" value="{{ @old('banner_image') }}">
+                                        <input id="banner_image" name="banner_image" type="file" class="form-control mb-2 @if ($errors->has('banner_image')) is-invalid @endif" value="{{ @old('banner_image') }}" required>
                                         <div class="invalid-feedback">{{ $errors->first('banner_image') }}</div>
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@
                                         @if (isset($data->content_image))
                                             <img src="{{ asset("/storage/".@$data->content_image) }}" alt="" class="img-fluid" style="width:100px;">
                                         @endif
-                                        <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
+                                        <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}"required>
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
@@ -140,7 +140,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_title') }}
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="seo_description"
                                             class="col-sm-3 col-form-label">{{ __('Seo Description') }}
@@ -152,7 +152,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_description') }}
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="seo_keywords"
                                             class="col-sm-3 col-form-label">Meta Keywords <small>Seperated by comma</small>
@@ -164,7 +164,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_keywords') }}
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">
                                         <div>

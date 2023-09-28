@@ -499,13 +499,13 @@
                         </li>
                         <li>
                             <a href="{{route('admin.sections.index')}}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
+                                <i class="bx bxs-layer"></i>
                                 <span key="t-file-manager">Sections</span>
                             </a>
                         </li>
                         <li>
                             <a href="{{route('admin.casestudies.index')}}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
+                                <i class="bx bx-book-open"></i>
                                 <span key="t-file-manager">Case Study</span>
                             </a>
                         </li>
@@ -529,7 +529,7 @@
                         </li>
                         <li>
                             <a href="{{route('admin.industries.index')}}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
+                                <i class="bx bxs-buildings"></i>
                                 <span key="t-file-manager">Industry</span>
                             </a>
                         </li>
@@ -541,7 +541,7 @@
                         </li> --}}
                         <li>
                             <a href="{{route('admin.our-projects.index')}}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
+                                <i class="bx bx-detail"></i>
                                 <span key="t-file-manager">Our Projects</span>
                             </a>
                         </li>
@@ -579,19 +579,19 @@
                         </li>
                         <li>
                             <a href="{{route('admin.contact-us.create')}}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
+                                <i class="bx bx-user-voice"></i>
                                 <span key="t-file-manager">Contact Us</span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
+                                <i class="bx bxs-message-dots"></i>
                                 <span key="t-file-manager">Feedback</span>
                             </a>
                         </li>
                         <li>
                             <a href="{{route('admin.testimonials.index')}}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
+                                <i class="bx bxs-conversation"></i>
                                 <span key="t-file-manager">Testimonials</span>
                             </a>
                         </li>
@@ -630,20 +630,20 @@
                         <li class="menu-title" key="t-apps">Reports</li>
                         <li>
                             <a href="{{ route('admin.requestenquiry.index') }}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
+                                <i class="bx bx-notepad"></i>
                                 <span key="t-file-manager">Service Enquiries</span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('admin.careerenquiry.index') }}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
+                                <i class="bx bxs-food-menu"></i>
                                 <span key="t-file-manager">Career Enquiries</span>
                             </a>
                         </li>
-                      
+
                         <li>
                             <a href="{{route('admin.feedbackenquiry.index')}}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
+                                <i class="bx bx-message-rounded-dots"></i>
                                 <span key="t-file-manager">Feedback</span>
                             </a>
                         </li>

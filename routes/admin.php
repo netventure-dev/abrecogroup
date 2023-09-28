@@ -296,7 +296,7 @@ Route::get('feedback/report',  'Admin\FeedBackReportController@index')->name('fe
 Route::get('request-quote/report',  'Admin\RequestQuoteReportController@index')->name('requestenquiry.index');
 Route::get('request-quote/report/view/{id}',  'Admin\RequestQuoteReportController@view')->name('requestenquiry.view');
 Route::get('career/report',  'Admin\CareerReportController@index')->name('careerenquiry.index');
-
+Route::get('career-report/view/{id}',  'Admin\CareerReportController@view')->name('careerenquiry.view');
 
 
 

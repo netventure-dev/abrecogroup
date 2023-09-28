@@ -34,8 +34,11 @@ class CareerReportDataTable extends DataTable
             ->editColumn('position', function (Career $new) {
                 return $new->position;
             })
+            ->addColumn('action', function (Career $new) {
+                return view('admin.reports.career.action', compact('new'));
+            })
 
-            ->rawColumns(['title', 'phone', 'email','position']);
+            ->rawColumns(['title', 'phone', 'email','position','action']);
     }
 
     /**
@@ -81,6 +84,11 @@ class CareerReportDataTable extends DataTable
             Column::make('email')->title(__('Email')),
             Column::make('phone')->title(__('Phone')),
             Column::make('position')->title(__('Position')),
+            Column::computed('action')
+            ->exportable(false)
+            ->printable(false)
+            ->width(60)
+            ->addClass('text-center'),
         ];
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\Admin\CareerReportDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\Career;
 use Illuminate\Http\Request;
 
 class CareerReportController extends Controller
@@ -15,5 +16,11 @@ class CareerReportController extends Controller
             [(__('Career Report')), null],
         ];
         return $dataTable->render('admin.reports.career.index', ['breadcrumbs' => $breadcrumbs]);
+    }
+    public function view($id)
+    {
+        $quote = Career::where('id', $id)->first();
+
+        return view('admin.reports.career.view', compact('quote'));
     }
 }

@@ -54,7 +54,7 @@ class ServiceController extends Controller
         $service->name = $validated['name'];
         $service->custom_url = $validated['custom_url'];
         $service->cover_description = $validated['cover_description'];
-        $service->status = $validated['status'];  
+        $service->status = $validated['status'];
         $service->title = $validated['title'];
         $service->alt_text = $validated['alt_text'];
 
@@ -92,7 +92,7 @@ class ServiceController extends Controller
 
     public function update(Request $request,$id)
     {
-        
+
         $services = Service::where('uuid',$id)->first();
 
         $validated = $request->validate([
@@ -112,7 +112,7 @@ class ServiceController extends Controller
         $services->name = $validated['name'];
         $services->slug = SlugService::createSlug(Service::class, 'slug', $validated['name'], ['unique' => false]);
         $services->cover_description = $validated['cover_description'];
-        $services->status = $validated['status'];  
+        $services->status = $validated['status'];
         $services->title = $validated['title'];
         $services->alt_text = $validated['alt_text'];
         $services->custom_url = $validated['custom_url'];
@@ -140,10 +140,13 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         // $this->authorize('delete', $menu);
+
         $res = Service::where('uuid',$id)->delete();
         $subservice_id=SubService::where('service_id',$id)->first();
-        $subservice=SubService::where('service_id',$id)->delete();
         $inerservice=InnerService::where('sub_service_id',$subservice_id->uuid)->delete();
+        $subservice=SubService::where('service_id',$id)->delete();
+
+
         if ($res) {
             notify()->success(__('Deleted successfully'));
         } else {

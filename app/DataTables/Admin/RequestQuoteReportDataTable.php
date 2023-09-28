@@ -67,7 +67,7 @@ class RequestQuoteReportDataTable extends DataTable
                     ->dom('Bfrtip')
                     ->orderBy(1)
                     ->buttons(
-                        Button::make('create'),
+                        // Button::make('create'),
                         Button::make('excel'),
                         Button::make('csv'),
                         Button::make('print'),
