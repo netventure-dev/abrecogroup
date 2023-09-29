@@ -1,7 +1,9 @@
 @extends('admin.layout.backend')
 
 @section('content')
-
+@component('admin.components.breadcrumb', ['breadcrumbs' => $breadcrumbs])
+@slot('title') @endslot
+@endcomponent
     <div class="content">
         <!-- Row #1 -->
         <h2 class="content-heading">View Details</h2>
