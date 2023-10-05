@@ -37,6 +37,11 @@ class GeneralController extends Controller
             'youtube' => 'required',
             'twitter' => 'required',
             'favicon' => 'nullable',
+            'yt_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
+            'fb_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
+            'ig_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
+            'ld_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
+            'twt_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
         ]);
         $data = General::firstOrCreate();
         $data->uuid = (string) Str::uuid();
@@ -56,6 +61,26 @@ class GeneralController extends Controller
         if ($request->hasFile('light_logo')) {
             $path =  $request->file('light_logo')->storeAs('media/general/image', $validated['light_logo']->getClientOriginalName(), 'public');
             $data->light_logo = $path;
+        }
+        if ($request->hasFile('yt_image')) {
+            $path =  $request->file('yt_image')->storeAs('media/general/image', $validated['yt_image']->getClientOriginalName(), 'public');
+            $data->yt_image = $path;
+        }
+        if ($request->hasFile('fb_image')) {
+            $path =  $request->file('fb_image')->storeAs('media/general/image', $validated['fb_image']->getClientOriginalName(), 'public');
+            $data->fb_image = $path;
+        }
+        if ($request->hasFile('ig_image')) {
+            $path =  $request->file('ig_image')->storeAs('media/general/image', $validated['ig_image']->getClientOriginalName(), 'public');
+            $data->ig_image = $path;
+        }
+        if ($request->hasFile('ld_image')) {
+            $path =  $request->file('ld_image')->storeAs('media/general/image', $validated['ld_image']->getClientOriginalName(), 'public');
+            $data->ld_image = $path;
+        }
+        if ($request->hasFile('twt_image')) {
+            $path =  $request->file('twt_image')->storeAs('media/general/image', $validated['twt_image']->getClientOriginalName(), 'public');
+            $data->twt_image = $path;
         }
         if ($request->hasFile('favicon')) {
             $path1 =  $request->file('favicon')->storeAs('media/general/image',$validated['favicon']->getClientOriginalName(), 'public');
