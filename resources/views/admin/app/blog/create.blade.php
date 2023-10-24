@@ -62,7 +62,7 @@
                                             class="text-danger">*</span><a href="#"
                                             class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
-                                     @if (isset($data->image))
+                                     @if (isset($blog->image))
                                             <img src="{{ asset('/storage/' . @$blog->image) }}" alt=""
                                                 class="img-fluid" style="width:100px;">
                                         @endif

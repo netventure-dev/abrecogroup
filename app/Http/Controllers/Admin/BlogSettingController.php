@@ -15,8 +15,8 @@ class BlogSettingController extends Controller
         $blog= Blog::first();
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['Slider', route('admin.home-slider.index')],
-            ['Create', route('admin.home-slider.create')],
+            ['Blog', route('admin.blog-settings.create')],
+            ['Create', route('admin.blog-settings.create')],
         ];
         return view('admin.app.blog.create', compact('breadcrumbs','blog'));
     }
