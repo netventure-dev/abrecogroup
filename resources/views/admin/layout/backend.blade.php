@@ -510,6 +510,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{route('admin.case-study-settings.create')}}" class="waves-effect">
+                                <i class="bx bx-book-open"></i>
+                                <span key="t-file-manager">Case Study Settings</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{route('admin.services.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Services</span>
@@ -615,17 +621,17 @@
                                 <li><a href="{{route('admin.request.list.index')}}" key="t-product-detail">Content</a></li>
                             </ul>
                         </li> --}}
-                        {{-- <li>
+                        <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
                                 <span key="t-ecommerce">Policy</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{route('admin.terms.create')}}" key="t-products">Terms & Condition</a></li>
-                                <li><a href="{{route('admin.cookie.index')}}" key="t-product-detail">Cookie Policy</a></li>
+                                {{-- <li><a href="{{route('admin.terms.create')}}" key="t-products">Terms & Condition</a></li> --}}
+                                {{-- <li><a href="{{route('admin.cookie.index')}}" key="t-product-detail">Cookie Policy</a></li> --}}
                                 <li><a href="{{route('admin.policy.index')}}" key="t-product-detail">Privacy Policy</a></li>
                             </ul>
-                        </li> --}}
+                        </li>
 
                         <li class="menu-title" key="t-apps">Reports</li>
                         <li>

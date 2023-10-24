@@ -80,6 +80,11 @@ Route::post('why-choose-us/settings/store',  'Admin\ChooseSettingsController@sto
 Route::get('blog-settings/create',  'Admin\BlogSettingController@create')->name('blog-settings.create');
 Route::post('blog-settings/store',  'Admin\BlogSettingController@store')->name('blog-settings.store');
 
+
+//case study settings
+Route::get('case-study-settings/create',  'Admin\CaseStudySettingController@create')->name('case-study-settings.create');
+Route::post('case-study-settings/store',  'Admin\CaseStudySettingController@store')->name('case-study-settings.store');
+
 //blog list
 Route::get('blog/list',  'Admin\BlogListController@index')->name('blog-list.index');
 Route::get('blog/list/create',  'Admin\BlogListController@create')->name('blog-list.create');
