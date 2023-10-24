@@ -63,7 +63,7 @@
                                             class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
                                      @if (isset($data->image))
-                                            <img src="{{ asset('/storage/' . @$data->image) }}" alt=""
+                                            <img src="{{ asset('/storage/' . @$blog->image) }}" alt=""
                                                 class="img-fluid" style="width:100px;">
                                         @endif
                                         <input id="image" name="image" type="file"
