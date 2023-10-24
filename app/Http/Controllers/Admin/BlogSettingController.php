@@ -12,12 +12,13 @@ class BlogSettingController extends Controller
     public function create()
     {
         // $this->authorize('create', Admin::class);
+        $blog= Blog::first();
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
             ['Slider', route('admin.home-slider.index')],
             ['Create', route('admin.home-slider.create')],
         ];
-        return view('admin.app.blog.create', compact('breadcrumbs'));
+        return view('admin.app.blog.create', compact('breadcrumbs','blog'));
     }
 
     public function store(Request $request)
