@@ -26,12 +26,12 @@ class CaseStudySettingController extends Controller
         // dd($request);
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
-            'title' => 'required|unique:blogs,title',
+            'title' => 'required',
             'description' => 'required',
             'seo_title' => 'nullable',
             'seo_keyword' => 'nullable',
             'seo_description' => 'nullable',
-            'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
+            'image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $data = CaseStudySetting::firstOrCreate();      
