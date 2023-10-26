@@ -19,4 +19,10 @@ class ContactUsReportController extends Controller
         ];
         return $dataTable->render('admin.reports.contact_us', ['breadcrumbs' => $breadcrumbs]);
     }
+    public function view($id)
+    {
+        $quote = Contact::where('id', $id)->first();
+        //  dd($quote);
+        return view('admin.reports.contact_view', compact('quote'));
+    }
 }

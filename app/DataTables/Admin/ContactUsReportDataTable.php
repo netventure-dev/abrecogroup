@@ -31,6 +31,9 @@ class ContactUsReportDataTable extends DataTable
         ->editColumn('phone', function (Contact $new) {
             return $new->phone;
         })
+        ->addColumn('action', function (Contact $new) {
+            return view('admin.reports.contact_action', compact('new'));
+        })
 
         ->rawColumns(['title','image','status']);
     }
@@ -75,6 +78,11 @@ class ContactUsReportDataTable extends DataTable
             Column::make('organization')->title(__('Organization')),
             Column::make('job')->title(__('Job')),
             Column::make('refer')->title(__('From')),
+            Column::computed('action')
+            ->exportable(false)
+            ->printable(false)
+            ->width(60)
+            ->addClass('text-center'),
             // Column::make('message')->title(__('Message')),
         ];
     }

@@ -504,6 +504,17 @@
                             </a>
                         </li>
                         <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-store"></i>
+                                <span key="t-ecommerce">Case Study</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{route('admin.case-study-settings.create')}}" key="t-products">Settings</a></li>
+                                <li><a href="{{route('admin.casestudies.index')}}" key="t-product-detail">List</a></li>
+                                {{-- <li><a href="{{route('admin.mission-vision.index')}}" key="t-product-detail">Mission And Vision</a></li> --}}
+                            </ul>
+                        </li>
+                        {{-- <li>
                             <a href="{{route('admin.casestudies.index')}}" class="waves-effect">
                                 <i class="bx bx-book-open"></i>
                                 <span key="t-file-manager">Case Study</span>
@@ -514,7 +525,7 @@
                                 <i class="bx bx-book-open"></i>
                                 <span key="t-file-manager">Case Study Settings</span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{route('admin.services.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
