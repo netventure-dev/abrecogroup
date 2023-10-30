@@ -37,11 +37,11 @@ class CareerApiController extends Controller
                 'message' => 'required',
                 'position' => 'required',
                 'resume' => 'required|mimes:pdf|max:5000',
-                'resume.max' => 'The cv may not be greater than 2 mb.',
                 // 'g-recaptcha-response' => 'required|captcha',
 
-            ],
-        );
+            ],  [
+                'resume.max' => 'The resume may not be greater than 2 mb.',
+            ]);
         // return 1;
         $data = new Career();
         $data->uuid = (string) Str::uuid();
