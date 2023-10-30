@@ -19,8 +19,14 @@ class CareerReportController extends Controller
     }
     public function view($id)
     {
+        $breadcrumbs = [
+            [(__('Dashboard')), route('admin.home')],
+            [(__('Career Report')),route('admin.careerenquiry.index')],
+            [(__('View')),null],
+        ];
+
         $quote = Career::where('id', $id)->first();
 
-        return view('admin.reports.career.view', compact('quote'));
+        return view('admin.reports.career.view', compact('quote','breadcrumbs'));
     }
 }

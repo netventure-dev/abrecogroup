@@ -1,6 +1,9 @@
 @extends('admin.layout.backend')
 
 @section('content')
+@component('admin.components.breadcrumb', ['breadcrumbs' => $breadcrumbs])
+@slot('title') @endslot
+@endcomponent
     <div class="content">
         <!-- Row #1 -->
         <h2 class="content-heading">View Details</h2>
@@ -33,7 +36,7 @@
             <tr>
                 <td style="width:50%">Resume</td>
                 <td style="width:10%">:</td>
-                <td style="width:40%">{{ @$quote->resume }}</td>
+                <td style="width:40%"><a href="{{ $quote->resume }}" download>Download Resume</a></td>
             </tr>
         </table>
     </div>
