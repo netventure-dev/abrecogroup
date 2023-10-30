@@ -39,7 +39,7 @@ class AboutUsController extends Controller
             'cover_content' => 'required',
             'alt_text' => 'nullable',
             'banner_image' => 'sometimes|required| max:2000',
-            'image' => 'required| max:2000',
+            'image' => 'sometimes|required| max:2000',
             'link' => 'nullable',
             'status' => 'required',
             'seo_title' => 'nullable',

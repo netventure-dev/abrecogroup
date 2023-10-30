@@ -43,7 +43,7 @@
                 <div class="d-flex">
                     <!-- LOGO -->
                     <div class="navbar-brand-box" style="background-color:#060332 !important ">
-                        <a href="index.html" class="logo logo-dark">
+                        <a  class="logo logo-dark">
                             <span class="logo-sm">
                                 <img src="{{asset('assets/images/logo_small.png')}}" alt="" height="30">
                             </span>
@@ -52,7 +52,7 @@
                             </span>
                         </a>
 
-                        <a href="index.html" class="logo logo-light">
+                        <a  class="logo logo-light">
                              <span class="logo-sm">
                                 <img src="{{asset('assets/images/logo_small.png')}}" alt="" height="30">
                             </span>
@@ -510,6 +510,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{route('admin.case-study-settings.create')}}" class="waves-effect">
+                                <i class="bx bx-book-open"></i>
+                                <span key="t-file-manager">Case Study Settings</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{route('admin.services.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Services</span>
@@ -539,13 +545,13 @@
                                 <span key="t-file-manager">Demo Industry</span>
                             </a>
                         </li> --}}
-                        <li>
+                        {{-- <li>
                             <a href="{{route('admin.our-projects.index')}}" class="waves-effect">
                                 <i class="bx bx-detail"></i>
                                 <span key="t-file-manager">Our Projects</span>
                             </a>
-                        </li>
-                        <li>
+                        </li> --}}
+                        {{-- <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
                                 <span key="t-ecommerce">Why Choose Us</span>
@@ -554,8 +560,8 @@
                                 <li><a href="{{route('admin.why-choose-us.settings.create')}}" key="t-products">Settings</a></li>
                                 <li><a href="{{route('admin.why-choose-us.list.index')}}" key="t-product-detail">List</a></li>
                             </ul>
-                        </li>
-                        <li>
+                        </li> --}}
+                        {{-- <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
                                 <span key="t-ecommerce">Additional Pages</span>
@@ -564,7 +570,7 @@
                                 <li><a href="{{route('admin.additional-pages.create')}}" key="t-products">Add</a></li>
                                 <li><a href="{{route('admin.additional-pages.index')}}" key="t-product-detail">View</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                         <li class="menu-title" key="t-apps">Pages</li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -583,12 +589,12 @@
                                 <span key="t-file-manager">Contact Us</span>
                             </a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#" class="waves-effect">
                                 <i class="bx bxs-message-dots"></i>
                                 <span key="t-file-manager">Feedback</span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{route('admin.testimonials.index')}}" class="waves-effect">
                                 <i class="bx bxs-conversation"></i>
@@ -605,7 +611,7 @@
                                 <li><a href="{{ route('admin.blog-list.index') }}" key="t-product-detail">List</a></li>
                             </ul>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
                                 <span key="t-ecommerce">Request Rates</span>
@@ -614,15 +620,15 @@
                                 <li><a href="{{route('admin.request.settings.create')}}" key="t-products">Settings</a></li>
                                 <li><a href="{{route('admin.request.list.index')}}" key="t-product-detail">Content</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
                                 <span key="t-ecommerce">Policy</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{route('admin.terms.create')}}" key="t-products">Terms & Condition</a></li>
-                                <li><a href="{{route('admin.cookie.index')}}" key="t-product-detail">Cookie Policy</a></li>
+                                {{-- <li><a href="{{route('admin.terms.create')}}" key="t-products">Terms & Condition</a></li> --}}
+                                {{-- <li><a href="{{route('admin.cookie.index')}}" key="t-product-detail">Cookie Policy</a></li> --}}
                                 <li><a href="{{route('admin.policy.index')}}" key="t-product-detail">Privacy Policy</a></li>
                             </ul>
                         </li>
@@ -667,12 +673,12 @@
                                 <span key="t-file-manager">Career Opening</span>
                             </a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('admin.service-care.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Services Care</span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{route('admin.schema.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>

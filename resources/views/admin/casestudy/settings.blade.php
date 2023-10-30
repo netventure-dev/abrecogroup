@@ -1,7 +1,7 @@
 @extends('admin.layout.backend')
 
 @section('title')
-    {{ __('Create Blog') }}
+    {{ __('Case Study Settings') }}
 @endsection
 @section('css')
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Create Blog') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Case Study Settings') }}</h4>
                 <div class="page-title-right">
 
                 </div>
@@ -33,7 +33,7 @@
                 <div class="card-body">
                     <div class="mt-2 row">
                         <div class="col-lg-11">
-                            <form action="{{ route('admin.blog-settings.store') }}" method="post" class="custom-validation"
+                            <form action="{{ route('admin.case-study-settings.store') }}" method="post" class="custom-validation"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-4 row">
@@ -42,7 +42,7 @@
                                     <div class="col-sm-9">
                                         <input id="title" name="title" type="text"
                                             class="form-control mb-2 @if ($errors->has('title')) is-invalid @endif"
-                                            placeholder="{{ __('Enter Title') }}" required value="{{ @old('title',@$blog->title) }}">
+                                            placeholder="{{ __('Enter Title') }}" required value="{{ @old('title',@$data->title) }}">
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
                                     </div>
@@ -52,7 +52,7 @@
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="description" class="form-control summernote @if ($errors->has('description')) is-invalid @endif" ro
-                                            placeholder="{{ __('Enter  Description') }}" required>{{ @old('description',@$blog->description) }}</textarea>
+                                            placeholder="{{ __('Enter  Description') }}" required>{{ @old('description',@$data->description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>
@@ -62,8 +62,8 @@
                                             class="text-danger">*</span><a href="#"
                                             class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
-                                     @if (isset($blog->image))
-                                            <img src="{{ asset('/storage/' . @$blog->image) }}" alt=""
+                                     @if (isset($data->image))
+                                            <img src="{{ asset('/storage/' . @$data->image) }}" alt=""
                                                 class="img-fluid" style="width:100px;">
                                         @endif
                                         <input id="image" name="image" type="file"
@@ -78,7 +78,7 @@
                                     <div class="col-sm-9">
                                         <input id="seo_title" name="seo_title" type="text"
                                             class="form-control mb-2 @if ($errors->has('seo_title')) is-invalid @endif"
-                                            placeholder="{{ __('Enter seo title') }}" value="{{ @old('seo_title',@$blog->seo_title) }}">
+                                            placeholder="{{ __('Enter seo title') }}" value="{{ @old('seo_title',@$data->seo_title) }}">
                                         <div class="invalid-feedback">{{ $errors->first('seo_title') }}
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                                     <div class="col-sm-9">
                                         <input id="seo_keyword" name="seo_keyword" type="text"
                                             class="form-control mb-2 @if ($errors->has('seo_keyword')) is-invalid @endif"
-                                            placeholder="{{ __('Enter seo keyword') }}" value="{{ @old('seo_keyword',@$blog->seo_keyword) }}">
+                                            placeholder="{{ __('Enter seo keyword') }}" value="{{ @old('seo_keyword',@$data->seo_keyword) }}">
                                         <div class="invalid-feedback">{{ $errors->first('seo_keyword') }}
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@
                                     <div class="col-sm-9">
                                         <textarea id="seo_description" name="seo_description" type="text"
                                             class="form-control mb-2 @if ($errors->has('seo-description	')) is-invalid @endif"
-                                            placeholder="{{ __('Enter Seo Description') }}">{{ @old('seo_description',@$blog->seo_description) }}</textarea>
+                                            placeholder="{{ __('Enter Seo Description') }}">{{ @old('seo_description',@$data->seo_description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('seo_description	') }}
                                         </div>
                                     </div>

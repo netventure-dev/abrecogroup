@@ -5,20 +5,20 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
-use App\Models\Blog;
+use App\Models\CaseStudySetting;
 
-class BlogSettingController extends Controller
+class CaseStudySettingController extends Controller
 {
     public function create()
     {
         // $this->authorize('create', Admin::class);
-        $blog= Blog::first();
+        $data= CaseStudySetting::first();
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['Blog', route('admin.blog-settings.create')],
-            ['Create', route('admin.blog-settings.create')],
+            ['Case Study Setting', route('admin.case-study-settings.create')],
+            ['Create', route('admin.case-study-settings.create')],
         ];
-        return view('admin.app.blog.create', compact('breadcrumbs','blog'));
+        return view('admin.casestudy.settings', compact('breadcrumbs','data'));
     }
 
     public function store(Request $request)
@@ -34,20 +34,20 @@ class BlogSettingController extends Controller
             'image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
-        $blogs = Blog::firstOrCreate();      
-        $blogs->uuid = (string) Str::uuid();
-        $blogs->title = $validated['title'];
-        $blogs->description = $validated['description'];
-        $blogs->seo_title = $validated['seo_title'];
-        $blogs->seo_keyword = $validated['seo_keyword'];
-        $blogs->seo_description = $validated['seo_description'];
+        $data = CaseStudySetting::firstOrCreate();      
+        $data->uuid = (string) Str::uuid();
+        $data->title = $validated['title'];
+        $data->description = $validated['description'];
+        $data->seo_title = $validated['seo_title'];
+        $data->seo_keyword = $validated['seo_keyword'];
+        $data->seo_description = $validated['seo_description'];
         
-        $blogs->status = $validated['status'];
+        $data->status = $validated['status'];
         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/blogs/image', $validated['image']->getClientOriginalName(), 'public');
-            $blogs->image = $path;
+            $path =  $request->file('image')->storeAs('media/data/image', $validated['image']->getClientOriginalName(), 'public');
+            $data->image = $path;
         }
-        $res = $blogs->save();
+        $res = $data->save();
         if ($res) {
             notify()->success(__('Created successfully'));
         } else {

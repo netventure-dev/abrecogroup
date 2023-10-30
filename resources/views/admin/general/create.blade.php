@@ -133,6 +133,21 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="fb_image">{{ __('Facebook Logo') }}<a href="#"
+                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                    <div class="col-sm-9">
+                                        @if (isset($data->fb_image))
+                                            <img src="{{ asset('/storage/' . @$data->fb_image) }}" alt=""
+                                                class="img-fluid" style="width:100px;">
+                                        @endif
+                                        <input id="fb_image" name="fb_image" type="file"
+                                            class="form-control mb-2 @if ($errors->has('fb_image')) is-invalid @endif"
+                                            value="{{ @old('fb_image') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('fb_image') }}</div>
+                                    </div>
+                                </div>
+                                <br>
                                 <div class="mb-4 row">
                                     <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Instagram') }}<span
                                         class="text-danger">*</span></label>
@@ -144,8 +159,25 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="ig_image">{{ __('Instagram Logo') }}<a href="#"
+                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                    <div class="col-sm-9">
+                                        @if (isset($data->ig_image))
+                                            <img src="{{ asset('/storage/' . @$data->ig_image) }}" alt=""
+                                                class="img-fluid" style="width:100px;">
+                                        @endif
+                                        <input id="ig_image" name="ig_image" type="file"
+                                            class="form-control mb-2 @if ($errors->has('ig_image')) is-invalid @endif"
+                                            value="{{ @old('ig_image') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('ig_image') }}</div>
+                                    </div>
+                                </div>
+                                <br>
+
                                 <div class="mb-4 row">
-                                    <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Twitter') }}<span
+                                    <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Twitter (X)') }}<span
                                         class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <input id="twitter" name="twitter" type="text"
@@ -155,6 +187,22 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="twt_image">{{ __('Twitter (X) Logo') }}<a href="#"
+                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                    <div class="col-sm-9">
+                                        @if (isset($data->twt_image))
+                                            <img src="{{ asset('/storage/' . @$data->twt_image) }}" alt=""
+                                                class="img-fluid" style="width:100px;">
+                                        @endif
+                                        <input id="twt_image" name="twt_image" type="file"
+                                            class="form-control mb-2 @if ($errors->has('twt_image')) is-invalid @endif"
+                                            value="{{ @old('twt_image') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('twt_image') }}</div>
+                                    </div>
+                                </div>
+                                <br>
+
                                 <div class="mb-4 row">
                                     <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Linkdln') }}<span
                                         class="text-danger">*</span></label>
@@ -166,6 +214,22 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="ld_image">{{ __('LinkedIn Logo') }}<a href="#"
+                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                    <div class="col-sm-9">
+                                        @if (isset($data->ld_image))
+                                            <img src="{{ asset('/storage/' . @$data->ld_image) }}" alt=""
+                                                class="img-fluid" style="width:100px;">
+                                        @endif
+                                        <input id="ld_image" name="ld_image" type="file"
+                                            class="form-control mb-2 @if ($errors->has('ld_image')) is-invalid @endif"
+                                            value="{{ @old('ld_image') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('ld_image') }}</div>
+                                    </div>
+                                </div>
+                                <br>
+
                                 <div class="mb-4 row">
                                     <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Youtube') }}<span
                                         class="text-danger">*</span></label>
@@ -175,6 +239,20 @@
                                             placeholder="{{ __('Enter youtube link') }}" value="{{ @old('youtube', @$data->youtube) }}">
                                         <div class="invalid-feedback">{{ $errors->first('youtube') }}
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="yt_image">{{ __('Youtube Logo') }}<a href="#"
+                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                    <div class="col-sm-9">
+                                        @if (isset($data->yt_image))
+                                            <img src="{{ asset('/storage/' . @$data->yt_image) }}" alt=""
+                                                class="img-fluid" style="width:100px;">
+                                        @endif
+                                        <input id="yt_image" name="yt_image" type="file"
+                                            class="form-control mb-2 @if ($errors->has('yt_image')) is-invalid @endif"
+                                            value="{{ @old('yt_image') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('yt_image') }}</div>
                                     </div>
                                 </div>
                                 <div class="row justify-content-end">

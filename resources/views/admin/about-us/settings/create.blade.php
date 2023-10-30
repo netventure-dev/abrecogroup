@@ -75,7 +75,7 @@
                                         @if (isset($data->banner_image))
                                             <img src="{{ asset("/storage/".@$data->banner_image) }}" alt="" class="img-fluid" style="width:100px;">
                                         @endif
-                                        <input id="banner_image" name="banner_image" type="file" class="form-control mb-2 @if ($errors->has('banner_image')) is-invalid @endif" value="{{ @old('banner_image') }}" required>
+                                        <input id="banner_image" name="banner_image" type="file" class="form-control mb-2 @if ($errors->has('banner_image')) is-invalid @endif" value="{{ @old('banner_image') }}" >
                                         <div class="invalid-feedback">{{ $errors->first('banner_image') }}</div>
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@
                                         @if (isset($data->content_image))
                                             <img src="{{ asset("/storage/".@$data->content_image) }}" alt="" class="img-fluid" style="width:100px;">
                                         @endif
-                                        <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}"required>
+                                        <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>

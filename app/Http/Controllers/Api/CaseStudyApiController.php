@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CaseStudy;
+use App\Models\CaseStudySetting;
 use App\Models\Service;
 use App\Models\SubService;
 use App\Models\InnerService;
@@ -16,6 +17,7 @@ class CaseStudyApiController extends Controller
     public $failedStatus = 400;
     public function index()
     {
+        $data['case_study_settings'] = CaseStudySetting::select('uuid', 'title', 'description', 'image', 'status')->first();
         $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status')
                                 ->with(['contents' => function ($query) {
                                     $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
