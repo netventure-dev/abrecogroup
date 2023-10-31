@@ -49,7 +49,9 @@ class CareerReportDataTable extends DataTable
      */
     public function query(Career $model)
     {
-        return $model->newQuery()->orderBy('created_at', 'desc')->get();
+       // return $model->newQuery()->orderBy('created_at', 'desc')->get();
+       return $model->orderBy('created_at', 'desc') ->newQuery();
+     
     }
 
     /**

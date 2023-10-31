@@ -55,12 +55,14 @@ class CareerAdminNotification extends Notification implements ShouldQueue
             ->line('Phone : ' . $this->details['phone'])
             ->line('Position : ' . $this->details['position'])
             ->line('Message : ' . $this->details['message'])
+            ->line('Resume: <a href="' . asset('storage/' . $this->details['resume']) . '">View Resume</a>')
             ->line('Thank you!')
             ->attach(public_path('storage/'.$this->details['resume']));
             // ->attach($this->details['resume'], [
             //     'as' => 'CareerEnquiry.pdf',
             //     'mime' => 'application/pdf',
             // ]);
+            
     }
 
     /**

@@ -10,9 +10,10 @@
         style="font-size: 18px;background-color: #ffff;color: #000;text-align: center;max-width: 540px;margin: auto;padding: 60px 0 60px;">
         <b style="margin-bottom: 15px;display: block;">Dear {{ $details['name'] }},</b>
         <span style="line-height: 28px;">
-                Thank you for reaching out to us. We understand the importance of your inquiry and will respond to your message as soon as possible.
-
-        </span>
+        Thank you for considering a career with us.<br>
+         We'll review your request shortly and get back to you soon.<br>
+         We thank you for your interest.
+    </span>
 
     </div>
     <div
