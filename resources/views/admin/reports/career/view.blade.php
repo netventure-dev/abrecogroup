@@ -36,7 +36,8 @@
             <tr>
                 <td style="width:50%">Resume</td>
                 <td style="width:10%">:</td>
-                <td style="width:40%"><a href="{{ $quote->resume }}" download>Download Resume</a></td>
+                <td style="width:40%"><a href="{{asset('storage/'.@$quote['resume'])}}">View</a></td>
+                  
             </tr>
         </table>
     </div>

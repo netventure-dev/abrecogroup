@@ -61,6 +61,7 @@ class CareerAdminNotification extends Notification implements ShouldQueue
             //     'as' => 'CareerEnquiry.pdf',
             //     'mime' => 'application/pdf',
             // ]);
+            
     }
 
     /**
