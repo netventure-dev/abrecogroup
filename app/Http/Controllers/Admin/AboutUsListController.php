@@ -43,12 +43,14 @@ class AboutUsListController extends Controller
             'content' => 'required',
             'image' => 'required| max:2000',
             'alt_text' => 'nullable',
-
+            'canonical_tag' => 'nullable',
             'status' => 'required',
         ]);
         $data = new AboutUsList;
         $data->uuid = (string) Str::uuid();
         $data->title = $validated['title'];
+        $data->canonical_tag = $validated['canonical_tag'];
+
         $data->content = $validated['content'];
         $data->alt_text = $validated['alt_text'];
 
@@ -83,11 +85,14 @@ class AboutUsListController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:about_us_lists,title,'.$data->id,
             'content' => 'required',
+            'canonical_tag' => 'nullable',
+
             'alt_text' => 'nullable',
             'image' => 'nullable| max:2000',
             'status' => 'required',
         ]);
         $data->title = $validated['title'];
+        $data->canonical_tag = $validated['canonical_tag'];
         $data->content = $validated['content'];
         $data->status = $validated['status'];
         $data->alt_text = $validated['alt_text'];
