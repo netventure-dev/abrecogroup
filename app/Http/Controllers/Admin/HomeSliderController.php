@@ -41,6 +41,7 @@ class HomeSliderController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:home_sliders,title',
             'sub_title' => 'nullable',
+            'canonical_tag' => 'nullable',
             'button_title' => 'nullable',
             'content' => 'required',
             'link' => 'nullable',
@@ -55,6 +56,7 @@ class HomeSliderController extends Controller
         $slider->uuid = (string) Str::uuid();
         $slider->title = $validated['title'];
         $slider->sub_title = $validated['sub_title'];
+        $slider->canonical_tag = $validated['canonical_tag'];
         $slider->button_title = $validated['button_title'];
         $slider->link = $validated['link'];
         $slider->description = $validated['content'];
@@ -97,6 +99,8 @@ class HomeSliderController extends Controller
             'title' => 'required|unique:home_sliders,title,'.$slider->id,
             'sub_title' => 'nullable',
             'button_title' => 'nullable',
+            'canonical_tag' => 'nullable',
+
             'content' => 'required',
             'link' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
@@ -109,6 +113,7 @@ class HomeSliderController extends Controller
         $slider->title = $validated['title'];
         $slider->sub_title = $validated['sub_title'];
         $slider->button_title = $validated['button_title'];
+        $slider->canonical_tag = $validated['canonical_tag'];
         $slider->description = $validated['content'];
         $slider->status = $validated['status'];
         $slider->seo_title = $validated['seo_title'];

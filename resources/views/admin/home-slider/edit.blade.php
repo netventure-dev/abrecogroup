@@ -57,6 +57,17 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
+                                    <label for="canonical_tag" class="col-sm-3 col-form-label mb-2">{{ __('Canonical Tag') }}<span
+                                            class="text-danger"></span></label>
+                                    <div class="col-sm-9">
+                                        <input id="canonical_tag" name="canonical_tag" type="text"
+                                            class="form-control mb-2 @if ($errors->has('canonical_tag')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter canonical tag') }}"  value="{{ @old('canonical_tag',@$slider->canonical_tag) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('canonical_tag') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
                                     <label for="content"
                                             class="col-sm-3 col-form-label">{{ __('Content') }}
                                             <span class="text-danger">*</span></label>
@@ -94,11 +105,11 @@
                                 </div>
                                 <div class="mb-4 row">
                                     <label for="button_title" class="col-sm-3 col-form-label mb-2">{{ __('Button Title') }}<span
-                                            class="text-danger">*</span></label>
+                                            class="text-danger"></span></label>
                                     <div class="col-sm-9">
                                         <input id="button_title" name="button_title" type="text"
                                             class="form-control mb-2 @if ($errors->has('button_title')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter button title') }}" required value="{{ @old('button_title',@$slider->button_title) }}">
+                                            placeholder="{{ __('Enter button title') }}"  value="{{ @old('button_title',@$slider->button_title) }}">
                                         <div class="invalid-feedback">{{ $errors->first('button_title') }}
                                         </div>
                                     </div>
