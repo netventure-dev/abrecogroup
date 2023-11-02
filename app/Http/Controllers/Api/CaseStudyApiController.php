@@ -18,7 +18,7 @@ class CaseStudyApiController extends Controller
     public function index()
     {
         $data['case_study_settings'] = CaseStudySetting::select('uuid', 'title', 'description', 'image', 'status','seo_title','seo_description','seo_keyword')->first();
-        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords')
+        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords','canonical_tag')
                                 ->with(['contents' => function ($query) {
                                     $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
                                 }])
@@ -32,7 +32,7 @@ class CaseStudyApiController extends Controller
     }
     public function level_1($uuid)
     {
-        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords')
+        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords','canonical_tag')
                                 ->with(['contents' => function ($query) {
                                     $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
                                 }])
@@ -47,7 +47,7 @@ class CaseStudyApiController extends Controller
     }
     public function level_1_slug($uuid,$case_slug)
     {
-        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords')
+        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords','canonical_tag')
                                 ->with(['contents' => function ($query) {
                                     $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
                                 }])
@@ -63,7 +63,7 @@ class CaseStudyApiController extends Controller
     }
     public function level_2($uuid,$id)
     {
-        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords')
+        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords','canonical_tag')
                                 ->with(['contents' => function ($query) {
                                     $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
                                 }])
@@ -80,7 +80,7 @@ class CaseStudyApiController extends Controller
 
     public function level_2_slug($uuid,$id,$case_slug)
     {
-        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords')
+        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords','canonical_tag')
                                 ->with(['contents' => function ($query) {
                                     $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
                                 }])
@@ -97,7 +97,7 @@ class CaseStudyApiController extends Controller
     }
     public function level_3($uuid,$id,$idd)
     {
-        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords')
+        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords','canonical_tag')
                                 ->with(['contents' => function ($query) {
                                     $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
                                 }])
@@ -114,7 +114,7 @@ class CaseStudyApiController extends Controller
     }
     public function level_3_slug($uuid,$id,$idd,$case_slug)
     {
-        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords')
+        $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link', 'order','status','seo_title','seo_description','seo_keywords','canonical_tag')
                                 ->with(['contents' => function ($query) {
                                     $query->select('id', 'case_id', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order', 'status')->where('status', 1);
                                 }])
