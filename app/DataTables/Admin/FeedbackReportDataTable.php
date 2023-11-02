@@ -42,7 +42,7 @@ class FeedbackReportDataTable extends DataTable
      */
     public function query(Feedback $model)
     {
-        return $model->newQuery();
+        return $model->orderBy('created_at', 'desc')->newQuery();
     }
 
     /**

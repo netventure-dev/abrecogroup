@@ -88,6 +88,7 @@ class RequestQuoteReportDataTable extends DataTable
             Column::make('name')->title(__('Name')),
             Column::make('service')->title(__('Service')),
             Column::make('phone')->title(__('Phone')),
+            Column::make('created_at')->title(__('Date')),
             Column::make('email')->title(__('Email')),
             // Column::make('type')->title(__('Type')),
             Column::computed('action')

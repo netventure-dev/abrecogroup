@@ -46,7 +46,7 @@ class ContactUsReportDataTable extends DataTable
      */
     public function query(Contact $model)
     {
-        return $model->newQuery();
+        return $model->orderBy('created_at', 'desc')->newQuery();
     }
 
     /**
