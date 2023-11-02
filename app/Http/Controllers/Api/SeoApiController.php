@@ -22,4 +22,13 @@ class SeoApiController extends Controller
         }
         return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
     }
+    public function gtm()
+    {
+        $data['gtm'] = Seo::select('id', 'head', 'body')->first();
+
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
 }

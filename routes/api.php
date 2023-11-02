@@ -97,3 +97,6 @@ Route::get('/cookie',[PolicyPageApiController::class,'cookie']);
 
 //seo
 Route::get('/seo/{slug}',[SeoApiController::class,'index']);
+
+//gtm
+Route::get('/gtm',[SeoApiController::class,'gtm']);
