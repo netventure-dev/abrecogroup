@@ -32,6 +32,9 @@ class RequestQuoteReportDataTable extends DataTable
             ->editColumn('phone', function (Quote $new) {
                 return $new->phone;
             })
+            ->editColumn('created_at', function (Quote $new) {
+                return $new->created_at->format('y-m-d');
+            })
             ->addColumn('action', function (Quote $new) {
                 return view('admin.reports.action', compact('new'));
             })
