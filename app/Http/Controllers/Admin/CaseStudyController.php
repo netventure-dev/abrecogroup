@@ -50,6 +50,9 @@ class CaseStudyController extends Controller
             'b_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_keywords' => 'nullable',
             'button_title' => 'nullable',
             'status' => 'required',
             'order' => 'nullable',
@@ -79,6 +82,10 @@ class CaseStudyController extends Controller
         $case->status = $validated['status'];  
         $case->subtitle = $validated['sub_title'];
         $case->link = $validated['link'];
+        $case->seo_title = $validated['seo_title'];
+        $case->seo_description = $validated['seo_description'];
+        $case->seo_keywords = $validated['seo_keywords'];
+
         $case->button_title = $validated['button_title'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
@@ -132,6 +139,9 @@ class CaseStudyController extends Controller
             'background_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_keywords' => 'nullable',
             'button_title' => 'nullable',
             'status' => 'required',
             'order' => 'nullable',
@@ -159,6 +169,9 @@ class CaseStudyController extends Controller
         $case->status = $validated['status'];
         $case->subtitle = $validated['sub_title'];
         $case->link = $validated['link'];
+        $case->seo_title = $validated['seo_title'];
+        $case->seo_description = $validated['seo_description'];
+        $case->seo_keywords = $validated['seo_keywords'];
         $case->button_title = $validated['button_title'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');

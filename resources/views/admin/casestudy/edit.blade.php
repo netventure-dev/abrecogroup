@@ -174,6 +174,36 @@
                                         </div>
                                     </div>
                                 </div>    
+                                <div class="mb-4 row">
+                                    <label for="seo_title" class="col-sm-3 col-form-label mb-2">{{ __('Seo Title') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="seo_title" name="seo_title" type="text"
+                                            class="form-control mb-2 @if ($errors->has('seo_title')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter seo title') }}"  value="{{ @old('seo_title',@$case->seo_title) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('seo_title') }}
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="mb-4 row">
+                                    <label for="seo_keywords" class="col-sm-3 col-form-label mb-2">{{ __('Seo Keyword') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="seo_keywords" name="seo_keywords" type="text"
+                                            class="form-control mb-2 @if ($errors->has('seo_keywords')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter seo keywords') }}"  value="{{ @old('seo_keywords',@$case->seo_keywords) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('seo_keywords') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
+                                    <label for="seo_description"
+                                            class="col-sm-3 col-form-label">{{ __('Seo Description') }}</label>
+                                    <div class="col-sm-9">
+                                        <textarea name="seo_description"
+                                            class="form-control @if ($errors->has('seo_description')) is-invalid @endif" placeholder="{{ __('Enter seo description') }}" >{{ @old('seo_description',@$case->seo_description)}}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('seo_description') }}
+                                        </div>
+                                    </div>
+                                </div>    
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="logo">{{ __('Order') }}<span
                                         class="text-danger">*</span><a
