@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Seo;
-
+use App\Models\Gtm;
 class SeoApiController extends Controller
 {
     public $successStatus = 200;
@@ -24,7 +24,7 @@ class SeoApiController extends Controller
     }
     public function gtm()
     {
-        $data['gtm'] = Seo::select('id', 'head', 'body')->first();
+        $data['gtm'] = Gtm::select('id', 'head', 'body')->first();
 
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
