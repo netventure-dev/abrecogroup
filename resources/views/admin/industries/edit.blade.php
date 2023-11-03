@@ -46,11 +46,11 @@
                                     </div>
                                 </div>  --}}
                                 <div class="mb-4 row">
-                                    <label for="name" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span
+                                    <label for="name" class="col-sm-3 col-form-label mb-2 ">{{ __('Title') }}<span
                                         class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea id="name" name="name"
-                                            class="form-control mb-2 @if ($errors->has('name')) is-invalid @endif"
+                                            class="form-control mb-2 summernote @if ($errors->has('name')) is-invalid @endif"
                                             placeholder="{{ __('Enter Name') }}" required>{{ @old('name', @$services->name) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('name') }}</div>
                                     </div>
