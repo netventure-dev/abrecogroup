@@ -104,11 +104,11 @@
                                 </div>
                                 <div class="mb-4 row">
                                     <label for="canonical_tag" class="col-sm-3 col-form-label mb-2">{{ __('Canonical Tag') }}<span
-                                            class="text-danger">*</span></label>
+                                            class="text-danger"></span></label>
                                     <div class="col-sm-9">
                                         <input id="canonical_tag" name="canonical_tag" type="text"
                                             class="form-control mb-2 @if ($errors->has('canonical_tag')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter canonical tag') }}" required value="{{ @old('canonical_tag',@$services->canonical_tag) }}">
+                                            placeholder="{{ __('Enter canonical tag') }}"  value="{{ @old('canonical_tag',@$services->canonical_tag) }}">
                                         <div class="invalid-feedback">{{ $errors->first('canonical_tag') }}
                                         </div>
                                     </div>
