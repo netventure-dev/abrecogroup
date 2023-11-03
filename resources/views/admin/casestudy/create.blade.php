@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 @endsection
 @section('content')
-
     @component('admin.components.breadcrumb', ['breadcrumbs' => $breadcrumbs])
         @slot('title')
         @endslot
@@ -63,7 +62,8 @@
                                     </div>
                                 </div>
                                 <div class="row mb-4">
-                                    <label for="name" class="col-sm-3 col-form-label mb-2">{{ __('Inner Service Name') }}
+                                    <label for="name"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Inner Service Name') }}
                                     </label>
                                     <div class="col-sm-9">
                                         <select id="inner_service" name="inner_service" class="form-select">
@@ -75,7 +75,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('inner_service') }}</div>
                                     </div>
                                 </div>
-                                <div class="mb-4 row">
+                                {{-- <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
@@ -85,7 +85,17 @@
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
                                     </div>
+                                </div> --}}
+                                <div class="mb-4 row">
+                                    <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <textarea id="title" name="title" class="form-control mb-2 @if ($errors->has('title')) is-invalid @endif"
+                                            placeholder="{{ __('Enter Title') }}" required>{{ @old('title') }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('title') }}</div>
+                                    </div>
                                 </div>
+
                                 <div class="mb-4 row">
                                     <label for="sub_title"
                                         class="col-sm-3 col-form-label mb-2">{{ __('Sub Title') }}</label>
@@ -103,7 +113,8 @@
                                     <div class="col-sm-9">
                                         <input id="canonical_tag" name="canonical_tag" type="text"
                                             class="form-control mb-2 @if ($errors->has('canonical_tag')) is-invalid @endif"
-                                            placeholder="{{ __('Enter canonical tag') }}" value="{{ @old('canonical_tag') }}">
+                                            placeholder="{{ __('Enter canonical tag') }}"
+                                            value="{{ @old('canonical_tag') }}">
                                         <div class="invalid-feedback">{{ $errors->first('canonical_tag') }}
                                         </div>
                                     </div>
@@ -201,7 +212,8 @@
                                     <div class="col-sm-9">
                                         <input id="seo_keywords" name="seo_keywords" type="text"
                                             class="form-control mb-2 @if ($errors->has('seo_keywords')) is-invalid @endif"
-                                            placeholder="{{ __('Enter seo keywords') }}" value="{{ @old('seo_keywords') }}">
+                                            placeholder="{{ __('Enter seo keywords') }}"
+                                            value="{{ @old('seo_keywords') }}">
                                         <div class="invalid-feedback">{{ $errors->first('seo_keywords') }}
                                         </div>
                                     </div>
@@ -212,7 +224,7 @@
                                     <div class="col-sm-9">
                                         <textarea id="seo_description" name="seo_description" type="text"
                                             class="form-control mb-2 @if ($errors->has('seo-description	')) is-invalid @endif"
-                                            placeholder="{{ __('Enter Seo Description') }}">{{ @old('seo_description',@$data->seo_description) }}</textarea>
+                                            placeholder="{{ __('Enter Seo Description') }}">{{ @old('seo_description', @$data->seo_description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('seo_description	') }}
                                         </div>
                                     </div>
@@ -263,7 +275,6 @@
     </div>
 
     <!-- end administrator create form -->
-
 @endsection
 
 @section('script')
@@ -313,15 +324,15 @@
                 dataType: 'json',
                 success: function(result) {
                     // console.log(result)
-                     
-                        $('#inner_service').html(
+
+                    $('#inner_service').html(
                         '<option value="">Select Inner Service</option>');
-                        $.each(result, function(key, value) {
-                            $("#inner_service").append('<option value="' + value
-                                .uuid + '">' + value.name + '</option>');
-                        });
-                    
-                   
+                    $.each(result, function(key, value) {
+                        $("#inner_service").append('<option value="' + value
+                            .uuid + '">' + value.name + '</option>');
+                    });
+
+
                     // $('#city-dd').html('<option value="">City</option>');
                 }
             });
