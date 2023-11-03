@@ -37,13 +37,18 @@ class BlogListController extends Controller
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
             'title' => 'required|unique:blogs,title',
+            'canonical_tag' => 'nullable',
             'description' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
+            'seo_title' => 'nullable',
+            'seo_keyword' => 'nullable',
+            'seo_description' => 'nullable',
         ]);
         $blogs = new Bloglist();
         $blogs->uuid = (string) Str::uuid();
         $blogs->title = $validated['title'];
+        $blogs->canonical_tag = $validated['canonical_tag'];
         $blogs->description = $validated['description'];
         $blogs->status = $validated['status'];
         $blogs->slug = SlugService::createSlug(Bloglist::class, 'slug', $validated['title'], ['unique' => false]);
@@ -51,6 +56,9 @@ class BlogListController extends Controller
             $path =  $request->file('image')->storeAs('media/blogs/image', $validated['image']->getClientOriginalName(), 'public');
             $blogs->image = $path;
         }
+        $blogs->seo_title = $validated['seo_title'];
+        $blogs->seo_keywords = $validated['seo_keyword'];
+        $blogs->seo_description = $validated['seo_description'];
         $res = $blogs->save();
         if ($res) {
             notify()->success(__('Created successfully'));
@@ -78,11 +86,16 @@ class BlogListController extends Controller
         $blog = Bloglist::where('uuid', $id)->first();
         $validated = $request->validate([
             'title' => 'required|unique:blogs,title,' . $blog->id,
+            'canonical_tag' => 'nullable',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
+            'seo_title' => 'nullable',
+            'seo_keyword' => 'nullable',
+            'seo_description' => 'nullable',
         ]);
         $blog->title = $validated['title'];
+        $blog->canonical_tag = $validated['canonical_tag'];
         $blog->description = $validated['description'];
         $blog->status = $validated['status'];
         $blog->slug = SlugService::createSlug(Bloglist::class, 'slug', $validated['title'], ['unique' => false]);
@@ -91,6 +104,9 @@ class BlogListController extends Controller
             $path =  $request->file('image')->storeAs('media/image', $validated['image']->getClientOriginalName(), 'public');
             $blog->image = $path;
         }
+        $blog->seo_title = $validated['seo_title'];
+        $blog->seo_keywords = $validated['seo_keyword'];
+        $blog->seo_description = $validated['seo_description'];
         $res = $blog->save();
         if ($res) {
             notify()->success(__('Updated successfully'));
