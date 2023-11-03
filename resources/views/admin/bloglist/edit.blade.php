@@ -46,6 +46,17 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
+                                    <label for="canonical_tag" class="col-sm-3 col-form-label mb-2">{{ __('Canonical Tag') }}<span
+                                            class="text-danger"></span></label>
+                                    <div class="col-sm-9">
+                                        <input id="canonical_tag" name="canonical_tag" type="text"
+                                            class="form-control mb-2 @if ($errors->has('canonical_tag')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter canonical tag') }}"  value="{{ @old('canonical_tag',@$blog->canonical_tag) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('canonical_tag') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
                                     <label for="description"
                                             class="col-sm-3 col-form-label">{{ __('Description') }}
                                             <span class="text-danger">*</span></label>
@@ -87,7 +98,37 @@
                                     </div>
                                 </div>
 
-
+ 
+                                <div class="mb-4 row">
+                                    <label for="seo_title" class="col-sm-3 col-form-label mb-2">{{ __('Seo Title') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="seo_title" name="seo_title" type="text"
+                                            class="form-control mb-2 @if ($errors->has('seo_title')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter seo title') }}"  value="{{ @old('seo_title',@$blog->seo_title) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('seo_title') }}
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="mb-4 row">
+                                    <label for="seo_keyword" class="col-sm-3 col-form-label mb-2">{{ __('Seo Keyword') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="seo_keyword" name="seo_keyword" type="text"
+                                            class="form-control mb-2 @if ($errors->has('seo_keyword')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter seo keywords') }}"  value="{{ @old('seo_keyword',@$blog->seo_keywords) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('seo_keyword') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
+                                    <label for="seo_description"
+                                            class="col-sm-3 col-form-label">{{ __('Seo Description') }}</label>
+                                    <div class="col-sm-9">
+                                        <textarea name="seo_description"
+                                            class="form-control @if ($errors->has('seo_description')) is-invalid @endif" placeholder="{{ __('Enter seo description') }}" >{{ @old('seo_description',@$blog->seo_description)}}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('seo_description') }}
+                                        </div>
+                                    </div>
+                                </div> 
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">
                                         <div>

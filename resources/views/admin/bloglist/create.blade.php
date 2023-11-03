@@ -46,6 +46,16 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
+                                    <label for="canonical_tag" class="col-sm-3 col-form-label mb-2">{{ __('Canonical Tag') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="canonical_tag" name="canonical_tag" type="text"
+                                            class="form-control mb-2 @if ($errors->has('canonical_tag')) is-invalid  @endif"
+                                            placeholder="{{ __('Enter canonical tag') }}"  value="{{ @old('canonical_tag') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('canonical_tag') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
                                     <label for="description"
                                             class="col-sm-3 col-form-label">{{ __('Description') }}
                                             <span class="text-danger">*</span></label>
@@ -81,6 +91,39 @@
                                             <input class="form-check-input" type="radio" name="status" id="status2"
                                                 value="0" @if (@old('status')) checked @endif>
                                             <label class="form-check-label" for="status2">{{ __('Inactive') }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
+                                    <label for="seo_title"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Seo Title') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="seo_title" name="seo_title" type="text"
+                                            class="form-control mb-2 @if ($errors->has('seo_title')) is-invalid @endif"
+                                            placeholder="{{ __('Enter seo title') }}" value="{{ @old('seo_title',@$blog->seo_title) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('seo_title') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
+                                    <label for="seo_keyword"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Seo keyword') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="seo_keyword" name="seo_keyword" type="text"
+                                            class="form-control mb-2 @if ($errors->has('seo_keyword')) is-invalid @endif"
+                                            placeholder="{{ __('Enter seo keyword') }}" value="{{ @old('seo_keyword',@$blog->seo_keyword) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('seo_keyword') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
+                                    <label for="seo_description"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Seo Description') }}</label>
+                                    <div class="col-sm-9">
+                                        <textarea id="seo_description" name="seo_description" type="text"
+                                            class="form-control mb-2 @if ($errors->has('seo-description	')) is-invalid @endif"
+                                            placeholder="{{ __('Enter Seo Description') }}">{{ @old('seo_description',@$blog->seo_description) }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('seo_description	') }}
                                         </div>
                                     </div>
                                 </div>

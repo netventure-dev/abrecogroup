@@ -28,6 +28,7 @@ class BlogSettingController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'canonical_tag' => 'nullable',
             'seo_title' => 'nullable',
             'seo_keyword' => 'nullable',
             'seo_description' => 'nullable',
@@ -37,6 +38,7 @@ class BlogSettingController extends Controller
         $blogs = Blog::firstOrCreate();      
         $blogs->uuid = (string) Str::uuid();
         $blogs->title = $validated['title'];
+        $blogs->canonical_tag = $validated['canonical_tag'];
         $blogs->description = $validated['description'];
         $blogs->seo_title = $validated['seo_title'];
         $blogs->seo_keyword = $validated['seo_keyword'];
