@@ -15,7 +15,7 @@ class ServiceApiController extends Controller
 
     public function index()
     {
-        $data['services'] = Service::select('id', 'uuid', 'name', 'custom_url', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status', 'seo_title', 'seo_description', 'seo_keywords')
+        $data['services'] = Service::select('id', 'uuid', 'name', 'custom_url', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag')
             ->with(['faqs' => function ($query) {
                 $query->select('id', 'service_id', 'uuid', 'title', 'description', 'order')->where('status', 1);
             }, 'contents' => function ($query) {
@@ -58,7 +58,7 @@ class ServiceApiController extends Controller
 
     public function details($uuid)
     {
-        $data['services'] = Service::select('id', 'uuid', 'name', 'custom_url', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status', 'seo_title', 'seo_description', 'seo_keywords')
+        $data['services'] = Service::select('id', 'uuid', 'name', 'custom_url', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag')
             ->with(['faqs' => function ($query) {
                 $query->select('id', 'service_id', 'uuid', 'title', 'description', 'order')->where('status', 1);
             }, 'contents' => function ($query) {
