@@ -34,10 +34,10 @@ class IndustryController extends Controller
     public function details($uuid)
     {
         $data['industry'] = Industry::where('slug', $uuid)->where('status', 1)
-            ->select('id', 'uuid', 'custom_url','name','slug','seo_title','seo_description','seo_keywords')
+            ->select('id', 'uuid', 'custom_url','name','slug','seo_title','seo_description','seo_keywords','canonical_tag')
             ->with(['contents' => function ($query) {
                 $query->where('status', 1)
-                    ->select('id', 'uuid', 'industries_id', 'title','subtitle', 'description', 'order', 'image','mobile_image', 'button_title', 'button_link','canonical_tag')
+                    ->select('id', 'uuid', 'industries_id', 'title','subtitle', 'description', 'order', 'image','mobile_image', 'button_title', 'button_link')
                     ->orderBy('order', 'ASC');
             },'contents.extra_contents'])->first();
         // $data['industry']['industry_content'] =  $data['industry']->contents->where('status',1);
