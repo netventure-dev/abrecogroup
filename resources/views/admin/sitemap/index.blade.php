@@ -34,11 +34,26 @@
                     <div class="mt-2 row">
                         <div class="col-lg-11">
                            
-                                <form action="{{ route('admin.updateSitemap') }}" method="post">
+                        <form action="{{ route('admin.updateSitemap') }}" method="post">
                             @csrf
-                            <textarea name="sitemapContent" rows="10" cols="50">{{ @$sitemapContent }}</textarea>
+                            <div class="mb-4 row">
+                                    <label for="description" class="col-sm-3 col-form-label">{{ __('Sitemap') }}
+                                        <span class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control mb-2 summernote" name="sitemapContent" >{{ @$sitemapContent }}</textarea>
+
+                                        </div>
+                                    </div>
+                                </div>
                             <br>
-                            <button type="submit">Save Changes</button>
+                            <div class="row justify-content-end">
+                                    <div class="col-sm-9">
+                                        <div>
+                                            <button type="submit"
+                                                class="btn btn-primary w-md">{{ __('Save Changes') }}</button>
+                                        </div>
+                                    </div>
+                                </div>
                         </form>
                             </form>
                         </div>
