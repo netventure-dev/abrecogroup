@@ -34,7 +34,7 @@
                             <form action="{{ route('admin.about-us.settings.store') }}" method="post"
                                 class="custom-validation" enctype="multipart/form-data">
                                 @csrf
-                                <div class="mb-4 row">
+                                {{-- <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
@@ -44,7 +44,15 @@
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
                                     </div>
+                                </div> --}}
+                                <div class="mb-4 row">
+                                    <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <textarea id="title" name="title" class="form-control mb-2 summernote @if ($errors->has('title')) is-invalid @endif" placeholder="{{ __('Enter title') }}" required>{{ @old('title', @$data->cover_title) }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('title') }}</div>
+                                    </div>
                                 </div>
+
                                 <div class="mb-4 row">
                                     <label for="canonical_tag" class="col-sm-3 col-form-label mb-2">{{ __('Canonical tag') }}<span
                                             class="text-danger"></span></label>
@@ -104,7 +112,7 @@
                                 </div>
                                 <div class="mb-4 row">
                                     <label for="alt_text" class="col-sm-3 col-form-label mb-2">{{ __('Alt title') }}<span
-                                            class="text-danger"></span></label>
+                                            class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <input id="alt_text" name="alt_text" type="text"
                                             class="form-control mb-2 @if ($errors->has('alt_text')) is-invalid  @endif"
