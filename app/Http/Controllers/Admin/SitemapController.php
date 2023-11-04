@@ -35,9 +35,11 @@ use Illuminate\Support\Facades\File;
         //    if (File::exists($path)) {
             try {
                 File::put($path, $newContent);
-                return redirect()->route('admin.editSitemap')->with('success', 'Sitemap updated successfully');
+                notify()->success(__('Created successfully'));
+                return redirect()->back();
             } catch (\Exception $e) {
-                return redirect()->route('admin.editSitemap')->with('error', 'Error updating the sitemap: ' . $e->getMessage());
-            }
+                notify()->error(__('Failed to create. Please try again'));
+                return redirect()->back();
+             }
        }
    }
