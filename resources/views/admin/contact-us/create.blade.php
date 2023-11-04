@@ -39,11 +39,26 @@
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <input id="title" name="title" type="text"
+                                        {{-- <input id="title" name="title" type="text"
                                             class="form-control mb-2 @if ($errors->has('title')) is-invalid @endif"
                                             placeholder="{{ __('Enter Title') }}" required
-                                            value="{{ @old('title', @$data->title) }}">
+                                            value="{{ @old('title', @$data->title) }}"> --}}
+                                        <textarea id="title" name="title" class="form-control mb-2 summernote @if ($errors->has('title')) is-invalid @endif"
+                                            placeholder="{{ __('Enter Title') }}" required>{{ @old('title', @$data->title) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
+                                    <label for="canonical_tag"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Canonical Tag') }}<span
+                                            class="text-danger"></span></label>
+                                    <div class="col-sm-9">
+                                        <input id="canonical_tag" name="canonical_tag" type="text"
+                                            class="form-control mb-2 @if ($errors->has('canonical_tag')) is-invalid @endif"
+                                            placeholder="{{ __('Enter canonical tag') }}"
+                                            value="{{ @old('canonical_tag', @$data->canonical_tag) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('canonical_tag') }}
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +120,8 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="map_link" class="col-sm-3 col-form-label mb-2">{{ __('Map Link') }}</label>
+                                    <label for="map_link"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Map Link') }}</label>
                                     <div class="col-sm-9">
                                         <input id="map_link" name="map_link" type="text"
                                             class="form-control mb-2 @if ($errors->has('map_link')) is-invalid @endif"
