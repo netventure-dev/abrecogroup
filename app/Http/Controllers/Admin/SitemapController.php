@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\File;
        {
            $path = '/var/www/html/a3logics/frontend/public/sitemap.xml';
 
-           if (File::exists($path)) {
+        //    if (File::exists($path)) {
                $sitemapContent = File::get($path);
-               return view('edit_sitemap', compact('sitemapContent'));
-           }
+               return view('admin.sitemap.index', compact('sitemapContent'));
+        //    }
 
            abort(404);
        }

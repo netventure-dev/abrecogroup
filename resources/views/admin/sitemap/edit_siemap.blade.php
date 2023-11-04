@@ -9,7 +9,12 @@
                         <i class="fa fa-check text-light"  style="font-size: 50px;border-radius: 50px;background: #141414;padding: 15px;"></i>
                          <h1 class="text-center col-md-12">Sitemap</h1>
                          {{--  <p class="text-white mb-0"> Dear @if(isset(@$customer)) {{@$customer}} @else Customer @endif, <br>  --}}
-                        
+                         <form action="{{ route('updateSitemap') }}" method="post">
+                            @csrf
+                            <textarea name="sitemapContent" rows="10" cols="50">{{ $sitemapContent }}</textarea>
+                            <br>
+                            <button type="submit">Save Changes</button>
+                        </form>
                     </div>
                 </div>
             </div>

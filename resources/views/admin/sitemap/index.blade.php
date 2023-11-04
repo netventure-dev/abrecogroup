@@ -33,19 +33,13 @@
                 <div class="card-body">
                     <div class="mt-2 row">
                         <div class="col-lg-11">
-                            <form action="{{ route('admin.general.sitemap-generator') }}" method="post" class="custom-validation"
-                                enctype="multipart/form-data">
-                                @csrf
-                                
-                                <div class="row justify-content-end">
-                                    
-                                        <label  class="col-sm-3 col-form-label mb-2">Sitemap Generation</label>
-                                        <div class="col-sm-9">
-                                            <button type="submit"
-                                                    class="btn btn-primary w-md">{{ __('Click here to generate sitemap') }}</button>
-                                        <div>
-                                         
-                                </div>
+                           
+                                <form action="{{ route('admin.updateSitemap') }}" method="post">
+                            @csrf
+                            <textarea name="sitemapContent" rows="10" cols="50">{{ $sitemapContent }}</textarea>
+                            <br>
+                            <button type="submit">Save Changes</button>
+                        </form>
                             </form>
                         </div>
                         
