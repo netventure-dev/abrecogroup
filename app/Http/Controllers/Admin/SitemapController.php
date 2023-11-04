@@ -35,7 +35,7 @@ use Illuminate\Support\Facades\File;
         //    if (File::exists($path)) {
                $newContent = $request->input('sitemapContent');
                File::put($path, $newContent);
-               return redirect()->route('editSitemap')->with('success', 'Sitemap updated successfully');
+               return redirect()->route('admin.editSitemap')->with('success', 'Sitemap updated successfully');
         //    }
 
            abort(404);
