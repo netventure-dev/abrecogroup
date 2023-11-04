@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\File;
        public function update(Request $request)
        {
            $path = '/var/www/html/a3logics/frontend/public/sitemap.xml';
-
+           $newContent = $request->input('sitemapContent');
         //    if (File::exists($path)) {
             try {
                 File::put($path, $newContent);
