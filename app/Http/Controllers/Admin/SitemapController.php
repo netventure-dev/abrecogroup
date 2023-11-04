@@ -33,11 +33,13 @@ use Illuminate\Support\Facades\File;
            $path = '/var/www/html/a3logics/frontend/public/sitemap.xml';
 
         //    if (File::exists($path)) {
-               $newContent = $request->input('sitemapContent');
-               File::put($path, $newContent);
-               return redirect()->route('editSitemap')->with('success', 'Sitemap updated successfully');
-        //    }
-
-           abort(404);
+            try {
+                File::put($path, $newContent);
+                notify()->success(__('Updated successfully'));
+                return redirect()->back();
+            } catch (\Exception $e) {
+                notify()->error(__('Failed to update. Please try again'));
+                return redirect()->back();
+             }
        }
    }
