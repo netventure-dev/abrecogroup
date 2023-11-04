@@ -40,7 +40,7 @@
                                     <label for="description" class="col-sm-3 col-form-label">{{ __('Sitemap') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea class="form-control mb-2 summernote" name="sitemapContent" >{!! @$sitemapContent !!}</textarea>
+                                        <textarea class="form-control mb-2" name="sitemapContent"  >{!! @$sitemapContent !!}</textarea>
 
                                         </div>
                                     </div>
