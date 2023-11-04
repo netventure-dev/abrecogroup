@@ -36,6 +36,7 @@ class AboutUsController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'content' => 'required',
+            'canonical_tag' => 'nullable',
             'cover_content' => 'required',
             'alt_text' => 'nullable',
             'banner_image' => 'sometimes|required| max:2000',
@@ -49,6 +50,8 @@ class AboutUsController extends Controller
         $data = AboutUs::firstOrCreate();
         $data->uuid = (string) Str::uuid();
         $data->cover_title = $validated['title'];
+        $data->canonical_tag = $validated['canonical_tag'];
+
         $data->cover_content = $validated['cover_content'];
         $data->content = $validated['content'];
         $data->alt_text = $validated['alt_text'];

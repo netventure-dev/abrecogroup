@@ -39,6 +39,7 @@ class MissionVisionController extends Controller
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
             'title' => 'required|unique:about_us_lists,title',
+            'canonical_tag' => 'nullable',
             'content' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
@@ -48,6 +49,8 @@ class MissionVisionController extends Controller
         $data = new MissionVision;
         $data->uuid = (string) Str::uuid();
         $data->title = $validated['title'];
+        $data->canonical_tag = $validated['canonical_tag'];
+
         $data->description = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
@@ -84,12 +87,14 @@ class MissionVisionController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:about_us_lists,title,'.$data->id,
             'content' => 'required',
+            'canonical_tag' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
 
             'status' => 'required',
         ]);
         $data->title = $validated['title'];
+        $data->canonical_tag = $validated['canonical_tag'];
         $data->description = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {

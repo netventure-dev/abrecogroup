@@ -15,9 +15,9 @@ class AboutController extends Controller
 
     public function index()
     {
-        $data['about'] = AboutUs::select('cover_title', 'cover_content', 'banner_image', 'content_image', 'content', 'link', 'seo_title', 'seo_description', 'seo_keywords')->first();
+        $data['about'] = AboutUs::select('cover_title', 'cover_content', 'banner_image', 'content_image', 'content', 'link', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag')->first();
         $data['about_list'] = AboutUsList::select('id', 'title', 'content', 'icon', 'link','canonical_tag')->where('status', 1)->get();
-        $data['mission_vision'] = MissionVision::select('id', 'uuid', 'title', 'description', 'image', 'mobile_image','status')->get()
+        $data['mission_vision'] = MissionVision::select('id', 'uuid', 'title', 'description', 'image', 'mobile_image','status','canonical_tag')->get()
        
         ->map(function ($item) {
             //  dd($item);
