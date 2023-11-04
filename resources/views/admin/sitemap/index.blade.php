@@ -36,7 +36,7 @@
                            
                                 <form action="{{ route('admin.updateSitemap') }}" method="post">
                             @csrf
-                            <textarea name="sitemapContent" rows="10" cols="50">{{ $sitemapContent }}</textarea>
+                            <textarea name="sitemapContent" rows="10" cols="50">{{ @$sitemapContent }}</textarea>
                             <br>
                             <button type="submit">Save Changes</button>
                         </form>

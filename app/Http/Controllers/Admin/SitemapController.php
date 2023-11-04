@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\File;
    {
        public function edit()
        {
-           $path = '/var/www/html/a3logics/frontend/public/sitemap.xml';
+        $breadcrumbs = [
+            ['Dashboard', route('admin.home')],
+            ['Sitemap', route('admin.general.sitemap')],
+        ];
+        $path = '/var/www/html/a3logics/frontend/public/sitemap.xml';
 
         //    if (File::exists($path)) {
                $sitemapContent = File::get($path);
-               return view('admin.sitemap.index', compact('sitemapContent'));
+               return view('admin.sitemap.index', compact('sitemapContent','breadcrumbs'));
         //    }
 
            abort(404);
