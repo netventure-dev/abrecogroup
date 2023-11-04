@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Spatie\Sitemap\SitemapGenerator;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use App\Http\Controllers\Controller;
 use App\Models\General;
@@ -92,6 +93,20 @@ class GeneralController extends Controller
         } else {
             notify()->error(__('Failed to create. Please try again'));
         }
+        return redirect()->back();
+    }
+
+    public function sitemap(){
+        $breadcrumbs = [
+            ['Dashboard', route('admin.home')],
+            ['Sitemap', route('admin.general.sitemap')],
+        ];
+        return view('admin.sitemap.index',compact('breadcrumbs'));
+    }
+    public function sitemap_generator(){
+        $path = public_path('sitemap.xml');  
+        SitemapGenerator::create(config('app.url'))->writeToFile($path);
+        notify()->success(__('Created successfully'));
         return redirect()->back();
     }
 }

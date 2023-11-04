@@ -272,6 +272,11 @@ Route::post('contact-us/store',  'Admin\ContactUsController@store')->name('conta
 Route::get('general/create',  'Admin\GeneralController@create')->name('general.create');
 Route::post('general/store',  'Admin\GeneralController@store')->name('general.store');
 
+// sitemap
+Route::get('general/sitemap',  'Admin\GeneralController@sitemap')->name('general.sitemap');
+Route::post('general/sitemap-generator',  'Admin\GeneralController@sitemap_generator')->name('general.sitemap-generator');
+
+
 // request rates
 Route::get('request/create',  'Admin\RequestRatesController@create')->name('request.settings.create');
 Route::post('request/store',  'Admin\RequestRatesController@store')->name('request.settings.store');
