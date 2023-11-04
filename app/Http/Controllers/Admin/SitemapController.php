@@ -35,10 +35,10 @@ use Illuminate\Support\Facades\File;
         //    if (File::exists($path)) {
             try {
                 File::put($path, $newContent);
-                notify()->success(__('Created successfully'));
+                notify()->success(__('Updated successfully'));
                 return redirect()->back();
             } catch (\Exception $e) {
-                notify()->error(__('Failed to create. Please try again'));
+                notify()->error(__('Failed to update. Please try again'));
                 return redirect()->back();
              }
        }
