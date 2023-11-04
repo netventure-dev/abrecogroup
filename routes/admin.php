@@ -369,3 +369,6 @@ Route::post('career-opening/store','Admin\CareerOpeningController@store')->name(
 Route::get('career-opening/edit/{id}','Admin\CareerOpeningController@edit')->name('career-opening.edit');
 Route::post('career-opening/update/{id}','Admin\CareerOpeningController@update')->name('career-opening.update');
 Route::delete('career-opening/destroy/{id}','Admin\CareerOpeningController@destroy')->name('career-opening.destroy');
+
+Route::get('/edit-sitemap', 'Admin\SitemapController@edit')->name('editSitemap');
+Route::post('/update-sitemap', 'Admin\SitemapController@update')->name('updateSitemap');
