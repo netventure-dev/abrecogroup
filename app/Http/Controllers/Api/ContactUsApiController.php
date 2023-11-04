@@ -22,7 +22,7 @@ class ContactUsApiController extends Controller
     public function contact()
     {
         // dd(1);
-        $data['contact'] = ContactUs::select('title', 'description', 'link', 'phone', 'address', 'map_link', 'image', 'seo_title', 'seo_description', 'seo_keywords')->get();
+        $data['contact'] = ContactUs::select('title', 'description', 'link', 'phone', 'address', 'map_link', 'image', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag')->get();
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }
