@@ -15,6 +15,7 @@ use App\Http\Controllers\Api\CaseStudyApiController;
 use App\Http\Controllers\Api\PolicyPageApiController;
 use App\Http\Controllers\Api\ContactUsApiController;
 use App\Http\Controllers\Api\CareerApiController;
+use App\Http\Controllers\Api\SchemaApiController;
 use App\Http\Controllers\Api\SeoApiController;
 
 /*
@@ -100,3 +101,5 @@ Route::get('/seo/{slug}',[SeoApiController::class,'index']);
 
 //gtm
 Route::get('/gtm',[SeoApiController::class,'gtm']);
+
+Route::get('/schema', [SchemaApiController::class, 'schema']);
