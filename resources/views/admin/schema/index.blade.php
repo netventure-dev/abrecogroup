@@ -25,7 +25,7 @@
                 <div class="card-body">
 
                     {{-- <h4 class="mb-sm-0 font-size-18">{{ __('Schema') }}</h4> --}}
-                    <form action="{{ route('admin.schema.store') }}" method="POST">
+                    <!-- <form action="{{ route('admin.schema.store') }}" method="POST">
                         @csrf
                         <div class="row flex-column flex-md-row">
                             <div class="col">
@@ -47,7 +47,7 @@
                                 <button class="btn btn-primary w-100 my-1">Submit</button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </div>
