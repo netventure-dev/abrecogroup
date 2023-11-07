@@ -102,4 +102,4 @@ Route::get('/seo/{slug}',[SeoApiController::class,'index']);
 //gtm
 Route::get('/gtm',[SeoApiController::class,'gtm']);
 
-Route::get('/schema', [SchemaApiController::class, 'schema']);
+Route::get('/schema/{slug}', [SchemaApiController::class, 'schema']);
