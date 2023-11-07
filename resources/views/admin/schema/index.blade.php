@@ -76,7 +76,7 @@
                                 <th>Page Name</th>
                                 <th>Title</th>
                                 <th>Description</th>
-                                <th>Action</th>
+                                <!-- <th>Action</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -92,7 +92,7 @@
                                         <textarea class="form-control description" id="description{{ $content->uuid }}" seo_id='{{ $content->uuid }}' name="description" rows="2"
                                             placeholder="Please provide meta description">{{ $content->description }}</textarea>
                                     </td>
-                                    <td>
+                                    <!-- <td>
                                         <button type="button" class="last btn btn-primary delete" data-toggle="tooltip"
                                             title="Delete"
                                             onclick="event.preventDefault(); if(confirm('{{ __('Are you sure to delete this row') }}')){
@@ -104,7 +104,7 @@
                                             method="POST">
                                             @csrf
                                         </form>
-                                    </td>
+                                    </td> -->
                                 </tr>
                             @endforeach
                         </tbody>
