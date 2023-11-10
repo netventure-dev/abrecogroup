@@ -214,6 +214,19 @@
     <script>
       $(document).ready(function() {
            $('.summernote').summernote('fontName', 'Poppins');
+           var $editor = $(this);
+
+    // Remove <p> tags
+    $editor.find('p').each(function () {
+        var $this = $(this);
+        $this.replaceWith($this.html());
+    });
+
+    // Remove <span> tags
+    $editor.find('span').each(function () {
+        var $this = $(this);
+        $this.replaceWith($this.html());
+    });
    });
 </script>
 @endsection
