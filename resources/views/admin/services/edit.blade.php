@@ -244,6 +244,7 @@
     <script>
         $(document).ready(function() {
             $('.summernote').summernote('fontName', 'Poppins');
+            $(this).find('p, span').contents().unwrap();
         });
     </script>
 @endsection
