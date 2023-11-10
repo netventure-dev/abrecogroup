@@ -34,7 +34,7 @@
                             <form action="{{ route('admin.industries.store') }}" method="post"
                                 class="custom-validation" enctype="multipart/form-data">
                                 @csrf
-                                {{-- <div class="mb-4 row">
+                                 <div class="mb-4 row">
                                     <label for="name" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
@@ -44,8 +44,8 @@
                                         <div class="invalid-feedback">{{ $errors->first('name') }}
                                         </div>
                                     </div>  
-                                </div> --}}
-                                <div class="mb-4 row">
+                                </div>
+                                <!-- <div class="mb-4 row">
                                     <label for="name" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span
                                         class="text-danger">*</span></label>
                                     <div class="col-sm-9">
@@ -54,7 +54,7 @@
                                             placeholder="{{ __('Enter Name') }}" required>{{ @old('name') }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('name') }}</div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="mb-4 row">
                                     <label for="sub_title" class="col-sm-3 col-form-label mb-2">{{ __('Sub Title') }}</label>
                                     <div class="col-sm-9">
