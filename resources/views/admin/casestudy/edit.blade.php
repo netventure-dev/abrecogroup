@@ -310,8 +310,8 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script>
          $(document).ready(function() {
+            $(document).ready(function() {
            $('.summernote').summernote('fontName', 'Poppins');
-           $(this).find('p, span').contents().unwrap();
    });
         $('#service').on('change', function() {
             var service = this.value;

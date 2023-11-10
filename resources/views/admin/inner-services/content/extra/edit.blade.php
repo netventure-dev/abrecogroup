@@ -154,8 +154,8 @@
 
     <script>
          $(document).ready(function() {
+            $(document).ready(function() {
            $('.summernote').summernote('fontName', 'Poppins');
-           $(this).find('p, span').contents().unwrap();
    });
       
     </script>
