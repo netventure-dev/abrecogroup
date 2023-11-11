@@ -93,7 +93,7 @@ class HomeController extends Controller
        $data['section_5_Services'] = Section::with(['contents' => function ($query) {
                                 $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order','status')->where('status', 1);
                             }])
-                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order''status')
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order','status')
                             ->where('order',5)
                             ->where('status', 1)
                             ->first();
@@ -138,7 +138,7 @@ class HomeController extends Controller
        $data['section_8_why'] = Section::with(['contents' => function ($query) {
                                 $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order','status')->where('status', 1);
                             }])
-                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order','status','status')
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order','status')
                             ->where('order',8)
                             ->where('status', 1)
                             ->first();
