@@ -40,9 +40,9 @@ class HomeController extends Controller
         $data['blogLists'] = Bloglist::select('uuid', 'title','canonical_tag', 'description', 'image', 'slug')->where('status', 1)->get();
         $data['testimonials'] = Testimonial::select('uuid', 'title', 'position', 'description', 'image')->where('status', 1)->get();
         $data['all_sections'] = Section::with(['contents' => function ($query) {
-                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
+                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order','status')->where('status', 1);
                             }])
-                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content','content2', 'button_title', 'link', 'order')
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content','content2', 'button_title', 'link', 'order','status')
                             ->whereIn('order',[1,2,4,9])
                             ->where('status', 1)
                             ->get();
@@ -59,9 +59,9 @@ class HomeController extends Controller
         $data['general'] = General::select('address', 'mobile','email', 'logo','light_logo','site_title', 'facebook', 'instagram', 'twitter', 'linkdln', 'youtube','favicon','yt_image','fb_image','ld_image','twt_image','ig_image')->first();
         $data['all_services'] = Service::select('id', 'uuid', 'name') 
                             ->with(['subservices' => function ($query) {
-                                $query->select('id', 'service_id', 'service as service_name', 'uuid', 'name')->where('status', 1);
+                                $query->select('id', 'service_id', 'service as service_name', 'uuid', 'name','status')->where('status', 1);
                             }, 'subservices.innerservices' => function ($query) {
-                                $query->select('id', 'sub_service_id', 'subservice as subservice_name', 'uuid', 'name')->where('status', 1);
+                                $query->select('id', 'sub_service_id', 'subservice as subservice_name', 'uuid', 'name','status')->where('status', 1);
                             },])
                             ->where('status', 1)
                             ->orderBy('created_at', 'desc')
@@ -76,9 +76,9 @@ class HomeController extends Controller
     {
        // section 1
        $data['section_3_driven'] = Section::with(['contents' => function ($query) {
-                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
+                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order','status')->where('status', 1);
                             }])
-                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content','content2','button_title', 'link', 'order')
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content','content2','button_title', 'link', 'order','status')
                             ->where('order',3)
                             ->where('status', 1)
                             ->first();
@@ -91,9 +91,9 @@ class HomeController extends Controller
     {
        // section 1
        $data['section_5_Services'] = Section::with(['contents' => function ($query) {
-                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
+                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order','status')->where('status', 1);
                             }])
-                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order''status')
                             ->where('order',5)
                             ->where('status', 1)
                             ->first();
@@ -106,9 +106,9 @@ class HomeController extends Controller
     {
        // section 1
        $data['section_6_case'] = Section::with(['contents' => function ($query) {
-                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
+                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order','status')->where('status', 1);
                             }])
-                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order','status')
                             ->where('order',6)
                             ->where('status', 1)
                             ->first();
@@ -121,9 +121,9 @@ class HomeController extends Controller
     {
        // section 1
        $data['section_7_industries'] = Section::with(['contents' => function ($query) {
-                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
+                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order','status')->where('status', 1);
                             }])
-                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order','status')
                             ->where('order',7)
                             ->where('status', 1)
                             ->first();
@@ -136,9 +136,9 @@ class HomeController extends Controller
     {
        // section 1
        $data['section_8_why'] = Section::with(['contents' => function ($query) {
-                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order')->where('status', 1);
+                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order','status')->where('status', 1);
                             }])
-                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order')
+                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order','status','status')
                             ->where('order',8)
                             ->where('status', 1)
                             ->first();
