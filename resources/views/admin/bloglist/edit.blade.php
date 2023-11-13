@@ -44,7 +44,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                                 <!-- <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
@@ -78,7 +78,7 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Slider Image') }}<span
                                         class="text-danger">*</span> <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                         @if (isset($blog->image))
                                             <img src="{{ asset("/storage/$blog->image") }}" alt="" class="img-fluid" style="width:100px;">
@@ -87,7 +87,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
-                              
+
                                 <div class="mb-4 row">
                                     <label for="horizontal-firstname-input"
                                         class="col-sm-3 col-form-label">{{ __('Status') }}<span
@@ -106,7 +106,7 @@
                                     </div>
                                 </div>
 
- 
+
                                 <div class="mb-4 row">
                                     <label for="seo_title" class="col-sm-3 col-form-label mb-2">{{ __('Seo Title') }}</label>
                                     <div class="col-sm-9">
@@ -116,7 +116,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_title') }}
                                         </div>
                                     </div>
-                                </div>    
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="seo_keyword" class="col-sm-3 col-form-label mb-2">{{ __('Seo Keyword') }}</label>
                                     <div class="col-sm-9">
@@ -136,7 +136,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_description') }}
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">
                                         <div>

@@ -46,7 +46,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                                 <!-- <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
@@ -78,7 +78,7 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Cover Image') }} <span
                                             class="text-danger">*</span><a href="#"
-                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                      @if (isset($blog->image))
                                             <img src="{{ asset('/storage/' . @$blog->image) }}" alt=""
