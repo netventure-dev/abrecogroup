@@ -48,7 +48,7 @@
 
                                 <div class="mb-4 row">
                                     <label for="canonical_tag" class="col-sm-3 col-form-label mb-2">{{ __('Canonical tag') }}<span
-                                            class="text-danger">*</span></label>
+                                            class="text-danger"></span></label>
                                     <div class="col-sm-9">
                                         <input id="canonical_tag" name="canonical_tag" type="text"
                                             class="form-control mb-2 @if ($errors->has('title')) is-invalid  @endif"
@@ -110,7 +110,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_title') }}
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="seo_description"
                                             class="col-sm-3 col-form-label">{{ __('Seo Description') }}
@@ -122,7 +122,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_description') }}
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="seo_keywords"
                                             class="col-sm-3 col-form-label">Meta Keywords <small>Seperated by comma</small>
@@ -134,7 +134,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_keywords') }}
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
 
 
                                 <div class="row justify-content-end">

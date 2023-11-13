@@ -44,7 +44,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                                 <!-- <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
@@ -88,7 +88,7 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Slider Image') }}<span
                                         class="text-danger">*</span> <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                         @if (isset($slider->image))
                                             <img src="{{ asset('storage/'.$slider->image) }}" alt="" class="img-fluid" style="width:250px;">
@@ -101,7 +101,7 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="mobile_slider">{{ __('Mobile Slider Image') }}<span
                                         class="text-danger">*</span> <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                         @if (isset($slider->mobile_slider))
                                             <img src="{{ asset('storage/'.$slider->mobile_slider) }}" alt="" class="img-fluid" style="width:250px;">
@@ -159,7 +159,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_title') }}
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="seo_description"
                                             class="col-sm-3 col-form-label">{{ __('Seo Description ') }}
@@ -171,7 +171,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_description') }}
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="seo_keywords"
                                             class="col-sm-3 col-form-label">Meta Keywords <small>Seperated by comma</small>
@@ -183,7 +183,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_keywords') }}
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
 
 
                                 <div class="row justify-content-end">

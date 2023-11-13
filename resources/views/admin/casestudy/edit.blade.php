@@ -151,7 +151,7 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Image') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled"
-                                            data-toggle="tooltip"></a></label>
+                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                         @if (isset($case->image1))
                                             <img src="{{ asset('storage/' . $case->image1) }}" alt=""
@@ -166,7 +166,7 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Logo') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled"
-                                            data-toggle="tooltip"></a></label>
+                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                         @if (isset($case->image2))
                                             <img src="{{ asset('storage/' . $case->image2) }}" alt=""
@@ -182,7 +182,7 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label"
                                         for="background_image">{{ __('Background Image') }} <a href="#"
-                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                         @if (isset($case->background_image))
                                             <img src="{{ asset('storage/' . $case->background_image) }}" alt=""
