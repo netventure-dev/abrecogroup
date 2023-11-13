@@ -71,8 +71,9 @@
     </div>
     <!-- end page title -->
     @component('admin.components.breadcrumb', ['breadcrumbs' => $breadcrumbs])
-    @slot('title') @endslot
-     @endcomponent
+        @slot('title')
+        @endslot
+    @endcomponent
     <!-- start administrator create form -->
 
     <div class="row">
@@ -142,25 +143,16 @@
 
                                 </div>
 
-                                    <div class="mb-4 row">
-                                        <label for="resume" class="col-sm-3 col-form-label mb-2">{{ __('Resume') }}<span class="text-danger"></span></label>
-                                        <div class="col-sm-9">
-                                            <textarea id="resume" name="resume" class="form-control mb-2 @if ($errors->has('resume')) is-invalid @endif"
-                                                placeholder="{{ __('Enter resume') }}" required readonly>{{ old('resume', @$quote->resume) }}</textarea>
-                                            <div class="invalid-feedback">{{ $errors->first('resume') }}</div>
-                                        </div>
+                                <div class="mb-4 row">
+                                    <label for="resume" class="col-sm-3 col-form-label mb-2">{{ __('Resume') }}<span
+                                            class="text-danger"></span></label>
+                                    <div class="col-sm-9">
+                                        <a href="{{ asset('storage/' . @$quote['resume']) }}">View</a>
+
+
                                     </div>
-                                    <a href="{{ asset('storage/' . @$quote['resume']) }}">View</a>
-
-
-
-
-
-
-
-
-
-
+                                </div>
+                                {{-- <a href="{{ asset('storage/' . @$quote['resume']) }}">View</a> --}}
 
                         </div>
                         </form>
