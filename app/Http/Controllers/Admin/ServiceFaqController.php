@@ -71,8 +71,11 @@ class ServiceFaqController extends Controller
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
             [(__('Services')), route('admin.services.index')],
+            [$services->title, route('admin.services.faq.index', $services->uuid)],
             [(__('Faqs')), route('admin.services.faq.index',$services->uuid)],
             [$faq->title, null],
+            
+
         ];
         return view('admin.services.faq.edit',compact('services','breadcrumbs','faq'));
     }
