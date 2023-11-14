@@ -108,7 +108,8 @@ class SectionController extends Controller
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
             'button_title' => 'nullable',
-            'status' => 'required','order' => 'required|unique:sections,order',
+            'status' => 'required',
+            'order' => 'required|unique:sections,order,'.$section->id,
         ]);
         $section->slug = SlugService::createSlug(Section::class, 'slug', $validated['title'], ['unique' => false]);
         $section->title = $validated['title'];
