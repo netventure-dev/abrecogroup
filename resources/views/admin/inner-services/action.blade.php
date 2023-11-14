@@ -7,7 +7,7 @@
              {{--  <a href="{{ route('admin.inner-services.content.create',$innerservice->uuid) }}" ><i 
             data-toggle="tooltip" title="Content"></i></a>  --}}
     {{-- @endcan @can('delete', $admin) --}}
-    <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this row')}}')){
+    <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this inner service')}}')){
         document.getElementById('delete-data-{{ $innerservice->uuid }}').submit();}">
         <i class="fas fa-trash-alt"></i>
     </button>
