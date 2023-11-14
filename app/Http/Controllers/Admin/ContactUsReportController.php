@@ -21,8 +21,15 @@ class ContactUsReportController extends Controller
     }
     public function view($id)
     {
+
+        $breadcrumbs = [
+            [(__('Dashboard')), route('admin.home')],
+            [(__('Contact Report')), route('admin.enquiries.index')],
+            [(__('View')), null],
+        ];
         $quote = Contact::where('id', $id)->first();
+
         //  dd($quote);
-        return view('admin.reports.contact_view', compact('quote'));
+        return view('admin.reports.contact_view',compact('quote','breadcrumbs'));
     }
 }
