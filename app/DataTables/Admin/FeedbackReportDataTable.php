@@ -57,7 +57,7 @@ class FeedbackReportDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
 
-                    ->orderBy(1)
+                    ->orderBy(0)
                     ->buttons(
                         Button::make('create'),
                         Button::make('export'),
