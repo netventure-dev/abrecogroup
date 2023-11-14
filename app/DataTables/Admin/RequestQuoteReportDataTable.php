@@ -39,7 +39,7 @@ class RequestQuoteReportDataTable extends DataTable
                 return view('admin.reports.action', compact('new'));
             })
 
-            ->rawColumns(['title', 'image', 'status','action']);
+            ->rawColumns(['name', 'service', 'phone', 'created_at','action']);
     }
 
     /**

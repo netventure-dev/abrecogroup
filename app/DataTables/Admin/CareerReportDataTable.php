@@ -38,7 +38,7 @@ class CareerReportDataTable extends DataTable
                 return view('admin.reports.career.action', compact('new'));
             })
 
-            ->rawColumns(['title', 'phone', 'email','position','action']);
+            ->rawColumns(['name', 'phone', 'email', 'position']);
     }
 
     /**
