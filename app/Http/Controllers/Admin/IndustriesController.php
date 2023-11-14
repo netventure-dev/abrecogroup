@@ -34,7 +34,7 @@ class IndustriesController extends Controller
     {
         $validated = $request->validate([
 
-            'name' => 'required|unique:industries,name',
+            'name' => 'required|unique:industries,name|max:255',
             'sub_title' => 'nullable',
             'canonical_tag' => 'nullable',
             'custom_url' => 'nullable',
@@ -42,7 +42,7 @@ class IndustriesController extends Controller
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'icon' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
-            'button_title' => 'nullable',
+            'button_title' => 'nullable|max:255',
             'status' => 'required',
             'seo_title' => 'nullable',
             'seo_description' => 'nullable',
@@ -99,7 +99,7 @@ class IndustriesController extends Controller
         $services = Industry::where('uuid',$id)->first();
 
         $validated = $request->validate([
-            'name' => 'required|unique:industries,name,'.$services->id,
+            'name' => 'required|unique:industries,name,|max:255'.$services->id,
             'sub_title' => 'nullable',
             'canonical_tag' => 'nullable',
             'content' => 'nullable',
@@ -107,7 +107,7 @@ class IndustriesController extends Controller
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'icon' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
-            'button_title' => 'nullable',
+            'button_title' => 'nullable|max:255',
             'seo_title' => 'nullable',
             'seo_description' => 'nullable',
             'seo_keywords' => 'nullable',

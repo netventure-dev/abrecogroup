@@ -37,11 +37,11 @@ class SubServiceController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|unique:sub_services,name',
+            'name' => 'required|unique:sub_services,name|max:255',
             'cover_description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'title' => 'required',
+            'title' => 'required|max:255',
             'canonical_tag' => 'nullable',
             'custom_url' => 'nullable',
             'description' => 'nullable',
@@ -104,11 +104,11 @@ class SubServiceController extends Controller
         $services = SubService::where('uuid',$id)->first();
 
         $validated = $request->validate([
-            'name' => 'required|unique:sub_services,name,'.$services->id,
+            'name' => 'required|unique:sub_services,name|max:255,'.$services->id,
             'cover_description' => 'required',
             'image' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'logo' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'title' => 'required',
+            'title' => 'required|max:255',
             'canonical_tag' => 'nullable',
             'custom_url' => 'nullable',
             'service_id' => 'required',

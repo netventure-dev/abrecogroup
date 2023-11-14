@@ -37,11 +37,11 @@ class InnerServiceController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|unique:inner_services,name',
+            'name' => 'required|unique:inner_services,name|max:255',
             'cover_description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'title' => 'required',
+            'title' => 'required|max:255',
             'canonical_tag' => 'nullable',
             'custom_url' => 'nullable',
             'alt_text' => 'nullable',
@@ -111,12 +111,12 @@ class InnerServiceController extends Controller
         $services = InnerService::where('uuid',$id)->first();
 
         $validated = $request->validate([
-            'name' => 'required|unique:inner_services,name,'.$services->id,
+            'name' => 'required|unique:inner_services,name,|max:255'.$services->id,
             'cover_description' => 'required',
             'image' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'logo' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'alt_text' => 'nullable',
-            'title' => 'required',
+            'title' => 'required|max:255',
             'canonical_tag' => 'nullable',
             'custom_url' => 'nullable',
             'sub_service_id' => 'required',
