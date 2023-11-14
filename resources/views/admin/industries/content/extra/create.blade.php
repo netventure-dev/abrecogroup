@@ -59,7 +59,7 @@
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="description"
-                                            class="form-control @if ($errors->has('description')) is-invalid @endif" placeholder="{{ __('Enter Description') }}" required>{{ @old('description')}}</textarea>
+                                            class="form-control @if ($errors->has('description')) is-invalid @endif"style="width: 100% !important; height: 200px !important;" placeholder="{{ __('Enter Description') }}" required>{{ @old('description')}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>
@@ -69,7 +69,7 @@
                                             class="col-sm-3 col-form-label">{{ __('Content') }}</label>
                                     <div class="col-sm-9">
                                         <textarea name="content"
-                                            class="form-control @if ($errors->has('content')) is-invalid @endif" placeholder="{{ __('Enter Content Description') }}" >{{ @old('content')}}</textarea>
+                                            class="form-control @if ($errors->has('content')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" placeholder="{{ __('Enter Content Description') }}" >{{ @old('content')}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
                                     </div>
