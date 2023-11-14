@@ -1,6 +1,6 @@
 @extends('admin.layout.backend')
 
-@section('title') {{ __('About Us List') }} @endsection
+@section('title') {{ __('Core Values List') }} @endsection
 
 @section('css')
     <!-- DataTables -->
@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('About Us List') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Core Values List') }}</h4>
                 <div class="page-title-right">
                     {{-- @can('create', App\Models\Admin::class) --}}
                         <a href="{{ route('admin.about-us.list.create') }}"

@@ -15,7 +15,7 @@ class AboutUsListController extends Controller
     {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('About Us List')), null],
+            [(__('Core Values List')), null],
         ];
         return $dataTable->render('admin.about-us.list.index', ['breadcrumbs' => $breadcrumbs]);
     }
@@ -29,7 +29,7 @@ class AboutUsListController extends Controller
         // $this->authorize('create', Admin::class);
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['About Us List', route('admin.about-us.list.index')],
+            ['Core Values List', route('admin.about-us.list.index')],
             ['Create', route('admin.about-us.list.create')],
         ];
         return view('admin.about-us.list.create', compact('breadcrumbs'));
@@ -73,7 +73,7 @@ class AboutUsListController extends Controller
         $data= AboutUsList::where('uuid',$id)->first();
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('About Us List')),  route('admin.about-us.list.index')],
+            [(__('Core Values List')),  route('admin.about-us.list.index')],
             [$data->title, null],
         ];
         return view('admin.about-us.list.edit', compact('breadcrumbs','data'));
