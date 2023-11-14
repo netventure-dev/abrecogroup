@@ -51,7 +51,7 @@
                                 <td>{{$content->order}}</td>
                                 <td> <a href="{{ route('admin.sub-services.extra.edit',['id' => $subservice->uuid, 'uuid' =>$content->uuid]) }}" class="first btn btn-primary edit"> Edit</a>
                                     
-                                <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this row')}}')){
+                                <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this sub service extra content')}}')){
                                     document.getElementById('delete-data-{{ $content->uuid }}').submit();}">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
