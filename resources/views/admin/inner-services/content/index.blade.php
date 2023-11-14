@@ -51,7 +51,7 @@
                                 <td>{{$content->order}}</td>
                                 <td> <a href="{{ route('admin.inner-services.content.edit',['id' => $subservice->uuid, 'uuid' =>$content->uuid]) }}" class="first btn btn-primary edit"> Edit</a>
                                     <a href="{{ route('admin.inner-services.extra.index',$content->uuid) }}" class="first btn btn-primary edit"> Content</a> 
-                                <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this row')}}')){
+                                <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this inner service content')}}')){
                                     document.getElementById('delete-data-{{ $content->uuid }}').submit();}">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
