@@ -123,7 +123,7 @@
                                     <label for="cover_description"
                                         class="col-sm-3 col-form-label">{{ __('Content') }}</label>
                                     <div class="col-sm-9">
-                                        <textarea name="content" class="form-control @if ($errors->has('content')) is-invalid @endif"
+                                        <textarea name="content" class="form-control @if ($errors->has('content')) is-invalid @endif" style="width: 100% !important; height: 200px !important;"
                                             placeholder="{{ __('Enter Content Description') }}">{{ @old('content') }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
@@ -133,7 +133,7 @@
                                     <label for="cover_description"
                                         class="col-sm-3 col-form-label">{{ __('Extra Content') }}</label>
                                     <div class="col-sm-9">
-                                        <textarea name="content2" class="form-control @if ($errors->has('content2')) is-invalid @endif"
+                                        <textarea name="content2" class="form-control @if ($errors->has('content2')) is-invalid @endif" style="width: 100% !important; height: 200px !important;"
                                             placeholder="{{ __('Enter Content') }}">{{ @old('content2') }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content2') }}
                                         </div>

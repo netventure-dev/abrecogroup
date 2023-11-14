@@ -80,7 +80,7 @@
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="content"
-                                            class="form-control  @if ($errors->has('content')) is-invalid @endif" ro placeholder="{{ __('Enter Content Description') }}" required>{{ @old('content',@$slider->description)}}</textarea>
+                                            class="form-control  @if ($errors->has('content')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Content Description') }}" required>{{ @old('content',@$slider->description)}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
                                     </div>

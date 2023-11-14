@@ -59,7 +59,7 @@
                                         class="col-sm-3 col-form-label">{{ __('Cover Description') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea name="cover_description" class="form-control @if ($errors->has('cover_description')) is-invalid @endif" ro
+                                        <textarea name="cover_description" class="form-control @if ($errors->has('cover_description')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro
                                             placeholder="{{ __('Enter Cover Description Description') }}">{{ @old('cover_description') }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('cover_description') }}
                                         </div>

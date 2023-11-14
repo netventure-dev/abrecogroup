@@ -49,7 +49,7 @@
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="content"
-                                            class="form-control @if ($errors->has('content')) is-invalid @endif"  placeholder="{{ __('Enter Content') }}" required>{{ @old('content',@$policy->content)}}</textarea>
+                                            class="form-control @if ($errors->has('content')) is-invalid @endif" style="width: 100% !important; height: 200px !important;"  placeholder="{{ __('Enter Content') }}" required>{{ @old('content',@$policy->content)}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
                                     </div>
