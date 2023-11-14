@@ -60,6 +60,7 @@ class ContactUsReportDataTable extends DataTable
             ->setTableId('contactusreportdatatable-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
+            ->dom('Bfrtip')
             ->orderBy(1)
             ->buttons(
                 Button::make('excel'),
