@@ -83,12 +83,12 @@ class ContactUsReportDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
-            Column::make('name')->title(__('Name')),
-            // Column::make('email')->title(__('Email')),
-            Column::make('phone')->title(__('Phone')),
-            // Column::make('organization')->title(__('Organization')),
-            Column::make('job')->title(__('Job')),
-            Column::make('refer')->title(__('From')),
+            Column::make('name')->title(__('Name'))->orderable(false),
+            // Column::make('email')->title(__('Email'))->orderable(false),
+            Column::make('phone')->title(__('Phone'))->orderable(false),
+            // Column::make('organization')->title(__('Organization'))->orderable(false),
+            Column::make('job')->title(__('Job'))->orderable(false),
+            Column::make('refer')->title(__('From'))->orderable(false),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

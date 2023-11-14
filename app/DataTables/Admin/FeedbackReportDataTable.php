@@ -76,9 +76,9 @@ class FeedbackReportDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
-            Column::make('name')->title(__('Name')),
-            Column::make('email')->title(__('Email')),
-            Column::make('phone')->title(__('Phone'))
+            Column::make('name')->title(__('Name'))->orderable(false),
+            Column::make('email')->title(__('Email'))->orderable(false),
+            Column::make('phone')->title(__('Phone'))->orderable(false),
         ];
     }
     /**

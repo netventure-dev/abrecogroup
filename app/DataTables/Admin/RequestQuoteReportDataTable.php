@@ -52,8 +52,8 @@ class RequestQuoteReportDataTable extends DataTable
     {
         // return $model->with('service_doc')->newQuery();
         return $model->with('service_doc')
-        ->orderBy('created_at', 'desc')
-        ->newQuery();
+                ->orderBy('created_at', 'desc')
+                ->newQuery();
     }
 
     /**
@@ -68,7 +68,7 @@ class RequestQuoteReportDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
-                    ->orderBy(1)
+                    ->orderBy(0)
                     ->buttons(
                         // Button::make('create'),
                         Button::make('excel'),
@@ -88,11 +88,11 @@ class RequestQuoteReportDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
-            Column::make('name')->title(__('Name')),
-            Column::make('service')->title(__('Service')),
-            Column::make('phone')->title(__('Phone')),
-            Column::make('created_at')->title(__('Date')),
-            Column::make('email')->title(__('Email')),
+            Column::make('name')->title(__('Name'))->orderable(false),
+            Column::make('service')->title(__('Service'))->orderable(false),
+            Column::make('phone')->title(__('Phone'))->orderable(false),
+            Column::make('created_at')->title(__('Date'))->orderable(false),
+            Column::make('email')->title(__('Email'))->orderable(false),
             // Column::make('type')->title(__('Type')),
             Column::computed('action')
             ->exportable(false)
