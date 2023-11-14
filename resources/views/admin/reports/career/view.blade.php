@@ -144,14 +144,12 @@
                                 </div>
 
                                 <div class="mb-4 row">
-                                    <label for="resume" class="col-sm-3 col-form-label mb-2">{{ __('Resume') }}<span
-                                            class="text-danger"></span></label>
+                                    <label for="resume" class="col-sm-3 col-form-label mb-2">{{ __('Resume') }}<span class="text-danger"></span></label>
                                     <div class="col-sm-9">
-                                        <a href="{{ asset('storage/' . @$quote['resume']) }}">View</a>
-
-
+                                        <a href="{{ asset('storage/' . @$quote['resume']) }}" target="_blank">View</a>
                                     </div>
                                 </div>
+
                                 {{-- <a href="{{ asset('storage/' . @$quote['resume']) }}">View</a> --}}
 
                         </div>
