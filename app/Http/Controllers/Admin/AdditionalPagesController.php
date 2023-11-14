@@ -97,7 +97,7 @@ class AdditionalPagesController extends Controller
         $page = AdditionalPage::where('uuid',$id)->first();
 
         $validated = $request->validate([
-            'title' => 'required|unique:additional_pages,title,|max:255'.$page->id,
+            'title' => 'required|unique:additional_pages,title|max:255,'.$page->id,
             'content' => 'nullable',
             'content2' => 'nullable',
             'sub_title' => 'nullable',
