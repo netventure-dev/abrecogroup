@@ -30,22 +30,22 @@
                         <div class="row flex-column flex-md-row">
                             <div class="col">
                                 <input type="text" class="form-control my-1" id="slug" name="slug"
-                                    placeholder="Please provide page name" value="{{ @old('slug') }}">
+                                    placeholder="Add page name" value="{{ @old('slug') }}">
 
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control my-1" id="seo_title" name="seo_title"
-                                    placeholder="Please provide the meta title" value="{{ @old('seo_title') }}">
+                                    placeholder="Add meta title" value="{{ @old('seo_title') }}">
 
                             </div>
                             <div class="col">
                                 <textarea class="form-control my-1" id="seo_description" name="seo_description" rows="2"
-                                    placeholder="Please provide meta description">{{ @old('seo_description') }}</textarea>
+                                    placeholder="Add meta description">{{ @old('seo_description') }}</textarea>
 
                             </div>
                             <div class="col">
                                 <textarea class="form-control my-1" id="seo_keywords" name="seo_keywords" rows="2"
-                                    placeholder="Please provide meta keywords">{{ @old('seo_keywords') }}</textarea>
+                                    placeholder="Add meta keywords">{{ @old('seo_keywords') }}</textarea>
 
                             </div>
                             <div class="col">
