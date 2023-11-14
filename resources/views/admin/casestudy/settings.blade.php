@@ -67,7 +67,8 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Cover Image') }} <span
                                             class="text-danger">*</span><a href="#"
-                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a>
+                                        <br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                      @if (isset($data->image))
                                             <img src="{{ asset('/storage/' . @$data->image) }}" alt=""
@@ -157,8 +158,9 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('.summernote').summernote('fontName', 'Poppins');
-        });
+         $(document).ready(function() {
+            $(document).ready(function() {
+           $('.summernote').summernote('fontName', 'Poppins');
+   });
     </script>
 @endsection

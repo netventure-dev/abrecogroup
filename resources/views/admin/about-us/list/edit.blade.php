@@ -78,7 +78,7 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Icon') }}<span
                                         class="text-danger">*</span> <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                         @if (isset($data->icon))
                                             <img src="{{ asset("/storage/$data->icon") }}" alt="" class="img-fluid" style="width:100px;">
@@ -143,6 +143,7 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script>
         $(document).ready(function() {
+            $(document).ready(function() {
            $('.summernote').summernote('fontName', 'Poppins');
    });
 </script>

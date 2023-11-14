@@ -48,7 +48,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="mb-4 row">
+                                <div class="mb-4 row">
                                     <label for="name" class="col-sm-3 col-form-label mb-2">{{ __('Name') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
@@ -58,14 +58,14 @@
                                         <div class="invalid-feedback">{{ $errors->first('name') }}
                                         </div>
                                     </div>
-                                </div> --}}
-                                <div class="mb-4 row">
+                                </div>
+                                <!-- <div class="mb-4 row">
                                     <label for="name" class="col-sm-3 col-form-label mb-2">{{ __('Name') }}<span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea id="name" name="name" class="form-control mb-2 summernote @if ($errors->has('name')) is-invalid  @endif" placeholder="{{ __('Enter Name') }}" required>{{ @old('name', @$subservice->name) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('name') }}</div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="mb-4 row">
                                     <label for="cover_description"
                                             class="col-sm-3 col-form-label">{{ __('Cover Description') }}
@@ -80,8 +80,8 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Cover Image') }} <span
                                         class="text-danger">*</span><a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
-                                    <div class="col-sm-9"> 
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
+                                    <div class="col-sm-9">
                                         @if (isset($subservice->cover_image))
                                             <img src="{{ asset('storage/'.$subservice->cover_image) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
@@ -92,8 +92,8 @@
                                  <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Logo') }} <span
                                         class="text-danger">*</span><a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
-                                    <div class="col-sm-9"> 
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
+                                    <div class="col-sm-9">
                                         @if (isset($subservice->logo))
                                             <img src="{{ asset('storage/'.$subservice->logo) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
@@ -101,7 +101,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('logo') }}</div>
                                     </div>
                                 </div>
-                                {{-- <div class="mb-4 row">
+                                 <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
@@ -111,14 +111,14 @@
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
                                     </div>
-                                </div> --}}
-                                <div class="mb-4 row">
+                                </div>
+                                <!-- <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea id="title" name="title" class="form-control mb-2 summernote @if ($errors->has('title')) is-invalid  @endif" placeholder="{{ __('Enter Title') }}" required>{{ @old('title', @$subservice->title) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}</div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="mb-4 row">
                                     <label for="canonical_tag" class="col-sm-3 col-form-label mb-2">{{ __('Canonical Tag') }}<span
                                             class="text-danger"></span></label>
@@ -140,7 +140,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>
-                                </div>     
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="custom_url" class="col-sm-3 col-form-label mb-2">{{ __('Custom Url') }}</label>
                                     <div class="col-sm-9">
@@ -150,7 +150,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('custom_url') }}
                                         </div>
                                     </div>
-                                </div>                            
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="horizontal-firstname-input"
                                         class="col-sm-3 col-form-label">{{ __('Status') }}<span
@@ -179,7 +179,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_title') }}
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="seo_description"
                                             class="col-sm-3 col-form-label">{{ __('Seo Description') }}
@@ -191,7 +191,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_description') }}
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="seo_keywords"
                                             class="col-sm-3 col-form-label">Meta Keywords <small>Seperated by comma</small>
@@ -203,7 +203,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_keywords') }}
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
 
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">

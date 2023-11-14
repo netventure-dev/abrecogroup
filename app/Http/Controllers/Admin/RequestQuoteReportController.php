@@ -19,8 +19,14 @@ class RequestQuoteReportController extends Controller
     }
     public function view($id)
     {
+        $breadcrumbs = [
+            [__('Dashboard'), route('admin.home')],
+            [__('Service Enquiry'), route('admin.requestenquiry.index')],
+            [(__('View')), null],
+        ];
+
         $quote = Quote::where('id', $id)->first();
         // dd($quote);
-        return view('admin.reports.view', compact('quote'));
+        return view('admin.reports.view', compact('quote','breadcrumbs'));
     }
 }

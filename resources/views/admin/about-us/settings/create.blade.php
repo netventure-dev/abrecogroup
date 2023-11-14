@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="banner_image">{{ __('Banner Image') }}<span
-                                        class="text-danger">*</span> <a
+                                        class="text-danger">*</span><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small> <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
                                         @if (isset($data->banner_image))
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Image') }}<span
-                                        class="text-danger">*</span> <a
+                                        class="text-danger">*</span><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small> <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
                                         @if (isset($data->content_image))
@@ -211,6 +211,7 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script>
         $(document).ready(function() {
+            $(document).ready(function() {
            $('.summernote').summernote('fontName', 'Poppins');
    });
 </script>

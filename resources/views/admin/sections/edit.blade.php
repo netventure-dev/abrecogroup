@@ -77,8 +77,8 @@
                                 </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Image') }} <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
-                                    <div class="col-sm-9"> 
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
+                                    <div class="col-sm-9">
                                         @if (isset($section->image1))
                                             <img src="{{ asset('storage/'.$section->image1) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
@@ -98,8 +98,8 @@
                                 </div>
                                  <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Logo') }} <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
-                                    <div class="col-sm-9"> 
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
+                                    <div class="col-sm-9">
                                         @if (isset($section->image2))
                                             <img src="{{ asset('storage/'.$section->image2) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
@@ -107,18 +107,18 @@
                                         <div class="invalid-feedback">{{ $errors->first('logo') }}</div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="background_image">{{ __('Background Image') }} <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
-                                    <div class="col-sm-9"> 
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
+                                    <div class="col-sm-9">
                                         @if (isset($section->background_image))
                                             <img src="{{ asset('storage/'.$section->background_image) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
                                         <input id="background_image" name="background_image" type="file" class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif" value="{{ @old('background_image') }}">
                                         <div class="invalid-feedback">{{ $errors->first('background_image') }}</div>
                                     </div>
-                                </div>  
+                                </div>
                                  <div class="mb-4 row">
                                     <label for="alt_background" class="col-sm-3 col-form-label mb-2">{{ __('Alt background') }}</label>
                                     <div class="col-sm-9">
@@ -128,7 +128,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('alt_background') }}
                                         </div>
                                     </div>
-                                </div>  
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="button_title"
                                             class="col-sm-3 col-form-label">{{ __('Button Title') }}
@@ -140,7 +140,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('button_title') }}
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Link') }}</label>
                                     <div class="col-sm-9">
@@ -150,16 +150,16 @@
                                         <div class="invalid-feedback">{{ $errors->first('link') }}
                                         </div>
                                     </div>
-                                </div>    
+                                </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="logo">{{ __('Order') }}<span
                                         class="text-danger">*</span><a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
-                                    <div class="col-sm-9"> 
+                                    <div class="col-sm-9">
                                         <input id="order" required name="order" type="number" class="form-control mb-2 @if ($errors->has('order')) is-invalid @endif" value="{{ @old('order',@$section->order) }}">
                                         <div class="invalid-feedback">{{ $errors->first('order') }}</div>
                                     </div>
-                                </div>                                  
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="horizontal-firstname-input"
                                         class="col-sm-3 col-form-label">{{ __('Status') }}<span
@@ -177,7 +177,7 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+
 
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">

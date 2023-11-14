@@ -36,7 +36,7 @@
                             <form action="{{ route('admin.services.store') }}" method="post" class="custom-validation"
                                 enctype="multipart/form-data">
                                 @csrf
-                                {{-- <div class="mb-4 row">
+                                <div class="mb-4 row">
                                     <label for="name" class="col-sm-3 col-form-label mb-2">{{ __('Name') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
@@ -46,14 +46,14 @@
                                         <div class="invalid-feedback">{{ $errors->first('name') }}
                                         </div>
                                     </div>
-                                </div> --}}
-                                <div class="mb-4 row">
+                                </div>
+                                <!-- <div class="mb-4 row">
                                     <label for="name" class="col-sm-3 col-form-label mb-2">{{ __('Name') }}<span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea id="name" name="name" class="form-control mb-2 summernote @if ($errors->has('name')) is-invalid @endif" placeholder="{{ __('Enter Name') }}" required>{{ @old('name') }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('name') }}</div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="mb-4 row">
                                     <label for="cover_description"
                                         class="col-sm-3 col-form-label">{{ __('Cover Description') }}
@@ -68,7 +68,8 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Cover Image') }}<a
                                             href="#" class="tool_tip js-tooltip-enabled"
-                                            data-toggle="tooltip"></a></label>
+                                            data-toggle="tooltip"></a>
+                                            <br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                         <input id="image" name="image" type="file"
                                             class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif"
@@ -79,7 +80,7 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Logo') }}<a
                                             href="#" class="tool_tip js-tooltip-enabled"
-                                            data-toggle="tooltip"></a></label>
+                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                         <input id="logo" name="logo" type="file"
                                             class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif"
@@ -99,7 +100,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="mb-4 row">
+                                <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
@@ -109,8 +110,8 @@
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
                                     </div>
-                                </div> --}}
-                                <div class="mb-4 row">
+                                </div>
+                                <!-- <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
@@ -118,7 +119,7 @@
                                             placeholder="{{ __('Enter Title') }}" required>{{ @old('title') }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}</div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="mb-4 row">
                                     <label for="canonical_tag"
                                         class="col-sm-3 col-form-label mb-2">{{ __('Canonical Tag') }}<span
@@ -230,8 +231,9 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('.summernote').summernote('fontName', 'Poppins');
-        });
+         $(document).ready(function() {
+            $(document).ready(function() {
+           $('.summernote').summernote('fontName', 'Poppins');
+   });
     </script>
 @endsection

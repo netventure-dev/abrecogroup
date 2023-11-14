@@ -232,9 +232,10 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('.summernote').summernote('fontName', 'Poppins');
-        });
+         $(document).ready(function() {
+            $(document).ready(function() {
+           $('.summernote').summernote('fontName', 'Poppins');
+   });
 
         $(".duplicate").click(function() {
             $("#target").clone().appendTo("#destination");
