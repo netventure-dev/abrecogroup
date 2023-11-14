@@ -30,7 +30,7 @@
                         <div class="row flex-column flex-md-row">
                             <div class="col">
                                 <input type="text" class="form-control my-1" id="slug" name="slug"
-                                    placeholder="Please provide the slug" value="{{ @old('slug') }}">
+                                    placeholder="Please provide page name" value="{{ @old('slug') }}">
 
                             </div>
                             <div class="col">
