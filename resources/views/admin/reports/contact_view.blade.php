@@ -2,8 +2,10 @@
 
 
 @section('content')
-<a href="{{ route('admin.enquiries.index') }}" class="btn btn-primary">Back</a><br>
-
+{{-- <a href="{{ route('admin.enquiries.index') }}" class="btn btn-primary">Back</a><br> --}}
+@component('admin.components.breadcrumb', ['breadcrumbs' => $breadcrumbs])
+@slot('title') @endslot
+@endcomponent
     <div class="content">
         <!-- Row #1 -->
         <h2 class="content-heading">Message</h2>
