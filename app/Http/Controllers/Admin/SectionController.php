@@ -44,7 +44,8 @@ class SectionController extends Controller
             'link' => 'nullable',
             'button_title' => 'nullable',
             'status' => 'required',
-            'order' => 'nullable',
+            'order' => 'required|unique:sections,order',
+            
         ]);
         $section = new Section();
         $section->uuid = (string) Str::uuid();
@@ -107,8 +108,7 @@ class SectionController extends Controller
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
             'button_title' => 'nullable',
-            'status' => 'required',
-            'order' => 'nullable',
+            'status' => 'required','order' => 'required|unique:sections,order',
         ]);
         $section->slug = SlugService::createSlug(Section::class, 'slug', $validated['title'], ['unique' => false]);
         $section->title = $validated['title'];
