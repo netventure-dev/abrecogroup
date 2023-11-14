@@ -35,12 +35,12 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|unique:services,name',
+            'name' => 'required|unique:services,name|max:255',
             'cover_description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,svg,webp|max:2000',
             'logo' => 'nullable|mimes:jpg,jpeg,png,svg,webp|max:2000',
             'alt_text' => 'nullable',
-            'title' => 'required',
+            'title' => 'required|max:255',
             'canonical_tag' => 'nullable',
             'custom_url' => 'nullable',
             'description' => 'required',
@@ -99,11 +99,11 @@ class ServiceController extends Controller
         $services = Service::where('uuid',$id)->first();
 
         $validated = $request->validate([
-            'name' => 'required|unique:services,name,'.$services->id,
+            'name' => 'required|max:255|unique:services,name,'.$services->id,
             'cover_description' => 'required',
             'image' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'logo' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'title' => 'required',
+            'title' => 'required|max:255',
             'canonical_tag' => 'nullable',
             'custom_url' => 'nullable',
             'description' => 'required',
@@ -148,7 +148,7 @@ class ServiceController extends Controller
 
         $res = Service::where('uuid',$id)->delete();
         $subservice_id=SubService::where('service_id',$id)->first();
-        $inerservice=InnerService::where('sub_service_id',$subservice_id->uuid)->delete();
+        $inerservice=InnerService::where('sub_service_id',@$subservice_id->uuid)->delete();
         $subservice=SubService::where('service_id',$id)->delete();
 
 
