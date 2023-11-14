@@ -31,11 +31,14 @@ class ContactUsReportDataTable extends DataTable
             ->editColumn('phone', function (Contact $new) {
                 return $new->phone;
             })
+            ->editColumn('refer', function (Contact $new) {
+                return $new->refer;
+            })
             ->addColumn('action', function (Contact $new) {
                 return view('admin.reports.contact_action', compact('new'));
             })
 
-            ->rawColumns(['title', 'image', 'status']);
+            ->rawColumns(['name', 'email', 'phone', 'refer']);
     }
 
     /**
