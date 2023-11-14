@@ -70,7 +70,7 @@
                                             class="col-sm-3 col-form-label">{{ __('Extra Content') }}</label>
                                     <div class="col-sm-9">
                                         <textarea name="content2"
-                                            class="form-control @if ($errors->has('content2')) is-invalid @endif" placeholder="{{ __('Enter content') }}" >{{ @old('content2',@$section->content2)}}</textarea>
+                                            class="form-control @if ($errors->has('content2')) is-invalid @endif"style="width: 100% !important; height: 200px !important;" placeholder="{{ __('Enter content') }}" >{{ @old('content2',@$section->content2)}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content2') }}
                                         </div>
                                     </div>
