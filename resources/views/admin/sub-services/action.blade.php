@@ -5,7 +5,7 @@
     <a href="{{ route('admin.sub-services.edit',$subservice->uuid) }}" class="first btn btn-primary edit"><i class="fas fa-pencil-alt"
             data-toggle="tooltip" title="Edit"></i></a>
     {{-- @endcan @can('delete', $admin) --}}
-    <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this row')}}')){
+    <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this subservice')}}')){
         document.getElementById('delete-data-{{ $subservice->uuid }}').submit();}">
         <i class="fas fa-trash-alt"></i>
     </button>
