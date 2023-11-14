@@ -31,7 +31,7 @@ class InnerServiceContentController extends Controller
 
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Services')), route('admin.inner-services.index')],
+            [(__('Inner Services')), route('admin.inner-services.index')],
              [$subservice->title, route('admin.inner-services.content.index', $subservice->uuid)],
             [(__('Content')), null],
         ];
@@ -92,7 +92,7 @@ class InnerServiceContentController extends Controller
 
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Services')), route('admin.inner-services.index')],
+            [(__('Inner Services')), route('admin.inner-services.index')],
              [$subservice->name, route('admin.inner-services.content.index', $subservice->uuid)],
             [(__('Content')), null],
         ];
