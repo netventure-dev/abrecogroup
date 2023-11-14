@@ -658,12 +658,12 @@
                             </a>
                         </li>
 
-                        <li>
+                        {{--  <li>
                             <a href="{{route('admin.feedbackenquiry.index')}}" class="waves-effect">
                                 <i class="bx bx-message-rounded-dots"></i>
                                 <span key="t-file-manager">Feedback</span>
                             </a>
-                        </li>
+                        </li>  --}}
                         <li>
                             <a href="{{ route('admin.enquiries.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
