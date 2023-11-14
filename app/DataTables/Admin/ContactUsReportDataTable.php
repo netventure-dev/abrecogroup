@@ -73,7 +73,7 @@ class ContactUsReportDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
             Column::make('name')->title(__('Name')),
-            Column::make('email')->title(__('Email')),
+            // Column::make('email')->title(__('Email')),
             Column::make('phone')->title(__('Phone')),
             Column::make('organization')->title(__('Organization')),
             Column::make('job')->title(__('Job')),
