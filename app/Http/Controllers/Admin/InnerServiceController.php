@@ -111,7 +111,7 @@ class InnerServiceController extends Controller
         $services = InnerService::where('uuid',$id)->first();
 
         $validated = $request->validate([
-            'name' => 'required|unique:inner_services,name,|max:255'.$services->id,
+            'name' => 'required|max:255'.$services->id,
             'cover_description' => 'required',
             'image' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'logo' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
