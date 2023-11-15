@@ -71,9 +71,10 @@
                                             data-toggle="tooltip"></a>
                                             <br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        <input id="image" name="image" type="file"
+                                        <input   id="image" name="image" type="file"
                                             class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif"
                                             value="{{ @old('image') }}">
+                                            <small>(The image must not be greater than 2 MB)</small><br>
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
@@ -82,10 +83,10 @@
                                             href="#" class="tool_tip js-tooltip-enabled"
                                             data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        <input id="logo" placeholder="The image must not be greater than 2000 kilobytes." name="logo" type="file"
+                                        <input id="logo" name="logo" type="file"
                                             class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif"
                                             value="{{ @old('logo') }}">
-                                            
+                                            <small>(The image must not be greater than 2 MB)</small><br><br>
                                         <div class="invalid-feedback">{{ $errors->first('logo') }}</div>
                                     </div>
                                 </div>
