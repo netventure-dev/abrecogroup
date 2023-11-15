@@ -61,7 +61,7 @@
                                     <label for="description" class="col-sm-3 col-form-label">{{ __('Description') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea name="description" class="form-control  @if ($errors->has('description')) is-invalid @endif" ro
+                                        <textarea name="description" class="form-control  @if ($errors->has('description')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro
                                             placeholder="{{ __('Enter Description') }}">{{ @old('description', @$content->description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
