@@ -15,7 +15,7 @@ class SchemaController extends Controller
    {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Schema')),  route('admin.schema.index')],
+            // [(__('Schema')),  route('admin.schema.index')],
             ['Schema', null],
         ];
         $schema = SchemaMarkup::paginate(10);
