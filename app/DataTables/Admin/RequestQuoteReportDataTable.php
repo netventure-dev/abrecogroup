@@ -68,7 +68,6 @@ class RequestQuoteReportDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
-                    ->orderBy(0)
                     ->buttons(
                         // Button::make('create'),
                         Button::make('excel'),
@@ -87,7 +86,7 @@ class RequestQuoteReportDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
+            Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false)->addClass('no-sort'),
             Column::make('name')->title(__('Name'))->orderable(false),
             Column::make('service')->title(__('Service'))->orderable(false),
             Column::make('phone')->title(__('Phone'))->orderable(false),
