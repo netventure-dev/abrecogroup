@@ -106,6 +106,7 @@
                                         <input id="banner_image" name="banner_image" type="file"
                                             class="form-control mb-2 @if ($errors->has('banner_image')) is-invalid @endif"
                                             value="{{ @old('banner_image') }}" required>
+                                            <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('banner_image') }}</div>
                                     </div>
                                 </div>

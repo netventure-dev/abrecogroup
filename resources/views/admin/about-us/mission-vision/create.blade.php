@@ -73,6 +73,7 @@
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
+                                        <small>(The image must not be greater than 2 MB)</small><br>
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
@@ -82,6 +83,7 @@
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
                                         <input id="mobile_image" name="mobile_image" type="file" class="form-control mb-2 @if ($errors->has('mobile_image')) is-invalid @endif" value="{{ @old('mobile_image') }}">
+                                        <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('mobile_image') }}</div>
                                     </div>
                                 </div>

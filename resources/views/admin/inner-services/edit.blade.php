@@ -86,6 +86,7 @@
                                             <img src="{{ asset('storage/'.$innerservice->cover_image) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
+                                        <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
@@ -109,6 +110,7 @@
                                             <img src="{{ asset('storage/'.$innerservice->logo) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
                                         <input id="logo" name="logo" type="file" class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif" value="{{ @old('logo') }}">
+                                        <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('logo') }}</div>
                                     </div>
                                 </div>
