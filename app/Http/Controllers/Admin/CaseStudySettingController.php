@@ -16,7 +16,7 @@ class CaseStudySettingController extends Controller
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
             ['Case Study Setting', route('admin.case-study-settings.create')],
-            ['Create', route('admin.case-study-settings.create')],
+            // ['Create', route('admin.case-study-settings.create')],
         ];
         return view('admin.casestudy.settings', compact('breadcrumbs','data'));
     }
