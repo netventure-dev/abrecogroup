@@ -93,6 +93,7 @@
                                             <img src="{{ asset('storage/'.$services->image) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('*//')) is-invalid @endif" value="{{ @old('image') }}">
+                                        <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
@@ -104,6 +105,7 @@
                                             <img src="{{ asset('storage/'.$services->icon) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
                                         <input id="icon" name="icon" type="file" class="form-control mb-2 @if ($errors->has('icon')) is-invalid @endif" value="{{ @old('icon') }}">
+                                        <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('icon') }}</div>
                                     </div>
                                 </div>

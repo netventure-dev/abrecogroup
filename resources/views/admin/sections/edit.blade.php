@@ -83,6 +83,7 @@
                                             <img src="{{ asset('storage/'.$section->image1) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('*//')) is-invalid @endif" value="{{ @old('image') }}">
+                                        <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
@@ -104,6 +105,7 @@
                                             <img src="{{ asset('storage/'.$section->image2) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
                                         <input id="logo" name="logo" type="file" class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif" value="{{ @old('logo') }}">
+                                        <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('logo') }}</div>
                                     </div>
                                 </div>
@@ -116,6 +118,7 @@
                                             <img src="{{ asset('storage/'.$section->background_image) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
                                         <input id="background_image" name="background_image" type="file" class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif" value="{{ @old('background_image') }}">
+                                        <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('background_image') }}</div>
                                     </div>
                                 </div>
