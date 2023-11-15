@@ -822,6 +822,20 @@
 
         <!-- App js -->
         <script src="{{ asset('assets/js/app.js') }}"></script>
+        <script>
+            $(document).ready(function () {
+                $('#careerreportdatatable-table').on('init.dt', function () {
+                    $('.no-sort').removeClass('sorting sorting_asc sorting_desc');
+                });
+                $('#contactusreportdatatable-table').on('init.dt', function () {
+                    $('.no-sort').removeClass('sorting sorting_asc sorting_desc');
+                });
+                $('#requestquotereportdatatable-table').on('init.dt', function () {
+                    $('.no-sort').removeClass('sorting sorting_asc sorting_desc');
+                });
+
+            });
+        </script>
         @notify_js
         @notify_render
         @yield('script')

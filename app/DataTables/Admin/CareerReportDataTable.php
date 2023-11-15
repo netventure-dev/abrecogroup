@@ -66,7 +66,6 @@ class CareerReportDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
-                    ->orderBy(0)
                     ->buttons(
                         Button::make('excel'),
                         Button::make('csv'),
@@ -83,8 +82,8 @@ class CareerReportDataTable extends DataTable
      */
     protected function getColumns()
     {
-        return [
-            Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
+        return [ 
+            Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false)->addClass('no-sort'),
             Column::make('name')->title(__('Name'))->orderable(false),
             Column::make('email')->title(__('Email'))->orderable(false),
             Column::make('phone')->title(__('Phone'))->orderable(false),
