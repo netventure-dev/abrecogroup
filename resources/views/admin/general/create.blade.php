@@ -51,7 +51,7 @@
                                     <label for="address" class="col-sm-3 col-form-label">{{ __('Address') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea name="address" class="form-control summernote @if ($errors->has('address')) is-invalid @endif" ro
+                                        <textarea name="address" class="form-control summernote @if ($errors->has('address')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro
                                             placeholder="{{ __('Enter Description') }}" required>{{ @old('address', @$data->address) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('address') }}
                                         </div>
