@@ -15,7 +15,7 @@ class SEOController extends Controller
    {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('SEO')),  route('admin.seo.index')],
+            // [(__('SEO')),  route('admin.seo.index')],
             ['SEO', null],
         ];
         $seo = Seo::paginate(10);

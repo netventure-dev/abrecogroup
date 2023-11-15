@@ -13,8 +13,8 @@ class PolicyController extends Controller
     {
          $breadcrumbs = [
              [(__('Dashboard')), route('admin.home')],
-             // [(__('SEO')),  route('admin.seo.index')],
-             // ['SEO', null],
+            //  [(__('SEO')),  route('admin.seo.index')],
+             ['Policy', null],
          ];
          $policy=Privacy::first();
          return view('admin.policy.policy',compact('breadcrumbs','policy'));
