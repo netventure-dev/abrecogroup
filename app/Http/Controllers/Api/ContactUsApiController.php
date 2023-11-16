@@ -42,6 +42,12 @@ class ContactUsApiController extends Controller
             'refer' => 'required',
             // 'g-recaptcha-response' => 'required|captcha',
         ]);
+        if ($validator->fails()) {
+            $response = [
+                'success' => false,
+                'errors' => $validator->errors(),
+                'input' => request()->all(),
+            ];
         // return 1;
         $data = new Contact();
         $data->name = $validated['name'];
