@@ -88,6 +88,8 @@ class CareerApiController extends Controller
         ], [
             'resume.max' => 'The resume may not be greater than 2 mb.',
             'phone.min' => 'The phone must be at least 7 characters.',
+            'phone.max' => 'The phone must be at Maximum 16 characters.',
+
 
         ]);
 

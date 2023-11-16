@@ -77,6 +77,8 @@ class ServiceFormController extends Controller
 
         ], [
             'phone.min' => 'The phone must be at least 7 characters.',
+            'phone.max' => 'The phone must be at Maximum 16 characters.',
+
 
         ]);
 
