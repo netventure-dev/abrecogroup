@@ -87,6 +87,8 @@ class CareerApiController extends Controller
 
         ], [
             'resume.max' => 'The resume may not be greater than 2 mb.',
+            'phone.min' => 'The phone must be at least 10 characters.',
+
         ]);
 
         if ($validator->fails()) {
