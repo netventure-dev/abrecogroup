@@ -79,7 +79,7 @@ class ContactUsApiController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:7|max:16',
             'message' => 'required',
             'organization' => 'required',
             'job' => 'required',
@@ -87,7 +87,7 @@ class ContactUsApiController extends Controller
             'refer' => 'required',
 
         ], [
-            'phone.min' => 'The phone must be at least 10 characters.',
+            'phone.min' => 'The phone must be at least 7 characters.',
 
         ]);
 

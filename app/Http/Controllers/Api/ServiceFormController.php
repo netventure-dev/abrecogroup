@@ -71,12 +71,12 @@ class ServiceFormController extends Controller
             'email' => 'required|email|max:255',
             'service' => 'required',
             'type' => 'required',
-            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:7|max:16',
             'message' => 'nullable',
             // 'g-recaptcha-response' => 'required|captcha',
 
         ], [
-            'phone.min' => 'The phone must be at least 10 characters.',
+            'phone.min' => 'The phone must be at least 7 characters.',
 
         ]);
 
