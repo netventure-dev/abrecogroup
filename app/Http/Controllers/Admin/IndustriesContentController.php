@@ -53,7 +53,7 @@ class IndustriesContentController extends Controller
             'order' => 'required|numeric',
             'button_title' => 'nullable',
             'button_link' => 'nullable',
-        ]); 
+        ]);
         $content = new IndustryContent();
         $content->uuid = (string) Str::uuid();
         $content->industries_id = $industries->uuid;
@@ -63,7 +63,7 @@ class IndustriesContentController extends Controller
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
-        
+
         $content->button_link =  $validated['button_link'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
@@ -102,7 +102,7 @@ class IndustriesContentController extends Controller
         return view('admin.industries.content.edit',compact('industries','breadcrumbs','content',));
     }
 
-    
+
     public function update(Request $request, $id,$uuid)
     {
         $industries= Industry::where('uuid',$id)->first();
@@ -119,7 +119,7 @@ class IndustriesContentController extends Controller
             'status' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',
-        ]); 
+        ]);
 
         // $content = new ServiceContent();
         // $content->service_id = $services->uuid;
@@ -142,10 +142,10 @@ class IndustriesContentController extends Controller
         $res = $content->save();
 
         // if($request->list){
-        //     $content_list = ServiceContentList::where('service_content_id',$content->uuid)->delete();     
+        //     $content_list = ServiceContentList::where('service_content_id',$content->uuid)->delete();
         //     foreach($request->list as $list){
-        //         if($list){              
-                  
+        //         if($list){
+
         //             $content_list = new ServiceContentList();
         //             $content_list->uuid = (string) Str::uuid();
         //             $content_list->service_id = $services->uuid;
@@ -176,5 +176,21 @@ class IndustriesContentController extends Controller
             notify()->error(__('Failed to Delete. Please try again'));
         }
         return redirect()->back();
+    }
+    public function image_delete(Request $request)
+    {
+
+        $section = IndustryContent::where('uuid',$request->uuid)->first();
+        $section->image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
+    public function image_delete1(Request $request)
+    {
+
+        $section = IndustryContent::where('uuid',$request->uuid)->first();
+        $section->mobile_image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
     }
 }

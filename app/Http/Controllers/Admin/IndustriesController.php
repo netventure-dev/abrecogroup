@@ -57,7 +57,7 @@ class IndustriesController extends Controller
         $service->content = $validated['content'];
         $service->custom_url = $validated['custom_url'];
         $service->order = $validated['order'];
-        $service->status = $validated['status'];  
+        $service->status = $validated['status'];
         $service->seo_title = $validated['seo_title'];
         $service->seo_description = $validated['seo_description'];
         $service->seo_keywords = $validated['seo_keywords'];
@@ -71,7 +71,7 @@ class IndustriesController extends Controller
         if ($request->hasFile('icon')) {
             $path =  $request->file('icon')->storeAs('media/image',  $validated['icon']->getClientOriginalName(), 'public');
             $service->icon = $path;
-        }  
+        }
         $res = $service->save();
         if ($res) {
             notify()->success(__('Created successfully'));
@@ -81,7 +81,7 @@ class IndustriesController extends Controller
         return redirect()->back();
     }
 
-    
+
     public function edit($id)
     {
         $services= Industry::where('uuid',$id)->first();
@@ -95,11 +95,11 @@ class IndustriesController extends Controller
 
     public function update(Request $request,$id)
     {
-        
+
         $services = Industry::where('uuid',$id)->first();
 
         $validated = $request->validate([
-            'name' => 'required|unique:industries,name,|max:255'.$services->id,
+            'name' => 'required|max:255'.$services->id,
             'sub_title' => 'nullable',
             'canonical_tag' => 'nullable',
             'content' => 'nullable',
@@ -120,7 +120,7 @@ class IndustriesController extends Controller
 
         $services->content = $validated['content'];
         $services->order = $validated['order'];
-        $services->status = $validated['status'];   
+        $services->status = $validated['status'];
         $services->custom_url = $validated['custom_url'];
         $services->subtitle = $validated['sub_title'];
         $services->seo_title = $validated['seo_title'];
@@ -135,7 +135,7 @@ class IndustriesController extends Controller
         if ($request->hasFile('icon')) {
             $path =  $request->file('icon')->storeAs('media/image',  $validated['icon']->getClientOriginalName(), 'public');
             $services->icon = $path;
-        }  
+        }
         $res = $services->save();
         if ($res) {
             notify()->success(__('Updated Successfully'));
@@ -156,6 +156,21 @@ class IndustriesController extends Controller
         }
         return redirect()->back();
     }
+    public function image_delete(Request $request)
+    {
 
+        $section = Industry::where('uuid',$request->uuid)->first();
+        $section->image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
+    public function image_delete1(Request $request)
+    {
+
+        $section = Industry::where('uuid',$request->uuid)->first();
+        $section->icon = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
 
 }
