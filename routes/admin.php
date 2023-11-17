@@ -351,6 +351,8 @@ Route::post('terms/store','Admin\TermsController@store')->name('terms.store');
 //privacy & policy
 Route::get('privacy','Admin\PolicyController@index')->name('policy.index');
 Route::post('privacy/store','Admin\PolicyController@store')->name('policy.store');
+Route::get('privacy/image-delete',  'Admin\PolicyController@image_delete')->name('privacy.image_delete');
+
 
 //cookie & policy
 Route::get('cookie','Admin\CookieController@index')->name('cookie.index');
