@@ -18,8 +18,8 @@ class CreateAboutUsTable extends Migration
             $table->string('uuid');
             $table->string('cover_title');
             $table->longText('cover_content');
-            $table->string('banner_image');
-            $table->string('content_image');
+            $table->string('banner_image')->nullable();
+            $table->string('content_image')->nullable();
             $table->longText('content');
             $table->string('link')->nullable();
             $table->boolean('status')->default(0);

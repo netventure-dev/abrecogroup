@@ -18,7 +18,7 @@ class CreateBlogsTable extends Migration
             $table->string('uuid');
             $table->string('title');
             $table->text('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('seo_title')->nullable();
             $table->string('seo_keyword')->nullable();
             $table->string('seo_description')->nullable();

@@ -18,7 +18,7 @@ class CreateMissionVisionsTable extends Migration
             $table->string('uuid');
             $table->string('title');
             $table->text('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

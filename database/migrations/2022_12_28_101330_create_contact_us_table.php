@@ -22,7 +22,7 @@ class CreateContactUsTable extends Migration
             $table->string('phone');
             $table->text('address');
             $table->string('map_link')->nullable();
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->text('seo_title')->nullable();
             $table->text('seo_description')->nullable();
             $table->text('seo_keywords')->nullable();
