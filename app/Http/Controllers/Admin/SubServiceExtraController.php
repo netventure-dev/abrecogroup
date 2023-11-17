@@ -143,5 +143,12 @@ class SubServiceExtraController extends Controller
         }
         return redirect()->back();
     }
+    public function image_delete(Request $request)
+    {
+        $section = SubServiceExtra::where('uuid',$request->uuid)->first();
+        $section->image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
 
 }

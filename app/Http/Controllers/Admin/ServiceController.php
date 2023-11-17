@@ -159,5 +159,21 @@ class ServiceController extends Controller
         }
         return redirect()->back();
     }
+    public function image_delete(Request $request)
+    {
+        
+        $section = Service::where('uuid',$request->uuid)->first();
+        $section->cover_image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
+    public function image_delete1(Request $request)
+    {
+        
+        $section = Service::where('uuid',$request->uuid)->first();
+        $section->logo = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
 
 }

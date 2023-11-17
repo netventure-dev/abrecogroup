@@ -104,7 +104,7 @@ class SubServiceController extends Controller
         $services = SubService::where('uuid',$id)->first();
 
         $validated = $request->validate([
-            'name' => 'required|unique:sub_services,name|max:255,'.$services->id,
+            'name' => 'required|max:255,',
             'cover_description' => 'required',
             'image' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'logo' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
@@ -162,5 +162,21 @@ class SubServiceController extends Controller
             notify()->error(__('Failed to Delete. Please try again'));
         }
         return redirect()->back();
+    }
+    public function image_delete(Request $request)
+    {
+        
+        $section = SubService::where('uuid',$request->uuid)->first();
+        $section->cover_image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
+    public function image_delete1(Request $request)
+    {
+        
+        $section = SubService::where('uuid',$request->uuid)->first();
+        $section->logo = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
     }
 }
