@@ -114,4 +114,14 @@ class TestimonialsController extends Controller
         }
         return redirect()->back();
     }
+
+    public function image_delete(Request $request)
+    {
+
+        $data = Testimonial::where('uuid', $request->uuid)->first();
+        // dd($data);
+        $data->image = "";
+        $data->save();
+        return response()->json(['status' => "success"]);
+    }
 }

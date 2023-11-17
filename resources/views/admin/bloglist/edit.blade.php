@@ -1,14 +1,16 @@
 @extends('admin.layout.backend')
 
-@section('title') {{ __('Edit Slider') }} @endsection
+@section('title')
+    {{ __('Edit Slider') }}
+@endsection
 @section('css')
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 @endsection
 @section('content')
 
     @component('admin.components.breadcrumb', ['breadcrumbs' => $breadcrumbs])
-        @slot('title') @endslot
+        @slot('title')
+        @endslot
     @endcomponent
     <!-- start page title -->
     <div class="row">
@@ -39,53 +41,64 @@
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <input id="title" name="title" type="text"
-                                            class="form-control mb-2 @if ($errors->has('title')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter Title') }}" required value="{{ @old('title',@$blog->title) }}">
+                                            class="form-control mb-2 @if ($errors->has('title')) is-invalid @endif"
+                                            placeholder="{{ __('Enter Title') }}" required
+                                            value="{{ @old('title', @$blog->title) }}">
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
                                     </div>
                                 </div>
                                 <!-- <div class="mb-4 row">
-                                    <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span class="text-danger">*</span></label>
-                                    <div class="col-sm-9">
-                                        <textarea id="title" name="title" class="form-control mb-2 summernote @if ($errors->has('title')) is-invalid @endif"
-                                            placeholder="{{ __('Enter Title') }}" required>{{ @old('title', @$blog->title) }}</textarea>
-                                        <div class="invalid-feedback">{{ $errors->first('title') }}</div>
-                                    </div>
-                                </div> -->
+                                        <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span class="text-danger">*</span></label>
+                                        <div class="col-sm-9">
+                                            <textarea id="title" name="title"
+                                                class="form-control mb-2 summernote @if ($errors->has('title')) is-invalid @endif"
+                                                placeholder="{{ __('Enter Title') }}" required>{{ @old('title', @$blog->title) }}</textarea>
+                                            <div class="invalid-feedback">{{ $errors->first('title') }}</div>
+                                        </div>
+                                    </div> -->
                                 <div class="mb-4 row">
-                                    <label for="canonical_tag" class="col-sm-3 col-form-label mb-2">{{ __('Canonical Tag') }}<span
+                                    <label for="canonical_tag"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Canonical Tag') }}<span
                                             class="text-danger"></span></label>
                                     <div class="col-sm-9">
                                         <input id="canonical_tag" name="canonical_tag" type="text"
-                                            class="form-control mb-2 @if ($errors->has('canonical_tag')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter canonical tag') }}"  value="{{ @old('canonical_tag',@$blog->canonical_tag) }}">
+                                            class="form-control mb-2 @if ($errors->has('canonical_tag')) is-invalid @endif"
+                                            placeholder="{{ __('Enter canonical tag') }}"
+                                            value="{{ @old('canonical_tag', @$blog->canonical_tag) }}">
                                         <div class="invalid-feedback">{{ $errors->first('canonical_tag') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="description"
-                                            class="col-sm-3 col-form-label">{{ __('Description') }}
-                                            <span class="text-danger">*</span></label>
+                                    <label for="description" class="col-sm-3 col-form-label">{{ __('Description') }}
+                                        <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea name="description"
-                                            class="form-control @if ($errors->has('description')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter  Description') }}" required>{{ @old('content',@$blog->description)}}</textarea>
+                                        <textarea name="description" class="form-control @if ($errors->has('description')) is-invalid @endif"
+                                            style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter  Description') }}" required>{{ @old('content', @$blog->description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Slider Image') }}<span
-                                        class="text-danger">*</span> <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
+                                            class="text-danger">*</span> <a href="#"
+                                            class="tool_tip js-tooltip-enabled"
+                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        @if (isset($blog->image))
-                                            <img src="{{ asset("/storage/$blog->image") }}" alt="" class="img-fluid" style="width:100px;">
-                                        @endif
-                                        <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
-                                        <small>(The image must not be greater than 2 MB)</small><br></br>
-                                        <div class="invalid-feedback">{{ $errors->first('image') }}</div>
+                                            @if ($blog->image)
+                                                <img src="{{ asset("/storage/$blog->image") }}" alt=""
+                                                    class="img-fluid" style="width:100px;">
+                                                <button type="button" class="btn btn-primary w-md"
+                                                    onclick="delete_image('{{ $blog->uuid }}');"
+                                                    class="close">Delete</button>
+                                            @endif
+                                            <input id="image" name="image" type="file"
+                                                class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif"
+                                                value="{{ @old('image') }}">
+                                            <small>(The image must not be greater than 2 MB)</small><br></br>
+                                            <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
 
@@ -109,31 +122,35 @@
 
 
                                 <div class="mb-4 row">
-                                    <label for="seo_title" class="col-sm-3 col-form-label mb-2">{{ __('Seo Title') }}</label>
+                                    <label for="seo_title"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Seo Title') }}</label>
                                     <div class="col-sm-9">
                                         <input id="seo_title" name="seo_title" type="text"
-                                            class="form-control mb-2 @if ($errors->has('seo_title')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter seo title') }}"  value="{{ @old('seo_title',@$blog->seo_title) }}">
+                                            class="form-control mb-2 @if ($errors->has('seo_title')) is-invalid @endif"
+                                            placeholder="{{ __('Enter seo title') }}"
+                                            value="{{ @old('seo_title', @$blog->seo_title) }}">
                                         <div class="invalid-feedback">{{ $errors->first('seo_title') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="seo_keyword" class="col-sm-3 col-form-label mb-2">{{ __('Seo Keyword') }}</label>
+                                    <label for="seo_keyword"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Seo Keyword') }}</label>
                                     <div class="col-sm-9">
                                         <input id="seo_keyword" name="seo_keyword" type="text"
-                                            class="form-control mb-2 @if ($errors->has('seo_keyword')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter seo keywords') }}"  value="{{ @old('seo_keyword',@$blog->seo_keywords) }}">
+                                            class="form-control mb-2 @if ($errors->has('seo_keyword')) is-invalid @endif"
+                                            placeholder="{{ __('Enter seo keywords') }}"
+                                            value="{{ @old('seo_keyword', @$blog->seo_keywords) }}">
                                         <div class="invalid-feedback">{{ $errors->first('seo_keyword') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
                                     <label for="seo_description"
-                                            class="col-sm-3 col-form-label">{{ __('Seo Description') }}</label>
+                                        class="col-sm-3 col-form-label">{{ __('Seo Description') }}</label>
                                     <div class="col-sm-9">
-                                        <textarea name="seo_description"
-                                            class="form-control @if ($errors->has('seo_description')) is-invalid @endif" placeholder="{{ __('Enter seo description') }}" >{{ @old('seo_description',@$blog->seo_description)}}</textarea>
+                                        <textarea name="seo_description" class="form-control @if ($errors->has('seo_description')) is-invalid @endif"
+                                            placeholder="{{ __('Enter seo description') }}">{{ @old('seo_description', @$blog->seo_description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('seo_description') }}
                                         </div>
                                     </div>
@@ -141,7 +158,8 @@
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">
                                         <div>
-                                            <button type="submit" class="btn btn-primary w-md">{{ __('Submit') }}</button>
+                                            <button type="submit"
+                                                class="btn btn-primary w-md">{{ __('Submit') }}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -165,8 +183,29 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script>
         $(document).ready(function() {
-            $(document).ready(function() {
-           $('.summernote').summernote('fontName', 'Poppins');
-   });
-</script>
+            $('.summernote').summernote('fontName', 'Poppins');
+        });
+
+        function delete_image(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.blog-list.image_delete') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                        location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+    </script>
 @endsection

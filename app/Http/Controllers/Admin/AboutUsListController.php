@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\Admin\AboutUsListDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\AboutUs;
 use App\Models\AboutUsList;
 use Illuminate\Support\Str;
 use JoeDixon\Translation\Language;
@@ -119,5 +120,14 @@ class AboutUsListController extends Controller
             notify()->error(__('Failed to Delete. Please try again'));
         }
         return redirect()->back();
+    }
+    public function image_delete(Request $request)
+    {
+
+        $data = AboutUsList::where('uuid', $request->uuid)->first();
+        // dd($data);
+        $data->icon = "";
+        $data->save();
+        return response()->json(['status' => "success"]);
     }
 }

@@ -28,6 +28,8 @@ Route::post('about-us/list/store',  'Admin\AboutUsListController@store')->name('
 Route::get('about-us/list/edit/{id}',  'Admin\AboutUsListController@edit')->name('about-us.list.edit');
 Route::post('about-us/list/update/{id}',  'Admin\AboutUsListController@update')->name('about-us.list.update');
 Route::delete('about-us/list/destroy/{id}',  'Admin\AboutUsListController@destroy')->name('about-us.list.destroy');
+Route::get('about-us/image-delete',  'Admin\AboutUsListController@image_delete')->name('about-us.image_delete');
+
 
 //  about us - mission and vision
 Route::get('mission-vision',  'Admin\MissionVisionController@index')->name('mission-vision.index');
@@ -36,10 +38,16 @@ Route::post('mission-vision/store',  'Admin\MissionVisionController@store')->nam
 Route::get('mission-vision/edit/{id}',  'Admin\MissionVisionController@edit')->name('mission-vision.edit');
 Route::post('mission-vision/update/{id}',  'Admin\MissionVisionController@update')->name('mission-vision.update');
 Route::delete('mission-vision/destroy/{id}',  'Admin\MissionVisionController@destroy')->name('mission-vision.destroy');
+Route::get('mission-vision/settings/image-delete',  'Admin\MissionVisionController@image_delete')->name('mission-vision.image_delete');
+Route::get('mission-vision/settings/image-delete1',  'Admin\MissionVisionController@image_delete1')->name('mission-vision.image_delete1');
 
 // about us settings
 Route::get('about us/settings/create',  'Admin\AboutUsController@create')->name('about-us.settings.create');
 Route::post('about us/settings/store',  'Admin\AboutUsController@store')->name('about-us.settings.store');
+Route::get('about-us/settings/image-delete',  'Admin\AboutUsController@image_delete')->name('about-us.settings.image_delete');
+Route::get('about-us/settings/image-delete1',  'Admin\AboutUsController@image_delete1')->name('about-us.settings.image_delete1');
+
+
 
 // home slider
 Route::get('home-slider',  'Admin\HomeSliderController@index')->name('home-slider.index');
@@ -79,6 +87,8 @@ Route::post('why-choose-us/settings/store',  'Admin\ChooseSettingsController@sto
 //blog settings
 Route::get('blog-settings/create',  'Admin\BlogSettingController@create')->name('blog-settings.create');
 Route::post('blog-settings/store',  'Admin\BlogSettingController@store')->name('blog-settings.store');
+Route::get('blog-settings/image-delete',  'Admin\BlogSettingController@image_delete')->name('blog-settings.image_delete');
+
 
 
 //case study settings
@@ -92,6 +102,8 @@ Route::post('blog/list/store',  'Admin\BlogListController@store')->name('blog-li
 Route::get('blog/list/edit/{id}',  'Admin\BlogListController@edit')->name('blog-list.edit');
 Route::post('blog/list/update/{id}',  'Admin\BlogListController@update')->name('blog-list.update');
 Route::delete('blog/list/destroy/{id}',  'Admin\BlogListController@destroy')->name('blog-list.destroy');
+Route::get('blog/list/image-delete',  'Admin\BlogListController@image_delete')->name('blog-list.image_delete');
+
 
 Route::get('why-choose-us/settings/create',  'Admin\ChooseSettingsController@create')->name('why-choose-us.settings.create');
 Route::post('why-choose-us/settings/store',  'Admin\ChooseSettingsController@store')->name('why-choose-us.settings.store');
@@ -103,6 +115,8 @@ Route::post('testimonials/store',  'Admin\TestimonialsController@store')->name('
 Route::get('testimonials/edit/{id}',  'Admin\TestimonialsController@edit')->name('testimonials.edit');
 Route::post('testimonials/update/{id}',  'Admin\TestimonialsController@update')->name('testimonials.update');
 Route::delete('testimonials/destroy/{id}',  'Admin\TestimonialsController@destroy')->name('testimonials.destroy');
+Route::get('testimonials/image-delete',  'Admin\TestimonialsController@image_delete')->name('testimonials.image_delete');
+
 
 // sections
 Route::get('sections',  'Admin\SectionController@index')->name('sections.index');
@@ -271,6 +285,8 @@ Route::post('content/{id}/extra/{uuid}/destroy',  'Admin\SubServiceExtraControll
 // contact-us
 Route::get('contact-us/create',  'Admin\ContactUsController@create')->name('contact-us.create');
 Route::post('contact-us/store',  'Admin\ContactUsController@store')->name('contact-us.store');
+Route::get('contact-us/image-delete',  'Admin\ContactUsController@image_delete')->name('contact-us.image_delete');
+
 
 // general
 Route::get('general/create',  'Admin\GeneralController@create')->name('general.create');

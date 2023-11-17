@@ -43,7 +43,8 @@
                                             class="form-control mb-2 @if ($errors->has('title')) is-invalid @endif"
                                             placeholder="{{ __('Enter Title') }}" required
                                             value="{{ @old('title', @$data->title) }}"> --}}
-                                        <textarea id="title" name="title" class="form-control mb-2 summernote @if ($errors->has('title')) is-invalid @endif"
+                                        <textarea id="title" name="title"
+                                            class="form-control mb-2 summernote @if ($errors->has('title')) is-invalid @endif"
                                             placeholder="{{ __('Enter Title') }}" required>{{ @old('title', @$data->title) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
@@ -97,17 +98,22 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="banner_image">{{ __('Banner Image') }}<span
                                             class="text-danger">*</span> <a href="#"
-                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
+                                            class="tool_tip js-tooltip-enabled"
+                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        @if (isset($data->image))
-                                            <img src="{{ asset('/storage/' . @$data->image) }}" alt=""
-                                                class="img-fluid" style="width:100px;">
-                                        @endif
-                                        <input id="banner_image" name="banner_image" type="file"
-                                            class="form-control mb-2 @if ($errors->has('banner_image')) is-invalid @endif"
-                                            value="{{ @old('banner_image') }}" required>
+                                            @if ($data->image)
+                                                <img src="{{ asset('/storage/' . @$data->image) }}" alt=""
+                                                    class="img-fluid" style="width:100px;">
+                                                <button type="button" class="btn btn-primary w-md"
+                                                    onclick="delete_image('{{ $data->uuid }}');"
+                                                    class="close">Delete</button>
+                                            @endif
+                                            <input id="banner_image" name="banner_image" type="file"
+                                                class="form-control mb-2 @if ($errors->has('banner_image')) is-invalid @endif"
+                                                value="{{ @old('banner_image') }}" required>
                                             <small>(The image must not be greater than 2 MB)</small><br></br>
-                                        <div class="invalid-feedback">{{ $errors->first('banner_image') }}</div>
+                                            <div class="invalid-feedback">{{ $errors->first('banner_image') }}</div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
@@ -115,7 +121,8 @@
                                     <div class="col-sm-9">
                                         <input id="link" name="link" type="text"
                                             class="form-control mb-2 @if ($errors->has('link')) is-invalid @endif"
-                                            placeholder="{{ __('Enter link') }}" value="{{ @old('link', @$data->link) }}">
+                                            placeholder="{{ __('Enter link') }}"
+                                            value="{{ @old('link', @$data->link) }}">
                                         <div class="invalid-feedback">{{ $errors->first('link') }}
                                         </div>
                                     </div>
@@ -193,9 +200,31 @@
     <script src="{{ URL::asset('assets/js/pages/form-validation.init.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script>
-         $(document).ready(function() {
-            $(document).ready(function() {
-           $('.summernote').summernote('fontName', 'Poppins');
-   });
+        $(document).ready(function() {
+
+            $('.summernote').summernote('fontName', 'Poppins');
+        });
+
+        function delete_image(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.contact-us.image_delete') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                        location.reload()
+                    }
+                });
+            }
+            return false;
+        }
     </script>
 @endsection

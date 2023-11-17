@@ -77,4 +77,23 @@ class AboutUsController extends Controller
         return redirect()->back();
     }
 
+    public function image_delete(Request $request)
+    {
+
+        $data = AboutUs::where('uuid', $request->uuid)->first();
+        // dd($data);
+        $data->banner_image = "";
+        $data->save();
+        return response()->json(['status' => "success"]);
+    }
+
+    public function image_delete1(Request $request)
+    {
+
+        $section = AboutUs::where('uuid', $request->uuid)->first();
+        $section->content_image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
+
 }
