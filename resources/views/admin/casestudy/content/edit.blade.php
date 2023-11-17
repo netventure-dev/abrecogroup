@@ -70,9 +70,11 @@
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Image') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9"> 
-                                        @if (isset($content->image1))
+                                        @if ($content->image1)
                                             <img src="{{ asset('storage/'.$content->image1) }}" alt="" class="img-fluid" style="width:250px;">
-                                        @endif
+                                            <button type="button" class="btn btn-primary w-md" onclick="delete_image('{{ $content->uuid }}');"
+                                            class="close">Delete</button>
+                                            @endif
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('*//')) is-invalid @endif" value="{{ @old('image') }}">
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
@@ -206,5 +208,27 @@
                 }
             });
         });
+        function delete_image(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.case-study-contents.image_delete') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+       
 </script>
 @endsection

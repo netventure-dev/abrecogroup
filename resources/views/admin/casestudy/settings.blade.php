@@ -70,9 +70,11 @@
                                             class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a>
                                         <br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                     @if (isset($data->image))
+                                     @if ($data->image)
                                             <img src="{{ asset('/storage/' . @$data->image) }}" alt=""
                                                 class="img-fluid" style="width:100px;">
+                                                <button type="button" class="btn btn-primary w-md" onclick="delete_image('{{ $data->uuid }}');"
+                                            class="close">Delete</button>
                                         @endif
                                         <input id="image" name="image" type="file"
                                             class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif"
@@ -160,8 +162,30 @@
 
     <script>
          $(document).ready(function() {
-            $(document).ready(function() {
            $('.summernote').summernote('fontName', 'Poppins');
    });
+
+
+   function delete_image(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.case-study-settings.image_delete') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
     </script>
 @endsection

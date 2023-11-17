@@ -147,4 +147,12 @@ class SectionContentController extends Controller
         }
         return redirect()->back();
     }
+    public function image_delete(Request $request)
+    {
+        
+        $section = SectionContent::where('uuid',$request->uuid)->first();
+        $section->icon = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
 }

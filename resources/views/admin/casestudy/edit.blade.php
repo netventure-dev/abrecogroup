@@ -153,9 +153,11 @@
                                             href="#" class="tool_tip js-tooltip-enabled"
                                             data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        @if (isset($case->image1))
+                                        @if ($case->image1)
                                             <img src="{{ asset('storage/' . $case->image1) }}" alt=""
                                                 class="img-fluid" style="width:250px;">
+                                                <button type="button" class="btn btn-primary w-md" onclick="delete_image('{{ $case->uuid }}');"
+                                            class="close">Delete</button>
                                         @endif
                                         <input id="image" name="image" type="file"
                                             class="form-control mb-2 @if ($errors->has('*//')) is-invalid @endif"
@@ -169,9 +171,11 @@
                                             href="#" class="tool_tip js-tooltip-enabled"
                                             data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        @if (isset($case->image2))
+                                        @if ($case->image2)
                                             <img src="{{ asset('storage/' . $case->image2) }}" alt=""
                                                 class="img-fluid" style="width:250px;">
+                                                <button type="button" class="btn btn-primary w-md" onclick="delete_image1('{{ $case->uuid }}');"
+                                            class="close">Delete</button>
                                         @endif
                                         <input id="logo" name="logo" type="file"
                                             class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif"
@@ -186,9 +190,11 @@
                                         for="background_image">{{ __('Background Image') }} <a href="#"
                                             class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        @if (isset($case->background_image))
+                                        @if ($case->background_image)
                                             <img src="{{ asset('storage/' . $case->background_image) }}" alt=""
                                                 class="img-fluid" style="width:250px;">
+                                                <button type="button" class="btn btn-primary w-md" onclick="delete_image2('{{ $case->uuid }}');"
+                                            class="close">Delete</button>
                                         @endif
                                         <input id="background_image" name="background_image" type="file"
                                             class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif"
@@ -365,5 +371,69 @@
                 }
             });
         });
+        function delete_image(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.case-study.image_delete') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+        function delete_image1(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.case-study.image_delete1') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+        function delete_image2(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.case-study.image_delete2') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+        
     </script>
 @endsection
