@@ -89,11 +89,13 @@
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Image') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        @if (isset($services->image))
+                                        @if ($services->image)
                                             <img src="{{ asset('storage/'.$services->image) }}" alt="" class="img-fluid" style="width:250px;">
+                                            <button type="button" class="btn btn-primary w-md" onclick="delete_image('{{ $services->uuid }}');"
+                                                class="close">Delete</button>
                                         @endif
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('*//')) is-invalid @endif" value="{{ @old('image') }}">
-                                        <small>(The image must not be greater than 2 MB)</small><br></br>
+                                        <small>(The image must not be greater than 2 MB)</small><br>
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
@@ -101,8 +103,10 @@
                                     <label class="col-sm-3 col-form-label" for="icon">{{ __('Icon') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        @if (isset($services->icon))
+                                        @if ($services->icon)
                                             <img src="{{ asset('storage/'.$services->icon) }}" alt="" class="img-fluid" style="width:250px;">
+                                            <button type="button" class="btn btn-primary w-md" onclick="delete_image1('{{ $services->uuid }}');"
+                                                class="close">Delete</button>
                                         @endif
                                         <input id="icon" name="icon" type="file" class="form-control mb-2 @if ($errors->has('icon')) is-invalid @endif" value="{{ @old('icon') }}">
                                         <small>(The image must not be greater than 2 MB)</small><br></br>
@@ -228,9 +232,55 @@
     <script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/pages/form-validation.init.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $(document).ready(function() {
            $('.summernote').summernote('fontName', 'Poppins');
    });
+
+   function delete_image(uuid) {
+
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.industries.image_delete') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+        function delete_image1(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.industries.image_delete1') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+
 </script>
 @endsection

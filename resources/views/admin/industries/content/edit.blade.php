@@ -91,30 +91,34 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Cover Image') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled"
-                                            data-toggle="tooltip"></a></label>
+                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        @if (isset($content->image))
+                                        @if ($content->image)
                                             <img src="{{ asset('storage/' . $content->image) }}" alt=""
                                                 class="img-fluid" style="width:250px;">
+                                                <button type="button" class="btn btn-primary w-md" onclick="delete_image('{{$content->uuid }}');"
+                                                    class="close">Delete</button>
                                         @endif
                                         <input id="image" name="image" type="file"
                                             class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif"
-                                            value="{{ @old('image') }}">
+                                            value="{{ @old('image') }}"><small>(The image must not be greater than 2 MB)</small><br>
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="mobile_image">{{ __('Mobile Image') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled"
-                                            data-toggle="tooltip"></a></label>
+                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        @if (isset($content->mobile_image))
+                                        @if ($content->mobile_image)
                                             <img src="{{ asset('storage/' . $content->mobile_image) }}" alt=""
                                                 class="img-fluid" style="width:250px;">
+                                                <button type="button" class="btn btn-primary w-md" onclick="delete_image1('{{$content->uuid }}');"
+                                                    class="close">Delete</button>
                                         @endif
                                         <input id="mobile_image" name="mobile_image" type="file"
                                             class="form-control mb-2 @if ($errors->has('mobile_image')) is-invalid @endif"
-                                            value="{{ @old('mobile_image') }}">
+                                            value="{{ @old('mobile_image') }}">   <small>(The image must not be greater than 2 MB)</small><br>
                                         <div class="invalid-feedback">{{ $errors->first('mobile_image') }}</div>
                                     </div>
                                 </div>
@@ -249,12 +253,61 @@
     <script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/pages/form-validation.init.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+           $('.summernote').summernote('fontName', 'Poppins');
+   });
 
+   function delete_image(uuid) {
+
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.industries.content.image_delete') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+        function delete_image1(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.industries.content.image_delete1') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+
+</script>
     <script>
          $(document).ready(function() {
             $(document).ready(function() {
            $('.summernote').summernote('fontName', 'Poppins');
-   });
+         });
 
         $(".duplicate").click(function() {
             $("#target").clone().appendTo("#destination");
@@ -265,4 +318,6 @@
             $('#destination').remove();
         });
     </script>
+
+
 @endsection

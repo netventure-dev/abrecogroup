@@ -189,6 +189,8 @@ Route::post('industries/store',  'Admin\IndustriesController@store')->name('indu
 Route::get('industries/edit/{id}',  'Admin\IndustriesController@edit')->name('industries.edit');
 Route::post('industries/update/{id}',  'Admin\IndustriesController@update')->name('industries.update');
 Route::delete('industries/destroy/{id}',  'Admin\IndustriesController@destroy')->name('industries.destroy');
+Route::get('industries/image-delete', 'Admin\IndustriesController@image_delete')->name('industries.image_delete');
+Route::get('industries/image-delete1', 'Admin\IndustriesController@image_delete1')->name('industries.image_delete1');
 
 // industry content
 Route::get('industries/{id}/content',  'Admin\IndustriesContentController@index')->name('industries.content.index');
@@ -197,6 +199,8 @@ Route::post('industries/{id}/content/store',  'Admin\IndustriesContentController
 Route::get('industries/{id}/content/{uuid}/edit',  'Admin\IndustriesContentController@edit')->name('industries.content.edit');
 Route::post('industries/{id}/content/{uuid}/update',  'Admin\IndustriesContentController@update')->name('industries.content.update');
 Route::post('industries/{id}/content/{uuid}/destroy',  'Admin\IndustriesContentController@destroy')->name('industries.content.destroy');
+Route::get('industries//content/image-delete', 'Admin\IndustriesContentController@image_delete')->name('industries.content.image_delete');
+Route::get('industries//content/image-delete1', 'Admin\IndustriesContentController@image_delete1')->name('industries.content.image_delete1');
 
 // industry extra content
 Route::get('industries/{id}/extra-content',  'Admin\IndustryExtraContentController@index')->name('industries.content.extra.index');
