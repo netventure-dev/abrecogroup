@@ -55,4 +55,13 @@ class CaseStudySettingController extends Controller
         }
         return redirect()->back();
     }
+     // image delete
+     public function image_delete(Request $request)
+     {
+         
+         $section = CaseStudySetting::where('uuid',$request->uuid)->first();
+         $section->image = "";
+         $section->save();
+         return response()->json(['status' => "success"]);
+     }
 }
