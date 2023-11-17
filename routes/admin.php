@@ -111,6 +111,10 @@ Route::post('sections/store',  'Admin\SectionController@store')->name('sections.
 Route::get('sections/edit/{id}',  'Admin\SectionController@edit')->name('sections.edit');
 Route::post('sections/update/{id}',  'Admin\SectionController@update')->name('sections.update');
 Route::delete('sections/destroy/{id}',  'Admin\SectionController@destroy')->name('sections.destroy');
+Route::get('sections/image-delete',  'Admin\SectionController@image_delete')->name('sections.image_delete');
+Route::get('sections/image-delete1',  'Admin\SectionController@image_delete1')->name('sections.image_delete1');
+Route::get('sections/image-delete2',  'Admin\SectionController@image_delete2')->name('sections.image_delete2');
+
 
 // case studies
 Route::get('case-study',  'Admin\CaseStudyController@index')->name('casestudies.index');

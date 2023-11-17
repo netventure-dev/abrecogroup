@@ -155,4 +155,29 @@ class SectionController extends Controller
         }
         return redirect()->back();
     }
+      // image delete
+      public function image_delete(Request $request)
+      {
+          
+          $section = Section::where('uuid',$request->uuid)->first();
+          $section->image1 = "";
+          $section->save();
+          return response()->json(['status' => "success"]);
+      }
+      public function image_delete1(Request $request)
+      {
+          
+          $section = Section::where('uuid',$request->uuid)->first();
+          $section->image2 = "";
+          $section->save();
+          return response()->json(['status' => "success"]);
+      }
+      public function image_delete2(Request $request)
+      {
+          
+          $section = Section::where('uuid',$request->uuid)->first();
+          $section->background_image = "";
+          $section->save();
+          return response()->json(['status' => "success"]);
+      }
 }
