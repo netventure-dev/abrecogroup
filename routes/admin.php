@@ -297,6 +297,8 @@ Route::get('contact-us/image-delete',  'Admin\ContactUsController@image_delete')
 // general
 Route::get('general/create',  'Admin\GeneralController@create')->name('general.create');
 Route::post('general/store',  'Admin\GeneralController@store')->name('general.store');
+Route::get('general/image-delete',  'Admin\CaseStudyController@image_delete')->name('general.image_delete');
+
 
 // sitemap
 Route::get('general/sitemap',  'Admin\GeneralController@sitemap')->name('general.sitemap');
