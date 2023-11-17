@@ -26,6 +26,12 @@ class ContactUsApiController extends Controller
     {
         // dd(1);
         $data['contact'] = ContactUs::select('title', 'description', 'link', 'phone', 'address', 'map_link', 'image', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag')->get();
+        // Check if 'image' field is empty and set it to null
+        foreach ($data['contact'] as $contact) {
+            if (empty($contact->image)) {
+                $contact->image = null;
+            }
+        }
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }

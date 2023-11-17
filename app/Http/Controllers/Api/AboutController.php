@@ -15,25 +15,34 @@ class AboutController extends Controller
 
     public function index()
     {
-        $data['about'] = AboutUs::select('cover_title', 'cover_content', 'banner_image', 'content_image', 'content', 'link', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag')->first();
-        $data['about_list'] = AboutUsList::select('id', 'title', 'content', 'icon', 'link','canonical_tag')->where('status', 1)->get();
-        $data['mission_vision'] = MissionVision::select('id', 'uuid', 'title', 'description', 'image', 'mobile_image','status','canonical_tag')->get()
-       
-        ->map(function ($item) {
-            //  dd($item);
-            if ($item->status == 0) {
-                return [
-                    'id' => null,
-                    'title' => null,
-                    'description' => null,
-                    'image' => null,
-                    'mobile_image' => null,
-                    
-                ];
-            } else {
-                return $item;
-            }
-        });
+        $data['about'] = AboutUs::select('cover_title', 'cover_content', 'banner_image', 'content_image', 'content', 'link', 'seo_title', 'seo_description', 'seo_keywords', 'canonical_tag')->first();
+        // Set null values for specified fields in the 'about' data
+        if (!empty($data['about'])) {
+            $data['about']->banner_image = null;
+            $data['about']->content_image = null;
+        }
+        $data['about_list'] = AboutUsList::select('id', 'title', 'content', 'icon', 'link', 'canonical_tag')->where('status', 1)->get();
+        // Set null values for 'icon' field in each item in 'about_list' data
+        foreach ($data['about_list'] as $aboutList) {
+            $aboutList->icon = null;
+        }
+        $data['mission_vision'] = MissionVision::select('id', 'uuid', 'title', 'description', 'image', 'mobile_image', 'status', 'canonical_tag')->get()
+
+            ->map(function ($item) {
+                //  dd($item);
+                if ($item->status == 0) {
+                    return [
+                        'id' => null,
+                        'title' => null,
+                        'description' => null,
+                        'image' => null,
+                        'mobile_image' => null,
+
+                    ];
+                } else {
+                    return $item;
+                }
+            });
 
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
