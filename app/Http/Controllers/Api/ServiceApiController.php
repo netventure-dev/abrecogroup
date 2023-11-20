@@ -44,7 +44,7 @@ class ServiceApiController extends Controller
                         $content->order = null;
                         $content->image = null;
                     } else {
-                        return $content;
+                        $content->image = empty($content->image) ? null : $content->image;
                     }
                 });
             });
