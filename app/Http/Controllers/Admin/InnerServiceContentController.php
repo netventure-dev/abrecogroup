@@ -150,5 +150,14 @@ class InnerServiceContentController extends Controller
         }
         return redirect()->back();
     }
+    public function image_delete(Request $request)
+    {
+        
+        $section = InnerServiceContent::where('uuid',$request->uuid)->first();
+        $section->image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
+   
 
 }

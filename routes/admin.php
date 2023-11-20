@@ -172,6 +172,9 @@ Route::post('services/store',  'Admin\ServiceController@store')->name('services.
 Route::get('services/edit/{id}',  'Admin\ServiceController@edit')->name('services.edit');
 Route::post('services/update/{id}',  'Admin\ServiceController@update')->name('services.update');
 Route::delete('services/destroy/{id}',  'Admin\ServiceController@destroy')->name('services.destroy');
+Route::get('services/image-delete',  'Admin\ServiceController@image_delete')->name('services.image_delete');
+Route::get('services/image-delete1',  'Admin\ServiceController@image_delete1')->name('services.image_delete1');
+
 
 // service extras
 Route::get('service/{uuid}/extra',  'Admin\ServiceExtraController@index')->name('services.extra.index');
@@ -180,6 +183,7 @@ Route::post('service/{uuid}/extra/store',  'Admin\ServiceExtraController@store')
 Route::get('service/{id}/extra/{uuid}/edit',  'Admin\ServiceExtraController@edit')->name('services.extra.edit');
 Route::post('service/{id}/extra/{uuid}/update',  'Admin\ServiceExtraController@update')->name('services.extra.update');
 Route::post('service/{id}/extra/{uuid}/destroy',  'Admin\ServiceExtraController@destroy')->name('services.extra.destroy');
+Route::get('services/extra/image-delete',  'Admin\ServiceExtraController@image_delete')->name('services.extra.image_delete');
 
 
 // industries
@@ -189,6 +193,8 @@ Route::post('industries/store',  'Admin\IndustriesController@store')->name('indu
 Route::get('industries/edit/{id}',  'Admin\IndustriesController@edit')->name('industries.edit');
 Route::post('industries/update/{id}',  'Admin\IndustriesController@update')->name('industries.update');
 Route::delete('industries/destroy/{id}',  'Admin\IndustriesController@destroy')->name('industries.destroy');
+Route::get('industries/image-delete', 'Admin\IndustriesController@image_delete')->name('industries.image_delete');
+Route::get('industries/image-delete1', 'Admin\IndustriesController@image_delete1')->name('industries.image_delete1');
 
 // industry content
 Route::get('industries/{id}/content',  'Admin\IndustriesContentController@index')->name('industries.content.index');
@@ -197,6 +203,8 @@ Route::post('industries/{id}/content/store',  'Admin\IndustriesContentController
 Route::get('industries/{id}/content/{uuid}/edit',  'Admin\IndustriesContentController@edit')->name('industries.content.edit');
 Route::post('industries/{id}/content/{uuid}/update',  'Admin\IndustriesContentController@update')->name('industries.content.update');
 Route::post('industries/{id}/content/{uuid}/destroy',  'Admin\IndustriesContentController@destroy')->name('industries.content.destroy');
+Route::get('industries//content/image-delete', 'Admin\IndustriesContentController@image_delete')->name('industries.content.image_delete');
+Route::get('industries//content/image-delete1', 'Admin\IndustriesContentController@image_delete1')->name('industries.content.image_delete1');
 
 // industry extra content
 Route::get('industries/{id}/extra-content',  'Admin\IndustryExtraContentController@index')->name('industries.content.extra.index');
@@ -222,6 +230,9 @@ Route::post('services/{id}/content/store',  'Admin\ServiceContentController@stor
 Route::get('services/{id}/content/{uuid}/edit',  'Admin\ServiceContentController@edit')->name('services.content.edit');
 Route::post('services/{id}/content/{uuid}/update',  'Admin\ServiceContentController@update')->name('services.content.update');
 Route::post('services/{id}/content/{uuid}/destroy',  'Admin\ServiceContentController@destroy')->name('services.content.destroy');
+Route::get('services/content/image-delete',  'Admin\ServiceContentController@image_delete')->name('services.content.image_delete');
+Route::get('services/content/image-delete1',  'Admin\ServiceContentController@image_delete1')->name('services.content.image_delete1');
+
 
 // service faq
 Route::get('services/{id}/faq',  'Admin\ServiceFaqController@index')->name('services.faq.index');
@@ -238,6 +249,8 @@ Route::post('sub-services/store',  'Admin\SubServiceController@store')->name('su
 Route::get('sub-services/edit/{id}',  'Admin\SubServiceController@edit')->name('sub-services.edit');
 Route::post('sub-services/update/{id}',  'Admin\SubServiceController@update')->name('sub-services.update');
 Route::delete('sub-services/destroy/{id}',  'Admin\SubServiceController@destroy')->name('sub-services.destroy');
+Route::get('services/content/image-delete',  'Admin\SubServiceController@image_delete')->name('sub-services.image_delete');
+Route::get('services/content/image-delete1',  'Admin\SubServiceController@image_delete1')->name('sub-services.image_delete1');
 
 // inner services
 Route::get('inner-services',  'Admin\InnerServiceController@index')->name('inner-services.index');
@@ -246,6 +259,8 @@ Route::post('inner-services/store',  'Admin\InnerServiceController@store')->name
 Route::get('inner-services/edit/{id}',  'Admin\InnerServiceController@edit')->name('inner-services.edit');
 Route::post('inner-services/update/{id}',  'Admin\InnerServiceController@update')->name('inner-services.update');
 Route::delete('inner-services/destroy/{id}',  'Admin\InnerServiceController@destroy')->name('inner-services.destroy');
+Route::get('inner-services/image-delete',  'Admin\InnerServiceController@image_delete')->name('inner-services.image_delete');
+Route::get('inner-services/image-delete1',  'Admin\InnerServiceController@image_delete1')->name('inner-services.image_delete1');
 
 // inner service content
 Route::get('inner-services/{id}/content',  'Admin\InnerServiceContentController@index')->name('inner-services.content.index');
@@ -254,6 +269,8 @@ Route::post('inner-services/{id}/content/store',  'Admin\InnerServiceContentCont
 Route::get('inner-services/{id}/content/{uuid}/edit',  'Admin\InnerServiceContentController@edit')->name('inner-services.content.edit');
 Route::post('inner-services/{id}/content/{uuid}/update',  'Admin\InnerServiceContentController@update')->name('inner-services.content.update');
 Route::post('inner-services/{id}/content/{uuid}/destroy',  'Admin\InnerServiceContentController@destroy')->name('inner-services.content.destroy');
+Route::get('inner-services/content/image-delete',  'Admin\InnerServiceContentController@image_delete')->name('inner-services.content.image_delete');
+
 
 // inner service extras
 Route::get('inner-service/{uuid}/extra',  'Admin\InnerServiceExtraController@index')->name('inner-services.extra.index');
@@ -262,15 +279,18 @@ Route::post('inner-service/{uuid}/extra/store',  'Admin\InnerServiceExtraControl
 Route::get('inner-service/{id}/extra/{uuid}/edit',  'Admin\InnerServiceExtraController@edit')->name('inner-services.extra.edit');
 Route::post('inner-service/{id}/extra/{uuid}/update',  'Admin\InnerServiceExtraController@update')->name('inner-services.extra.update');
 Route::post('inner-service/{id}/extra/{uuid}/destroy',  'Admin\InnerServiceExtraController@destroy')->name('inner-services.extra.destroy');
+Route::get('inner-services/extra/image-delete',  'Admin\InnerServiceExtraController@image_delete')->name('inner-services.extra.image_delete');
 
 
-// service content
+// sub service content
 Route::get('sub-services/{id}/content',  'Admin\SubServiceContentController@index')->name('sub-services.content.index');
 Route::get('sub-services/{id}/content/create',  'Admin\SubServiceContentController@create')->name('sub-services.content.create');
 Route::post('sub-services/{id}/content/store',  'Admin\SubServiceContentController@store')->name('sub-services.content.store');
 Route::get('sub-services/{id}/content/{uuid}/edit',  'Admin\SubServiceContentController@edit')->name('sub-services.content.edit');
 Route::post('sub-services/{id}/content/{uuid}/update',  'Admin\SubServiceContentController@update')->name('sub-services.content.update');
 Route::post('sub-services/{id}/content/{uuid}/destroy',  'Admin\SubServiceContentController@destroy')->name('sub-services.content.destroy');
+Route::get('sub-services/content/image-delete',  'Admin\SubServiceContentController@image_delete')->name('sub-services.content.image_delete');
+Route::get('sub-services/content/image-delete1',  'Admin\SubServiceContentController@image_delete1')->name('sub-services.content.image_delete1');
 
 // Additional pages content
 Route::get('additional_content/{id}/content',  'Admin\AdditionalPageContentController@index')->name('additional-content.content.index');
@@ -287,6 +307,7 @@ Route::post('content/{uuid}/extra/store',  'Admin\SubServiceExtraController@stor
 Route::get('content/{id}/extra/{uuid}/edit',  'Admin\SubServiceExtraController@edit')->name('sub-services.extra.edit');
 Route::post('content/{id}/extra/{uuid}/update',  'Admin\SubServiceExtraController@update')->name('sub-services.extra.update');
 Route::post('content/{id}/extra/{uuid}/destroy',  'Admin\SubServiceExtraController@destroy')->name('sub-services.extra.destroy');
+Route::get('content/extra/image-delete',  'Admin\SubServiceExtraController@image_delete')->name('sub-services.extra.image_delete');
 
 // contact-us
 Route::get('contact-us/create',  'Admin\ContactUsController@create')->name('contact-us.create');
