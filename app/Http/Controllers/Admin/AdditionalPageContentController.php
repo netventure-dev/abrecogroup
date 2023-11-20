@@ -17,10 +17,10 @@ class AdditionalPageContentController extends Controller
         $subservice = AdditionalPage::where('uuid', $id)->first();
         $contents = AditionalPageContent::where('additional_page_id', $subservice->uuid)->get();
         $breadcrumbs = [
-            // [(__('Dashboard')), route('admin.inner-services.index')],
-            // ['Inner Services', route('admin.inner-services.index')],
-            // [$subservice->title, null],
-        ];
+            [(__('Dashboard')), route('admin.home')],
+            [$subservice->title, route('admin.additional-pages.index')],
+            ['AdditionalPageContent', null],
+        ]; 
         // dd( $services );
         // return 1;       
 
@@ -32,11 +32,11 @@ class AdditionalPageContentController extends Controller
 
         $breadcrumbs = [
             // [(__('Dashboard')), route('admin.home')],
-            // [(__('Sub Services')), route('admin.sub-services.index')],
-            //  [$subservice->title, route('admin.sub-services.content.index', $subservice->sub_service_id)],
-            // [(__('Sub Services Extra')), route('admin.sub-services.extra.index', $subservice->uuid)],
+            // [(__('Sub Services')), route('admin.additional-pages.index')],
+            //  [$subservice->title, route('admin.additional-content.index', $subservice->sub_service_id)],
+            // [(__('Sub Services Extra')), route('admin.additional-pages.extra.index', $subservice->uuid)],
             // [(__('Content')), null],
-        ];
+        ];  
         return view('admin.pages.content.create', compact('subservice','breadcrumbs'));
     }
 
@@ -152,4 +152,13 @@ class AdditionalPageContentController extends Controller
         }
         return redirect()->back();
     }
+    public function image_delete(Request $request)
+    {
+        
+        $section = AditionalPageContent::where('uuid',$request->uuid)->first();
+        $section->image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
+  
 }

@@ -77,6 +77,9 @@ Route::post('additional_pages/store',  'Admin\AdditionalPagesController@store')-
 Route::get('additional_pages/edit/{id}',  'Admin\AdditionalPagesController@edit')->name('additional-pages.edit');
 Route::post('additional_pages/update/{id}',  'Admin\AdditionalPagesController@update')->name('additional-pages.update');
 Route::delete('additional_pages/destroy/{id}',  'Admin\AdditionalPagesController@destroy')->name('additional-pages.destroy');
+Route::get('additional_pages/image-delete',  'Admin\AdditionalPagesController@image_delete')->name('additional_pages.image_delete');
+Route::get('additional_pages/image-delete1',  'Admin\AdditionalPagesController@image_delete1')->name('additional_pages.image_delete1');
+Route::get('additional_pages/image-delete2',  'Admin\AdditionalPagesController@image_delete2')->name('additional_pages.image_delete2');
 
 
 
@@ -299,6 +302,7 @@ Route::get('additional_content/{id}/content/create',  'Admin\AdditionalPageConte
 Route::get('additional_content/{id}/content/{uuid}/edit',  'Admin\AdditionalPageContentController@edit')->name('additional-content.edit');
 Route::post('additional_content/{id}/content/{uuid}/update',  'Admin\AdditionalPageContentController@update')->name('additional-content.update');
 Route::post('additional_content/{id}/content/{uuid}/destroy',  'Admin\AdditionalPageContentController@destroy')->name('additional-content.destroy');
+Route::get('additional_content/image-delete',  'Admin\AdditionalPageContentController@image_delete')->name('additional_content.image_delete');
 
 //sub service extras
 Route::get('content/{uuid}/extra',  'Admin\SubServiceExtraController@index')->name('sub-services.extra.index');

@@ -46,7 +46,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="position" class="col-sm-3 col-form-label mb-2">{{ __('Position') }}</label>
+                                    <label for="position" class="col-sm-3 col-form-label mb-2">{{ __('Position') }}<span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <input id="position" name="position" type="text"
                                             class="form-control mb-2 @if ($errors->has('position')) is-invalid  @endif"

@@ -79,8 +79,10 @@
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Image') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9"> 
-                                        @if (isset($page->image1))
+                                        @if ($page->image1)
                                             <img src="{{ asset('storage/'.$page->image1) }}" alt="" class="img-fluid" style="width:250px;">
+                                            <button type="button" class="btn btn-primary w-md" onclick="delete_image('{{ $page->uuid }}');"
+                                                class="close">Delete</button>
                                         @endif
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('*//')) is-invalid @endif" value="{{ @old('image') }}">
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
@@ -92,7 +94,7 @@
                                     <div class="col-sm-9">
                                         <input id="alt_text" name="alt_text" type="text"
                                             class="form-control mb-2 @if ($errors->has('alt_text')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter Alt text') }}" required value="{{ @old('title',@$page->alt_text) }}">
+                                            placeholder="{{ __('Enter Alt text') }}"  value="{{ @old('title',@$page->alt_text) }}">
                                         <div class="invalid-feedback">{{ $errors->first('alt_text') }}
                                         </div>
                                     </div>
@@ -101,8 +103,10 @@
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Logo') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9"> 
-                                        @if (isset($page->image2))
+                                        @if ($page->image2)
                                             <img src="{{ asset('storage/'.$page->image2) }}" alt="" class="img-fluid" style="width:250px;">
+                                            <button type="button" class="btn btn-primary w-md" onclick="delete_image1('{{ $page->uuid }}');"
+                                                class="close">Delete</button>
                                         @endif
                                         <input id="logo" name="logo" type="file" class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif" value="{{ @old('logo') }}">
                                         <div class="invalid-feedback">{{ $errors->first('logo') }}</div>
@@ -123,10 +127,12 @@
                                     <label class="col-sm-3 col-form-label" for="background_image">{{ __('Background Image') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9"> 
-                                        @if (isset($page->background_image))
+                                        @if ($page->background_image)
                                             <img src="{{ asset('storage/'.$page->background_image) }}" alt="" class="img-fluid" style="width:250px;">
+                                            <button type="button" class="btn btn-primary w-md" onclick="delete_image2('{{ $page->uuid }}');"
+                                                class="close">Delete</button>
                                         @endif
-                                        <input id="background_image" name="background_image" type="file" class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif" value="{{ @old('background_image') }}">
+                                        <input id="background_image" name="b_image" type="file" class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif" value="{{ @old('background_image') }}">
                                         <div class="invalid-feedback">{{ $errors->first('background_image') }}</div>
                                     </div>
                                 </div>    
@@ -209,5 +215,69 @@
         $(document).ready(function() {
            $('.summernote').summernote('fontName', 'Poppins');
    });
+
+   function delete_image(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.additional_pages.image_delete') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+        function delete_image1(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.additional_pages.image_delete1') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+        function delete_image2(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.additional_pages.image_delete2') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
 </script>
 @endsection
