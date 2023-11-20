@@ -97,7 +97,7 @@ class AdditionalPagesController extends Controller
         $page = AdditionalPage::where('uuid',$id)->first();
 
         $validated = $request->validate([
-            'title' => 'required|unique:additional_pages,title|max:255,'.$page->id,
+            'title' => 'required|max:255',
             'content' => 'nullable',
             'content2' => 'nullable',
             'sub_title' => 'nullable',
@@ -156,5 +156,29 @@ class AdditionalPagesController extends Controller
             notify()->error(__('Failed to Delete. Please try again'));
         }
         return redirect()->back();
+    }
+    public function image_delete(Request $request)
+    {
+        
+        $section = AdditionalPage::where('uuid',$request->uuid)->first();
+        $section->image1 = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
+    public function image_delete1(Request $request)
+    {
+        
+        $section = AdditionalPage::where('uuid',$request->uuid)->first();
+        $section->image2 = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
+    public function image_delete2(Request $request)
+    {
+        
+        $section = AdditionalPage::where('uuid',$request->uuid)->first();
+        $section->background_image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
     }
 }

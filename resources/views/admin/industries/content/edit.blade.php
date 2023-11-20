@@ -305,7 +305,7 @@
 </script>
     <script>
          $(document).ready(function() {
-            $(document).ready(function() {
+           
            $('.summernote').summernote('fontName', 'Poppins');
          });
 
