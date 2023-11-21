@@ -18,6 +18,7 @@ class AdditionalPageContentController extends Controller
         $contents = AditionalPageContent::where('additional_page_id', $subservice->uuid)->get();
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
+            [(__('Additional Page')), route('admin.additional-pages.index')],
             [$subservice->title, route('admin.additional-pages.index')],
             ['AdditionalPageContent', null],
         ]; 
@@ -28,15 +29,16 @@ class AdditionalPageContentController extends Controller
     }
     public function create($id)
     {
-        $subservice = AdditionalPage::where('uuid', $id)->first();
-
-        $breadcrumbs = [
-            // [(__('Dashboard')), route('admin.home')],
-            // [(__('Sub Services')), route('admin.additional-pages.index')],
-            //  [$subservice->title, route('admin.additional-content.index', $subservice->sub_service_id)],
-            // [(__('Sub Services Extra')), route('admin.additional-pages.extra.index', $subservice->uuid)],
-            // [(__('Content')), null],
-        ];  
+     
+          $subservice = AdditionalPage::where('uuid', $id)->first();
+        //   dd($subservice);
+          $breadcrumbs = [
+            [(__('Dashboard')), route('admin.home')],
+            [(__('Additional Page')), route('admin.additional-pages.index')],
+            [$subservice->title, route('admin.additional-content.content.index',$subservice->uuid)],
+            [(__('Content')), null],
+        ];
+      
         return view('admin.pages.content.create', compact('subservice','breadcrumbs'));
     }
 
@@ -89,14 +91,16 @@ class AdditionalPageContentController extends Controller
     {
         $content_list = '';
         $subservice = AdditionalPage::where('uuid', $id)->first();
+        // dd($subservice);
         $content = AditionalPageContent::where('uuid', $uuid)->first();
-
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            // [(__('page content')), route('admin.additional-content.content.index')],
-            //  [$subservice->name, route('admin.inner-services.content.index', $subservice->uuid)],
+            [(__('Additional Page')), route('admin.additional-pages.index')],
+            [(__($subservice->title)), route('admin.additional-content.content.index',$subservice->uuid)],
+            // [(__($content->title)), route('additional-content.content.index', $content->uuid)],
             [(__('Content')), null],
         ];
+
         return view('admin.pages.content.edit', compact('subservice', 'content', 'breadcrumbs'));
     }
 
