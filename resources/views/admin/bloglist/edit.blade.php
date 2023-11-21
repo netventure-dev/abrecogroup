@@ -185,10 +185,10 @@
 
     <script>
          $(document).ready(function () {
-        $('.ckeditor').ckeditor({
-            enterMode: CKEDITOR.ENTER_BR,
-        autoParagraph: false
-        });
+            $('.ckeditor').ckeditor({
+                enterMode: CKEDITOR.ENTER_BR,
+                autoParagraph: false
+            });
     });
 
         function delete_image(uuid) {
