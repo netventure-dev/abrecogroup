@@ -44,7 +44,7 @@
                                             placeholder="{{ __('Enter Title') }}" required
                                             value="{{ @old('title', @$data->title) }}"> --}}
                                         <textarea id="title" name="title"
-                                            class="form-control mb-2 summernote @if ($errors->has('title')) is-invalid @endif"
+                                            class="form-control mb-2  @if ($errors->has('title')) is-invalid @endif"
                                             placeholder="{{ __('Enter Title') }}" required>{{ @old('title', @$data->title) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
