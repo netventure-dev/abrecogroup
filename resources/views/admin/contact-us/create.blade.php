@@ -102,7 +102,7 @@
                                             data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
                                             WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                            @if ($data->image)
+                                            @if (@$data->image)
                                                 <img src="{{ asset('/storage/' . @$data->image) }}" alt=""
                                                     class="img-fluid" style="width:100px;">
                                                 <button type="button" class="btn btn-primary w-md"

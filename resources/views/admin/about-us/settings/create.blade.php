@@ -51,7 +51,7 @@
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea id="title" name="title"
-                                            class="form-control mb-2 summernote @if ($errors->has('title')) is-invalid @endif"
+                                            class="form-control mb-2  @if ($errors->has('title')) is-invalid @endif"
                                             placeholder="{{ __('Enter title') }}" required>{{ @old('title', @$data->cover_title) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}</div>
                                     </div>
@@ -74,7 +74,7 @@
                                     <label for="cover_content" class="col-sm-3 col-form-label">{{ __('Cover Content') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea name="cover_content" class="form-control summernote @if ($errors->has('cover_content')) is-invalid @endif" ro
+                                        <textarea name="cover_content" class="form-control @if ($errors->has('cover_content')) is-invalid @endif" ro
                                             placeholder="{{ __('Enter Description') }}" required>{{ @old('cover_content', @$data->cover_content) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('cover_content') }}
                                         </div>
@@ -84,7 +84,7 @@
                                     <label for="content" class="col-sm-3 col-form-label">{{ __('content') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea name="content" class="form-control summernote @if ($errors->has('content')) is-invalid @endif"
+                                        <textarea name="content" class="form-control  @if ($errors->has('content')) is-invalid @endif"
                                             style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Description') }}" required>{{ @old('content', @$data->content) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
@@ -96,7 +96,7 @@
                                             WEBP only.")</small> <a href="#" class="tool_tip js-tooltip-enabled"
                                             data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
-                                        @if ($data->banner_image)
+                                        @if (@$data->banner_image)
                                             <img src="{{ asset('/storage/' . @$data->banner_image) }}" alt=""
                                                 class="img-fluid" style="width:100px;">
                                             <button type="button" class="btn btn-primary w-md"
@@ -116,7 +116,7 @@
                                             WEBP only.")</small> <a href="#" class="tool_tip js-tooltip-enabled"
                                             data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
-                                        @if ($data->content_image)
+                                        @if (@$data->content_image)
                                             <img src="{{ asset('/storage/' . @$data->content_image) }}" alt=""
                                                 class="img-fluid" style="width:100px;">
                                             <button type="button" class="btn btn-primary w-md"

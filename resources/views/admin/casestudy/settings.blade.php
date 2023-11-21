@@ -50,7 +50,7 @@
                                 <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea id="title" name="title" class="form-control mb-2 summernote @if ($errors->has('title')) is-invalid @endif" placeholder="{{ __('Enter Title') }}" required>{{ old('title', @$data->title) }}</textarea>
+                                        <textarea id="title" name="title" class="form-control mb-2  @if ($errors->has('title')) is-invalid @endif" placeholder="{{ __('Enter Title') }}" required>{{ old('title', @$data->title) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}</div>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                                     <label for="description" class="col-sm-3 col-form-label">{{ __('Description') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea name="description" class="form-control summernote @if ($errors->has('description')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro
+                                        <textarea name="description" class="form-control  @if ($errors->has('description')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro
                                             placeholder="{{ __('Enter  Description') }}" required>{{ @old('description',@$data->description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
@@ -70,7 +70,7 @@
                                             class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a>
                                         <br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                     @if ($data->image)
+                                     @if (@$data->image)
                                             <img src="{{ asset('/storage/' . @$data->image) }}" alt=""
                                                 class="img-fluid" style="width:100px;">
                                                 <button type="button" class="btn btn-primary w-md" onclick="delete_image('{{ $data->uuid }}');"
