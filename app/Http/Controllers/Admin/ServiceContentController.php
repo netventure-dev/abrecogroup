@@ -48,7 +48,7 @@ class ServiceContentController extends Controller
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-
+            'section' => 'required',
             'order' => 'required|numeric',
             // 'alt_text' => 'nullable',
             'button_title' => 'nullable',
@@ -64,7 +64,7 @@ class ServiceContentController extends Controller
         $content->sub_title =  $validated['sub_title'];
 
         // $content->alt_text =  $validated['alt_text'];
-
+        $content->section =  $validated['section'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
@@ -119,6 +119,7 @@ class ServiceContentController extends Controller
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'order' => 'required|numeric',
             'status' => 'required',
+            'section' => 'required',
             // 'alt_text' => 'nullable',
 
             'button_title' => 'nullable',
@@ -133,6 +134,7 @@ class ServiceContentController extends Controller
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
+        $content->section =  $validated['section'];
         // $content->alt_text =  $validated['alt_text'];
 
         $content->status = $validated['status'];

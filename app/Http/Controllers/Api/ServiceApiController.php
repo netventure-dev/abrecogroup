@@ -19,7 +19,7 @@ class ServiceApiController extends Controller
             ->with(['faqs' => function ($query) {
                 $query->select('id', 'service_id', 'uuid', 'title', 'description', 'order')->where('status', 1);
             }, 'contents' => function ($query) {
-                $query->select('id', 'service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image','status');
+                $query->select('id', 'section', 'service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image','status');
             }, 'casestudy' => function ($query) {
                 $query->select('id', 'slug as case_study_slug', 'service_id', 'service_slug as service_id_slug', 'sub_service_slug as sub_service_id_slug', 'inner_service_slug as inner_service_id_slug', 'uuid', 'title', 'subtitle', 'image1', 'content', 'image2')->where('status', 1);
             }, 'subservices' => function ($query) {
@@ -62,7 +62,7 @@ class ServiceApiController extends Controller
             ->with(['faqs' => function ($query) {
                 $query->select('id', 'service_id', 'uuid', 'title', 'description', 'order')->where('status', 1);
             }, 'contents' => function ($query) {
-                $query->select('id', 'service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image', 'mobile_image')->where('status', 1);
+                $query->select('id', 'section', 'service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image', 'mobile_image')->where('status', 1);
             }, 'casestudy' => function ($query) {
                 $query->select('id', 'slug as case_study_slug', 'service_id', 'service_slug as service_id_slug', 'sub_service_slug as sub_service_id_slug', 'inner_service_slug as inner_service_id_slug', 'uuid', 'title', 'subtitle', 'image1', 'content', 'image2')->where('status', 1);
             }, 'subservices' => function ($query) {

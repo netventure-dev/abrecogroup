@@ -79,6 +79,26 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="mb-4 row">
+                                    <label for="order" class="col-sm-3 col-form-label mb-2">{{ __('Section') }}<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <select name="section" class="form-control" required>
+                                            <option value="">Choose a Section</option>
+                                            <option @if($content->section === "type1") selected @endif value="type1">Banner with background</option>
+                                            <option @if($content->section === "type2") selected @endif value="type2">Overview</option>
+                                            <option @if($content->section === "type3") selected @endif value="type3">Left side content and right side image</option>
+                                            <option @if($content->section === "type4") selected @endif value="type4">Left side image and right side content</option>
+                                            <option @if($content->section === "type5") selected @endif value="type5">Full width section</option>
+                                            <option @if($content->section === "type6") selected @endif value="type6">Full width icon box slider</option>
+                                            <option @if($content->section === "type7") selected @endif value="type7">Content with icon box slider</option>
+                                            <option @if($content->section === "type8") selected @endif value="type8">Case study</option>
+
+                                        </select>
+                                        <div class="invalid-feedback">{{ $errors->first('order') }}
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Cover Image') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled"
@@ -259,11 +279,7 @@
                         uuid: uuid,
                     },
                     success: function(response) {
-                        // if (response.status == "success") {
-                        //     swal("success!", "Image deleted successfully!", "success")
-                        // } else {
-                        //     sweetAlert("Oops...", "Something went wrong!", "error");
-                        // }
+                      
                          location.reload()
                     }
                 });
@@ -280,11 +296,7 @@
                         uuid: uuid,
                     },
                     success: function(response) {
-                        // if (response.status == "success") {
-                        //     swal("success!", "Image deleted successfully!", "success")
-                        // } else {
-                        //     sweetAlert("Oops...", "Something went wrong!", "error");
-                        // }
+                       
                          location.reload()
                     }
                 });
