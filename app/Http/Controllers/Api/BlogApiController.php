@@ -20,7 +20,7 @@ class BlogApiController extends Controller
         if (!empty($data['blog']) && empty($data['blog']->image)) {
             $data['blog']->image = null;
         }
-        $data['blogLists'] = Bloglist::select('uuid', 'title', 'canonical_tag', 'description', 'image', 'slug', 'seo_title', 'seo_description', 'seo_keywords')->where('status', 1)->get();
+        $data['blogLists'] = Bloglist::select('uuid', 'title','author','blog_date', 'canonical_tag', 'description', 'image', 'slug', 'seo_title', 'seo_description', 'seo_keywords')->where('status', 1)->take(3)->get();
         // Check if 'image' field is empty and set it to null for each item in blogLists
         foreach ($data['blogLists'] as $blogList) {
             if (empty($blogList->image)) {
@@ -35,7 +35,7 @@ class BlogApiController extends Controller
 
     public function details($uuid)
     {
-        $data['blogLists'] = Bloglist::select('uuid', 'title', 'canonical_tag', 'description', 'image', 'slug', 'seo_title', 'seo_description', 'seo_keywords')
+        $data['blogLists'] = Bloglist::select('uuid', 'title','author','blog_date', 'canonical_tag', 'description', 'image', 'slug', 'seo_title', 'seo_description', 'seo_keywords')
             ->where('slug', $uuid)
             ->where('status', 1)
             ->first();

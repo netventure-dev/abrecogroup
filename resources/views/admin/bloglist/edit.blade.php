@@ -71,6 +71,28 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
+                                    <label for="author"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Author') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="author" name="author" type="text"
+                                            class="form-control mb-2 @if ($errors->has('author')) is-invalid @endif"
+                                            placeholder="{{ __('Enter author name') }}"
+                                            value="{{ @old('author', @$blog->author) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('author') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
+                                    <label for="schedule_date"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Schedule Date') }}</label>
+                                    <div class="col-sm-9">
+                                        <input id="schedule_date" name="schedule_date" type="date"
+                                            class="form-control mb-2 @if ($errors->has('schedule_date')) is-invalid @endif" value="{{ @old('schedule_date', @$blog->blog_date) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('schedule_date') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
                                     <label for="description" class="col-sm-3 col-form-label">{{ __('Description') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
@@ -88,7 +110,7 @@
                                             WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                             @if ($blog->image)
-                                                <img src="{{ asset("/storage/$blog->image") }}" alt=""
+                                                <img src="{{ asset("/storage/".$blog->image) }}" alt=""
                                                     class="img-fluid" style="width:100px;">
                                                 <button type="button" class="btn btn-primary w-md"
                                                     onclick="delete_image('{{ $blog->uuid }}');"

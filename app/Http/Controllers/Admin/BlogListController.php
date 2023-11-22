@@ -38,6 +38,8 @@ class BlogListController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:blogs,title',
             'canonical_tag' => 'nullable',
+            'author' => 'nullable',
+            'schedule_date' =>  'nullable|date',
             'description' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
@@ -46,10 +48,12 @@ class BlogListController extends Controller
             'seo_description' => 'nullable',
         ]);
         $blogs = new Bloglist();
-        $blogs->uuid = (string) Str::uuid();
+        $blogs->uuid = (string) Str::uuid();date("Y-m-d", strtotime($request->date));
         $blogs->title = $validated['title'];
         $blogs->canonical_tag = $validated['canonical_tag'];
         $blogs->description = $validated['description'];
+        $blogs->author = $validated['author'];
+        $blogs->blog_date = $validated['schedule_date'];
         $blogs->status = $validated['status'];
         $blogs->slug = SlugService::createSlug(Bloglist::class, 'slug', $validated['title'], ['unique' => false]);
         if ($request->hasFile('image')) {
@@ -90,6 +94,8 @@ class BlogListController extends Controller
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
+            'author' => 'nullable',
+            'schedule_date' =>  'nullable|date',
             'seo_title' => 'nullable',
             'seo_keyword' => 'nullable',
             'seo_description' => 'nullable',
@@ -99,7 +105,8 @@ class BlogListController extends Controller
         $blog->description = $validated['description'];
         $blog->status = $validated['status'];
         $blog->slug = SlugService::createSlug(Bloglist::class, 'slug', $validated['title'], ['unique' => false]);
-       
+        $blog->author = $validated['author'];
+        $blog->blog_date = $validated['schedule_date'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image', $validated['image']->getClientOriginalName(), 'public');
             $blog->image = $path;
