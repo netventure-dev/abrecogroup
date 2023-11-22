@@ -39,7 +39,7 @@ class BlogApiController extends Controller
             ->where('slug', $uuid)
             ->where('status', 1)
             ->first();
-        $data['related_blogs'] = Bloglist::select('uuid', 'title','author','blog_date', 'canonical_tag', 'description', 'image', 'slug', 'seo_title', 'seo_description', 'seo_keywords')->where('status', 1)->take(3)->get();
+        $data['related_blogs'] = Bloglist::select('uuid', 'title','author','blog_date', 'canonical_tag', 'description', 'image', 'slug', 'seo_title', 'seo_description', 'seo_keywords')->where('slug','!=',$uuid)->where('status', 1)->take(3)->get();
 
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
