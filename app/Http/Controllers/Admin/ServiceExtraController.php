@@ -50,6 +50,7 @@ class ServiceExtraController extends Controller
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => 'required|numeric',
+            'section' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',
         ]);
@@ -58,6 +59,7 @@ class ServiceExtraController extends Controller
         $content->uuid = (string) Str::uuid();
         $content->service_content_id = $service->uuid;
         $content->title =  $validated['title'];
+        $content->section =  $validated['section'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
@@ -104,6 +106,7 @@ class ServiceExtraController extends Controller
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => 'required|numeric',
             'status' => 'required',
+            'section' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',
         ]);
@@ -115,6 +118,7 @@ class ServiceExtraController extends Controller
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
         $content->status = $validated['status'];
+        $content->section =  $validated['section'];
         $content->button_link =  $validated['button_link'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
