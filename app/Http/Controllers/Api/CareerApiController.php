@@ -80,7 +80,7 @@ class CareerApiController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:7|max:16',
+            'phone' => 'required',
             'message' => 'required',
             'position' => 'required',
             'resume' => 'required|mimes:pdf|max:2048'
