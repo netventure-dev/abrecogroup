@@ -111,7 +111,7 @@ class ServiceFormController extends Controller
             $details['type'] = $request['type'];
             $details['phone'] = $request['phone'];
             $details['message'] = $request['message'];
-            $details['admin_name'] = $admin->name;
+            $details['admin_name'] = 'Admin';
             Notification::send($admin, new QuoteNotification($details));
             Notification::route('mail', 'vipin.netventure@gmail.com')->notify(new QuoteNotification($details));
             Notification::route('mail', 'aravind.netventure@gmail.com')->notify(new QuoteNotification($details));
