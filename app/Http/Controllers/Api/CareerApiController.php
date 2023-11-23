@@ -125,8 +125,10 @@ class CareerApiController extends Controller
             $details['position'] = $request['position'];
             $details['message'] = $request['message'];
             $details['resume'] = $data->resume;
-            $details['admin_name'] = $admin->name;
+            $details['admin_name'] = 'Admin';
             Notification::send($admin, new CareerAdminNotification($details));
+            Notification::route('mail', 'vipin.netventure@gmail.com')->notify(new CareerAdminNotification($details));
+            Notification::route('mail', 'aravind.netventure@gmail.com')->notify(new CareerAdminNotification($details));
             Notification::route('mail', $details['email'])->notify(new CareerNotification($details));
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $details], $this->successStatus);
         } else {
