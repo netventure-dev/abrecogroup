@@ -130,8 +130,10 @@ class ContactUsApiController extends Controller
             $details['job'] = $request['job'];
             $details['reason'] = $request['reason'];
             $details['refer'] = $request['refer'];
-            $details['admin_name'] = $admin->name;
+            $details['admin_name'] = 'Admin';
             Notification::send($admin, new ContactNotification($details));
+            Notification::route('mail', 'vipin.netventure@gmail.com')->notify(new ContactNotification($details));
+            Notification::route('mail', 'aravind.netventure@gmail.com')->notify(new ContactNotification($details));
             Notification::route('mail', $details['email'])->notify(new ContactusNotification($details));
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $details], $this->successStatus);
         } else {

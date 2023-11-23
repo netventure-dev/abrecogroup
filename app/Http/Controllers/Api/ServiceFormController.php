@@ -113,6 +113,8 @@ class ServiceFormController extends Controller
             $details['message'] = $request['message'];
             $details['admin_name'] = $admin->name;
             Notification::send($admin, new QuoteNotification($details));
+            Notification::route('mail', 'vipin.netventure@gmail.com')->notify(new QuoteNotification($details));
+            Notification::route('mail', 'aravind.netventure@gmail.com')->notify(new QuoteNotification($details));
             Notification::route('mail', $details['email'])->notify(new QuotessNotification($details));
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $details], $this->successStatus);
         } else {
