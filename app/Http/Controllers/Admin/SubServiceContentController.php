@@ -46,7 +46,12 @@ class SubServiceContentController extends Controller
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('sub_service_contents', 'order')->where(function ($query) use ($id) {
+                    return $query->where('sub_service_id', $id);
+                })->ignore($subservice->id),
+            ],
             'button_title' => 'nullable',
             'status' => 'required',
             'inner_status' => 'required',
@@ -109,7 +114,12 @@ class SubServiceContentController extends Controller
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('sub_service_contents', 'order')->where(function ($query) use ($id) {
+                    return $query->where('sub_service_id', $id);
+                })->ignore($subservice->id),
+            ],
             'status' => 'required',
             'inner_status' => 'required',
             'button_title' => 'nullable',

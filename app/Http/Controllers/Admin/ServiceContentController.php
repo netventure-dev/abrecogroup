@@ -9,6 +9,7 @@ use App\Models\ServiceContentList;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class ServiceContentController extends Controller
 {
@@ -49,7 +50,12 @@ class ServiceContentController extends Controller
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'section' => 'required',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('service_contents', 'order')->where(function ($query) use ($id) {
+                    return $query->where('service_id', $id);
+                })->ignore($services->id),
+            ],
             // 'alt_text' => 'nullable',
             'button_title' => 'nullable',
 
@@ -117,7 +123,12 @@ class ServiceContentController extends Controller
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('service_contents', 'order')->where(function ($query) use ($id) {
+                    return $query->where('service_id', $id);
+                })->ignore($services->id),
+            ],
             'status' => 'required',
             'section' => 'required',
             // 'alt_text' => 'nullable',

@@ -47,7 +47,12 @@ class InnerServiceContentController extends Controller
             'sub_title' => 'nullable',
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('inner_service_contents', 'order')->where(function ($query) use ($id) {
+                    return $query->where('inner_service_id', $id);
+                })->ignore($subservice->id),
+            ],
             // 'alt_text' => 'nullable',
             'button_title' => 'nullable',
 
@@ -109,7 +114,12 @@ class InnerServiceContentController extends Controller
             'sub_title' => 'nullable',
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('inner_service_contents', 'order')->where(function ($query) use ($id) {
+                    return $query->where('inner_service_id', $id);
+                })->ignore($subservice->id),
+            ],
             'status' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',
