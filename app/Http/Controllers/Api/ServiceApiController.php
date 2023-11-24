@@ -19,7 +19,7 @@ class ServiceApiController extends Controller
             ->with(['faqs' => function ($query) {
                 $query->select('id', 'service_id', 'uuid', 'title', 'description', 'order')->where('status', 1);
             }, 'contents' => function ($query) {
-                $query->select('id', 'section', 'service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image','status');
+                $query->select('id', 'section', 'service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image','status','mobile_image','button_title','button_link');
             }, 'casestudy' => function ($query) {
                 $query->select('id', 'slug as case_study_slug', 'service_id', 'service_slug as service_id_slug', 'sub_service_slug as sub_service_id_slug', 'inner_service_slug as inner_service_id_slug', 'uuid', 'title', 'subtitle', 'image1', 'content', 'image2')->where('status', 1);
             }, 'subservices' => function ($query) {
@@ -62,7 +62,7 @@ class ServiceApiController extends Controller
             ->with(['faqs' => function ($query) {
                 $query->select('id', 'service_id', 'uuid', 'title', 'description', 'order')->where('status', 1);
             }, 'contents' => function ($query) {
-                $query->select('id', 'section', 'service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image', 'mobile_image')->where('status', 1);
+                $query->select('id', 'section', 'service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image','mobile_image','button_title','button_link')->where('status', 1);
             }, 'casestudy' => function ($query) {
                 $query->select('id', 'slug as case_study_slug', 'service_id', 'service_slug as service_id_slug', 'sub_service_slug as sub_service_id_slug', 'inner_service_slug as inner_service_id_slug', 'uuid', 'title', 'subtitle', 'image1', 'content', 'image2')->where('status', 1);
             }, 'subservices' => function ($query) {
@@ -85,7 +85,7 @@ class ServiceApiController extends Controller
             ->with(['innerservices' => function ($query) {
                 $query->select('id', 'service_id', 'sub_service_id', 'service_name', 'service_slug', 'subservice as subservice_name', 'sub_service_slug', 'uuid', 'name', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', )->where('status', 1);
             }, 'contents' => function ($query) {
-                $query->select('id', 'sub_service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image', 'mobile_image','status');
+                $query->select('id', 'sub_service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image', 'mobile_image','status','button_title','button_link');
             }, 'casestudy' => function ($query) {
                 $query->select('id', 'slug as case_study_slug', 'service_slug as service_id_slug', 'sub_service_id', 'sub_service_slug as sub_service_id_slug', 'inner_service_slug as inner_service_id_slug', 'uuid', 'title', 'subtitle', 'image1', 'content', 'image2')->where('status', 1);
             }, 'contents.extra_contents'])
@@ -104,7 +104,7 @@ class ServiceApiController extends Controller
     {
         $data['inner_services'] = InnerService::select('id', 'service_id', 'sub_service_id', 'service_name', 'service_slug', 'custom_url', 'subservice as subservice_name', 'sub_service_slug', 'uuid', 'name', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag')
             ->with(['contents' => function ($query) {
-                $query->select('id', 'inner_service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image','status');
+                $query->select('id', 'inner_service_id', 'uuid', 'title', 'sub_title', 'description', 'order', 'image','status','button_title','button_link');
             }, 'casestudy' => function ($query) {
                 $query->select('id', 'slug as case_study_slug', 'service_slug as service_id_slug', 'inner_service_id', 'sub_service_slug as sub_service_id_slug', 'inner_service_slug as inner_service_id_slug', 'uuid', 'title', 'subtitle', 'image1', 'content', 'image2')->where('status', 1);
             }, 'contents.extra_contents'])
