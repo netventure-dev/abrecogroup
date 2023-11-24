@@ -28,6 +28,7 @@ class SubServiceExtraController extends Controller
         // dd( $services );
         // dd($contents);
 
+
         return view('admin.sub-services.content.extra.index', compact('subservice', 'contents', 'breadcrumbs'));
     }
     public function create($id)
@@ -52,6 +53,8 @@ class SubServiceExtraController extends Controller
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => 'required|numeric',
+            'section' => 'required',
+
             'button_title' => 'nullable',
 
             'button_link' => 'nullable',
@@ -61,6 +64,7 @@ class SubServiceExtraController extends Controller
         $content->uuid = (string) Str::uuid();
         $content->sub_service_content_id = $subservice->uuid;
         $content->title =  $validated['title'];
+        $content->section =  $validated['section'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
@@ -103,6 +107,8 @@ class SubServiceExtraController extends Controller
         $validated = $request->validate([
             'title' => 'nullable',
             'description' => 'required',
+            'section' => 'required',
+
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => 'required|numeric',
             'status' => 'required',
@@ -115,6 +121,7 @@ class SubServiceExtraController extends Controller
         $content->title =  $validated['title'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
+        $content->section =  $validated['section'];
         $content->button_title =  $validated['button_title'];
         $content->status = $validated['status'];
         $content->button_link =  $validated['button_link'];

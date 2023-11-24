@@ -46,6 +46,8 @@ class InnerServiceExtraController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'section' => 'required',
+
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => 'required|numeric',
             'button_title' => 'nullable',
@@ -57,6 +59,8 @@ class InnerServiceExtraController extends Controller
         $content->inner_service_content_id = $service->uuid;
         $content->title =  $validated['title'];
         $content->description =  $validated['description'];
+        $content->section =  $validated['section'];
+
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
         $content->button_link =  $validated['button_link'];
@@ -98,6 +102,7 @@ class InnerServiceExtraController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'section' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => 'required|numeric',
             'status' => 'required',
@@ -110,6 +115,7 @@ class InnerServiceExtraController extends Controller
         $content->title =  $validated['title'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
+        $content->section =  $validated['section'];
         $content->button_title =  $validated['button_title'];
         $content->status = $validated['status'];
         $content->button_link =  $validated['button_link'];

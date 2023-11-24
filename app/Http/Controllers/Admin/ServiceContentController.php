@@ -28,6 +28,7 @@ class ServiceContentController extends Controller
     }
 
     public function create($id)
+    
     {
         $services= Service::where('uuid',$id)->first();
 

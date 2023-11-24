@@ -7,7 +7,7 @@ use App\Models\SubServiceContent;
 use App\Models\SubService;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-
+use Illuminate\Validation\Rule;
 class SubServiceContentController extends Controller
 {
     public function index( $id)
@@ -46,6 +46,8 @@ class SubServiceContentController extends Controller
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
+            'section' => 'required',
+
             'order' => [
                 'required',
                 Rule::unique('sub_service_contents', 'order')->where(function ($query) use ($id) {
@@ -55,7 +57,7 @@ class SubServiceContentController extends Controller
             'button_title' => 'nullable',
             'status' => 'required',
             'inner_status' => 'required',
-            'button_link' => 'nullable',
+            'button_link' => 'nullable',    
         ]); 
 
         $content = new SubServiceContent();
@@ -64,6 +66,7 @@ class SubServiceContentController extends Controller
         $content->title =  $validated['title'];
         $content->sub_title =  $validated['sub_title'];
         $content->description =  $validated['description'];
+        $content->section =  $validated['section'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
         $content->button_link =  $validated['button_link'];
@@ -112,6 +115,8 @@ class SubServiceContentController extends Controller
             'title' => 'nullable',
             'sub_title' => 'nullable',
             'description' => 'nullable',
+            'section' => 'required',
+
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => [
@@ -131,6 +136,7 @@ class SubServiceContentController extends Controller
         $content->title =  $validated['title'];
         $content->sub_title =  $validated['sub_title'];
         $content->description =  $validated['description'];
+        $content->section =  $validated['section'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
         $content->status =  $validated['status'];

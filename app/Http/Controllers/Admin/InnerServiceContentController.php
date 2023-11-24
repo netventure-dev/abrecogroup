@@ -7,6 +7,8 @@ use App\Models\InnerService;
 use App\Models\InnerServiceContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
+
 
 
 class InnerServiceContentController extends Controller
@@ -45,6 +47,7 @@ class InnerServiceContentController extends Controller
         $validated = $request->validate([
             'title' => 'nullable',
             'sub_title' => 'nullable',
+            'section' => 'required',
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => [
@@ -64,6 +67,8 @@ class InnerServiceContentController extends Controller
         $content->uuid = (string) Str::uuid();
         $content->inner_service_id = $subservice->uuid;
         $content->title =  $validated['title'];
+        $content->section =  $validated['section'];
+
         $content->sub_title =  $validated['sub_title'];
 
         // $content->alt_text =  $validated['alt_text'];
@@ -113,6 +118,8 @@ class InnerServiceContentController extends Controller
             'title' => 'nullable',
             'sub_title' => 'nullable',
             'description' => 'nullable',
+            'section' => 'required',
+
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => [    
                 'required',
@@ -130,6 +137,7 @@ class InnerServiceContentController extends Controller
         $content->title =  $validated['title'];
         $content->sub_title =  $validated['sub_title'];
 
+        $content->section =  $validated['section'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
