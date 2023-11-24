@@ -150,7 +150,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-4 row">
+                                <!-- <div class="mb-4 row">
                                     <label for="seo_title"
                                             class="col-sm-3 col-form-label">{{ __('Seo Title') }}
                                             </label>
@@ -185,7 +185,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_keywords') }}
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
 
                                 <div class="row justify-content-end">
