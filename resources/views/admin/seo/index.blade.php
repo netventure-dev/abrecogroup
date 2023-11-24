@@ -2,7 +2,7 @@
 
 @section('title')
     {{ __('SEO') }}
-@endsection
+@endsection 
 
 @section('css')
     <!-- DataTables -->
@@ -18,7 +18,7 @@
     <!-- start page title -->
     {{-- <div class="row"> --}}
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-12">
             <h3>SEO</h3>
             <div class="card">
@@ -56,13 +56,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     {{-- </div> --}}
     <!-- end page title -->
 
     <!-- start data table -->
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-12">
            
             <p id="msgbx" style="
@@ -122,7 +122,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="row">
       
