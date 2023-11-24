@@ -70,6 +70,18 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
+                                    <label for="position" class="col-sm-3 col-form-label mb-2">{{ __('Reason') }}<span
+                                            class="text-danger"></span></label>
+                                    <div class="col-sm-9">
+                                        <input id="job" name="job" type="text"
+                                            class="form-control mb-2 @if ($errors->has('job')) is-invalid @endif"
+                                            placeholder="{{ __('Enter Job') }}" required
+                                            value="{{ @old('service', @$quote->job) }}" readonly>
+                                        <div class="invalid-feedback">{{ $errors->first('reason') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
                                     <label for="position" class="col-sm-3 col-form-label mb-2">{{ __('Phone') }}<span
                                             class="text-danger"></span></label>
                                     <div class="col-sm-9">

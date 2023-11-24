@@ -43,6 +43,9 @@ class GeneralController extends Controller
             'ig_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'ld_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'twt_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_keywords' => 'nullable',
         ]);
         $data = General::firstOrCreate();
         $data->uuid = (string) Str::uuid();
@@ -55,6 +58,9 @@ class GeneralController extends Controller
         $data->linkdln = $validated['linkdln'];
         $data->twitter = $validated['twitter'];
         $data->youtube = $validated['youtube'];
+        $data->seo_title = $validated['seo_title'];
+        $data->seo_description = $validated['seo_description'];
+        $data->seo_keywords = $validated['seo_keywords'];
         if ($request->hasFile('logo')) {
             $path =  $request->file('logo')->storeAs('media/general/image',$validated['logo']->getClientOriginalName(), 'public');
             $data->logo = $path;

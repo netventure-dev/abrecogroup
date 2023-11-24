@@ -87,6 +87,7 @@ class ContactUsReportDataTable extends DataTable
             Column::make('phone')->title(__('Phone'))->orderable(false),
             // Column::make('organization')->title(__('Organization'))->orderable(false),
             Column::make('job')->title(__('Job'))->orderable(false),
+            Column::make('reason')->title(__('Reason'))->orderable(false),
             Column::make('refer')->title(__('From'))->orderable(false),
             Column::computed('action')
                 ->exportable(false)
