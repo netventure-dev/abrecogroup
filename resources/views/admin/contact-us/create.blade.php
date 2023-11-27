@@ -123,11 +123,11 @@
                                             data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
                                             WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                            @if (@$data->image)
+                                            @if (@$data->mobile_image)
                                                 <img src="{{ asset('/storage/' . @$data->mobile_image) }}" alt=""
                                                     class="img-fluid" style="width:100px;">
                                                 <button type="button" class="btn btn-primary w-md"
-                                                    onclick="delete_image('{{ $data->uuid }}');"
+                                                    onclick="delete_image1('{{ $data->uuid }}');"
                                                     class="close">Delete</button>
                                             @endif
                                             <input id="mobile_image" name="mobile_image" type="file"
@@ -230,6 +230,27 @@
             if (confirm("Are you sure?")) {
                 $.ajax({
                     url: "{{ route('admin.contact-us.image_delete') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                        location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+        function delete_image1(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.contact-us.image_delete1') }}",
                     type: "get",
                     dataType: 'json',
                     data: {

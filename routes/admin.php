@@ -317,6 +317,7 @@ Route::get('content/extra/image-delete',  'Admin\SubServiceExtraController@image
 Route::get('contact-us/create',  'Admin\ContactUsController@create')->name('contact-us.create');
 Route::post('contact-us/store',  'Admin\ContactUsController@store')->name('contact-us.store');
 Route::get('contact-us/image-delete',  'Admin\ContactUsController@image_delete')->name('contact-us.image_delete');
+Route::get('contact-us/image-delete1',  'Admin\ContactUsController@image_delete1')->name('contact-us.image_delete1');
 
 
 // general

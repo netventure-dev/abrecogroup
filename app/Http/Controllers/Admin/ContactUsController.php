@@ -77,4 +77,14 @@ class ContactUsController extends Controller
         return response()->json(['status' => "success"]);
     }
 
+    public function image_delete1(Request $request)
+    {
+
+        $data = ContactUs::where('uuid', $request->uuid)->first();
+        // dd($data);
+        $data->mobile_image = "";
+        $data->save();
+        return response()->json(['status' => "success"]);
+    }
+
 }
