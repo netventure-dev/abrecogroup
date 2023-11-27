@@ -84,6 +84,26 @@
                                         </div>
                                     </div>
                                 </div>
+                                 <div class="mb-4 row">
+                                    <label for="order" class="col-sm-3 col-form-label mb-2">{{ __('Section') }}<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <select name="section" class="form-control" required>
+                                            <option value="">Choose a Section</option>
+                                            <option value="type1">Banner with background</option>
+                                            <option value="type2">Overview</option>
+                                            <option value="type3">Left side content and right side image</option>
+                                            <option value="type4">Left side image and right side content</option>
+                                            <option value="type5">Full width section</option>
+                                            <option value="type6">Full width icon box slider</option>
+                                            <option value="type7">Content with icon box slider</option>
+                                            <option value="type8">Case study</option>
+
+                                        </select>
+                                        <div class="invalid-feedback">{{ $errors->first('order') }}
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Cover Image') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>

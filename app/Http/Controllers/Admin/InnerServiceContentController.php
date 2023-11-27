@@ -121,12 +121,7 @@ class InnerServiceContentController extends Controller
             'section' => 'required',
 
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => [    
-                'required',
-                Rule::unique('inner_service_contents', 'order')->where(function ($query) use ($id) {
-                    return $query->where('inner_service_id', $id);
-                })->ignore($subservice->id),
-            ],
+            'order' => 'required',
             'status' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',

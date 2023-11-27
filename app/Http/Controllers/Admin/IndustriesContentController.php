@@ -49,7 +49,7 @@ class IndustriesContentController extends Controller
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-
+            'section' => 'required',
             'order' => 'required|numeric',
             'button_title' => 'nullable',
             'button_link' => 'nullable',
@@ -62,6 +62,7 @@ class IndustriesContentController extends Controller
         $content->content = $validated['content'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
+        $content->section =  $validated['section'];
         $content->button_title =  $validated['button_title'];
 
         $content->button_link =  $validated['button_link'];
@@ -114,7 +115,7 @@ class IndustriesContentController extends Controller
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-
+            'section' => 'required',
             'order' => 'required|numeric',
             'status' => 'required',
             'button_title' => 'nullable',
@@ -130,6 +131,7 @@ class IndustriesContentController extends Controller
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
         $content->status = $validated['status'];
+        $content->section =  $validated['section'];
         $content->button_link =  $validated['button_link'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');

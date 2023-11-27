@@ -124,12 +124,7 @@ class ServiceContentController extends Controller
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-            'order' => [
-                'required',
-                Rule::unique('service_contents', 'order')->where(function ($query) use ($id) {
-                    return $query->where('service_id', $id);
-                })->ignore($services->id),
-            ],
+            'order' => 'required',
             'status' => 'required',
             'section' => 'required',
             // 'alt_text' => 'nullable',
