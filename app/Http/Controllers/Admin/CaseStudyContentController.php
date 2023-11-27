@@ -46,6 +46,7 @@ class CaseStudyContentController extends Controller
             'sub_title' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000', 
             'link' => 'nullable',
+            'section' => 'required',
             'button_title' => 'nullable',
             'status' => 'required',
             'order' => 'nullable',
@@ -56,6 +57,7 @@ class CaseStudyContentController extends Controller
         $case->case_id = $casestudy->uuid;
         $case->content = $validated['content'];
         $case->order = $validated['order'];
+        $case->section =  $validated['section'];
         $case->status = $validated['status'];
         $case->subtitle = $validated['sub_title'];
         $case->link = $validated['link'];
@@ -81,6 +83,7 @@ class CaseStudyContentController extends Controller
             'sub_title' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
+            'section' => 'required',
             'button_title' => 'nullable',
             'status' => 'required',
             'order' => 'nullable',
@@ -93,6 +96,7 @@ class CaseStudyContentController extends Controller
         $content->status = $validated['status'];
         $content->subtitle = $validated['sub_title'];
         $content->link = $validated['link'];
+        $content->section =  $validated['section'];
         $content->button_title = $validated['button_title'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');

@@ -18,7 +18,7 @@ class IndustryController extends Controller
     {
         $data['industries'] = Industry::with(['contents' => function ($query) {
                 $query->where('status', 1)
-                            ->select('id', 'uuid', 'industries_id', 'title','subtitle', 'description', 'order', 'image', 'button_title', 'button_link')
+                            ->select('id', 'uuid', 'industries_id', 'title','section','subtitle', 'description', 'order', 'image', 'button_title', 'button_link')
                             ->orderBy('order', 'ASC');
                     },'contents.extra_contents'])
                     ->where('status', 1)->select('id', 'uuid','slug', 'name','custom_url','subtitle','icon','image','content','button_title','link','seo_title','seo_description','seo_keywords','canonical_tag')
@@ -37,7 +37,7 @@ class IndustryController extends Controller
             ->select('id', 'uuid', 'custom_url','name','slug','seo_title','seo_description','seo_keywords','canonical_tag')
             ->with(['contents' => function ($query) {
                 $query->where('status', 1)
-                    ->select('id', 'uuid', 'industries_id', 'title','subtitle', 'description', 'order', 'image','mobile_image', 'button_title', 'button_link')
+                    ->select('id', 'uuid', 'industries_id', 'title','section','subtitle', 'description', 'order', 'image','mobile_image', 'button_title', 'button_link')
                     ->orderBy('order', 'ASC');
             },'contents.extra_contents'])->first();
         // $data['industry']['industry_content'] =  $data['industry']->contents->where('status',1);

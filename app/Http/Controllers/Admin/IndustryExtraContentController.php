@@ -48,6 +48,7 @@ class IndustryExtraContentController extends Controller
             'title' => 'nullable',
             'sub_title' => 'nullable',
             'content' => 'nullable',
+            'section' => 'required',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => 'required|numeric',
@@ -63,7 +64,7 @@ class IndustryExtraContentController extends Controller
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
         $content->button_title =  $validated['button_title'];
-        
+        $content->section =  $validated['section'];
         $content->button_link =  $validated['button_link'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
@@ -107,6 +108,7 @@ class IndustryExtraContentController extends Controller
             'title' => 'nullable',
             'sub_title' => 'nullable',
             'content' => 'nullable',
+            'section' => 'required',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => 'required|numeric',
@@ -122,6 +124,7 @@ class IndustryExtraContentController extends Controller
         $content->content = $validated['content'];
         $content->description =  $validated['description'];
         $content->order =  $validated['order'];
+        $content->section =  $validated['section'];
         $content->button_title =  $validated['button_title'];
         $content->status = $validated['status'];
         $content->button_link =  $validated['button_link'];
