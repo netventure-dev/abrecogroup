@@ -31,6 +31,7 @@ class ContactUsController extends Controller
             'address' => 'required',
             'phone' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|min:9',
             'banner_image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
             'map_link' => 'nullable',
             'seo_title' => 'nullable',
@@ -53,6 +54,10 @@ class ContactUsController extends Controller
         if ($request->hasFile('banner_image')) {
             $path =  $request->file('banner_image')->storeAs('media/aboutus/image',$validated['banner_image']->getClientOriginalName(), 'public');
             $data->image = $path;
+        }
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/aboutus/image',$validated['mobile_image']->getClientOriginalName(), 'public');
+            $data->mobile_image = $path;
         }
         $res = $data->save();
         if ($res) {
