@@ -663,7 +663,7 @@
                                 <i class="bx bx-message-rounded-dots"></i>
                                 <span key="t-file-manager">Feedback</span>
                             </a>
-                        </li>  --}}
+                        </li>  --}} 
                         <li>
                             <a href="{{ route('admin.enquiries.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
@@ -685,10 +685,14 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('admin.career-opening.index')}}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Career Opening</span>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-store"></i>
+                                <span key="t-ecommerce">Career Opening</span>
                             </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{route('admin.career-opening-settings.create')}}" key="t-products">Settings</a></li>
+                                <li><a href="{{route('admin.career-opening.index')}}" key="t-product-detail">List</a></li> 
+                            </ul>
                         </li>
                         {{-- <li>
                             <a href="{{route('admin.service-care.index')}}" class="waves-effect">

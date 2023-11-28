@@ -98,7 +98,7 @@
 
                                 <div class="mb-4 row">
                                     <label for="sub_title"
-                                        class="col-sm-3 col-form-label mb-2">{{ __('Sub Title') }}</label>
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Title') }}</label>
                                     <div class="col-sm-9">
                                         <input id="sub_title" name="sub_title" type="text"
                                             class="form-control mb-2 @if ($errors->has('sub_title')) is-invalid @endif"
