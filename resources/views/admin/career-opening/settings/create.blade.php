@@ -50,7 +50,7 @@
                                     <div class="col-sm-9">
                                         <input id="sub_title" name="sub_title" type="text"
                                             class="form-control mb-2 @if ($errors->has('sub_title')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter Title') }}" value="{{ @old('sub_title',@$career->sub_title) }}">
+                                            placeholder="{{ __('Enter Sub Title') }}" value="{{ @old('sub_title',@$career->sub_title) }}">
                                         <div class="invalid-feedback">{{ $errors->first('sub_title') }}
                                         </div>
                                     </div>
@@ -62,7 +62,7 @@
                                     <div class="col-sm-9">
                                         <input id="canonical_tag" name="canonical_tag" type="text"
                                             class="form-control mb-2 @if ($errors->has('title')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter canonical tag') }}" required value="{{ @old('canonical_tag',@$career->canonical_tag) }}">
+                                            placeholder="{{ __('Enter canonical tag') }}"  value="{{ @old('canonical_tag',@$career->canonical_tag) }}">
                                         <div class="invalid-feedback">{{ $errors->first('canonical_tag') }}
                                         </div>
                                     </div>
