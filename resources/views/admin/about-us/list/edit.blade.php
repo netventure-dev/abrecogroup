@@ -52,7 +52,7 @@
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea id="title" name="title"
-                                            class="form-control mb-2 summernote @if ($errors->has('title')) is-invalid @endif"
+                                            class="form-control mb-2 @if ($errors->has('title')) is-invalid @endif"
                                             placeholder="{{ __('Enter Title') }}" required>{{ @old('title', @$data->title) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}</div>
                                     </div>
@@ -61,7 +61,7 @@
                                     <label for="content" class="col-sm-3 col-form-label">{{ __('Content') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea name="content" class="form-control summernote @if ($errors->has('content')) is-invalid @endif" ro
+                                        <textarea name="content" class="form-control  @if ($errors->has('content')) is-invalid @endif" ro
                                             placeholder="{{ __('Enter Content Description') }}" required>{{ @old('content', @$data->content) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
