@@ -23,7 +23,7 @@ class PolicyPageApiController extends Controller
 
    public function policy()
    {
-    $data['privacy'] = Privacy::select('uuid', 'title','content','image')->first();
+    $data['privacy'] = Privacy::select('uuid', 'title','content','image','mobile_image')->first();
         // Set image to null if it's empty
         if (!empty($data['privacy']) && empty($data['privacy']->image)) {
             $data['privacy']->image = null;

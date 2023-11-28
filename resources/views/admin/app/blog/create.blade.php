@@ -85,7 +85,7 @@
                                             data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
                                             WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                            @if ($blog->image)
+                                            @if (@$blog->image)
                                                 <img src="{{ asset('/storage/' . @$blog->image) }}" alt=""
                                                     class="img-fluid" style="width:100px;">
                                                 <button type="button" class="btn btn-primary w-md"
@@ -97,6 +97,27 @@
                                                 value="{{ @old('image') }}">
                                             <small>(The image must not be greater than 2 MB)</small><br></br>
                                             <div class="invalid-feedback">{{ $errors->first('image') }}</div>
+                                    </div>
+                                </div>
+                                 <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="mobile_image">{{ __('Mobile Image') }} <span
+                                            class="text-danger">*</span><a href="#"
+                                            class="tool_tip js-tooltip-enabled"
+                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small></label>
+                                    <div class="col-sm-9">
+                                            @if (@$blog->mobile_image)
+                                                <img src="{{ asset('/storage/' . @$blog->mobile_image) }}" alt=""
+                                                    class="img-fluid" style="width:100px;">
+                                                <button type="button" class="btn btn-primary w-md"
+                                                    onclick="delete_image1('{{ $blog->uuid }}');"
+                                                    class="close">Delete</button>
+                                            @endif
+                                            <input id="mobile_image" name="mobile_image" type="file"
+                                                class="form-control mb-2 @if ($errors->has('mobile_image')) is-invalid @endif"
+                                                value="{{ @old('mobile_image') }}">
+                                            <small>(The image must not be greater than 2 MB)</small><br></br>
+                                            <div class="invalid-feedback">{{ $errors->first('mobile_image') }}</div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
@@ -186,6 +207,27 @@
             if (confirm("Are you sure?")) {
                 $.ajax({
                     url: "{{ route('admin.blog-settings.image_delete') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                        location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+        function delete_image1(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.blog-settings.image_delete_one') }}",
                     type: "get",
                     dataType: 'json',
                     data: {

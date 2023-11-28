@@ -15,7 +15,7 @@ class BlogApiController extends Controller
 
     public function index()
     {
-        $data['blog'] = Blog::select('uuid', 'title', 'canonical_tag', 'description', 'image', 'status', 'seo_title', 'seo_description', 'seo_keyword')->first();
+        $data['blog'] = Blog::select('uuid', 'title', 'canonical_tag', 'description', 'image', 'status', 'seo_title', 'seo_description', 'seo_keyword','mobile_image')->first();
         // Check if 'image' field is empty and set it to null
         if (!empty($data['blog']) && empty($data['blog']->image)) {
             $data['blog']->image = null;

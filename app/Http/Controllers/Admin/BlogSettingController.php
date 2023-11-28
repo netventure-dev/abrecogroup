@@ -33,6 +33,7 @@ class BlogSettingController extends Controller
             'seo_keyword' => 'nullable',
             'seo_description' => 'nullable',
             'image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_image'=>'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $blogs = Blog::firstOrCreate();      
@@ -49,6 +50,10 @@ class BlogSettingController extends Controller
             $path =  $request->file('image')->storeAs('media/blogs/image', $validated['image']->getClientOriginalName(), 'public');
             $blogs->image = $path;
         }
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/blogs/mobile_image', $validated['mobile_image']->getClientOriginalName(), 'public');
+            $blogs->mobile_image = $path;
+        }
         $res = $blogs->save();
         if ($res) {
             notify()->success(__('Created successfully'));
@@ -64,6 +69,15 @@ class BlogSettingController extends Controller
         $data = Blog::where('uuid', $request->uuid)->first();
         // dd($data);
         $data->image = "";
+        $data->save();
+        return response()->json(['status' => "success"]);
+    }
+    public function image_delete_one(Request $request)
+    {
+
+        $data = Blog::where('uuid', $request->uuid)->first();
+        // dd($data);
+        $data->mobile_image = "";
         $data->save();
         return response()->json(['status' => "success"]);
     }
