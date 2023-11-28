@@ -157,6 +157,7 @@ Route::get('case-study-contents/{id}/edit/{uuid}',  'Admin\CaseStudyContentContr
 Route::post('case-study-contents/{id}/update/{uuid}',  'Admin\CaseStudyContentController@update')->name('casestudies.contents.update');
 Route::post('case-study-contents/{id}/destroy/{uuid}',  'Admin\CaseStudyContentController@destroy')->name('casestudies.contents.destroy');
 Route::get('case-study-contents/image/delete',  'Admin\CaseStudyContentController@image_delete')->name('case-study-contents.image_delete');
+Route::get('case-study-contents/image/delete1',  'Admin\CaseStudyContentController@image_delete_one')->name('case-study-contents.image_delete_one');
 
 
 // section content

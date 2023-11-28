@@ -68,7 +68,8 @@
                                 </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Image') }} <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small></label>
                                     <div class="col-sm-9"> 
                                         @if ($content->image1)
                                             <img src="{{ asset('storage/'.$content->image1) }}" alt="" class="img-fluid" style="width:250px;">
@@ -76,7 +77,21 @@
                                             class="close">Delete</button>
                                             @endif
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('*//')) is-invalid @endif" value="{{ @old('image') }}">
-                                        <div class="invalid-feedback">{{ $errors->first('image') }}</div>
+                                           <small>(The image must not be greater than 2 MB)</small><br></br><div class="invalid-feedback">{{ $errors->first('image') }}</div>
+                                    </div>
+                                </div>
+                                  <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="mobile_image">{{ __('Mobile Image') }} <a
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small></label>
+                                    <div class="col-sm-9"> 
+                                        @if ($content->mobile_image)
+                                            <img src="{{ asset('storage/'.$content->mobile_image) }}" alt="" class="img-fluid" style="width:250px;">
+                                            <button type="button" class="btn btn-primary w-md" onclick="delete_image1('{{ $content->uuid }}');"
+                                            class="close">Delete</button>
+                                            @endif
+                                        <input id="mobile_image" name="mobile_image" type="file" class="form-control mb-2 @if ($errors->has('*//')) is-invalid @endif" value="{{ @old('mobile_image') }}">
+                                          <small>(The image must not be greater than 2 MB)</small><br></br> <div class="invalid-feedback">{{ $errors->first('mobile_image') }}</div>
                                     </div>
                                 </div>
                                 
@@ -232,6 +247,27 @@
             if (confirm("Are you sure?")) {
                 $.ajax({
                     url: "{{ route('admin.case-study-contents.image_delete') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
+          function delete_image1(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.case-study-contents.image_delete_one') }}",
                     type: "get",
                     dataType: 'json',
                     data: {

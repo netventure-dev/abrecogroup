@@ -45,6 +45,7 @@ class CaseStudyContentController extends Controller
             'content' => 'nullable',
             'sub_title' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000', 
+            'mobile_image'=>'nullable|mimes:jpg,jpeg,png,webp|max:2000', 
             'link' => 'nullable',
             'section' => 'required',
             'button_title' => 'nullable',
@@ -71,6 +72,10 @@ class CaseStudyContentController extends Controller
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $case->image1 = $path;
         }
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/mobile_image',  $validated['mobile_image']->getClientOriginalName(), 'public');
+            $case->mobile_image = $path;
+        }
         $res = $case->save();
         if ($res) {
             notify()->success(__('Created successfully'));
@@ -87,6 +92,7 @@ class CaseStudyContentController extends Controller
             'content' => 'nullable',
             'sub_title' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_image'=>'nullable|mimes:jpg,jpeg,png,webp|max:2000', 
             'link' => 'nullable',
             'order' => [
                 'required',
@@ -113,6 +119,10 @@ class CaseStudyContentController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $content->image1 = $path;
+        }
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/mobile_image',  $validated['mobile_image']->getClientOriginalName(), 'public');
+            $content->mobile_image = $path;
         }
         $res = $content->save();
         if ($res) {
@@ -153,6 +163,13 @@ class CaseStudyContentController extends Controller
       {
           $section = CaseStudyContent::where('uuid',$request->uuid)->first();
           $section->image1 = "";
+          $section->save();
+          return response()->json(['status' => "success"]);
+      }
+      public function image_delete_one(Request $request)
+      {
+          $section = CaseStudyContent::where('uuid',$request->uuid)->first();
+          $section->mobile_image = "";
           $section->save();
           return response()->json(['status' => "success"]);
       }

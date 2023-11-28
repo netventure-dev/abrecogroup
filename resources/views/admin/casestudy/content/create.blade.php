@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 @endsection
 @section('content')
-
     @component('admin.components.breadcrumb', ['breadcrumbs' => $breadcrumbs])
         @slot('title')
         @endslot
@@ -33,10 +32,10 @@
                 <div class="card-body">
                     <div class="mt-2 row">
                         <div class="col-lg-11">
-                            <form action="{{ route('admin.casestudies.contents.store',$casestudy->uuid) }}" method="post" class="custom-validation"
-                                enctype="multipart/form-data">
+                            <form action="{{ route('admin.casestudies.contents.store', $casestudy->uuid) }}" method="post"
+                                class="custom-validation" enctype="multipart/form-data">
                                 @csrf
-                                
+
                                 <div class="mb-4 row">
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span
                                             class="text-danger">*</span></label>
@@ -63,8 +62,8 @@
                                     <label for="cover_description"
                                         class="col-sm-3 col-form-label">{{ __('Content') }}</label>
                                     <div class="col-sm-9">
-                                        <textarea name="content" class="form-control @if ($errors->has('content')) is-invalid @endif" style="width: 100% !important; height: 200px !important;"
-                                            placeholder="{{ __('Enter Content Description') }}">{{ @old('content') }}</textarea>
+                                        <textarea name="content" class="form-control @if ($errors->has('content')) is-invalid @endif"
+                                            style="width: 100% !important; height: 200px !important;" placeholder="{{ __('Enter Content Description') }}">{{ @old('content') }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
                                     </div>
@@ -72,12 +71,27 @@
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Image') }}<a
                                             href="#" class="tool_tip js-tooltip-enabled"
-                                            data-toggle="tooltip"></a></label>
+                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small> </label>
                                     <div class="col-sm-9">
                                         <input id="image" name="image" type="file"
                                             class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif"
-                                            value="{{ @old('image') }}">
+                                            value="{{ @old('image') }}"> <small>(The image must not be greater than 2
+                                            MB)</small><br>
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
+                                    </div>
+                                </div>
+                                <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="mobile_image">{{ __(' Mobile Image') }}<a
+                                            href="#" class="tool_tip js-tooltip-enabled"
+                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small></label>
+                                    <div class="col-sm-9">
+                                        <input id="mobile_image" name="mobile_image" type="file"
+                                            class="form-control mb-2 @if ($errors->has('mobile_image')) is-invalid @endif"
+                                            value="{{ @old('mobile_image') }}"><small>(The image must not be greater than 2
+                                            MB)</small><br>
+                                        <div class="invalid-feedback">{{ $errors->first('mobile_image') }}</div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
@@ -93,13 +107,12 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="link"
-                                        class="col-sm-3 col-form-label mb-2">{{ __('Link') }}</label>
+                                    <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Link') }}</label>
                                     <div class="col-sm-9">
                                         <input id="link" name="link" type="text"
                                             class="form-control mb-2 @if ($errors->has('link')) is-invalid @endif"
                                             placeholder="{{ __('Enter link') }}" value="{{ @old('link') }}">
-                                        <div class="invalid-feedback">{{ $errors->first('link') }} 
+                                        <div class="invalid-feedback">{{ $errors->first('link') }}
                                         </div>
                                     </div>
                                 </div>
@@ -169,7 +182,6 @@
     </div>
 
     <!-- end administrator create form -->
-
 @endsection
 
 @section('script')
@@ -179,10 +191,8 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
     <script>
-         $(document).ready(function() { 
-           $('.summernote').summernote('fontName', 'Poppins');
-   });
-
-        
+        $(document).ready(function() {
+            $('.summernote').summernote('fontName', 'Poppins');
+        });
     </script>
 @endsection
