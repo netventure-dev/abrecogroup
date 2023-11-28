@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Career;
-use App\Models\CareerSetting;
+use App\Models\CareerSettings;
 use App\Models\CareerOpening;
 use App\Admin;
 use App\Notifications\CareerNotification;
@@ -24,7 +24,7 @@ class CareerApiController extends Controller
     public function index(Request $request)
     {
         $data['career'] = CareerOpening::select('uuid', 'position', 'description', 'experience', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag')->where('status', 1)->get();
-        $data['career_settings'] = CareerSetting::select('uuid', 'title','sub_title','banner_image','mobile_image', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag')->first();
+        $data['career_settings'] = CareerSettings::select('uuid', 'title','sub_title','banner_image','mobile_image', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag')->first();
 
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
