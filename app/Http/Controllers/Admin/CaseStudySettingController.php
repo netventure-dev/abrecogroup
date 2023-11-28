@@ -32,6 +32,7 @@ class CaseStudySettingController extends Controller
             'seo_keyword' => 'nullable',
             'seo_description' => 'nullable',
             'image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
         ]);
         $data = CaseStudySetting::firstOrCreate();      
@@ -41,8 +42,11 @@ class CaseStudySettingController extends Controller
         $data->seo_title = $validated['seo_title'];
         $data->seo_keyword = $validated['seo_keyword'];
         $data->seo_description = $validated['seo_description'];
-        
         $data->status = $validated['status'];
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/data/mobile_image', $validated['mobile_image']->getClientOriginalName(), 'public');
+            $data->mobile_image = $path;
+        }
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/data/image', $validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
@@ -61,6 +65,14 @@ class CaseStudySettingController extends Controller
          
          $section = CaseStudySetting::where('uuid',$request->uuid)->first();
          $section->image = "";
+         $section->save();
+         return response()->json(['status' => "success"]);
+     }
+     public function image_delete_one(Request $request)
+     {
+         
+         $section = CaseStudySetting::where('uuid',$request->uuid)->first();
+         $section->mobile_image = "";
          $section->save();
          return response()->json(['status' => "success"]);
      }
