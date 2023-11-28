@@ -148,4 +148,20 @@ class HomeSliderController extends Controller
         }
         return redirect()->back();
     }
+    public function image_delete(Request $request)
+    {
+        
+        $section = HomeSlider::where('uuid',$request->uuid)->first();
+        $section->image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
+    public function image_delete_one(Request $request)
+    {
+        
+        $section = HomeSlider::where('uuid',$request->uuid)->first();
+        $section->mobile_slider = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
 }
