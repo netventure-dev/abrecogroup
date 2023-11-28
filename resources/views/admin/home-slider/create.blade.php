@@ -89,7 +89,7 @@
                                         class="text-danger">*</span> <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        @if (isset($data->image))
+                                        @if ($data->image)
                                             <img src="{{ asset('storage/'.$data->image) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
@@ -103,7 +103,7 @@
                                         class="text-danger">*</span> <a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        @if (isset($data->mobile_slider))
+                                        @if ($data->mobile_slider)
                                             <img src="{{ asset('storage/'.$data->mobile_slider) }}" alt="" class="img-fluid" style="width:250px;">
                                         @endif
                                         <input id="mobile_slider" name="mobile_slider" type="file" class="form-control mb-2 @if ($errors->has('mobile_slider')) is-invalid @endif" value="{{ @old('mobile_slider') }}">
@@ -132,10 +132,10 @@
                                     </div>
                                 </div>
                                  <div class="mb-4 row">
-                                    <label for="horizontal-firstname-input"
+                                    <label for="horizontal-firstname-input" 
                                         class="col-sm-3 col-form-label">{{ __('Status') }}<span
                                             class="text-danger">*</span></label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-9"> 
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="status" id="status1"
                                                 value="1" @if ($data->status == 1) checked @endif>
