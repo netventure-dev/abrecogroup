@@ -40,7 +40,7 @@
                                     <div class="col-sm-9">
                                         <input id="title" name="title" type="text"
                                             class="form-control mb-2 @if ($errors->has('title')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter Title') }}" required value="{{ @old('title') }}">
+                                            placeholder="{{ __('Enter Title') }}" required value="{{ @old('title', @$data->title) }}">
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@
                                     <div class="col-sm-9">
                                         <input id="sub_title" name="sub_title" type="text"
                                             class="form-control mb-2 @if ($errors->has('sub_title')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter sub title') }}"  value="{{ @old('sub_title') }}">
+                                            placeholder="{{ __('Enter sub title') }}"  value="{{ @old('sub_title', @$data->sub_title) }}">
                                         <div class="invalid-feedback">{{ $errors->first('sub_title') }}
                                         </div>
                                     </div>
@@ -67,7 +67,7 @@
                                     <div class="col-sm-9">
                                         <input id="canonical_tag" name="canonical_tag" type="text"
                                             class="form-control mb-2 @if ($errors->has('canonical_tag')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter canonical tag') }}"  value="{{ @old('canonical_tag') }}">
+                                            placeholder="{{ __('Enter canonical tag') }}" value="{{ @old('canonical_tag',@$data->canonical_tag) }}">
                                         <div class="invalid-feedback">{{ $errors->first('canonical_tag') }}
                                         </div>
                                     </div>
@@ -79,16 +79,19 @@
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="content"
-                                            class="form-control  @if ($errors->has('content')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Content Description') }}" required>{{ @old('content')}}</textarea>
+                                            class="form-control  @if ($errors->has('content')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Content Description') }}" required>{{ @old('content',@$data->description)}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mt-4 row">
-                                    <label class="col-sm-3 col-form-label" for="image">{{ __('Slider Image') }} <span
-                                        class="text-danger">*</span><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small><a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                    <label class="col-sm-3 col-form-label" for="image">{{ __('Slider Image') }}<span
+                                        class="text-danger">*</span> <a
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
+                                        @if (isset($data->image))
+                                            <img src="{{ asset('storage/'.$data->image) }}" alt="" class="img-fluid" style="width:250px;">
+                                        @endif
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
                                         <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
@@ -96,10 +99,13 @@
                                 </div>
 
                                 <div class="mt-4 row">
-                                    <label class="col-sm-3 col-form-label" for="mobile_slider">{{ __('Mobile Slider Image') }} <span
-                                        class="text-danger">*</span><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small><a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                    <label class="col-sm-3 col-form-label" for="mobile_slider">{{ __('Mobile Slider Image') }}<span
+                                        class="text-danger">*</span> <a
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
+                                        @if (isset($data->mobile_slider))
+                                            <img src="{{ asset('storage/'.$data->mobile_slider) }}" alt="" class="img-fluid" style="width:250px;">
+                                        @endif
                                         <input id="mobile_slider" name="mobile_slider" type="file" class="form-control mb-2 @if ($errors->has('mobile_slider')) is-invalid @endif" value="{{ @old('mobile_slider') }}">
                                         <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('mobile_slider') }}</div>
@@ -110,7 +116,7 @@
                                     <div class="col-sm-9">
                                         <input id="button_title" name="button_title" type="text"
                                             class="form-control mb-2 @if ($errors->has('button_title')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter button title') }}"  value="{{ @old('button_title') }}">
+                                            placeholder="{{ __('Enter button title') }}"   value="{{ @old('button_title',@$data->button_title) }}">
                                         <div class="invalid-feedback">{{ $errors->first('button_title') }}
                                         </div>
                                     </div>
@@ -120,24 +126,24 @@
                                     <div class="col-sm-9">
                                         <input id="link" name="link" type="text"
                                             class="form-control mb-2 @if ($errors->has('link')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter link') }}"  value="{{ @old('link') }}">
+                                            placeholder="{{ __('Enter link') }}" value="{{ @old('link',@$data->link) }}">
                                         <div class="invalid-feedback">{{ $errors->first('link') }}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-4 row">
+                                 <div class="mb-4 row">
                                     <label for="horizontal-firstname-input"
                                         class="col-sm-3 col-form-label">{{ __('Status') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="status" id="status1"
-                                                value="1" @if (!@old('status')) checked @endif>
+                                                value="1" @if ($data->status == 1) checked @endif>
                                             <label class="form-check-label" for="status1">{{ __('Active') }}</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="status" id="status2"
-                                                value="0" @if (@old('status')) checked @endif>
+                                                value="0" @if ($data->status == 0) checked @endif>
                                             <label class="form-check-label" for="status2">{{ __('Inactive') }}</label>
                                         </div>
                                     </div>

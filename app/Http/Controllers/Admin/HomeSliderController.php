@@ -29,30 +29,31 @@ class HomeSliderController extends Controller
         // $this->authorize('create', Admin::class);
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['Slider', route('admin.home-slider.index')],
             ['Create', route('admin.home-slider.create')],
         ];
-        return view('admin.home-slider.create', compact('breadcrumbs'));
+        $data = HomeSlider::first();
+        return view('admin.home-slider.create', compact('breadcrumbs','data'));
     }
 
     public function store(Request $request)
     {
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
-            'title' => 'required|unique:home_sliders,title',
+            'title' => 'required',
             'sub_title' => 'nullable',
             'canonical_tag' => 'nullable',
             'button_title' => 'nullable',
             'content' => 'required',
             'link' => 'nullable',
-            'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
-            'mobile_slider' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
+            'image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_slider' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
             // 'seo_title' => 'nullable',
             // 'seo_description' => 'nullable',
             // 'seo_keywords' => 'nullable',
         ]);
-        $slider = new HomeSlider;
+        $slider  = HomeSlider::firstOrCreate();
+        // $slider = new HomeSlider;
         $slider->uuid = (string) Str::uuid();
         $slider->title = $validated['title'];
         $slider->sub_title = $validated['sub_title'];
