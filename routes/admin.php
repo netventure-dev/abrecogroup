@@ -50,7 +50,7 @@ Route::get('about-us/settings/image-delete1',  'Admin\AboutUsController@image_de
 
 
 // home slider
-Route::get('home-slider',  'Admin\HomeSliderController@index')->name('home-slider.index');
+ Route::get('home-slider',  'Admin\HomeSliderController@index')->name('home-slider.index');
 Route::get('home-slider/create',  'Admin\HomeSliderController@create')->name('home-slider.create');
 Route::post('home-slider/store',  'Admin\HomeSliderController@store')->name('home-slider.store');
 Route::get('home-slider/edit/{id}',  'Admin\HomeSliderController@edit')->name('home-slider.edit');
@@ -380,7 +380,7 @@ Route::post('terms/store','Admin\TermsController@store')->name('terms.store');
 Route::get('privacy','Admin\PolicyController@index')->name('policy.index');
 Route::post('privacy/store','Admin\PolicyController@store')->name('policy.store');
 Route::get('privacy/image-delete',  'Admin\PolicyController@image_delete')->name('privacy.image_delete');
-
+Route::get('privacy/image-delete-one',  'Admin\PolicyController@image_delete_one')->name('privacy.image_delete_one');
 
 //cookie & policy
 Route::get('cookie','Admin\CookieController@index')->name('cookie.index');

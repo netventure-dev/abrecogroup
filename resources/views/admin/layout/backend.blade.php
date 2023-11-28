@@ -492,7 +492,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('admin.home-slider.index')}}" class="waves-effect">
+                            <a href="{{route('admin.home-slider.create')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Home Slider</span>
                             </a>

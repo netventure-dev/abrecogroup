@@ -27,6 +27,7 @@ class PolicyController extends Controller
             'title' => 'nullable',
             'content' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
 
         ]);
 
@@ -39,6 +40,10 @@ class PolicyController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $content->image = $path;
+        }
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/mobile_image',  $validated['mobile_image']->getClientOriginalName(), 'public');
+            $content->mobile_image = $path;
         }
         $res = $content->save();
 
@@ -55,6 +60,15 @@ class PolicyController extends Controller
         $data = Privacy::where('uuid', $request->uuid)->first();
         // dd($data);
         $data->image	 = "";
+        $data->save();
+        return response()->json(['status' => "success"]);
+    }
+    public function image_delete_one(Request $request)
+    {
+
+        $data = Privacy::where('uuid', $request->uuid)->first();
+        // dd($data);
+        $data->mobile_image	 = "";
         $data->save();
         return response()->json(['status' => "success"]);
     }
