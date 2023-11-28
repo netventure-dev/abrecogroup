@@ -56,6 +56,8 @@ Route::post('home-slider/store',  'Admin\HomeSliderController@store')->name('hom
 Route::get('home-slider/edit/{id}',  'Admin\HomeSliderController@edit')->name('home-slider.edit');
 Route::post('home-slider/update/{id}',  'Admin\HomeSliderController@update')->name('home-slider.update');
 Route::delete('home-slider/destroy/{id}',  'Admin\HomeSliderController@destroy')->name('home-slider.destroy');
+Route::get('about-us/settings/image-delete',  'Admin\HomeSliderController@image_delete')->name('home-slider.image_delete');
+Route::get('about-us/settings/image-delete-one',  'Admin\HomeSliderController@image_delete_one')->name('home-slider.image_delete_one');
 
 // Schema
 Route::get('schema','Admin\SchemaController@index')->name('schema.index');
@@ -98,7 +100,7 @@ Route::get('blog-settings/image-delete',  'Admin\BlogSettingController@image_del
 Route::get('case-study-settings/create',  'Admin\CaseStudySettingController@create')->name('case-study-settings.create');
 Route::post('case-study-settings/store',  'Admin\CaseStudySettingController@store')->name('case-study-settings.store');
 Route::get('case-study-settings/image-delete',  'Admin\CaseStudySettingController@image_delete')->name('case-study-settings.image_delete');
-
+Route::get('case-study-settings/image-delete-one',  'Admin\CaseStudySettingController@image_delete_one')->name('case-study-settings.image_delete_one');
 //blog list
 Route::get('blog/list',  'Admin\BlogListController@index')->name('blog-list.index');
 Route::get('blog/list/create',  'Admin\BlogListController@create')->name('blog-list.create');
