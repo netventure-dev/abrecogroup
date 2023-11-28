@@ -56,8 +56,8 @@ Route::post('home-slider/store',  'Admin\HomeSliderController@store')->name('hom
 Route::get('home-slider/edit/{id}',  'Admin\HomeSliderController@edit')->name('home-slider.edit');
 Route::post('home-slider/update/{id}',  'Admin\HomeSliderController@update')->name('home-slider.update');
 Route::delete('home-slider/destroy/{id}',  'Admin\HomeSliderController@destroy')->name('home-slider.destroy');
-Route::get('about-us/settings/image-delete',  'Admin\HomeSliderController@image_delete')->name('home-slider.image_delete');
-Route::get('about-us/settings/image-delete-one',  'Admin\HomeSliderController@image_delete_one')->name('home-slider.image_delete_one');
+Route::get('home-slider/settings/image-delete',  'Admin\HomeSliderController@image_delete')->name('home-slider.image_delete');
+Route::get('home-slider/settings/image-delete-one',  'Admin\HomeSliderController@image_delete_one')->name('home-slider.image_delete_one');
 
 // Schema
 Route::get('schema','Admin\SchemaController@index')->name('schema.index');
