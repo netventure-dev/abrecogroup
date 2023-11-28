@@ -93,7 +93,7 @@ Route::post('why-choose-us/settings/store',  'Admin\ChooseSettingsController@sto
 Route::get('blog-settings/create',  'Admin\BlogSettingController@create')->name('blog-settings.create');
 Route::post('blog-settings/store',  'Admin\BlogSettingController@store')->name('blog-settings.store');
 Route::get('blog-settings/image-delete',  'Admin\BlogSettingController@image_delete')->name('blog-settings.image_delete');
-
+Route::get('blog-settings/image-delete_one',  'Admin\BlogSettingController@image_delete_one')->name('blog-settings.image_delete_one');
 
 
 //case study settings
