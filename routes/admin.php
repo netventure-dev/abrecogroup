@@ -426,5 +426,10 @@ Route::get('career-opening/edit/{id}','Admin\CareerOpeningController@edit')->nam
 Route::post('career-opening/update/{id}','Admin\CareerOpeningController@update')->name('career-opening.update');
 Route::delete('career-opening/destroy/{id}','Admin\CareerOpeningController@destroy')->name('career-opening.destroy');
 
+Route::get('career-opening-settings/create','Admin\CareerOpeningSettingsController@create')->name('career-opening-settings.create');
+Route::post('career-opening-settings/store','Admin\CareerOpeningSettingsController@store')->name('career-opening-settings.store');
+Route::get('career-opening-settings/image-delete','Admin\CareerOpeningSettingsController@image_delete')->name('career-opening-settings.image_delete');
+Route::get('career-opening-settings/image-delete1','Admin\CareerOpeningSettingsController@image_delete1')->name('career-opening-settings.image_delete1');
+
 Route::get('/edit-sitemap', 'Admin\SitemapController@edit')->name('editSitemap');
 Route::post('/update-sitemap', 'Admin\SitemapController@update')->name('updateSitemap');
