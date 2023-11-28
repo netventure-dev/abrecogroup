@@ -20,7 +20,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $data['home_sliders'] = HomeSlider::where('status', 1)->select('title', 'sub_title','mobile_slider', 'description', 'image','mobile_image', 'button_title', 'link','seo_title','seo_description','seo_keywords','canonical_tag')->first();
+        $data['home_sliders'] = HomeSlider::where('status', 1)->select('title', 'sub_title','mobile_slider', 'description', 'image', 'button_title', 'link','seo_title','seo_description','seo_keywords','canonical_tag')->get();
         // 
         $data['services'] = Service::select('id', 'uuid', 'name', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status')
             ->with(['faqs' => function ($query) {
@@ -54,7 +54,7 @@ class HomeController extends Controller
 
     public function general()
     {
-        $data['home_sliders'] = HomeSlider::where('status', 1)->select('title', 'sub_title','mobile_slider', 'description', 'image', 'mobile_image' , 'button_title', 'link')->first();
+        $data['home_sliders'] = HomeSlider::where('status', 1)->select('title', 'sub_title','mobile_slider', 'description', 'image', 'button_title', 'link')->get();
 
         $data['general'] = General::select('address', 'mobile','email', 'logo','light_logo','site_title', 'facebook', 'instagram', 'twitter', 'linkdln', 'youtube','favicon','yt_image','fb_image','ld_image','twt_image','ig_image','seo_title','seo_description','seo_keywords')->first();
         $data['all_services'] = Service::select('id', 'uuid', 'name') 
