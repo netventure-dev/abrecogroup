@@ -255,8 +255,8 @@ Route::post('sub-services/store',  'Admin\SubServiceController@store')->name('su
 Route::get('sub-services/edit/{id}',  'Admin\SubServiceController@edit')->name('sub-services.edit');
 Route::post('sub-services/update/{id}',  'Admin\SubServiceController@update')->name('sub-services.update');
 Route::delete('sub-services/destroy/{id}',  'Admin\SubServiceController@destroy')->name('sub-services.destroy');
-Route::get('sub-services/content/image-delete',  'Admin\SubServiceController@image_delete')->name('sub-services.image_delete');
-Route::get('sub-services/content/image-delete1',  'Admin\SubServiceController@image_delete1')->name('sub-services.image_delete1');
+Route::get('sub-services/image-delete',  'Admin\SubServiceController@image_delete')->name('sub-services.image_delete');
+Route::get('sub-services/image-delete1',  'Admin\SubServiceController@image_delete1')->name('sub-services.image_delete1');
 
 // inner services
 Route::get('inner-services',  'Admin\InnerServiceController@index')->name('inner-services.index');
