@@ -6,6 +6,7 @@ use App\Models\ServiceExtra;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class ServiceExtraController extends Controller
 {
@@ -49,7 +50,12 @@ class ServiceExtraController extends Controller
             'title' => 'required',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('service_extras', 'order')->where(function ($query) use ($id) {
+                    return $query->where('service_content_id', $id);
+                })->ignore($service->id),
+            ],
             'section' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',
@@ -104,7 +110,14 @@ class ServiceExtraController extends Controller
             'title' => 'required',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('service_extras', 'order')
+                    ->where(function ($query) use ($id) {
+                        return $query->where('service_content_id', $id);
+                    })
+                    ->ignore($content->uuid, 'uuid'), // Replace $serviceContentId with the actual ID of the record being updated
+            ],
             'status' => 'required',
             'section' => 'required',
             'button_title' => 'nullable',

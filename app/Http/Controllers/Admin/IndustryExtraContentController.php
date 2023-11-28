@@ -8,7 +8,7 @@ use App\Models\IndustryContent;
 use App\Models\IndustryExtraContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
+use Illuminate\Validation\Rule;
 class IndustryExtraContentController extends Controller
 {
     public function index( $id)
@@ -51,7 +51,12 @@ class IndustryExtraContentController extends Controller
             'section' => 'required',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('industry_extra_contents', 'order')->where(function ($query) use ($id) {
+                    return $query->where('industries_content_id', $id);
+                })->ignore($industries->id),
+            ],
             'button_title' => 'nullable',
             'button_link' => 'nullable',
         ]); 
@@ -111,7 +116,14 @@ class IndustryExtraContentController extends Controller
             'section' => 'required',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('industry_extra_contents', 'order')
+                    ->where(function ($query) use ($id) {
+                        return $query->where('industries_content_id', $id);
+                    })
+                    ->ignore($content->uuid, 'uuid'), // Replace $serviceContentId with the actual ID of the record being updated
+            ],
             'status' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',

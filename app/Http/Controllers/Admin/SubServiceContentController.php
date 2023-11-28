@@ -119,7 +119,14 @@ class SubServiceContentController extends Controller
 
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => 'required',
+            'order' => [
+                'required',
+                Rule::unique('sub_service_contents', 'order')
+                    ->where(function ($query) use ($id) {
+                        return $query->where('sub_service_id', $id);
+                    })
+                    ->ignore($content->uuid, 'uuid'), // Replace $serviceContentId with the actual ID of the record being updated
+            ],
             'status' => 'required',
             'inner_status' => 'required',
             'button_title' => 'nullable',

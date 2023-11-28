@@ -93,7 +93,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <la bel for="link"
+                                    <label for="link"
                                         class="col-sm-3 col-form-label mb-2">{{ __('Link') }}</label>
                                     <div class="col-sm-9">
                                         <input id="link" name="link" type="text"

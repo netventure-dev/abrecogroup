@@ -7,7 +7,7 @@ use App\Models\SubServiceContent;
 use App\Models\SubServiceExtra;
 use App\Models\SubService;
 use Illuminate\Support\Str;
-
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
 class SubServiceExtraController extends Controller
@@ -52,7 +52,12 @@ class SubServiceExtraController extends Controller
             'title' => 'nullable',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('sub_service_extras', 'order')->where(function ($query) use ($id) {
+                    return $query->where('sub_service_content_id', $id);
+                })->ignore($subservice->id),
+            ],
             'section' => 'required',
 
             'button_title' => 'nullable',
@@ -110,7 +115,14 @@ class SubServiceExtraController extends Controller
             'section' => 'required',
 
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('sub_service_extras', 'order')
+                    ->where(function ($query) use ($id) {
+                        return $query->where('sub_service_content_id', $id);
+                    })
+                    ->ignore($content->uuid, 'uuid'), // Replace $serviceContentId with the actual ID of the record being updated
+            ],
             'status' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',

@@ -7,7 +7,7 @@ use App\Models\Industry;
 use App\Models\IndustryContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
+use Illuminate\Validation\Rule;
 
 class IndustriesContentController extends Controller
 {
@@ -50,7 +50,12 @@ class IndustriesContentController extends Controller
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'section' => 'required',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('industry_contents', 'order')->where(function ($query) use ($id) {
+                    return $query->where('industries_id', $id);
+                })->ignore($industries->id),
+            ],
             'button_title' => 'nullable',
             'button_link' => 'nullable',
         ]);
@@ -116,7 +121,14 @@ class IndustriesContentController extends Controller
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'section' => 'required',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('industry_contents', 'order')
+                    ->where(function ($query) use ($id) {
+                        return $query->where('industries_id', $id);
+                    })
+                    ->ignore($content->uuid, 'uuid'), // Replace $serviceContentId with the actual ID of the record being updated
+            ],
             'status' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',

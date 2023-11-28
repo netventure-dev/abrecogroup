@@ -6,6 +6,7 @@ use App\Models\InnerServiceContent;
 use App\Models\InnerServiceExtra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class InnerServiceExtraController extends Controller
 {
@@ -49,7 +50,12 @@ class InnerServiceExtraController extends Controller
             'section' => 'required',
 
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('inner_service_extras', 'order')->where(function ($query) use ($id) {
+                    return $query->where('inner_service_content_id', $id);
+                })->ignore($service->id),
+            ],
             'button_title' => 'nullable',
             'button_link' => 'nullable',
         ]);
@@ -104,7 +110,14 @@ class InnerServiceExtraController extends Controller
             'description' => 'required',
             'section' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
-            'order' => 'required|numeric',
+            'order' => [
+                'required',
+                Rule::unique('inner_service_extras', 'order')
+                    ->where(function ($query) use ($id) {
+                        return $query->where('inner_service_content_id', $id);
+                    })
+                    ->ignore($content->uuid, 'uuid'), // Replace $serviceContentId with the actual ID of the record being updated
+            ],
             'status' => 'required',
             'button_title' => 'nullable',
             'button_link' => 'nullable',

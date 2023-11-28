@@ -8,7 +8,7 @@ use App\Models\CaseStudyContent;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Support\Str;
-
+use Illuminate\Validation\Rule;
 class CaseStudyContentController extends Controller
 {
     public function index($id)
@@ -49,7 +49,12 @@ class CaseStudyContentController extends Controller
             'section' => 'required',
             'button_title' => 'nullable',
             'status' => 'required',
-            'order' => 'nullable',
+            'order' => [
+                'required',
+                Rule::unique('case_study_contents', 'order')->where(function ($query) use ($id) {
+                    return $query->where('case_id', $id);
+                })->ignore($casestudy->id),
+            ],
         ]);
         $case = new CaseStudyContent();
         $case->uuid = (string) Str::uuid();
@@ -83,10 +88,17 @@ class CaseStudyContentController extends Controller
             'sub_title' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'link' => 'nullable',
-            'section' => 'required',
+            'order' => [
+                'required',
+                Rule::unique('case_study_contents', 'order')
+                    ->where(function ($query) use ($id) {
+                        return $query->where('case_id', $id);
+                    })
+                    ->ignore($content->uuid, 'uuid'), // Replace $serviceContentId with the actual ID of the record being updated
+            ],
             'button_title' => 'nullable',
             'status' => 'required',
-            'order' => 'nullable',
+            'section' => 'required',
         ]);
 
         $content->title = $validated['title'];
