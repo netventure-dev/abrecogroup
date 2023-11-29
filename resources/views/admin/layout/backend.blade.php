@@ -700,12 +700,12 @@
                                 <span key="t-file-manager">Services Care</span>
                             </a>
                         </li> --}}
-                        <li>
+                        <!-- <li>
                             <a href="{{route('admin.schema.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Schema</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="{{route('admin.seo.index')}}" class="waves-effect">
                                 <i class="bx bx-search"></i>
