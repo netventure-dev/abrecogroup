@@ -105,7 +105,7 @@ class BlogListController extends Controller
         ]);
         $blog->title = $validated['title'];
         $blog->canonical_tag = $validated['canonical_tag'];
-        $blogs->schema = $validated['schema'];
+        $blog->schema = $validated['schema'];
         $blog->description = $validated['description'];
         $blog->status = $validated['status'];
         $blog->slug = SlugService::createSlug(Bloglist::class, 'slug', $validated['title'], ['unique' => false]);
