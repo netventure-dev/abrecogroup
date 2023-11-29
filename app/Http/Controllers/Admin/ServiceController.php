@@ -42,6 +42,7 @@ class ServiceController extends Controller
             'alt_text' => 'nullable',
             'title' => 'required|max:255',
             'canonical_tag' => 'nullable',
+            'schema' => 'nullable',
             'custom_url' => 'nullable',
             'description' => 'required',
             'status' => 'required',
@@ -58,7 +59,7 @@ class ServiceController extends Controller
         $service->status = $validated['status'];
         $service->title = $validated['title'];
         $service->canonical_tag = $validated['canonical_tag'];
-
+        $service->schema = $validated['schema'];
         $service->alt_text = $validated['alt_text'];
 
         $service->description = $validated['description'];
@@ -105,6 +106,7 @@ class ServiceController extends Controller
             'logo' => 'sometimes|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'title' => 'required|max:255',
             'canonical_tag' => 'nullable',
+            'schema' => 'nullable',
             'custom_url' => 'nullable',
             'description' => 'required',
             'alt_text' => 'nullable',
@@ -119,6 +121,7 @@ class ServiceController extends Controller
         $services->status = $validated['status'];
         $services->title = $validated['title'];
         $services->canonical_tag = $validated['canonical_tag'];
+        $services->schema = $validated['schema'];
         $services->alt_text = $validated['alt_text'];
         $services->custom_url = $validated['custom_url'];
         $services->description = $validated['description'];

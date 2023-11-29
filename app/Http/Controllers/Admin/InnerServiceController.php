@@ -43,6 +43,7 @@ class InnerServiceController extends Controller
             'logo' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'title' => 'required|max:255',
             'canonical_tag' => 'nullable',
+            'schema' => 'nullable',
             'custom_url' => 'nullable',
             'alt_text' => 'nullable',
             'description' => 'required',
@@ -64,7 +65,7 @@ class InnerServiceController extends Controller
         $service->status = $validated['status'];  
         $service->title = $validated['title'];
         $service->canonical_tag = $validated['canonical_tag'];
-
+        $service->schema = $validated['schema'];
         $service->custom_url = $validated['custom_url'];
         $service->description = $validated['description'];
         $service->sub_service_id = $validated['sub_service_id'];
@@ -118,6 +119,7 @@ class InnerServiceController extends Controller
             'alt_text' => 'nullable',
             'title' => 'required|max:255',
             'canonical_tag' => 'nullable',
+            'schema' => 'nullable',
             'custom_url' => 'nullable',
             'sub_service_id' => 'required',
             'description' => 'required',
@@ -136,7 +138,7 @@ class InnerServiceController extends Controller
         $services->status = $validated['status'];  
         $services->title = $validated['title'];
         $services->canonical_tag = $validated['canonical_tag'];
-
+        $services->schema = $validated['schema'];
         $services->custom_url = $validated['custom_url'];
         $services->sub_service_id = $validated['sub_service_id'];
         $services->service_id = @$service_data->uuid;
