@@ -50,6 +50,7 @@ class InnerServiceContentController extends Controller
             'section' => 'required',
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
+            'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => [
                 'required',
                 Rule::unique('inner_service_contents', 'order')->where(function ($query) use ($id) {
@@ -81,6 +82,10 @@ class InnerServiceContentController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $content->image = $path;
+        }
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/mobile_image',  $validated['mobile_image']->getClientOriginalName(), 'public');
+            $content->mobile_image = $path;
         }
         $res = $content->save();
         if ($res) {
@@ -119,7 +124,7 @@ class InnerServiceContentController extends Controller
             'sub_title' => 'nullable',
             'description' => 'nullable',
             'section' => 'required',
-
+            'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2000',
             'order' => [
                 'required',
@@ -148,6 +153,10 @@ class InnerServiceContentController extends Controller
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',  $validated['image']->getClientOriginalName(), 'public');
             $content->image = $path;
+        }
+        if ($request->hasFile('mobile_image')) {
+            $path =  $request->file('mobile_image')->storeAs('media/mobile_image',  $validated['mobile_image']->getClientOriginalName(), 'public');
+            $content->mobile_image = $path;
         }
         $res = $content->save();
         if ($res) {
@@ -178,6 +187,7 @@ class InnerServiceContentController extends Controller
         $section->save();
         return response()->json(['status' => "success"]);
     }
+   
    
 
 }

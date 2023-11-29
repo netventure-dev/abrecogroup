@@ -96,10 +96,22 @@
                                 </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Cover Image') }} <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small> </label>
                                     <div class="col-sm-9"> 
                                         <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('image') }}">
-                                        <div class="invalid-feedback">{{ $errors->first('image') }}</div>
+                                        <small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small><br><div class="invalid-feedback">{{ $errors->first('image') }}</div>
+                                    </div>
+                                </div>
+                                 <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="mobile_image">{{ __('Mobile Image') }} <a
+                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small> </label>
+                                    <div class="col-sm-9"> 
+                                        <input id="mobile_image" name="mobile_image" type="file" class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif" value="{{ @old('mobile_image') }}">
+                                        <small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small><br> <div class="invalid-feedback">{{ $errors->first('mobile_image') }}</div>
                                     </div>
                                 </div>
                                
