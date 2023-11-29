@@ -276,6 +276,7 @@ Route::get('inner-services/{id}/content/{uuid}/edit',  'Admin\InnerServiceConten
 Route::post('inner-services/{id}/content/{uuid}/update',  'Admin\InnerServiceContentController@update')->name('inner-services.content.update');
 Route::post('inner-services/{id}/content/{uuid}/destroy',  'Admin\InnerServiceContentController@destroy')->name('inner-services.content.destroy');
 Route::get('inner-services/content/image-delete',  'Admin\InnerServiceContentController@image_delete')->name('inner-services.content.image_delete');
+Route::get('inner-services/content/image-delete1',  'Admin\InnerServiceContentController@image_delete1')->name('inner-services.content.image_delete1');
 
 
 // inner service extras

@@ -187,6 +187,14 @@ class InnerServiceContentController extends Controller
         $section->save();
         return response()->json(['status' => "success"]);
     }
+    public function image_delete1(Request $request)
+    {
+        
+        $section = InnerServiceContent::where('uuid',$request->uuid)->first();
+        $section->mobile_image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
    
    
 

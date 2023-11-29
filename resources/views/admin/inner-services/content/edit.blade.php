@@ -228,6 +228,27 @@
             }
             return false;
         }
+        function delete_image1(uuid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "{{ route('admin.inner-services.content.image_delete1') }}",
+                    type: "get",
+                    dataType: 'json',
+                    data: {
+                        uuid: uuid,
+                    },
+                    success: function(response) {
+                        // if (response.status == "success") {
+                        //     swal("success!", "Image deleted successfully!", "success")
+                        // } else {
+                        //     sweetAlert("Oops...", "Something went wrong!", "error");
+                        // }
+                         location.reload()
+                    }
+                });
+            }
+            return false;
+        }
         
     </script>
 @endsection
