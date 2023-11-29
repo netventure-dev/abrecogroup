@@ -93,6 +93,7 @@ class BlogListController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:blogs,title,' . $blog->id,
             'canonical_tag' => 'nullable',
+            'schema' => 'nullable',
             'description' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
@@ -104,6 +105,7 @@ class BlogListController extends Controller
         ]);
         $blog->title = $validated['title'];
         $blog->canonical_tag = $validated['canonical_tag'];
+        $blog->schema = $validated['schema'];
         $blog->description = $validated['description'];
         $blog->status = $validated['status'];
         $blog->slug = SlugService::createSlug(Bloglist::class, 'slug', $validated['title'], ['unique' => false]);

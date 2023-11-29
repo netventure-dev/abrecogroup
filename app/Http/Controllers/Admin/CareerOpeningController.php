@@ -44,6 +44,7 @@ class CareerOpeningController extends Controller
             'status' => 'required',
             'seo_title' => 'nullable',
             'seo_description' => 'nullable',
+            'schema' => 'nullable',
             'seo_keywords' => 'nullable',
 
         ]);
@@ -51,6 +52,7 @@ class CareerOpeningController extends Controller
         $career->uuid = (string) Str::uuid();
         $career->position = $validated['position'];
         $career->canonical_tag = $validated['canonical_tag'];
+        $career->schema = $validated['schema'];
         $career->description = $validated['description'];
         $career->experience = $validated['experience'];
         $career->seo_title = $validated['seo_title'];
@@ -86,13 +88,14 @@ class CareerOpeningController extends Controller
             'description' => 'nullable',
             'experience' => 'nullable',
             'status' => 'required',
+            'schema' => 'nullable',
             'seo_title' => 'nullable',
             'seo_description' => 'nullable',
             'seo_keywords' => 'nullable',
         ]);
         $career->position = $validated['position'];
         $career->canonical_tag = $validated['canonical_tag'];
-
+        $career->schema = $validated['schema'];
         $career->description = $validated['description'];
         $career->experience = $validated['experience'];
         $career->status = $validated['status'];

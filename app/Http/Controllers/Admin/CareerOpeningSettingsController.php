@@ -29,6 +29,7 @@ class CareerOpeningSettingsController extends Controller
             'sub_title' => 'nullable',
             'banner_image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+            'schema' => 'nullable',
             'seo_title' => 'nullable',
             'seo_keywords' => 'nullable',
             'seo_description' => 'nullable',
@@ -37,7 +38,7 @@ class CareerOpeningSettingsController extends Controller
         $data->uuid = (string) Str::uuid();
         $data->title = $validated['title'];
         $data->canonical_tag = $validated['canonical_tag'];
-
+        $data->schema = $validated['schema'];
         $data->title = $validated['title'];
         $data->sub_title = $validated['sub_title'];
         $data->seo_title = $validated['seo_title'];
