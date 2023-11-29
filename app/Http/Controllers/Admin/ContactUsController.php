@@ -28,6 +28,7 @@ class ContactUsController extends Controller
             'title' => 'required',
             'content' => 'required',
             'canonical_tag' =>'nullable',
+            'schema' => 'nullable',
             'address' => 'required',
             'phone' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|min:9',
             'banner_image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
@@ -42,7 +43,7 @@ class ContactUsController extends Controller
         $data->uuid = (string) Str::uuid();
         $data->title = $validated['title'];
         $data->canonical_tag = $validated['canonical_tag'];
-
+        $data->schema = $validated['schema'];
         $data->description = $validated['content'];
         $data->address = $validated['address'];
         $data->link = $validated['link'];
