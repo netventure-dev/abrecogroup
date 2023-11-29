@@ -37,6 +37,7 @@ class AboutUsController extends Controller
             'title' => 'required',
             'content' => 'required',
             'canonical_tag' => 'nullable',
+            'schema'=>'nullable',
             'cover_content' => 'required',
             'alt_text' => 'nullable',
             'banner_image' => 'sometimes|required| max:2000',
@@ -51,7 +52,8 @@ class AboutUsController extends Controller
         $data->uuid = (string) Str::uuid();
         $data->cover_title = $validated['title'];
         $data->canonical_tag = $validated['canonical_tag'];
-
+        $data->schema = $validated['schema'];
+        
         $data->cover_content = $validated['cover_content'];
         $data->content = $validated['content'];
         $data->alt_text = $validated['alt_text'];
