@@ -98,7 +98,7 @@
 
                                 <div class="mb-4 row">
                                     <label for="sub_title"
-                                        class="col-sm-3 col-form-label mb-2">{{ __('Title') }}</label>
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Sub Title') }}</label>
                                     <div class="col-sm-9">
                                         <input id="sub_title" name="sub_title" type="text"
                                             class="form-control mb-2 @if ($errors->has('sub_title')) is-invalid @endif"
@@ -116,6 +116,16 @@
                                             placeholder="{{ __('Enter canonical tag') }}"
                                             value="{{ @old('canonical_tag') }}">
                                         <div class="invalid-feedback">{{ $errors->first('canonical_tag') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4 row">
+                                    <label for="schema"
+                                            class="col-sm-3 col-form-label">{{ __('Schema') }}</label>
+                                    <div class="col-sm-9">
+                                        <textarea name="schema"
+                                            class="form-control  @if ($errors->has('schema')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Schema') }}" required>{{ @old('schema')}}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('schema') }}
                                         </div>
                                     </div>
                                 </div>

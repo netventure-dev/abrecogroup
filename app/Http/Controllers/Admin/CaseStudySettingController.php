@@ -28,6 +28,8 @@ class CaseStudySettingController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'canonical_tag' => 'nullable',
+            'schema' => 'nullable',
             'seo_title' => 'nullable',
             'seo_keyword' => 'nullable',
             'seo_description' => 'nullable',
@@ -39,6 +41,8 @@ class CaseStudySettingController extends Controller
         $data->uuid = (string) Str::uuid();
         $data->title = $validated['title'];
         $data->description = $validated['description'];
+        $data->canonical_tag = $validated['canonical_tag'];
+        $data->schema = $validated['schema'];
         $data->seo_title = $validated['seo_title'];
         $data->seo_keyword = $validated['seo_keyword'];
         $data->seo_description = $validated['seo_description'];

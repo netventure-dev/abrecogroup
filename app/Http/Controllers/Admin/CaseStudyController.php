@@ -43,6 +43,7 @@ class CaseStudyController extends Controller
             'service' => 'required',
             'sub_service' => 'nullable',
             'canonical_tag' => 'nullable',
+            'schema' => 'nullable',
             'inner_service' => 'nullable',
             'content' => 'nullable',
             'content2' => 'nullable',
@@ -68,7 +69,7 @@ class CaseStudyController extends Controller
         $case->slug = SlugService::createSlug(CaseStudy::class, 'slug', $validated['title'], ['unique' => false]);
         $case->title = $validated['title'];
         $case->canonical_tag = $validated['canonical_tag'];
-
+        $case->schema = $validated['schema'];
         $case->service_id = $validated['service'];
         $case->service_slug = $service->slug;
         $case->sub_service_id = $validated['sub_service'];
@@ -138,7 +139,7 @@ class CaseStudyController extends Controller
             'content' => 'nullable',
             'content2' => 'nullable',
             'canonical_tag' => 'nullable',
-
+            'schema' => 'nullable',
             'sub_title' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'background_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
@@ -159,7 +160,7 @@ class CaseStudyController extends Controller
         $case->slug = SlugService::createSlug(CaseStudy::class, 'slug', $validated['title'], ['unique' => false]);
         $case->title = $validated['title'];
         $case->canonical_tag = $validated['canonical_tag'];
-
+        $case->schema = $validated['schema'];
         $case->service_id = $validated['service'];
         $case->service_slug = $service->slug;
         $case->sub_service_id = $validated['sub_service'];
