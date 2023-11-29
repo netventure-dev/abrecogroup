@@ -56,13 +56,22 @@
                                         </div>
                                     </div>
                                 </div>
+                                 <div class="mb-4 row">
+                                    <label for="schema" class="col-sm-3 col-form-label">{{ __('Schema') }}</label>
+                                    <div class="col-sm-9">
+                                        <textarea name="schema" class="form-control  @if ($errors->has('schema')) is-invalid @endif"
+                                            style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Schema') }}" required>{{ @old('schema', @$data->schema) }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('schema') }}
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="content"
                                             class="col-sm-3 col-form-label">{{ __('Sub title') }}
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="content"
-                                            class="form-control summernote @if ($errors->has('content')) is-invalid @endif" ro placeholder="{{ __('Enter Content Description') }}" required>{{ @old('content')}}</textarea>
+                                            class="form-control  @if ($errors->has('content')) is-invalid @endif" ro placeholder="{{ __('Enter Content Description') }}" required>{{ @old('content')}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
                                     </div>

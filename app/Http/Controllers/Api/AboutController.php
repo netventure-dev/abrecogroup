@@ -15,18 +15,18 @@ class AboutController extends Controller
 
     public function index()
     {
-        $data['about'] = AboutUs::select('cover_title', 'cover_content', 'banner_image', 'content_image', 'content', 'link', 'seo_title', 'seo_description', 'seo_keywords', 'canonical_tag')->first();
+        $data['about'] = AboutUs::select('cover_title', 'cover_content', 'banner_image', 'content_image', 'content', 'link', 'seo_title', 'seo_description', 'seo_keywords', 'canonical_tag','schema')->first();
         // Set null values for specified fields in the 'about' data
       if (!empty($data['about'])) {
     $data['about']->banner_image = empty($data['about']->banner_image) ? null : $data['about']->banner_image;
     $data['about']->content_image = empty($data['about']->content_image) ? null : $data['about']->content_image;
 }
-        $data['about_list'] = AboutUsList::select('id', 'title', 'content', 'icon', 'link', 'canonical_tag')->where('status', 1)->get();
+        $data['about_list'] = AboutUsList::select('id', 'title', 'content', 'icon', 'link', 'canonical_tag','schema')->where('status', 1)->get();
         // Set null values for 'icon' field in each item in 'about_list' data
         foreach ($data['about_list'] as $aboutList) {
     $aboutList->icon = empty($aboutList->icon) ? null : $aboutList->icon;
         }
-        $data['mission_vision'] = MissionVision::select('id', 'uuid', 'title', 'description', 'image', 'mobile_image', 'status', 'canonical_tag')->get()
+        $data['mission_vision'] = MissionVision::select('id', 'uuid', 'title', 'description', 'image', 'mobile_image', 'status', 'canonical_tag','schema')->get()
 
             ->map(function ($item) {
                 //  dd($item);

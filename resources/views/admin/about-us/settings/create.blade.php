@@ -70,6 +70,17 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                  <div class="mb-4 row">
+                                    <label for="content" class="col-sm-3 col-form-label">{{ __('Schema') }}
+                                        <span class="text-danger"></span></label>
+                                    <div class="col-sm-9">
+                                        <textarea name="schema" class="form-control  @if ($errors->has('schema')) is-invalid @endif"
+                                            style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Schema') }}" >{{ @old('schema', @$data->schema) }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('schema') }}
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="mb-4 row">
                                     <label for="cover_content" class="col-sm-3 col-form-label">{{ __('Cover Content') }}
                                         <span class="text-danger">*</span></label>

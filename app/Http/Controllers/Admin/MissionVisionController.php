@@ -43,14 +43,14 @@ class MissionVisionController extends Controller
             'content' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
-
+            'schema' => 'nullable',
             'status' => 'required',
         ]);
         $data = new MissionVision;
         $data->uuid = (string) Str::uuid();
         $data->title = $validated['title'];
         $data->canonical_tag = $validated['canonical_tag'];
-
+        $data->schema = $validated['schema'];
         $data->description = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
@@ -90,11 +90,12 @@ class MissionVisionController extends Controller
             'canonical_tag' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-
+            'schema' => 'nullable',
             'status' => 'required',
         ]);
         $data->title = $validated['title'];
         $data->canonical_tag = $validated['canonical_tag'];
+        $data->schema = $validated['schema'];
         $data->description = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
