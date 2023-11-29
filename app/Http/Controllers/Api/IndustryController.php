@@ -21,7 +21,7 @@ class IndustryController extends Controller
                             ->select('id', 'uuid', 'industries_id', 'title','section','subtitle', 'description', 'order', 'image', 'button_title', 'button_link')
                             ->orderBy('order', 'ASC');
                     },'contents.extra_contents'])
-                    ->where('status', 1)->select('id', 'uuid','slug', 'name','custom_url','subtitle','icon','image','content','button_title','link','seo_title','seo_description','seo_keywords','canonical_tag')
+                    ->where('status', 1)->select('id', 'uuid','slug', 'name','custom_url','subtitle','icon','image','content','button_title','link','seo_title','seo_description','seo_keywords','canonical_tag','schema')
                     ->orderBy('created_at', 'desc')
                     ->get();
 
@@ -34,7 +34,7 @@ class IndustryController extends Controller
     public function details($uuid)
     {
         $data['industry'] = Industry::where('slug', $uuid)->where('status', 1)
-            ->select('id', 'uuid', 'custom_url','name','slug','seo_title','seo_description','seo_keywords','canonical_tag')
+            ->select('id', 'uuid', 'custom_url','name','slug','seo_title','seo_description','seo_keywords','canonical_tag','schema')
             ->with(['contents' => function ($query) {
                 $query->where('status', 1)
                     ->select('id', 'uuid', 'industries_id', 'title','section','subtitle', 'description', 'order', 'image','mobile_image', 'button_title', 'button_link')

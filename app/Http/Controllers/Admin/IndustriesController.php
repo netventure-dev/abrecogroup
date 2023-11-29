@@ -37,6 +37,7 @@ class IndustriesController extends Controller
             'name' => 'required|unique:industries,name|max:255',
             'sub_title' => 'nullable',
             'canonical_tag' => 'nullable',
+            'schema' => 'nullable',
             'custom_url' => 'nullable',
             'content' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
@@ -54,6 +55,7 @@ class IndustriesController extends Controller
         $service->slug = SlugService::createSlug(Industry::class, 'slug', $validated['name'], ['unique' => false]);
         $service->name = $validated['name'];
         $service->canonical_tag = $validated['canonical_tag'];
+        $service->schema = $validated['schema'];
         $service->content = $validated['content'];
         $service->custom_url = $validated['custom_url'];
         $service->order = $validated['order'];
@@ -102,6 +104,7 @@ class IndustriesController extends Controller
             'name' => 'required|max:255'.$services->id,
             'sub_title' => 'nullable',
             'canonical_tag' => 'nullable',
+            'schema' => 'nullable',
             'content' => 'nullable',
             'custom_url' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
@@ -117,7 +120,7 @@ class IndustriesController extends Controller
         $services->slug = SlugService::createSlug(Industry::class, 'slug', $validated['name'], ['unique' => false]);
         $services->name = $validated['name'];
         $services->canonical_tag = $validated['canonical_tag'];
-
+        $services->schema = $validated['schema'];
         $services->content = $validated['content'];
         $services->order = $validated['order'];
         $services->status = $validated['status'];
