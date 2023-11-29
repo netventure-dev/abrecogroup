@@ -15,7 +15,7 @@ class ServiceApiController extends Controller
 
     public function index()
     {
-        $data['services'] = Service::select('id', 'uuid', 'name', 'custom_url', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag')
+        $data['services'] = Service::select('id', 'uuid', 'name', 'custom_url', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag','schema')
             ->with(['faqs' => function ($query) {
                 $query->select('id', 'service_id', 'uuid', 'title', 'description', 'order')->where('status', 1);
             }, 'contents' => function ($query) {
@@ -58,7 +58,7 @@ class ServiceApiController extends Controller
 
     public function details($uuid)
     {
-        $data['services'] = Service::select('id', 'uuid', 'name', 'custom_url', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag')
+        $data['services'] = Service::select('id', 'uuid', 'name', 'custom_url', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag','schema')
             ->with(['faqs' => function ($query) {
                 $query->select('id', 'service_id', 'uuid', 'title', 'description', 'order')->where('status', 1);
             }, 'contents' => function ($query) {
@@ -81,7 +81,7 @@ class ServiceApiController extends Controller
     }
     public function sub_services($uuid, $sub_id)
     {
-        $data['sub_services'] = SubService::select('id', 'service_id', 'service as service_name', 'service_slug', 'uuid', 'custom_url', 'name', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag')
+        $data['sub_services'] = SubService::select('id', 'service_id', 'service as service_name', 'service_slug', 'uuid', 'custom_url', 'name', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag','schema')
             ->with(['innerservices' => function ($query) {
                 $query->select('id', 'service_id', 'sub_service_id', 'service_name', 'service_slug', 'subservice as subservice_name', 'sub_service_slug', 'uuid', 'name', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', )->where('status', 1);
             }, 'contents' => function ($query) {
