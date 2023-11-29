@@ -29,6 +29,7 @@ class BlogSettingController extends Controller
             'title' => 'required',
             'description' => 'required',
             'canonical_tag' => 'nullable',
+            'schema' => 'nullable',
             'seo_title' => 'nullable',
             'seo_keyword' => 'nullable',
             'seo_description' => 'nullable',
@@ -40,6 +41,7 @@ class BlogSettingController extends Controller
         $blogs->uuid = (string) Str::uuid();
         $blogs->title = $validated['title'];
         $blogs->canonical_tag = $validated['canonical_tag'];
+        $blogs->schema = $validated['schema'];
         $blogs->description = $validated['description'];
         $blogs->seo_title = $validated['seo_title'];
         $blogs->seo_keyword = $validated['seo_keyword'];

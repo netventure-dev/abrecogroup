@@ -38,6 +38,7 @@ class BlogListController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:blogs,title',
             'canonical_tag' => 'nullable',
+            'schema' => 'nullable',
             'author' => 'nullable',
             'schedule_date' =>  'nullable|date',
             'description' => 'required',
@@ -51,6 +52,7 @@ class BlogListController extends Controller
         $blogs->uuid = (string) Str::uuid();date("Y-m-d", strtotime($request->date));
         $blogs->title = $validated['title'];
         $blogs->canonical_tag = $validated['canonical_tag'];
+        $blogs->schema = $validated['schema'];
         $blogs->description = $validated['description'];
         $blogs->author = $validated['author'];
         $blogs->blog_date = $validated['schedule_date'];
