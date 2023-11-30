@@ -75,7 +75,7 @@
                                             class="col-sm-3 col-form-label">{{ __('Schema') }}</label>
                                     <div class="col-sm-9">
                                         <textarea name="schema"
-                                            class="form-control  @if ($errors->has('schema')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Schema') }}" required>{{ @old('schema',@$blog->schema)}}</textarea>
+                                            class="form-control  @if ($errors->has('schema')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Schema') }}" >{{ @old('schema',@$blog->schema)}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('schema') }}
                                         </div>
                                     </div>
@@ -107,7 +107,7 @@
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="description" class="ckeditor form-control @if ($errors->has('description')) is-invalid @endif"
-                                            style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter  Description') }}" required>{{ @old('content', @$blog->description) }}</textarea>
+                                            style="width: 100% !important; height: 200px !important;" placeholder="{{ __('Enter  Description') }}" required>{{ @old('content', @$blog->description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>

@@ -67,7 +67,7 @@
                                     <label for="schema" class="col-sm-3 col-form-label">{{ __('Schema') }}</label>
                                     <div class="col-sm-9">
                                         <textarea name="schema" class="form-control  @if ($errors->has('schema')) is-invalid @endif"
-                                            style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Schema') }}" required>{{ @old('schema', @$data->schema) }}</textarea>
+                                            style="width: 100% !important; height: 200px !important;" placeholder="{{ __('Enter Schema') }}">{{ @old('schema', @$data->schema) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('schema') }}
                                         </div>
                                     </div>

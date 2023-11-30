@@ -16,7 +16,7 @@ class TestimonialsController extends Controller
     {
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Testimonils')), null],
+            [(__('Testimonials')), null],
         ];
         return $dataTable->render('admin.testimonials.index', ['breadcrumbs' => $breadcrumbs]);
     }
