@@ -170,14 +170,14 @@
                                             class="close">Delete</button>
                                         @endif
                                         <input id="image" name="image" type="file"
-                                            class="form-control mb-2 @if ($errors->has('*//')) is-invalid @endif"
+                                            class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif"
                                             value="{{ @old('image') }}">
                                             <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
                                 <div class="mt-4 row">
-                                    <label class="col-sm-3 col-form-label" for="image">{{ __('Logo') }} <a
+                                    <label class="col-sm-3 col-form-label" for="logo">{{ __('Logo') }} <a
                                             href="#" class="tool_tip js-tooltip-enabled"
                                             data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
@@ -207,7 +207,7 @@
                                             class="close">Delete</button>
                                         @endif
                                         <input id="background_image" name="background_image" type="file"
-                                            class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif"
+                                            class="form-control mb-2 @if ($errors->has('background_image')) is-invalid @endif"
                                             value="{{ @old('background_image') }}">
                                             <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('background_image') }}</div>
