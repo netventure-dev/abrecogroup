@@ -20,7 +20,7 @@ class CaseStudyApiController extends Controller
         $data['case_study_settings'] = CaseStudySetting::select('uuid', 'title', 'canonical_tag','schema','description', 'image', 'status','seo_title','seo_description','seo_keyword','mobile_image')->first();
         $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link as button_link', 'order','status','seo_title','seo_description','seo_keywords','canonical_tag','schema')
                                 ->with(['contents' => function ($query) {
-                                    $query->select('id', 'case_id','section', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order','mobile_image', 'status')->where('status', 1);
+                                    $query->select('id', 'case_id','section', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link as button_link', 'order','mobile_image', 'status')->where('status', 1);
                                 }])
                                 ->where('status', 1)
                                 ->orderBy('created_at', 'desc')
@@ -34,7 +34,7 @@ class CaseStudyApiController extends Controller
     {
         $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link as button_link', 'order','status','seo_title','seo_description','seo_keywords', 'canonical_tag','schema')
                                 ->with(['contents' => function ($query) {
-                                    $query->select('id', 'case_id', 'section','uuid','title', 'content','subtitle', 'image1', 'button_title', 'link', 'order','mobile_image', 'status')->where('status', 1);
+                                    $query->select('id', 'case_id', 'section','uuid','title', 'content','subtitle', 'image1', 'button_title', 'link as button_link', 'order','mobile_image', 'status')->where('status', 1);
                                 }])
                                 ->where('service_slug', $uuid)
                                 ->where('status', 1)
@@ -49,7 +49,7 @@ class CaseStudyApiController extends Controller
     {
         $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link as button_link', 'order','status','seo_title','seo_description','seo_keywords','canonical_tag','schema')
                                 ->with(['contents' => function ($query) {
-                                    $query->select('id', 'case_id', 'uuid','title', 'section','content','subtitle', 'image1', 'button_title', 'link', 'order','mobile_image', 'status')->where('status', 1);
+                                    $query->select('id', 'case_id', 'uuid','title', 'section','content','subtitle', 'image1', 'button_title', 'link as button_link', 'order','mobile_image', 'status')->where('status', 1);
                                 }])
                                 ->where('service_slug', $uuid)
                                 ->where('slug', $case_slug)
@@ -65,7 +65,7 @@ class CaseStudyApiController extends Controller
     {
         $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link as button_link', 'order','status','seo_title','seo_description','seo_keywords','canonical_tag','schema')
                                 ->with(['contents' => function ($query) {
-                                    $query->select('id', 'case_id', 'uuid','title','section', 'content','subtitle', 'image1', 'button_title', 'link', 'order','mobile_image', 'status')->where('status', 1);
+                                    $query->select('id', 'case_id', 'uuid','title','section', 'content','subtitle', 'image1', 'button_title', 'link as button_link', 'order','mobile_image', 'status')->where('status', 1);
                                 }])
                                 ->where('service_slug', $uuid)
                                 ->where('sub_service_slug', $id)
@@ -82,7 +82,7 @@ class CaseStudyApiController extends Controller
     {
         $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link as button_link', 'order','status','seo_title','seo_description','seo_keywords','canonical_tag','schema')
                                 ->with(['contents' => function ($query) {
-                                    $query->select('id', 'case_id', 'uuid','title','section', 'content','subtitle', 'image1', 'button_title', 'link', 'order','mobile_image', 'status')->where('status', 1);
+                                    $query->select('id', 'case_id', 'uuid','title','section', 'content','subtitle', 'image1', 'button_title', 'link as button_link', 'order','mobile_image', 'status')->where('status', 1);
                                 }])
                                 ->where('service_slug', $uuid)
                                 ->where('sub_service_slug', $id)
@@ -99,7 +99,7 @@ class CaseStudyApiController extends Controller
     {
         $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link as button_link', 'order','status','seo_title','seo_description','seo_keywords','canonical_tag','schema')
                                 ->with(['contents' => function ($query) {
-                                    $query->select('id', 'case_id', 'uuid','title', 'section','content','subtitle', 'image1', 'button_title', 'link', 'order','mobile_image', 'status')->where('status', 1);
+                                    $query->select('id', 'case_id', 'uuid','title', 'section','content','subtitle', 'image1', 'button_title', 'link as button_link', 'order','mobile_image', 'status')->where('status', 1);
                                 }])
                                 ->where('service_slug', $uuid)
                                 ->where('sub_service_slug', $id)
@@ -116,7 +116,7 @@ class CaseStudyApiController extends Controller
     {
         $data['case_studies'] = CaseStudy::select('id','slug as case_study_slug','service_slug as service_id_slug','inner_service_slug as inner_service_id_slug','sub_service_slug as sub_service_id_slug','uuid','title' , 'subtitle','image1','image2', 'content', 'content2', 'button_title','link as button_link', 'order','status','seo_title','seo_description','seo_keywords','canonical_tag','schema')
                                 ->with(['contents' => function ($query) {
-                                    $query->select('id', 'case_id', 'uuid','title','section', 'content','subtitle', 'image1', 'button_title', 'link', 'order','mobile_image', 'status')->where('status', 1);
+                                    $query->select('id', 'case_id', 'uuid','title','section', 'content','subtitle', 'image1', 'button_title', 'link as button_link', 'order','mobile_image', 'status')->where('status', 1);
                                 }])
                                 ->where('service_slug', $uuid)
                                 ->where('sub_service_slug', $id)
