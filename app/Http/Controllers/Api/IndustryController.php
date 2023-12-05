@@ -21,7 +21,7 @@ class IndustryController extends Controller
                             ->select('id', 'uuid', 'industries_id', 'title','section','subtitle', 'description', 'order', 'image', 'button_title', 'button_link')
                             ->orderBy('order', 'ASC');
                     },'contents.extra_contents'])
-                    ->where('status', 1)->select('id', 'uuid','slug', 'name','custom_url','subtitle','icon','image','content','button_title','link','seo_title','seo_description','seo_keywords','canonical_tag','schema')
+                    ->where('status', 1)->select('id', 'uuid','slug', 'name','custom_url','subtitle','icon','image','content','button_title','link as button_link','seo_title','seo_description','seo_keywords','canonical_tag','schema')
                     ->orderBy('created_at', 'desc')
                     ->get();
 

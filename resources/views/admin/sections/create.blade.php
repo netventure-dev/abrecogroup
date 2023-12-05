@@ -115,7 +115,7 @@
                                     </div>
                                 </div>
                                  <div class="mt-4 row">
-                                    <label class="col-sm-3 col-form-label" for="logo">{{ __('Logo') }}<a
+                                    <label class="col-sm-3 col-form-label" for="logo">{{ __('Mobile Image') }}<a
                                             href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                         <input id="logo" name="logo" type="file" class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif" value="{{ @old('logo') }}">
