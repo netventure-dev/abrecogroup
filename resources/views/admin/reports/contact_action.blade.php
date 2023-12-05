@@ -4,14 +4,14 @@
         <i class="fa fa-envelope" data-toggle="tooltip" title="View Message"></i>
     </a>
     {{-- @endcan @can('delete', $admin) --}}
-    {{-- <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this row')}}')){
-        document.getElementById('delete-data-{{ $new->uuid }}').submit();}">
+    <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this contact ')}}')){
+        document.getElementById('delete-data-{{ $new->id }}').submit();}">
         <i class="fas fa-trash-alt"></i>
     </button>
-    <form id="delete-data-{{ $new->uuid }}" action="{{ route('admin.enquiries.destroy', $new->uuid) }}"
+    <form id="delete-data-{{ $new->id }}" action="{{ route('admin.enquiries.destroy', $new->id) }}"
         method="POST">
         @csrf
         @method('DELETE')
-    </form> --}}
+    </form>
     {{-- @endcan --}}
 </div>

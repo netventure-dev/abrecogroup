@@ -35,7 +35,7 @@ class ContactUsReportController extends Controller
     public function destroy($id)
     {
        
-        $res = Contact::where('uuid',$id)->delete();
+        $res = Contact::where('id',$id)->delete();
        
         // $content=SubService::where('section_id',$id)->first();
        
