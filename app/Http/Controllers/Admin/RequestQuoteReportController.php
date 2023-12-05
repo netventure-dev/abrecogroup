@@ -32,7 +32,7 @@ class RequestQuoteReportController extends Controller
     public function destroy($id)
     {
        
-        $res = Quote::where('uuid',$id)->delete();
+        $res = Quote::where('id',$id)->delete();
        
         // $content=SubService::where('section_id',$id)->first();
        
