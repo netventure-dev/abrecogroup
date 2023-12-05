@@ -29,4 +29,18 @@ class CareerReportController extends Controller
 
         return view('admin.reports.career.view', compact('quote','breadcrumbs'));
     }
+    public function destroy($id)
+    {
+       
+        $res = Career::where('uuid',$id)->delete();
+       
+        // $content=SubService::where('section_id',$id)->first();
+       
+        if ($res) {
+            notify()->success(__('Deleted successfully'));
+        } else {
+            notify()->error(__('Failed to Delete. Please try again'));
+        }
+        return redirect()->back();
+    }
 }

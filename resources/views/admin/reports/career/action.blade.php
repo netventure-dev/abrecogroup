@@ -3,14 +3,15 @@
     <a href="{{ route('admin.careerenquiry.view',$new->id) }}" class="first btn btn-primary edit"><i class="fa fa-eye"
             data-toggle="tooltip" title="Edit"></i></a>
     {{-- @endcan @can('delete', $admin) --}}
-    {{-- <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this row')}}')){
-        document.getElementById('delete-data-{{ $blog->uuid }}').submit();}">
+    
+    <button type="button" class="last btn btn-primary delete" data-toggle="tooltip" title="Delete" onclick="event.preventDefault(); if(confirm('{{__('Are you sure to delete this row')}}')){
+        document.getElementById('delete-data-{{ $new->uuid }}').submit();}">
         <i class="fas fa-trash-alt"></i>
     </button>
-    <form id="delete-data-{{ $blog->uuid }}" action="{{ route('admin.blog-list.destroy', $blog->uuid) }}"
+    <form id="delete-data-{{ $new->uuid }}" action="{{ route('admin.careerenquiry.destroy', $new->uuid) }}"
         method="POST">
         @csrf
         @method('DELETE')
-    </form> --}}
+    </form>
     {{-- @endcan --}}
 </div>

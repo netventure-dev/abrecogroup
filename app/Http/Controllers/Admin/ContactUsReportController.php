@@ -32,4 +32,18 @@ class ContactUsReportController extends Controller
         //  dd($quote);
         return view('admin.reports.contact_view',compact('quote','breadcrumbs'));
     }
+    public function destroy($id)
+    {
+       
+        $res = Contact::where('uuid',$id)->delete();
+       
+        // $content=SubService::where('section_id',$id)->first();
+       
+        if ($res) {
+            notify()->success(__('Deleted successfully'));
+        } else {
+            notify()->error(__('Failed to Delete. Please try again'));
+        }
+        return redirect()->back();
+    }
 }

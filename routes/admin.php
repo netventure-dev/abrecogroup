@@ -361,11 +361,14 @@ Route::delete('service-care/destroy/{id}',  'Admin\ServiceCareController@destroy
 // enquiries
 Route::get('enquiries/report',  'Admin\ContactUsReportController@index')->name('enquiries.index');
 Route::get('enquries/report/view/{id}',  'Admin\ContactUsReportController@view')->name('enquiries.view');
+Route::delete('enquries/report/destroy/{id}',  'Admin\ContactUsReportController@destroy')->name('enquiries.destroy');
 Route::get('feedback/report',  'Admin\FeedBackReportController@index')->name('feedbackenquiry.index');
 Route::get('request-quote/report',  'Admin\RequestQuoteReportController@index')->name('requestenquiry.index');
 Route::get('request-quote/report/view/{id}',  'Admin\RequestQuoteReportController@view')->name('requestenquiry.view');
+Route::delete('request-quote/destroy/{id}',  'Admin\RequestQuoteReportController@destroy')->name('requestenquiry.destroy');
 Route::get('career/report',  'Admin\CareerReportController@index')->name('careerenquiry.index');
 Route::get('career-report/view/{id}',  'Admin\CareerReportController@view')->name('careerenquiry.view');
+Route::delete('career-report/destroy/{id}',  'Admin\CareerReportController@destroy')->name('careerenquiry.destroy');
 
 
 
