@@ -87,8 +87,6 @@
                                             <option value="type5">Full width section</option>
                                             <option value="type6">Full width icon box slider</option>
                                             <option value="type7">Content with icon box slider</option>
-                                            <option value="type8">Case study</option>
-
                                         </select>
                                         <div class="invalid-feedback">{{ $errors->first('order') }}
                                         </div>

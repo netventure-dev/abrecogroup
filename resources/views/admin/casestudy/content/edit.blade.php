@@ -139,7 +139,6 @@
                                             <option @if($content->section === "type5") selected @endif value="type5">Full width section</option>
                                             <option @if($content->section === "type6") selected @endif value="type6">Full width icon box slider</option>
                                             <option @if($content->section === "type7") selected @endif value="type7">Content with icon box slider</option>
-                                            <option @if($content->section === "type8") selected @endif value="type8">Case study</option>
 
                                         </select>
                                         <div class="invalid-feedback">{{ $errors->first('order') }}
