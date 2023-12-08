@@ -43,7 +43,7 @@
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea required name="content"
-                                            class="form-control @if ($errors->has('content')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" placeholder="{{ __('Enter content') }}">{{ @old('content',@$content->icon_content)}}</textarea>
+                                            class="ckeditor form-control @if ($errors->has('content')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" placeholder="{{ __('Enter content') }}">{{ @old('content',@$content->icon_content)}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
                                     </div>
@@ -165,10 +165,10 @@
     <script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/pages/form-validation.init.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <script>
-         $(document).ready(function() {
-            $('.summernote').summernote('fontName', 'Poppins');
+    $(document).ready(function () {
+        $('.ckeditor').ckeditor();
     });
 
         $(".duplicate").click(function() {

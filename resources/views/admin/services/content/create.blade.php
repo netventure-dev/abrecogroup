@@ -58,7 +58,7 @@
                                             <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="description"
-                                            class="form-control @if ($errors->has('description')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Description') }}" >{{ @old('description')}}</textarea>
+                                            class="ckeditor form-control @if ($errors->has('description')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Description') }}" >{{ @old('description')}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('description') }}
                                         </div>
                                     </div>
@@ -168,9 +168,10 @@
     <script src="{{ URL::asset('assets/js/pages/form-validation.init.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <script>
-    $(document).ready(function() {
-        $('.summernote').summernote('fontName', 'Poppins');
-});
+    $(document).ready(function () {
+        $('.ckeditor').ckeditor();
+    });
 </script>
 @endsection
