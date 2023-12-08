@@ -96,7 +96,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-4 row">
+                                <div class="mb-4 row" style="display:none;">
                                     <label for="sub_title"
                                         class="col-sm-3 col-form-label mb-2">{{ __('Sub Title') }}</label>
                                     <div class="col-sm-9">
@@ -149,7 +149,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-4 row">
+                                <div class="mt-4 row" style="display:none;">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Image') }}<a
                                             href="#" class="tool_tip js-tooltip-enabled"
                                             data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
@@ -161,7 +161,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
-                                <div class="mt-4 row">
+                                <div class="mt-4 row" style="display:none;">
                                     <label class="col-sm-3 col-form-label" for="b_image">{{ __('Background Image') }}<a
                                             href="#" class="tool_tip js-tooltip-enabled"
                                             data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
@@ -173,7 +173,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('b_image') }}</div>
                                     </div>
                                 </div>
-                                <div class="mt-4 row">
+                                <div class="mt-4 row" style="display:none;">
                                     <label class="col-sm-3 col-form-label" for="logo">{{ __('Logo') }}<a
                                             href="#" class="tool_tip js-tooltip-enabled"
                                             data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>

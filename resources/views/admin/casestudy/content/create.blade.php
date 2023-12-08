@@ -47,7 +47,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-4 row">
+                                <div class="mb-4 row" style="display:none;">
                                     <label for="sub_title"
                                         class="col-sm-3 col-form-label mb-2">{{ __('Sub Title') }}</label>
                                     <div class="col-sm-9">

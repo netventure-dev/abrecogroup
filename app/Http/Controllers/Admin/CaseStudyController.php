@@ -123,7 +123,7 @@ class CaseStudyController extends Controller
         ];
         $services= Service::get();
         $sub_services=SubService::where('service_id',@$case->service_id)->get();
-        $inner_services=InnerService::where('sub_service_id',@$case->sub_service_id)->get();
+        $inner_services=InnerService::where('sub_service_id',@$case->sub_service_id)->where('status',1)->get();
         return view('admin.casestudy.edit', compact('breadcrumbs','case','services','sub_services','inner_services'));
     }
     public function update(Request $request,$id)

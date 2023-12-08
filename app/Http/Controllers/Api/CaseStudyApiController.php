@@ -23,7 +23,7 @@ class CaseStudyApiController extends Controller
                                     $query->select('id', 'case_id','section', 'uuid','title', 'content','subtitle', 'image1', 'button_title', 'link as button_link', 'order','mobile_image', 'status')->where('status', 1);
                                 }])
                                 ->where('status', 1)
-                                ->orderBy('created_at', 'desc')
+                                ->orderByRaw('CAST(`order` AS SIGNED) ASC') 
                                 ->get();
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
