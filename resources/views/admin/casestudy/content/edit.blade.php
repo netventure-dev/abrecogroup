@@ -61,7 +61,7 @@
                                             class="col-sm-3 col-form-label">{{ __('Content') }}</label>
                                     <div class="col-sm-9">
                                         <textarea name="content"
-                                            class="form-control @if ($errors->has('content')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" placeholder="{{ __('Enter Content Description') }}" >{{ @old('content',@$content->content)}}</textarea>
+                                            class="ckeditor form-control @if ($errors->has('content')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" placeholder="{{ __('Enter Content Description') }}" >{{ @old('content',@$content->content)}}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
                                     </div>
@@ -189,9 +189,11 @@
     <script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/pages/form-validation.init.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+
     <script>
         $(document).ready(function() {
-           $('.summernote').summernote('fontName', 'Poppins');
+            $('.ckeditor').ckeditor();
    });
    $('#service').on('change', function() {
             var service = this.value;
