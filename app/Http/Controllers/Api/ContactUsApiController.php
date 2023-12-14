@@ -174,7 +174,7 @@ class ContactUsApiController extends Controller
 
         // Validate reCAPTCHA token
         $recaptchaToken = $request->input('recaptchaToken');
-        // $recaptchaSecretKey = config('6LdN_zApAAAAAB4iW1nK_dWY0LxGLBFvTyQ4FDB_');
+        // $recaptchaSecretKey = config('services.recaptcha.secret');
         $recaptchaSecretKey = '6LdN_zApAAAAAB4iW1nK_dWY0LxGLBFvTyQ4FDB_';
 
 
