@@ -91,6 +91,8 @@ class ContactUsApiController extends Controller
             'job' => 'required',
             'reason' => 'required',
             'refer' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
+
 
         ], [
             'phone.min' => 'The phone must be at least 7 characters.',
