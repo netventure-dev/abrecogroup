@@ -157,7 +157,7 @@ class ContactUsApiController extends Controller
         ], [
             'phone.min' => 'The phone must be at least 7 characters.',
             'phone.max' => 'The phone must be Maximum 16 characters.',
-            'recaptchaToken.required' => 'The RecaptchaToken is required',
+            // 'recaptchaToken.required' => 'The RecaptchaToken is required',
         ]);
 
         if ($validator->fails()) {
