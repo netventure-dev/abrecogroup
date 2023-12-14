@@ -48,13 +48,13 @@ class ContactUsApiController extends Controller
             'job' => 'required',
             'reason' => 'required',
             'refer' => 'required',
-            'RecaptchaToken' => 'required|captcha',
+            'recaptchaToken' => 'required|captcha',
 
 
         ], [
             'phone.min' => 'The phone must be at least 7 characters.',
             'phone.max' => 'The phone must be Maximum 16 characters.',
-            'RecaptchaToken.required' => 'The RecaptchaToken is required',
+            'recaptchaToken.required' => 'The RecaptchaToken is required',
 
 
 
