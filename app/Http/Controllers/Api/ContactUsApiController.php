@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Http;
+
 
 
 
@@ -25,7 +27,7 @@ class ContactUsApiController extends Controller
     public function contact()
     {
         // dd(1);
-        $data['contact'] = ContactUs::select('title', 'description', 'link', 'phone', 'address', 'map_link', 'image','mobile_image', 'seo_title', 'seo_description', 'seo_keywords','canonical_tag','schema')->get();
+        $data['contact'] = ContactUs::select('title', 'description', 'link', 'phone', 'address', 'map_link', 'image', 'mobile_image', 'seo_title', 'seo_description', 'seo_keywords', 'canonical_tag', 'schema')->get();
         // Check if 'image' field is empty and set it to null
         foreach ($data['contact'] as $contact) {
             if (empty($contact->image)) {
@@ -39,6 +41,49 @@ class ContactUsApiController extends Controller
     }
     public function store(Request $request)
     {
+        // //return 2;
+        // $validated = $request->validate([
+        //     'name' => 'required|max:255',
+        //     'email' => 'required|email|max:255',
+        //     'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+        //     'message' => 'required',
+        //     'organization' => 'required',
+        //     'job' => 'required',
+        //     'reason' => 'required',
+        //     'refer' => 'required',
+        //     // 'g-recaptcha-response' => 'required|captcha',
+        // ]);
+        // // return 1;
+        // $data = new Contact();
+        // $data->name = $validated['name'];
+        // $data->email = $validated['email'];
+        // $data->phone = $validated['phone'];
+        // $data->organization = $validated['organization'];
+        // $data->job = $validated['job'];
+        // $data->reason = $validated['reason'];
+        // $data->refer = $validated['refer'];
+        // $data->message = $validated['message'];
+        // // dd($data);
+        // $res = $data->save();
+        // // return view('contact_us.show');
+
+        // if ($res) {
+        //     $admin = Admin::first();
+        //     $details['name'] = $validated['name'];
+        //     $details['email'] = $validated['email'];
+        //     $details['phone'] = $validated['phone'];
+        //     $details['organization'] = $validated['organization'];
+        //     $details['job'] = $validated['job'];
+        //     $details['refer'] = $validated['refer'];
+        //     $details['reason'] = $validated['reason'];
+        //     $details['message'] = $validated['message'];
+        //     $details['admin_name'] = $admin->name;
+        //     Notification::send($admin, new ContactNotification($details));
+        //     Notification::route('mail', $details['email'])->notify(new ContactusNotification($details));
+        //     return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $details], $this->successStatus);
+        // } else {
+        //     return response()->json(['code' => 404, 'message' => 'Failed to submit data', 'data' => $details], $this->failedStatus);
+        // }
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
@@ -48,14 +93,10 @@ class ContactUsApiController extends Controller
             'job' => 'required',
             'reason' => 'required',
             'refer' => 'required',
-            'recaptchaToken' => 'required|captcha',
-
 
         ], [
             'phone.min' => 'The phone must be at least 7 characters.',
             'phone.max' => 'The phone must be Maximum 16 characters.',
-            'recaptchaToken.required' => 'The RecaptchaToken is required',
-
 
 
         ]);
@@ -100,5 +141,60 @@ class ContactUsApiController extends Controller
         } else {
             return response()->json(['code' => 404, 'message' => 'Failed to submit data', 'data' => $details], $this->failedStatus);
         }
+    }
+    public function teststore(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:7|max:16',
+            'message' => 'required',
+            'organization' => 'required',
+            'job' => 'required',
+            'reason' => 'required',
+            'refer' => 'required',
+            'recaptchaToken' => 'required',
+        ], [
+            'phone.min' => 'The phone must be at least 7 characters.',
+            'phone.max' => 'The phone must be Maximum 16 characters.',
+            'recaptchaToken.required' => 'The RecaptchaToken is required',
+        ]);
+
+        if ($validator->fails()) {
+            $response = [
+                'success' => false,
+                'errors' => $validator->errors(),
+                'input' => $request->all(),
+            ];
+
+            return response()->json($response, 422);
+        }
+
+        // Validate reCAPTCHA token
+        $recaptchaToken = $request->input('recaptchaToken');
+        $recaptchaSecretKey = config('services.recaptcha.secret');
+
+        $response = Http::post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => $recaptchaSecretKey,
+            'response' => $recaptchaToken,
+        ]);
+
+        $recaptchaData = $response->json();
+
+        if (!$recaptchaData['success']) {
+            // reCAPTCHA verification failed
+            $response = [
+                'success' => false,
+                'errors' => ['recaptchaToken' => ['The reCAPTCHA verification failed.']],
+                'input' => $request->all(),
+            ];
+
+            return response()->json($response, 422);
+        }
+
+        // Continue processing the form data
+        // ...
+
+        return response()->json(['success' => true, 'message' => 'Form submitted successfully']);
     }
 }
