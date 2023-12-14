@@ -144,6 +144,8 @@ class ContactUsApiController extends Controller
     }
     public function teststore(Request $request)
     {
+        // dd($request->all());
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
@@ -172,7 +174,9 @@ class ContactUsApiController extends Controller
 
         // Validate reCAPTCHA token
         $recaptchaToken = $request->input('recaptchaToken');
-        $recaptchaSecretKey = config('services.recaptcha.secret');
+        // $recaptchaSecretKey = config('6LdN_zApAAAAAB4iW1nK_dWY0LxGLBFvTyQ4FDB_');
+        $recaptchaSecretKey = '6LdN_zApAAAAAB4iW1nK_dWY0LxGLBFvTyQ4FDB_';
+
 
         $response = Http::post('https://www.google.com/recaptcha/api/siteverify', [
             'secret' => $recaptchaSecretKey,
@@ -180,6 +184,9 @@ class ContactUsApiController extends Controller
         ]);
 
         $recaptchaData = $response->json();
+        // dd($recaptchaData);
+
+
 
         if (!$recaptchaData['success']) {
             // reCAPTCHA verification failed
@@ -198,3 +205,4 @@ class ContactUsApiController extends Controller
         return response()->json(['success' => true, 'message' => 'Form submitted successfully']);
     }
 }
+
