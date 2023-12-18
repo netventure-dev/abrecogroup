@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Http;
+
 
 
 class ServiceFormController extends Controller
@@ -74,6 +76,8 @@ class ServiceFormController extends Controller
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:7|max:16',
             'message' => 'nullable',
             // 'g-recaptcha-response' => 'required|captcha',
+            'recaptchaToken' => 'required|string',
+
 
         ], [
             'phone.min' => 'The phone must be at least 7 characters.',
@@ -90,6 +94,22 @@ class ServiceFormController extends Controller
             ];
 
             return response()->json($response);
+        }
+
+
+        $secretKey = env('RECAPTCHA_SECRET_KEY');
+
+
+        $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . $secretKey . '&response=' . $request->post('recaptchaToken'));
+
+        $responseData = $response->json();
+
+
+        if (!$responseData['success']) {
+            return response()->json([
+                'message' => 'reCAPTCHA validation failed',
+                'error-codes' => $responseData['error-codes'],
+            ], 422);
         }
 
         $data = new Quote();

@@ -93,6 +93,8 @@ class ContactUsApiController extends Controller
             'job' => 'required',
             'reason' => 'required',
             'refer' => 'required',
+            'recaptchaToken' => 'required|string',
+
 
         ], [
             'phone.min' => 'The phone must be at least 7 characters.',
@@ -110,6 +112,23 @@ class ContactUsApiController extends Controller
 
             return response()->json($response);
         }
+
+        $secretKey = env('RECAPTCHA_SECRET_KEY');
+
+
+        $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . $secretKey . '&response=' . $request->post('recaptchaToken'));
+
+        $responseData = $response->json();
+
+
+        if (!$responseData['success']) {
+            return response()->json([
+                'message' => 'reCAPTCHA validation failed',
+                'error-codes' => $responseData['error-codes'],
+            ], 422);
+        }
+
+        
 
         $data = new Contact();
         $data->name = $request['name'];
@@ -142,51 +161,45 @@ class ContactUsApiController extends Controller
             return response()->json(['code' => 404, 'message' => 'Failed to submit data', 'data' => $details], $this->failedStatus);
         }
     }
-    public function teststore(Request $request)
-    {
-        // Validate the form data
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
-            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:7|max:16',
-            'message' => 'required',
-            'organization' => 'required',
-            'job' => 'required',
-            'reason' => 'required',
-            'refer' => 'required',
-            'recaptchaToken' => 'required',
-        ]);
+    // public function teststore(Request $request)
+    //  {
+    //         // Validate the form data
+    //         $validator = Validator::make($request->all(), [
+    //             'name' => 'required|max:255',
+    //             'email' => 'required|email|max:255',
+    //             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:7|max:16',
+    //             'message' => 'required',
+    //             'organization' => 'required',
+    //             'job' => 'required',
+    //             'reason' => 'required',
+    //             'refer' => 'required',
+    //             'recaptchaToken' => 'required|string',
+    //         ]);
 
-        if ($validator->fails()) {
-            return response()->json(['success' => false, 'errors' => $validator->errors()], 422);
-        }
+    //         if ($validator->fails()) {
+    //             return response()->json(['errors' => $validator->errors()], 422);
+    //         }
 
-        // Validate reCAPTCHA token
-        $recaptchaToken = $request->input('recaptchaToken');
-        $recaptchaSecretKey = '6LdN_zApAAAAAB4iW1nK_dWY0LxGLBFvTyQ4FDB_
-        '; // Replace with your actual reCAPTCHA secret key
+    //         $secretKey = env('RECAPTCHA_SECRET_KEY');
 
-        $response = Http::post('https://www.google.com/recaptcha/api/siteverify', [
-            'secret' => $recaptchaSecretKey,
-            'response' => $recaptchaToken,
-        ]);
 
-        $recaptchaData = $response->json();
+    //         $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . $secretKey . '&response=' . $request->post('recaptchaToken'));
 
-        if (!$recaptchaData['success']) {
-            // reCAPTCHA verification failed
-            return response()->json(['success' => false, 'errors' => ['recaptchaToken' => ['The reCAPTCHA verification failed.']]], 422);
-        }
+    //         $responseData = $response->json();
 
-        // Form data is valid and reCAPTCHA is verified, process the form data
-        // ...
 
-        // For example, you might save the form data to a database
-        // $formData = $request->all();
-        // YourModel::create($formData);
+    //         if (!$responseData['success']) {
+    //             return response()->json([
+    //                 'message' => 'reCAPTCHA validation failed',
+    //                 'error-codes' => $responseData['error-codes'],
+    //             ], 422);
+    //         }
 
-        return response()->json(['success' => true, 'message' => 'Form submitted successfully']);
-    }
+
+    //         return response()->json([
+    //             'message' => 'Your message has been sent successfully!',
+    //         ]);
+    //     }
 }
 
 

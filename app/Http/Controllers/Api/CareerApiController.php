@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Http;
+
 
 class CareerApiController extends Controller
 {
@@ -86,7 +88,9 @@ class CareerApiController extends Controller
             'phone' => 'required',
             'message' => 'required',
             'position' => 'required',
-            'resume' => 'required|mimes:pdf|max:2048'
+            'resume' => 'required|mimes:pdf|max:2048',
+            'recaptchaToken' => 'required|string',
+
 
         ], [
             'resume.max' => 'The resume may not be greater than 2 mb.',
@@ -104,6 +108,21 @@ class CareerApiController extends Controller
             ];
 
             return response()->json($response); 
+        }
+
+        $secretKey = env('RECAPTCHA_SECRET_KEY');
+
+
+        $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . $secretKey . '&response=' . $request->post('recaptchaToken'));
+
+        $responseData = $response->json();
+
+
+        if (!$responseData['success']) {
+            return response()->json([
+                'message' => 'reCAPTCHA validation failed',
+                'error-codes' => $responseData['error-codes'],
+            ], 422);
         }
 
         $data = new Career();
