@@ -110,9 +110,10 @@ Route::post('blog/list/update/{id}',  'Admin\BlogListController@update')->name('
 Route::delete('blog/list/destroy/{id}',  'Admin\BlogListController@destroy')->name('blog-list.destroy');
 Route::get('blog/list/image-delete',  'Admin\BlogListController@image_delete')->name('blog-list.image_delete');
 
+// testimonials Settings
 
-Route::get('why-choose-us/settings/create',  'Admin\ChooseSettingsController@create')->name('why-choose-us.settings.create');
-Route::post('why-choose-us/settings/store',  'Admin\ChooseSettingsController@store')->name('why-choose-us.settings.store');
+Route::get('testimonials-settings/create',  'Admin\TestimonialSettingsController@create')->name('testimonials-settings.create');
+Route::post('testimonials-settings/store',  'Admin\TestimonialSettingsController@store')->name('testimonials-settings.store');
 
 // testimonials
 Route::get('testimonials',  'Admin\TestimonialsController@index')->name('testimonials.index');
