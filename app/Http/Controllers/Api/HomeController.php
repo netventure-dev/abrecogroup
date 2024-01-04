@@ -40,7 +40,7 @@ class HomeController extends Controller
         // $data['blog']=Blog::select('uuid','title','description','image')->where('status',1)->get();     
         $data['blogLists'] = Bloglist::select('uuid', 'title','canonical_tag', 'description', 'image', 'slug')->where('status', 1)->get();
         $data['testimonials'] = Testimonial::select('uuid', 'title', 'position', 'description', 'image')->where('status', 1)->get();
-        $data['testimonial-settings'] = TestimonialSetting::select('uuid', 'title', 'logo')->first();
+        $data['testimonial-settings'] = TestimonialSetting::select('uuid', 'title', 'logo')->get();
         $data['all_sections'] = Section::with(['contents' => function ($query) {
                                 $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order','status')->where('status', 1);
                             }])
