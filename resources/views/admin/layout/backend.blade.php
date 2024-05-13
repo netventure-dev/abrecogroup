@@ -8,7 +8,7 @@
             $fav =  @$general->favicon;
         @endphp
         <meta charset="utf-8" />
-        <title> INTELLECT WORKS </title>
+        <title> Abreco Groups </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -54,10 +54,10 @@
 
                         <a  class="logo logo-light">
                              <span class="logo-sm">
-                                <img src="{{asset('assets/images/logo_small.png')}}" alt="" height="30">
+                                {{-- <img src="{{asset('assets/images/logo_small.png')}}" alt="" height="30"> --}}
                             </span>
                              <span class="logo-lg">
-                                <img src="{{ asset('assets/images/logo.jpg')}}" alt="" height="50">
+                                <img src="{{ asset('assets/images/logo1.png')}}" alt="" height="50">
                             </span>
                         </a>
                     </div>
@@ -492,7 +492,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('admin.home-slider.create')}}" class="waves-effect">
+                            <a href="{{route('admin.home-slider.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Home Slider</span>
                             </a>
@@ -503,7 +503,7 @@
                                 <span key="t-file-manager">Sections</span>
                             </a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
                                 <span key="t-ecommerce">Case Study</span>
@@ -511,9 +511,9 @@
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{route('admin.case-study-settings.create')}}" key="t-products">Settings</a></li>
                                 <li><a href="{{route('admin.casestudies.index')}}" key="t-product-detail">List</a></li>
-                                {{-- <li><a href="{{route('admin.mission-vision.index')}}" key="t-product-detail">Mission And Vision</a></li> --}}
+                                <li><a href="{{route('admin.mission-vision.index')}}" key="t-product-detail">Mission And Vision</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                         {{-- <li>
                             <a href="{{route('admin.casestudies.index')}}" class="waves-effect">
                                 <i class="bx bx-book-open"></i>
@@ -594,6 +594,16 @@
                                 <li><a href="{{route('admin.mission-vision.index')}}" key="t-product-detail">Mission And Vision</a></li>
                             </ul>
                         </li>
+                        {{-- <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-store"></i>
+                                <span key="t-ecommerce">Milestone</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{route('admin.milestone.settings.create')}}" key="t-products">Settings</a></li>
+                                <li><a href="{{route('admin.about-us.list.index')}}" key="t-product-detail">List</a></li>
+                            </ul>
+                        </li> --}}
                         <li>
                             <a href="{{route('admin.contact-us.create')}}" class="waves-effect">
                                 <i class="bx bx-user-voice"></i>
@@ -804,7 +814,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            © <?php echo date("Y"); ?> INTELLECT WORKS. All Rights Reserved. Digitally Empowered by <a href="https://www.netventure.in/"> NetVenture Digital Solutions Pvt. Ltd. </a>
+                            © <?php echo date("Y"); ?> Abreco Groups. All Rights Reserved. Digitally Empowered by <a href="https://www.netventure.in/"> NetVenture Digital Solutions Pvt. Ltd. </a>
                         </div>
                     </div>
                 </div>

@@ -21,6 +21,13 @@ Route::get('/home', function () {
 //logout
 Route::get('logout', 'AdminAuth\LoginController@logout')->name('logout');
 
+
+// about us settings
+Route::get('about us/settings/create',  'Admin\AboutUsController@create')->name('about-us.settings.create');
+Route::post('about us/settings/store',  'Admin\AboutUsController@store')->name('about-us.settings.store');
+Route::get('about-us/settings/image-delete',  'Admin\AboutUsController@image_delete')->name('about-us.settings.image_delete');
+Route::get('about-us/settings/image-delete1',  'Admin\AboutUsController@image_delete1')->name('about-us.settings.image_delete1');
+
 // about us list
 Route::get('about-us/list',  'Admin\AboutUsListController@index')->name('about-us.list.index');
 Route::get('about-us/list/create',  'Admin\AboutUsListController@create')->name('about-us.list.create');
@@ -29,6 +36,24 @@ Route::get('about-us/list/edit/{id}',  'Admin\AboutUsListController@edit')->name
 Route::post('about-us/list/update/{id}',  'Admin\AboutUsListController@update')->name('about-us.list.update');
 Route::delete('about-us/list/destroy/{id}',  'Admin\AboutUsListController@destroy')->name('about-us.list.destroy');
 Route::get('about-us/image-delete',  'Admin\AboutUsListController@image_delete')->name('about-us.image_delete');
+
+
+
+// Milestone settings
+Route::get('milestone/settings/create',  'Admin\MilestoneSettingsController@create')->name('milestone.settings.create');
+Route::post('milestone/settings/store',  'Admin\MilestoneSettingsController@store')->name('milestone.settings.store');
+Route::get('milestone/settings/image-delete',  'Admin\MilestoneSettingsController@image_delete')->name('milestone.settings.image_delete');
+// Route::get('about-us/settings/image-delete1',  'Admin\AboutUsController@image_delete1')->name('about-us.settings.image_delete1');
+
+
+// Milestone list
+// Route::get('milestone/list',  'Admin\MilestoneListController@index')->name('about-us.list.index');
+Route::get('milestone/list/create',  'Admin\MilestoneListController@create')->name('milestone.list.create');
+Route::post('milestone/list/store',  'Admin\MilestoneListController@store')->name('milestone.list.store');
+// Route::get('about-us/list/edit/{id}',  'Admin\AboutUsListController@edit')->name('about-us.list.edit');
+// Route::post('about-us/list/update/{id}',  'Admin\AboutUsListController@update')->name('about-us.list.update');
+// Route::delete('about-us/list/destroy/{id}',  'Admin\AboutUsListController@destroy')->name('about-us.list.destroy');
+// Route::get('about-us/image-delete',  'Admin\AboutUsListController@image_delete')->name('about-us.image_delete');
 
 
 //  about us - mission and vision
@@ -41,11 +66,7 @@ Route::delete('mission-vision/destroy/{id}',  'Admin\MissionVisionController@des
 Route::get('mission-vision/settings/image-delete',  'Admin\MissionVisionController@image_delete')->name('mission-vision.image_delete');
 Route::get('mission-vision/settings/image-delete1',  'Admin\MissionVisionController@image_delete1')->name('mission-vision.image_delete1');
 
-// about us settings
-Route::get('about us/settings/create',  'Admin\AboutUsController@create')->name('about-us.settings.create');
-Route::post('about us/settings/store',  'Admin\AboutUsController@store')->name('about-us.settings.store');
-Route::get('about-us/settings/image-delete',  'Admin\AboutUsController@image_delete')->name('about-us.settings.image_delete');
-Route::get('about-us/settings/image-delete1',  'Admin\AboutUsController@image_delete1')->name('about-us.settings.image_delete1');
+
 
 
 

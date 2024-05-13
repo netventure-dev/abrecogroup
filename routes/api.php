@@ -48,8 +48,8 @@ Route::get('/blogs', [BlogApiController::class, 'index']);
 Route::get('/blogs/{uuid}', [BlogApiController::class, 'details']);
 
 // /sections
-Route::get('/section_3_driven', [HomeController::class, 'section_3']);
-Route::get('/section_5_Services', [HomeController::class, 'section_5']);
+Route::get('/section_5_multi_faceted', [HomeController::class, 'section_5']);
+Route::get('/section_3_join_abreco', [HomeController::class, 'section_3']);
 Route::get('/section_6_case', [HomeController::class, 'section_6']);
 Route::get('/section_7_industries', [HomeController::class, 'section_7']);
 Route::get('/section_8_why', [HomeController::class, 'section_8']);

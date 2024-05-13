@@ -62,7 +62,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-4 row">
+                                {{-- <div class="mb-4 row">
                                     <label for="canonical_tag" class="col-sm-3 col-form-label mb-2">{{ __('Canonical Tag') }}</label>
                                     <div class="col-sm-9">
                                         <input id="canonical_tag" name="canonical_tag" type="text"
@@ -71,8 +71,8 @@
                                         <div class="invalid-feedback">{{ $errors->first('canonical_tag') }}
                                         </div>
                                     </div>
-                                </div>
-                                <div class="mb-4 row">
+                                </div> --}}
+                                {{-- <div class="mb-4 row">
                                     <label for="schema"
                                             class="col-sm-3 col-form-label">{{ __('Schema') }}</label>
                                     <div class="col-sm-9">
@@ -81,7 +81,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('schema') }}
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="mb-4 row">
                                     <label for="content"
                                             class="col-sm-3 col-form-label">{{ __('Content') }}

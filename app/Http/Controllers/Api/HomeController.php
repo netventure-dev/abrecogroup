@@ -21,33 +21,33 @@ class HomeController extends Controller
 
     public function index()
     {
-        $data['home_sliders'] = HomeSlider::where('status', 1)->select('title', 'sub_title','mobile_slider', 'description', 'image', 'button_title', 'link','seo_title','seo_description','seo_keywords','canonical_tag','schema')->get();
+        $data['home_sliders'] = HomeSlider::where('status', 1)->select('title', 'sub_title','mobile_slider', 'description', 'image', 'button_title', 'link')->get();
         // 
-        $data['services'] = Service::select('id', 'uuid', 'name', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status')
-            ->with(['faqs' => function ($query) {
-                $query->select('id', 'service_id', 'uuid', 'title', 'description', 'order')->where('status', 1);
-            }, 'contents' => function ($query) {
-                $query->select('id', 'service_id', 'uuid', 'title', 'description', 'order', 'image')->where('status', 1);
-            }, 'subservices' => function ($query) {
-                $query->select('id', 'service_id', 'service as service_name', 'uuid', 'name', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description')->where('status', 1);
-            }, 'subservices.innerservices' => function ($query) {
-                $query->select('id', 'sub_service_id', 'subservice as subservice_name', 'uuid', 'name', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description')->where('status', 1);
-            },])
-            ->where('status', 1)
-            ->orderBy('created_at', 'desc')
-            ->get();
-        // 
-        // $data['blog']=Blog::select('uuid','title','description','image')->where('status',1)->get();     
-        $data['blogLists'] = Bloglist::select('uuid', 'title','canonical_tag', 'description', 'image', 'slug')->where('status', 1)->get();
-        $data['testimonials'] = Testimonial::select('uuid', 'title', 'position', 'description', 'image')->where('status', 1)->get();
-        $data['testimonial-settings'] = TestimonialSetting::select('uuid', 'title', 'logo')->get();
-        $data['all_sections'] = Section::with(['contents' => function ($query) {
-                                $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order','status')->where('status', 1);
-                            }])
-                            ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content','content2', 'button_title', 'link', 'order','status')
-                            ->whereIn('order',[1,2,4,9])
-                            ->where('status', 1)
-                            ->get();
+        // $data['services'] = Service::select('id', 'uuid', 'name', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description', 'status')
+        //     ->with(['faqs' => function ($query) {
+        //         $query->select('id', 'service_id', 'uuid', 'title', 'description', 'order')->where('status', 1);
+        //     }, 'contents' => function ($query) {
+        //         $query->select('id', 'service_id', 'uuid', 'title', 'description', 'order', 'image')->where('status', 1);
+        //     }, 'subservices' => function ($query) {
+        //         $query->select('id', 'service_id', 'service as service_name', 'uuid', 'name', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description')->where('status', 1);
+        //     }, 'subservices.innerservices' => function ($query) {
+        //         $query->select('id', 'sub_service_id', 'subservice as subservice_name', 'uuid', 'name', 'cover_image', 'logo', 'slug', 'cover_description', 'title', 'description')->where('status', 1);
+        //     },])
+        //     ->where('status', 1)
+        //     ->orderBy('created_at', 'desc')
+        //     ->get();
+        // // 
+        // // $data['blog']=Blog::select('uuid','title','description','image')->where('status',1)->get();     
+        // $data['blogLists'] = Bloglist::select('uuid', 'title','canonical_tag', 'description', 'image', 'slug')->where('status', 1)->get();
+        // $data['testimonials'] = Testimonial::select('uuid', 'title', 'position', 'description', 'image')->where('status', 1)->get();
+        // $data['testimonial-settings'] = TestimonialSetting::select('uuid', 'title', 'logo')->get();
+        // $data['all_sections'] = Section::with(['contents' => function ($query) {
+        //                         $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order','status')->where('status', 1);
+        //                     }])
+        //                     ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content','content2', 'button_title', 'link', 'order','status')
+        //                     ->whereIn('order',[1,2,4,9])
+        //                     ->where('status', 1)
+        //                     ->get();
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }
@@ -74,10 +74,11 @@ class HomeController extends Controller
         return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
     }   
    
+     //why join abreco Api 
     public function section_3()
     {
        // section 1
-       $data['section_3_driven'] = Section::with(['contents' => function ($query) {
+       $data['section_3_join_abreco'] = Section::with(['contents' => function ($query) {
                                 $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order','status')->where('status', 1);
                             }])
                             ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content','content2','button_title', 'link', 'order','status')
@@ -89,10 +90,12 @@ class HomeController extends Controller
         }
         return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
     }   
+
+   //multi faceted
     public function section_5()
     {
        // section 1
-       $data['section_5_Services'] = Section::with(['contents' => function ($query) {
+       $data['section_5_multi_faceted'] = Section::with(['contents' => function ($query) {
                                 $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order','status')->where('status', 1);
                             }])
                             ->select('uuid', 'title','slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order','status')

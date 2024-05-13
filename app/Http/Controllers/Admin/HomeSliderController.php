@@ -29,6 +29,7 @@ class HomeSliderController extends Controller
         // $this->authorize('create', Admin::class);
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
+            ['Slider', route('admin.home-slider.index')],
             ['Create', route('admin.home-slider.create')],
         ];
         $data = HomeSlider::first();
@@ -48,13 +49,12 @@ class HomeSliderController extends Controller
             'link' => 'nullable',
             'image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
             'mobile_slider' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
-            'status' => 'required',
+            // 'status' => 'required',
             // 'seo_title' => 'nullable',
             // 'seo_description' => 'nullable',
             // 'seo_keywords' => 'nullable',
         ]);
-        $slider  = HomeSlider::firstOrCreate();
-        // $slider = new HomeSlider;
+        $slider  = new HomeSlider;        // $slider = new HomeSlider;
         $slider->uuid = (string) Str::uuid();
         $slider->title = $validated['title'];
         $slider->sub_title = $validated['sub_title'];
@@ -66,7 +66,7 @@ class HomeSliderController extends Controller
         // $slider->seo_title = $validated['seo_title'];
         // $slider->seo_description = $validated['seo_description'];
         // $slider->seo_keywords = $validated['seo_keywords'];
-        $slider->status = $validated['status'];
+        // $slider->status = $validated['status'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/image',$validated['image']->getClientOriginalName(), 'public');
             $slider->image = $path;
@@ -103,7 +103,7 @@ class HomeSliderController extends Controller
             'sub_title' => 'nullable',
             'button_title' => 'nullable',
             'canonical_tag' => 'nullable',
-            'schema' => 'nullable',
+            // 'schema' => 'nullable',
             'content' => 'required',
             'link' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
@@ -117,7 +117,7 @@ class HomeSliderController extends Controller
         $slider->sub_title = $validated['sub_title'];
         $slider->button_title = $validated['button_title'];
         $slider->canonical_tag = $validated['canonical_tag'];
-        $slider->schema = $validated['schema'];
+        // $slider->schema = $validated['schema'];
         $slider->description = $validated['content'];
         $slider->status = $validated['status'];
         // $slider->seo_title = $validated['seo_title'];
