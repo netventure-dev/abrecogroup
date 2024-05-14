@@ -60,54 +60,54 @@ Route::get('/section_3_join_abreco', [HomeController::class, 'section_3']);
 // Route::get('/section_8_why', [HomeController::class, 'section_8']);
 
 // Serivce
-Route::post('/form', [ServiceFormController::class, 'store']);
+// Route::post('/form', [ServiceFormController::class, 'store']);
 
 
-// Contact
-Route::post('/contact-form', [ContactUsApiController::class, 'store']);
-Route::post('/contact-form/test', [ContactUsApiController::class, 'teststore']);
-Route::get('/contact', [ContactUsApiController::class, 'contact']);
+// // Contact
+// Route::post('/contact-form', [ContactUsApiController::class, 'store']);
+// Route::post('/contact-form/test', [ContactUsApiController::class, 'teststore']);
+// Route::get('/contact', [ContactUsApiController::class, 'contact']);
 
 
-// Career
-Route::get('/career-openings', [CareerApiController::class, 'index']);
-Route::post('/career-form', [CareerApiController::class, 'store']);
+// // Career
+// Route::get('/career-openings', [CareerApiController::class, 'index']);
+// Route::post('/career-form', [CareerApiController::class, 'store']);
 
 
 // Testimonials
 Route::get('/testimonials', [TestimonialsController::class, 'index']);
 
 // case studies
-Route::get('/case-studies', [CaseStudyApiController::class, 'index']);
-Route::get('/case-studies/level-1/{uuid}/', [CaseStudyApiController::class, 'level_1']);
-Route::get('/case-studies/level-1/{uuid}/{case_slug}', [CaseStudyApiController::class, 'level_1_slug']);
-Route::get('/case-studies/{uuid}/level-2/{id}', [CaseStudyApiController::class, 'level_2']);
-Route::get('/case-studies/{uuid}/level-2/{id}/{case_slug}', [CaseStudyApiController::class, 'level_2_slug']);
-Route::get('/case-studies/{uuid}/level-2/{id}/level-3/{idd}', [CaseStudyApiController::class, 'level_3']);
-Route::get('/case-studies/{uuid}/level-2/{id}/level-3/{idd}/{case_slug}', [CaseStudyApiController::class, 'level_3_slug']);
+// Route::get('/case-studies', [CaseStudyApiController::class, 'index']);
+// Route::get('/case-studies/level-1/{uuid}/', [CaseStudyApiController::class, 'level_1']);
+// Route::get('/case-studies/level-1/{uuid}/{case_slug}', [CaseStudyApiController::class, 'level_1_slug']);
+// Route::get('/case-studies/{uuid}/level-2/{id}', [CaseStudyApiController::class, 'level_2']);
+// Route::get('/case-studies/{uuid}/level-2/{id}/{case_slug}', [CaseStudyApiController::class, 'level_2_slug']);
+// Route::get('/case-studies/{uuid}/level-2/{id}/level-3/{idd}', [CaseStudyApiController::class, 'level_3']);
+// Route::get('/case-studies/{uuid}/level-2/{id}/level-3/{idd}/{case_slug}', [CaseStudyApiController::class, 'level_3_slug']);
 
 // Route::resource('home', HomeController::class);
 
 //Additional page
 
-Route::get('/additionals', [AdditionalPageApiController::class, 'index']);
+// Route::get('/additionals', [AdditionalPageApiController::class, 'index']);
 
 
-// // terms & condition
-Route::get('/terms', [PolicyPageApiController::class, 'terms']);
+// // // terms & condition
+// Route::get('/terms', [PolicyPageApiController::class, 'terms']);
 
-//privacy & policy
-Route::get('/policy',[PolicyPageApiController::class,'policy']);
+// //privacy & policy
+// Route::get('/policy',[PolicyPageApiController::class,'policy']);
 
-//cookie
-Route::get('/cookie',[PolicyPageApiController::class,'cookie']);
+// //cookie
+// Route::get('/cookie',[PolicyPageApiController::class,'cookie']);
 
-//seo
-Route::get('/seo/{slug}',[SeoApiController::class,'index']);
+// //seo
+// Route::get('/seo/{slug}',[SeoApiController::class,'index']);
 
-//gtm
-Route::get('/gtm',[SeoApiController::class,'gtm']);
+// //gtm
+// Route::get('/gtm',[SeoApiController::class,'gtm']);
 
-Route::get('/schema', [SchemaApiController::class, 'schema']);
+// Route::get('/schema', [SchemaApiController::class, 'schema']);
 
 

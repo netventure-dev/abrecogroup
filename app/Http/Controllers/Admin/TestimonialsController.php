@@ -44,12 +44,12 @@ class TestimonialsController extends Controller
             'content' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
-            'position' => 'nullable'
+            // 'position' => 'nullable'
         ]);
         $data = new Testimonial;
         $data->uuid = (string) Str::uuid();
         $data->title = $validated['title'];
-        $data->position = $validated['position'];
+        // $data->position = $validated['position'];
         $data->description = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
@@ -84,11 +84,11 @@ class TestimonialsController extends Controller
             'content' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
             'status' => 'required',
-            'position' => 'nullable'
+            // 'position' => 'nullable'
 
         ]);
         $data->title = $validated['title'];
-        $data->position = $validated['position'];
+        // $data->position = $validated['position'];
         $data->description = $validated['content'];
         $data->status = $validated['status'];
         if ($request->hasFile('image')) {
