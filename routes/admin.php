@@ -136,6 +136,22 @@ Route::get('blog/list/image-delete',  'Admin\BlogListController@image_delete')->
 Route::get('testimonials-settings/create',  'Admin\TestimonialSettingsController@create')->name('testimonials-settings.create');
 Route::post('testimonials-settings/store',  'Admin\TestimonialSettingsController@store')->name('testimonials-settings.store');
 
+
+
+// Our Bussiness
+
+Route::get('business-settings/create',  'Admin\OurBusinessSettingController@create')->name('business-settings.create');
+Route::post('business-settings/store',  'Admin\OurBusinessSettingController@store')->name('business-settings.store');
+
+
+//our business List
+
+  Route::get('business-list','Admin\OurBuinessListController@logos')->name('business-list.index');
+  Route::post('business-list/images', 'Admin\OurBuinessListController@store')->name('business-list.store');
+  Route::delete('business-list/destroy/{id}',  'Admin\OurBuinessListController@destroy')->name('business-list.destroy');
+  Route::post('business-list/title', 'Admin\OurBuinessListController@title')->name('business-list.title');
+  
+
 // testimonials
 Route::get('testimonials',  'Admin\TestimonialsController@index')->name('testimonials.index');
 Route::get('testimonials/create',  'Admin\TestimonialsController@create')->name('testimonials.create');

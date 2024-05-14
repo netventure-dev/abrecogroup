@@ -37,22 +37,27 @@ use App\Http\Controllers\Api\SeoApiController;
 // Route::get('/home', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/general', [HomeController::class, 'general']);
-Route::get('industries',[IndustryController::class,'index']);
-Route::get('industries/{uuid}',[IndustryController::class,'details']);
-Route::get('/about-us', [AboutController::class, 'index']);
-Route::get('/services', [ServiceApiController::class, 'index']);
-Route::get('/service/level-1/{uuid}', [ServiceApiController::class, 'details']);
-Route::get('/service/{uuid}/level-2/{id}', [ServiceApiController::class, 'sub_services']);
-Route::get('/service/{uuid}/level-2/{id}/level-3/{idd}', [ServiceApiController::class, 'inner_services']);
-Route::get('/blogs', [BlogApiController::class, 'index']);
-Route::get('/blogs/{uuid}', [BlogApiController::class, 'details']);
+// Route::get('industries',[IndustryController::class,'index']);
+// Route::get('industries/{uuid}',[IndustryController::class,'details']);
+// Route::get('/about-us', [AboutController::class, 'index']);
+// Route::get('/services', [ServiceApiController::class, 'index']);
+// Route::get('/service/level-1/{uuid}', [ServiceApiController::class, 'details']);
+// Route::get('/service/{uuid}/level-2/{id}', [ServiceApiController::class, 'sub_services']);
+// Route::get('/service/{uuid}/level-2/{id}/level-3/{idd}', [ServiceApiController::class, 'inner_services']);
+// Route::get('/blogs', [BlogApiController::class, 'index']);
+// Route::get('/blogs/{uuid}', [BlogApiController::class, 'details']);
+Route::get('/business-settings', [HomeController::class, 'business_settings']);
+
+Route::get('/business-list', [HomeController::class, 'business_list']);
+
+
 
 // /sections
 Route::get('/section_5_multi_faceted', [HomeController::class, 'section_5']);
 Route::get('/section_3_join_abreco', [HomeController::class, 'section_3']);
-Route::get('/section_6_case', [HomeController::class, 'section_6']);
-Route::get('/section_7_industries', [HomeController::class, 'section_7']);
-Route::get('/section_8_why', [HomeController::class, 'section_8']);
+// Route::get('/section_6_case', [HomeController::class, 'section_6']);
+// Route::get('/section_7_industries', [HomeController::class, 'section_7']);
+// Route::get('/section_8_why', [HomeController::class, 'section_8']);
 
 // Serivce
 Route::post('/form', [ServiceFormController::class, 'store']);
@@ -104,3 +109,5 @@ Route::get('/seo/{slug}',[SeoApiController::class,'index']);
 Route::get('/gtm',[SeoApiController::class,'gtm']);
 
 Route::get('/schema', [SchemaApiController::class, 'schema']);
+
+

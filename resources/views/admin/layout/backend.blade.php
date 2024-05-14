@@ -1,35 +1,36 @@
 <!doctype html>
 <html lang="en">
 
-    <head>
-        @php
-            $general = App\Models\General::first();
-            $logo =  @$general->logo;
-            $fav =  @$general->favicon;
-        @endphp
-        <meta charset="utf-8" />
-        <title> Abreco Groups </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-        <meta content="Themesbrand" name="author" />
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="{{asset('storage/'.@$fav)}}">
+<head>
+    @php
+        $general = App\Models\General::first();
+        $logo = @$general->logo;
+        $fav = @$general->favicon;
+    @endphp
+    <meta charset="utf-8" />
+    <title> Abreco Groups </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ asset('storage/' . @$fav) }}">
 
-        <!-- owl.carousel css -->
-        <link rel="stylesheet" href="{{asset('assets/libs/owl.carousel/assets/owl.carousel.min.css')}}">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="{{ asset('assets/libs/owl.carousel/assets/owl.carousel.min.css') }}">
 
-        <link rel="stylesheet" href="{{asset('assets/libs/owl.carousel/assets/owl.theme.default.min.css')}}">
-        @notify_css
+    <link rel="stylesheet" href="{{ asset('assets/libs/owl.carousel/assets/owl.theme.default.min.css') }}">
+    @notify_css
 
-        <!-- Bootstrap Css -->
-        <link href="{{asset('assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
-        <!-- Icons Css -->
-        <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
-        <!-- App Css-->
-        <link href="{{asset('assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap Css -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
-        @yield('css')
-    </head>
+    @yield('css')
+</head>
+
 <body data-sidebar="dark">
 
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
@@ -43,21 +44,21 @@
                 <div class="d-flex">
                     <!-- LOGO -->
                     <div class="navbar-brand-box" style="background-color:#060332 !important ">
-                        <a  class="logo logo-dark">
+                        <a class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="{{asset('assets/images/logo_small.png')}}" alt="" height="30">
+                                <img src="{{ asset('assets/images/logo_small.png') }}" alt="" height="30">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{asset('assets/images/logo.jpg')}}" alt="" height="50">
+                                <img src="{{ asset('assets/images/logo.jpg') }}" alt="" height="50">
                             </span>
                         </a>
 
-                        <a  class="logo logo-light">
-                             <span class="logo-sm">
+                        <a class="logo logo-light">
+                            <span class="logo-sm">
                                 {{-- <img src="{{asset('assets/images/logo_small.png')}}" alt="" height="30"> --}}
                             </span>
-                             <span class="logo-lg">
-                                <img src="{{ asset('assets/images/logo1.png')}}" alt="" height="50">
+                            <span class="logo-lg">
+                                <img src="{{ asset('assets/images/logo1.png') }}" alt="" height="50">
                             </span>
                         </a>
                     </div>
@@ -201,8 +202,8 @@
 
                                         <div class="col-sm-5">
                                             <div>
-                                                <img src="{{asset('assets/images/megamenu-img.png')}}" alt=""
-                                                    class="img-fluid mx-auto d-block">
+                                                <img src="{{ asset('assets/images/megamenu-img.png') }}"
+                                                    alt="" class="img-fluid mx-auto d-block">
                                             </div>
                                         </div>
                                     </div>
@@ -249,31 +250,31 @@
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="en">
-                                <img src="{{ asset('assets/images/flags/us.jpg')}}" alt="user-image" class="me-1"
+                                <img src="{{ asset('assets/images/flags/us.jpg') }}" alt="user-image" class="me-1"
                                     height="12"> <span class="align-middle">English</span>
                             </a>
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">
-                                <img src="{{ asset('assets/images/flags/spain.jpg')}}" alt="user-image" class="me-1"
-                                    height="12"> <span class="align-middle">Spanish</span>
+                                <img src="{{ asset('assets/images/flags/spain.jpg') }}" alt="user-image"
+                                    class="me-1" height="12"> <span class="align-middle">Spanish</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="gr">
-                                <img src="{{ asset('assets/images/flags/germany.jpg')}}" alt="user-image" class="me-1"
-                                    height="12"> <span class="align-middle">German</span>
+                                <img src="{{ asset('assets/images/flags/germany.jpg') }}" alt="user-image"
+                                    class="me-1" height="12"> <span class="align-middle">German</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="it">
-                                <img src="{{ asset('assets/images/flags/italy.jpg')}}" alt="user-image" class="me-1"
-                                    height="12"> <span class="align-middle">Italian</span>
+                                <img src="{{ asset('assets/images/flags/italy.jpg') }}" alt="user-image"
+                                    class="me-1" height="12"> <span class="align-middle">Italian</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ru">
-                                <img src="{{ asset('assets/images/flags/russia.jpg')}}" alt="user-image" class="me-1"
-                                    height="12"> <span class="align-middle">Russian</span>
+                                <img src="{{ asset('assets/images/flags/russia.jpg') }}" alt="user-image"
+                                    class="me-1" height="12"> <span class="align-middle">Russian</span>
                             </a>
                         </div>
                     </div>
@@ -288,19 +289,21 @@
                                 <div class="row g-0">
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('assets/images/brands/github.png')}}" alt="Github">
+                                            <img src="{{ asset('assets/images/brands/github.png') }}" alt="Github">
                                             <span>GitHub</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('assets/images/brands/bitbucket.png')}}" alt="bitbucket">
+                                            <img src="{{ asset('assets/images/brands/bitbucket.png') }}"
+                                                alt="bitbucket">
                                             <span>Bitbucket</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('assets/images/brands/dribbble.png')}}" alt="dribbble">
+                                            <img src="{{ asset('assets/images/brands/dribbble.png') }}"
+                                                alt="dribbble">
                                             <span>Dribbble</span>
                                         </a>
                                     </div>
@@ -309,19 +312,21 @@
                                 <div class="row g-0">
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('assets/images/brands/dropbox.png')}}" alt="dropbox">
+                                            <img src="{{ asset('assets/images/brands/dropbox.png') }}"
+                                                alt="dropbox">
                                             <span>Dropbox</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('assets/images/brands/mail_chimp.png')}}" alt="mail_chimp">
+                                            <img src="{{ asset('assets/images/brands/mail_chimp.png') }}"
+                                                alt="mail_chimp">
                                             <span>Mail Chimp</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('assets/images/brands/slack.png')}}" alt="slack">
+                                            <img src="{{ asset('assets/images/brands/slack.png') }}" alt="slack">
                                             <span>Slack</span>
                                         </a>
                                     </div>
@@ -377,7 +382,7 @@
                                 </a>
                                 <a href="" class="text-reset notification-item">
                                     <div class="media">
-                                        <img src="{{ asset('assets/images/users/avatar-3.jpg')}}"
+                                        <img src="{{ asset('assets/images/users/avatar-3.jpg') }}"
                                             class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                         <div class="media-body">
                                             <h6 class="mt-0 mb-1">James Lemire</h6>
@@ -411,7 +416,7 @@
 
                                 <a href="" class="text-reset notification-item">
                                     <div class="media">
-                                        <img src="{{ asset('assets/images/users/avatar-4.jpg')}}"
+                                        <img src="{{ asset('assets/images/users/avatar-4.jpg') }}"
                                             class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                         <div class="media-body">
                                             <h6 class="mt-0 mb-1">Salena Layfield</h6>
@@ -437,8 +442,8 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="{{asset('assets/images/users/avatar-1.jpg')}}"
-                                alt="Header Avatar">
+                            <img class="rounded-circle header-profile-user"
+                                src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="Header Avatar">
                             <span class="d-none d-xl-inline-block ms-1" key="t-henry">Developer</span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
@@ -454,10 +459,9 @@
                             <div class="dropdown-divider"></div>
 
                             <a class="dropdown-item " href="{{ route('admin.settings.show') }}"><i
-                                class="fa fa-cog"></i> <span
-                                key="t-logout">Settings</span></a>
+                                    class="fa fa-cog"></i> <span key="t-logout">Settings</span></a>
 
-                            <a class="dropdown-item text-danger" href="{{route('logout')}}"><i
+                            <a class="dropdown-item text-danger" href="{{ route('logout') }}"><i
                                     class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                     key="t-logout">Logout</span></a>
 
@@ -486,19 +490,19 @@
                         <li class="menu-title" key="t-menu">Menu</li>
 
                         <li>
-                            <a href="{{route('admin.home')}}" class="waves-effect">
+                            <a href="{{ route('admin.home') }}" class="waves-effect">
                                 <i class="bx bx-home-circle"></i>
                                 <span key="t-dashboards">Dashboards</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('admin.home-slider.index')}}" class="waves-effect">
+                            <a href="{{ route('admin.home-slider.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Home Slider</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('admin.sections.index')}}" class="waves-effect">
+                            <a href="{{ route('admin.sections.index') }}" class="waves-effect">
                                 <i class="bx bxs-layer"></i>
                                 <span key="t-file-manager">Sections</span>
                             </a>
@@ -526,7 +530,7 @@
                                 <span key="t-file-manager">Case Study Settings</span>
                             </a>
                         </li> --}}
-                        <li>
+                        {{-- <li>
                             <a href="{{route('admin.services.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Services</span>
@@ -549,7 +553,7 @@
                                 <i class="bx bxs-buildings"></i>
                                 <span key="t-file-manager">Industry</span>
                             </a>
-                        </li>
+                        </li> --}}
                         {{-- <li>
                             <a href="{{route('admin.demo_industries.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
@@ -578,20 +582,23 @@
                                 <span key="t-ecommerce">Additional Pages</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{route('admin.additional-pages.create')}}" key="t-products">Add</a></li>
-                                <li><a href="{{route('admin.additional-pages.index')}}" key="t-product-detail">View</a></li>
+                                <li><a href="{{ route('admin.additional-pages.create') }}" key="t-products">Add</a></li>
+                                <li><a href="{{ route('admin.additional-pages.index') }}" key="t-product-detail">View</a></li>
                             </ul>
                         </li> -->
                         <li class="menu-title" key="t-apps">Pages</li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
-                                <span key="t-ecommerce">About Us</span>
+                                <span key="t-ecommerce">Our Business</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{route('admin.about-us.settings.create')}}" key="t-products">Settings</a></li>
-                                <li><a href="{{route('admin.about-us.list.index')}}" key="t-product-detail">List</a></li>
-                                <li><a href="{{route('admin.mission-vision.index')}}" key="t-product-detail">Mission And Vision</a></li>
+                                <li><a href="{{ route('admin.business-settings.create') }}"
+                                        key="t-products">Settings</a></li>
+                                 <li><a href="{{ route('admin.about-us.list.index') }}"
+                                        key="t-product-detail">List</a></li>
+                                {{-- <li><a href="{{ route('admin.mission-vision.index') }}"
+                                        key="t-product-detail">Mission And Vision</a></li>  --}}
                             </ul>
                         </li>
                         {{-- <li>
@@ -604,19 +611,19 @@
                                 <li><a href="{{route('admin.about-us.list.index')}}" key="t-product-detail">List</a></li>
                             </ul>
                         </li> --}}
-                        <li>
+                        {{-- <li>
                             <a href="{{route('admin.contact-us.create')}}" class="waves-effect">
                                 <i class="bx bx-user-voice"></i>
                                 <span key="t-file-manager">Contact Us</span>
                             </a>
-                        </li>
+                        </li> --}}
                         {{-- <li>
                             <a href="#" class="waves-effect">
                                 <i class="bx bxs-message-dots"></i>
                                 <span key="t-file-manager">Feedback</span>
                             </a>
                         </li> --}}
-                        <li>
+                        {{-- <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
                                 <span key="t-ecommerce">Testimonials</span>
@@ -625,8 +632,8 @@
                                 <li><a href="{{route('admin.testimonials-settings.create')}}" key="t-products">Settings</a></li>
                                 <li><a href="{{route('admin.testimonials.index')}}" key="t-product-detail">List</a></li>
                             </ul>
-                        </li>
-                        <li>
+                        </li> --}}
+                        {{-- <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
                                 <span key="t-ecommerce">Blogs</span>
@@ -635,7 +642,7 @@
                                 <li><a href="{{ route('admin.blog-settings.create') }}" key="t-products">Settings</a></li>
                                 <li><a href="{{ route('admin.blog-list.index') }}" key="t-product-detail">List</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                         {{-- <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
@@ -646,19 +653,19 @@
                                 <li><a href="{{route('admin.request.list.index')}}" key="t-product-detail">Content</a></li>
                             </ul>
                         </li> --}}
-                        <li>
+                        {{-- <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
                                 <span key="t-ecommerce">Policy</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                {{-- <li><a href="{{route('admin.terms.create')}}" key="t-products">Terms & Condition</a></li> --}}
-                                {{-- <li><a href="{{route('admin.cookie.index')}}" key="t-product-detail">Cookie Policy</a></li> --}}
-                                <li><a href="{{route('admin.policy.index')}}" key="t-product-detail">Privacy Policy</a></li>
-                            </ul>
-                        </li>
 
-                        <li class="menu-title" key="t-apps">Reports</li>
+                                <li><a href="{{ route('admin.policy.index') }}" key="t-product-detail">Privacy
+                                        Policy</a></li>
+                            </ul>
+                        </li> --}}
+
+                        {{-- <li class="menu-title" key="t-apps">Reports</li>
                         <li>
                             <a href="{{ route('admin.requestenquiry.index') }}" class="waves-effect">
                                 <i class="bx bx-notepad"></i>
@@ -670,14 +677,14 @@
                                 <i class="bx bxs-food-menu"></i>
                                 <span key="t-file-manager">Career Enquiries</span>
                             </a>
-                        </li>
+                        </li> --}}
 
                         {{--  <li>
                             <a href="{{route('admin.feedbackenquiry.index')}}" class="waves-effect">
                                 <i class="bx bx-message-rounded-dots"></i>
                                 <span key="t-file-manager">Feedback</span>
                             </a>
-                        </li>  --}} 
+                        </li>  --}}
                         <li>
                             <a href="{{ route('admin.enquiries.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
@@ -687,27 +694,29 @@
                         <li class="menu-title" key="t-apps">Settings</li>
 
                         <li>
-                            <a href="{{route('admin.general.create')}}" class="waves-effect">
+                            <a href="{{ route('admin.general.create') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">General</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{route('admin.editSitemap')}}" class="waves-effect">
+                        {{-- <li>
+                            <a href="{{ route('admin.editSitemap') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Sitemap</span>
                             </a>
-                        </li>
-                        <li>
+                        </li> --}}
+                        {{-- <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
                                 <span key="t-ecommerce">Career Opening</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{route('admin.career-opening-settings.create')}}" key="t-products">Settings</a></li>
-                                <li><a href="{{route('admin.career-opening.index')}}" key="t-product-detail">List</a></li> 
+                                <li><a href="{{ route('admin.career-opening-settings.create') }}"
+                                        key="t-products">Settings</a></li>
+                                <li><a href="{{ route('admin.career-opening.index') }}"
+                                        key="t-product-detail">List</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                         {{-- <li>
                             <a href="{{route('admin.service-care.index')}}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
@@ -715,13 +724,13 @@
                             </a>
                         </li> --}}
                         <!-- <li>
-                            <a href="{{route('admin.schema.index')}}" class="waves-effect">
+                            <a href="{{ route('admin.schema.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Schema</span>
                             </a>
                         </li> -->
                         <li>
-                            <a href="{{route('admin.seo.index')}}" class="waves-effect">
+                            <a href="{{ route('admin.seo.index') }}" class="waves-effect">
                                 <i class="bx bx-search"></i>
                                 <span key="t-file-manager">SEO</span>
                             </a>
@@ -814,7 +823,8 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            © <?php echo date("Y"); ?> Abreco Groups. All Rights Reserved. Digitally Empowered by <a href="https://www.netventure.in/"> NetVenture Digital Solutions Pvt. Ltd. </a>
+                            © <?php echo date('Y'); ?> Abreco Groups. All Rights Reserved. Digitally Empowered by <a
+                                href="https://www.netventure.in/"> NetVenture Digital Solutions Pvt. Ltd. </a>
                         </div>
                     </div>
                 </div>
@@ -841,14 +851,14 @@
         <!-- App js -->
         <script src="{{ asset('assets/js/app.js') }}"></script>
         <script>
-            $(document).ready(function () {
-                $('#careerreportdatatable-table').on('init.dt', function () {
+            $(document).ready(function() {
+                $('#careerreportdatatable-table').on('init.dt', function() {
                     $('.no-sort').removeClass('sorting sorting_asc sorting_desc');
                 });
-                $('#contactusreportdatatable-table').on('init.dt', function () {
+                $('#contactusreportdatatable-table').on('init.dt', function() {
                     $('.no-sort').removeClass('sorting sorting_asc sorting_desc');
                 });
-                $('#requestquotereportdatatable-table').on('init.dt', function () {
+                $('#requestquotereportdatatable-table').on('init.dt', function() {
                     $('.no-sort').removeClass('sorting sorting_asc sorting_desc');
                 });
 
