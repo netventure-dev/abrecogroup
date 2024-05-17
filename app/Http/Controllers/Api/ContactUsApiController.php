@@ -41,59 +41,13 @@ class ContactUsApiController extends Controller
     }
     public function store(Request $request)
     {
-        // //return 2;
-        // $validated = $request->validate([
-        //     'name' => 'required|max:255',
-        //     'email' => 'required|email|max:255',
-        //     'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-        //     'message' => 'required',
-        //     'organization' => 'required',
-        //     'job' => 'required',
-        //     'reason' => 'required',
-        //     'refer' => 'required',
-        //     // 'g-recaptcha-response' => 'required|captcha',
-        // ]);
-        // // return 1;
-        // $data = new Contact();
-        // $data->name = $validated['name'];
-        // $data->email = $validated['email'];
-        // $data->phone = $validated['phone'];
-        // $data->organization = $validated['organization'];
-        // $data->job = $validated['job'];
-        // $data->reason = $validated['reason'];
-        // $data->refer = $validated['refer'];
-        // $data->message = $validated['message'];
-        // // dd($data);
-        // $res = $data->save();
-        // // return view('contact_us.show');
-
-        // if ($res) {
-        //     $admin = Admin::first();
-        //     $details['name'] = $validated['name'];
-        //     $details['email'] = $validated['email'];
-        //     $details['phone'] = $validated['phone'];
-        //     $details['organization'] = $validated['organization'];
-        //     $details['job'] = $validated['job'];
-        //     $details['refer'] = $validated['refer'];
-        //     $details['reason'] = $validated['reason'];
-        //     $details['message'] = $validated['message'];
-        //     $details['admin_name'] = $admin->name;
-        //     Notification::send($admin, new ContactNotification($details));
-        //     Notification::route('mail', $details['email'])->notify(new ContactusNotification($details));
-        //     return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $details], $this->successStatus);
-        // } else {
-        //     return response()->json(['code' => 404, 'message' => 'Failed to submit data', 'data' => $details], $this->failedStatus);
-        // }
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:7|max:16',
+            // 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:7|max:16',
+            'subject' => 'required',
             'message' => 'required',
-            'organization' => 'required',
-            'job' => 'required',
-            'reason' => 'required',
-            'refer' => 'required',
-            'recaptchaToken' => 'required|string',
+            // 'recaptchaToken' => 'required|string',
 
 
         ], [
@@ -103,62 +57,57 @@ class ContactUsApiController extends Controller
 
         ]);
 
-        if ($validator->fails()) {
-            $response = [
-                'success' => false,
-                'errors' => $validator->errors(),
-                'input' => request()->all(),
-            ];
+        // if ($validator->fails()) {
+        //     $response = [
+        //         'success' => false,
+        //         'errors' => $validator->errors(),
+        //         'input' => request()->all(),
+        //     ];
 
-            return response()->json($response);
-        }
+        //     return response()->json($response);
+        // }
 
-        $secretKey = env('RECAPTCHA_SECRET_KEY');
-
-
-        $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . $secretKey . '&response=' . $request->post('recaptchaToken'));
-
-        $responseData = $response->json();
+        // $secretKey = env('RECAPTCHA_SECRET_KEY');
 
 
-        if (!$responseData['success']) {
-            return response()->json([
-                'message' => 'reCAPTCHA validation failed',
-                'error-codes' => $responseData['error-codes'],
-            ], 422);
-        }
+        // $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . $secretKey . '&response=' . $request->post('recaptchaToken'));
 
-        
+        // $responseData = $response->json();
+
+
+        // if (!$responseData['success']) {
+        //     return response()->json([
+        //         'message' => 'reCAPTCHA validation failed',
+        //         'error-codes' => $responseData['error-codes'],
+        //     ], 422);
+        // }
+
+
 
         $data = new Contact();
         $data->name = $request['name'];
         $data->email = $request['email'];
-        $data->phone = $request['phone'];
+        $data->subject = $request['subject'];
         $data->message = $request['message'];
-        $data->organization = $request['organization'];
-        $data->job = $request['job'];
-        $data->reason = $request['reason'];
-        $data->refer = $request['refer'];
         $res = $data->save();
 
+        // if ($res) {
+        //     $admin = Admin::first();
+        //     $details['name'] = $request['name'];
+        //     $details['email'] = $request['email'];
+        //     $details['subject'] = $request['subject'];
+        //     $details['message'] = $request['message'];
+        //     $details['admin_name'] = 'Admin';
+        //     Notification::send($admin, new ContactNotification($details));
+        //     Notification::route('mail', 'sunil.kumar@a3logics.in')->notify(new ContactNotification($details));
+        //     Notification::route('mail', 'divya.jain@a3logics.in')->notify(new ContactNotification($details));
+        //     Notification::route('mail', $details['email'])->notify(new ContactusNotification($details));
+        //     return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $details], $this->successStatus);
+        // } else {
+        //     return response()->json(['code' => 404, 'message' => 'Failed to submit data', 'data' => $details], $this->failedStatus);
+        // }
         if ($res) {
-            $admin = Admin::first();
-            $details['name'] = $request['name'];
-            $details['email'] = $request['email'];
-            $details['phone'] = $request['phone'];
-            $details['message'] = $request['message'];
-            $details['organization'] = $request['organization'];
-            $details['job'] = $request['job'];
-            $details['reason'] = $request['reason'];
-            $details['refer'] = $request['refer'];
-            $details['admin_name'] = 'Admin';
-            Notification::send($admin, new ContactNotification($details));
-            Notification::route('mail', 'sunil.kumar@a3logics.in')->notify(new ContactNotification($details));
-            Notification::route('mail', 'divya.jain@a3logics.in')->notify(new ContactNotification($details));
-            Notification::route('mail', $details['email'])->notify(new ContactusNotification($details));
-            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $details], $this->successStatus);
-        } else {
-            return response()->json(['code' => 404, 'message' => 'Failed to submit data', 'data' => $details], $this->failedStatus);
+            return response()->json(['code' => 200, 'message' => 'Successful'], $this->successStatus);
         }
     }
     // public function teststore(Request $request)
@@ -201,5 +150,3 @@ class ContactUsApiController extends Controller
     //         ]);
     //     }
 }
-
-

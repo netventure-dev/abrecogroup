@@ -63,8 +63,8 @@ Route::get('/section_3_join_abreco', [HomeController::class, 'section_3']);
 // Route::post('/form', [ServiceFormController::class, 'store']);
 
 
-// // Contact
-// Route::post('/contact-form', [ContactUsApiController::class, 'store']);
+// Contact
+Route::post('/contact-form', [ContactUsApiController::class, 'store']);
 // Route::post('/contact-form/test', [ContactUsApiController::class, 'teststore']);
 // Route::get('/contact', [ContactUsApiController::class, 'contact']);
 

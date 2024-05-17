@@ -32,7 +32,7 @@
                                     <a  class="auth-logo-dark">
                                         <div class="avatar-md profile-user-wid mb-4">
                                             <span class="rounded-circle">
-                                                <img src="{{asset('assets/images/logo_small.png')}}" alt="" class="rounded-circle" height="70">
+                                                <img src="{{asset('assets/images/logo1.png')}}" alt="" class="rounded-circle" height="70">
                                             </span>
                                         </div>
                                     </a>

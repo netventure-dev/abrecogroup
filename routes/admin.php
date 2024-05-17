@@ -39,21 +39,21 @@ Route::get('about-us/image-delete',  'Admin\AboutUsListController@image_delete')
 
 
 
-// Milestone settings
-Route::get('milestone/settings/create',  'Admin\MilestoneSettingsController@create')->name('milestone.settings.create');
-Route::post('milestone/settings/store',  'Admin\MilestoneSettingsController@store')->name('milestone.settings.store');
-Route::get('milestone/settings/image-delete',  'Admin\MilestoneSettingsController@image_delete')->name('milestone.settings.image_delete');
-// Route::get('about-us/settings/image-delete1',  'Admin\AboutUsController@image_delete1')->name('about-us.settings.image_delete1');
+// // Milestone settings
+// Route::get('milestone/settings/create',  'Admin\MilestoneSettingsController@create')->name('milestone.settings.create');
+// Route::post('milestone/settings/store',  'Admin\MilestoneSettingsController@store')->name('milestone.settings.store');
+// Route::get('milestone/settings/image-delete',  'Admin\MilestoneSettingsController@image_delete')->name('milestone.settings.image_delete');
+// // Route::get('about-us/settings/image-delete1',  'Admin\AboutUsController@image_delete1')->name('about-us.settings.image_delete1');
 
 
-// Milestone list
-// Route::get('milestone/list',  'Admin\MilestoneListController@index')->name('about-us.list.index');
-Route::get('milestone/list/create',  'Admin\MilestoneListController@create')->name('milestone.list.create');
-Route::post('milestone/list/store',  'Admin\MilestoneListController@store')->name('milestone.list.store');
-// Route::get('about-us/list/edit/{id}',  'Admin\AboutUsListController@edit')->name('about-us.list.edit');
-// Route::post('about-us/list/update/{id}',  'Admin\AboutUsListController@update')->name('about-us.list.update');
-// Route::delete('about-us/list/destroy/{id}',  'Admin\AboutUsListController@destroy')->name('about-us.list.destroy');
-// Route::get('about-us/image-delete',  'Admin\AboutUsListController@image_delete')->name('about-us.image_delete');
+// // Milestone list
+// // Route::get('milestone/list',  'Admin\MilestoneListController@index')->name('about-us.list.index');
+// Route::get('milestone/list/create',  'Admin\MilestoneListController@create')->name('milestone.list.create');
+// Route::post('milestone/list/store',  'Admin\MilestoneListController@store')->name('milestone.list.store');
+// // Route::get('about-us/list/edit/{id}',  'Admin\AboutUsListController@edit')->name('about-us.list.edit');
+// // Route::post('about-us/list/update/{id}',  'Admin\AboutUsListController@update')->name('about-us.list.update');
+// // Route::delete('about-us/list/destroy/{id}',  'Admin\AboutUsListController@destroy')->name('about-us.list.destroy');
+// // Route::get('about-us/image-delete',  'Admin\AboutUsListController@image_delete')->name('about-us.image_delete');
 
 
 //  about us - mission and vision
