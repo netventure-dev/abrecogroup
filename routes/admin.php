@@ -39,20 +39,22 @@ Route::get('about-us/image-delete',  'Admin\AboutUsListController@image_delete')
 
 
 
-// // Milestone settings
-// Route::get('milestone/settings/create',  'Admin\MilestoneSettingsController@create')->name('milestone.settings.create');
-// Route::post('milestone/settings/store',  'Admin\MilestoneSettingsController@store')->name('milestone.settings.store');
-// Route::get('milestone/settings/image-delete',  'Admin\MilestoneSettingsController@image_delete')->name('milestone.settings.image_delete');
-// // Route::get('about-us/settings/image-delete1',  'Admin\AboutUsController@image_delete1')->name('about-us.settings.image_delete1');
+//  Milestone settings
+ Route::get('milestone/settings', 'Admin\MilestoneSettingsController@index')->name('milestone.settings.index');
+ Route::get('milestone/settings/create', 'Admin\MilestoneSettingsController@create')->name('milestone.settings.create');
+ Route::post('milestone/settings/store', 'Admin\MilestoneSettingsController@store')->name('milestone.settings.store');
+ Route::get('milestone/settings/edit/{id}', 'Admin\MilestoneSettingsController@edit')->name('milestone.settings.edit');
+ Route::post('milestone/settings/update/{id}', 'Admin\MilestoneSettingsController@update')->name('milestone.settings.update');
+ Route::delete('milestone/settings/destroy/{id}',  'Admin\MilestoneSettingsController@destroy')->name('milestone.settings.destroy');
 
 
-// // Milestone list
-// // Route::get('milestone/list',  'Admin\MilestoneListController@index')->name('about-us.list.index');
-// Route::get('milestone/list/create',  'Admin\MilestoneListController@create')->name('milestone.list.create');
-// Route::post('milestone/list/store',  'Admin\MilestoneListController@store')->name('milestone.list.store');
-// // Route::get('about-us/list/edit/{id}',  'Admin\AboutUsListController@edit')->name('about-us.list.edit');
-// // Route::post('about-us/list/update/{id}',  'Admin\AboutUsListController@update')->name('about-us.list.update');
-// // Route::delete('about-us/list/destroy/{id}',  'Admin\AboutUsListController@destroy')->name('about-us.list.destroy');
+//  Milestone list
+ Route::get('milestone/list','Admin\MilestoneListController@index')->name('milestone.list.index');
+ Route::get('milestone/list/create', 'Admin\MilestoneListController@create')->name('milestone.list.create');
+ Route::post('milestone/list/store', 'Admin\MilestoneListController@store')->name('milestone.list.store');
+ Route::get('milestone/list/edit/{id}', 'Admin\MilestoneListController@edit')->name('milestone.list.edit');
+ Route::post('milestone/list/update/{id}',  'Admin\MilestoneListController@update')->name('milestone.list.update');
+ Route::delete('milestone/list/destroy/{id}',  'Admin\MilestoneListController@destroy')->name('milestone.list.destroy');
 // // Route::get('about-us/image-delete',  'Admin\AboutUsListController@image_delete')->name('about-us.image_delete');
 
 
