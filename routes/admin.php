@@ -488,3 +488,13 @@ Route::get('career-opening-settings/image-delete1','Admin\CareerOpeningSettingsC
 
 Route::get('/edit-sitemap', 'Admin\SitemapController@edit')->name('editSitemap');
 Route::post('/update-sitemap', 'Admin\SitemapController@update')->name('updateSitemap');
+
+//Life at abreco
+Route::get('life-at-abreco','Admin\LifeAbrecoController@create')->name('life.index');
+Route::post('life-at-abreco/images', 'Admin\LifeAbrecoController@store')->name('life.store');
+Route::delete('life-at-abreco/destroy/{id}',  'Admin\LifeAbrecoController@destroy')->name('life.destroy');
+Route::post('life-at-abreco/order', 'Admin\LifeAbrecoController@url')->name('life.title');
+
+
+
+
