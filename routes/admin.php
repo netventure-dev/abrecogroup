@@ -131,6 +131,16 @@ Route::post('blog/list/update/{id}',  'Admin\BlogListController@update')->name('
 Route::delete('blog/list/destroy/{id}',  'Admin\BlogListController@destroy')->name('blog-list.destroy');
 Route::get('blog/list/image-delete',  'Admin\BlogListController@image_delete')->name('blog-list.image_delete');
 
+
+//blog list
+Route::get('news/',  'Admin\NewsController@index')->name('news.index');
+Route::get('news/create',  'Admin\NewsController@create')->name('news.create');
+Route::post('news/store',  'Admin\NewsController@store')->name('news.store');
+Route::get('news/edit/{id}',  'Admin\NewsController@edit')->name('news.edit');
+Route::post('news/update/{id}',  'Admin\NewsController@update')->name('news.update');
+Route::delete('news/destroy/{id}',  'Admin\NewsController@destroy')->name('news.destroy');  
+Route::get('news/image-delete',  'Admin\NewsController@image_delete')->name('news.image_delete');
+
 // testimonials Settings
 
 Route::get('testimonials-settings/create',  'Admin\TestimonialSettingsController@create')->name('testimonials-settings.create');

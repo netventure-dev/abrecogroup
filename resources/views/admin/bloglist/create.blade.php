@@ -31,7 +31,7 @@
                 <div class="card-body">
                     <div class="mt-2 row">
                         <div class="col-lg-11">
-                            <form action="{{ route('admin.blog-list.store') }}" method="post"
+                            <form action="#" method="post"
                                 class="custom-validation" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-4 row">
