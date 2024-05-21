@@ -656,7 +656,7 @@
                         {{-- <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
-                                <span key="t-ecommerce">Request Rates</span>
+                                <span key="t-ecommerce">Request Rates</span>    
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{route('admin.request.settings.create')}}" key="t-products">Settings</a></li>
@@ -696,11 +696,18 @@
                             </a>
                         </li>  --}}
                         <li>
+                            <a href="{{ route('admin.news.index') }}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">News</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('admin.enquiries.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Contact Request</span>
                             </a>
                         </li>
+                       
                         <li class="menu-title" key="t-apps">Settings</li>
 
                         <li>

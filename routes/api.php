@@ -76,6 +76,8 @@ Route::post('/contact-form', [ContactUsApiController::class, 'store']);
 
 // Testimonials
 Route::get('/testimonials', [TestimonialsController::class, 'index']);
+Route::get('/news', [TestimonialsController::class, 'news']);
+
 
 // case studies
 // Route::get('/case-studies', [CaseStudyApiController::class, 'index']);

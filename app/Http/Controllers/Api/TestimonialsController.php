@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Models\Testimonial;
 use App\Http\Controllers\Controller;
+use App\Models\News;
 
 class TestimonialsController extends Controller
 {
@@ -19,6 +20,16 @@ class TestimonialsController extends Controller
         //         $contact->image = null;
         //     }
         // }
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
+
+    public function news ()
+    {
+        $data['news'] = News::select('uuid', 'title', 'description', 'image','slug')->where('status', 1)->get();
+       
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }
