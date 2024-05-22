@@ -143,14 +143,19 @@ Route::post('news/update/{id}',  'Admin\NewsController@update')->name('news.upda
 Route::delete('news/destroy/{id}',  'Admin\NewsController@destroy')->name('news.destroy');  
 Route::get('news/image-delete',  'Admin\NewsController@image_delete')->name('news.image_delete');
 
-//
+//office location
 Route::get('office-location/',  'Admin\OfficeLocationController@index')->name('office-location.index');
 Route::get('office-location/create',  'Admin\OfficeLocationController@create')->name('office-location.create');
 Route::post('office-location/store',  'Admin\OfficeLocationController@store')->name('office-location.store');
 Route::get('office-location/edit/{id}',  'Admin\OfficeLocationController@edit')->name('office-location.edit');
 Route::post('office-location/update/{id}',  'Admin\OfficeLocationController@update')->name('office-location.update');
 Route::delete('office-location/destroy/{id}',  'Admin\OfficeLocationController@destroy')->name('office-location.destroy');  
-// Route::get('news/image-delete',  'Admin\NewsController@image_delete')->name('news.image_delete');
+
+//multi-faceted
+// Route::get('multi-faceted/',  'Admin\OfficeLocationController@index')->name('office-location.index');
+Route::get('multi-faceted/create',  'Admin\MultiFactedController@create')->name('multi-faceted.create');
+Route::post('multi-faceted/store',  'Admin\MultiFactedController@store')->name('multi-faceted.store');
+
 
 // testimonials Settings
 
@@ -163,6 +168,11 @@ Route::post('testimonials-settings/store',  'Admin\TestimonialSettingsController
 
 Route::get('business-settings/create',  'Admin\OurBusinessSettingController@create')->name('business-settings.create');
 Route::post('business-settings/store',  'Admin\OurBusinessSettingController@store')->name('business-settings.store');
+
+// Inclusive
+
+Route::get('inclusive/create',  'Admin\InclusiveSupportController@create')->name('inclusive.create');
+Route::post('inclusive/store',  'Admin\InclusiveSupportController@store')->name('inclusive.store');
 
 
 //our business List

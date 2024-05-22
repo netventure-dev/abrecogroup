@@ -14,6 +14,7 @@ use App\Models\LifeAbreco;
 use App\Models\Logo;
 use App\Models\MilestoneSetting;
 use App\Models\News;
+use App\Models\OfficeLocation;
 use App\Models\Service;
 use App\Models\TestimonialSetting;
 use App\Models\Section;
@@ -91,7 +92,7 @@ class HomeController extends Controller
             $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order', 'status')->where('status', 1);
         }])
             ->select('uuid', 'title', 'slug', 'subtitle', 'image1', 'image2', 'content', 'content2', 'button_title', 'link', 'order', 'status')
-            ->where('order', 3)
+            ->where('order', 5)
             ->where('status', 1)
             ->first();
         if (!empty($data)) {
@@ -108,7 +109,7 @@ class HomeController extends Controller
             $query->select('uuid', 'section_id', 'title', 'icon', 'icon_content', 'button_title', 'button_link', 'order', 'status')->where('status', 1);
         }])
             ->select('uuid', 'title', 'slug', 'subtitle', 'image1', 'image2', 'content', 'button_title', 'link', 'order', 'status')
-            ->where('order', 5)
+            ->where('order', 3)
             ->where('status', 1)
             ->first();
         if (!empty($data)) {
@@ -241,6 +242,15 @@ class HomeController extends Controller
     public function logo ()
     {
         $data['logo'] = Logo::select('id', 'order','image')->get();
+       
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
+    public function Location ()
+    {
+        $data['Location'] = OfficeLocation::select('uuid', 'title','sub_title','location_name','location_url','image','status')->get();
        
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);

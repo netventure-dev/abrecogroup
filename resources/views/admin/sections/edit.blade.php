@@ -1,14 +1,16 @@
 @extends('admin.layout.backend')
 
-@section('title') {{ __('Edit Section') }} @endsection
+@section('title')
+    {{ __('Edit Section') }}
+@endsection
 @section('css')
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 @endsection
 @section('content')
 
     @component('admin.components.breadcrumb', ['breadcrumbs' => $breadcrumbs])
-        @slot('title') @endslot
+        @slot('title')
+        @endslot
     @endcomponent
     <!-- start page title -->
     <div class="row">
@@ -38,137 +40,168 @@
                                     <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <input id="title" name="title" type="text"
+                                        {{-- <input id="title" name="title" type="text"
                                             class="form-control mb-2 @if ($errors->has('title')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter Title') }}" required value="{{ @old('title',@$section->title) }}">
+                                            placeholder="{{ __('Enter Title') }}" required value="{{ @old('title',@$section->title) }}"> --}}
+                                        <textarea id="title" name="title" class="form-control mb-2  @if ($errors->has('title')) is-invalid @endif"
+                                            placeholder="{{ __('Enter Title') }}" required>{{  @old('title',@$section->title)  }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('title') }}
-                                        </div>
+                                        </div>  
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="sub_title" class="col-sm-3 col-form-label mb-2">{{ __('Sub Title') }}</label>
+                                    <label for="sub_title"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Sub Title') }}</label>
                                     <div class="col-sm-9">
                                         <input id="sub_title" name="sub_title" type="text"
-                                            class="form-control mb-2 @if ($errors->has('sub_title')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter sub title') }}"  value="{{ @old('sub_title',@$section->subtitle) }}">
+                                            class="form-control mb-2 @if ($errors->has('sub_title')) is-invalid @endif"
+                                            placeholder="{{ __('Enter sub title') }}"
+                                            value="{{ @old('sub_title', @$section->subtitle) }}">
                                         <div class="invalid-feedback">{{ $errors->first('sub_title') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
                                     <label for="cover_description"
-                                            class="col-sm-3 col-form-label">{{ __('Content') }}</label>
+                                        class="col-sm-3 col-form-label">{{ __('Content') }}</label>
                                     <div class="col-sm-9">
-                                        <textarea name="content"
-                                            class="ckeditor form-control @if ($errors->has('content')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" placeholder="{{ __('Enter Content Description') }}" >{{ @old('content',@$section->content)}}</textarea>
+                                        <textarea name="content" class="ckeditor form-control @if ($errors->has('content')) is-invalid @endif"
+                                            style="width: 100% !important; height: 200px !important;" placeholder="{{ __('Enter Content Description') }}">{{ @old('content', @$section->content) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
                                     <label for="cover_description"
-                                            class="col-sm-3 col-form-label">{{ __('Extra Content') }}</label>
+                                        class="col-sm-3 col-form-label">{{ __('Extra Content') }}</label>
                                     <div class="col-sm-9">
                                         <textarea name="content2"
-                                            class="ckeditor form-control @if ($errors->has('content2')) is-invalid @endif"style="width: 100% !important; height: 200px !important;" placeholder="{{ __('Enter content') }}" >{{ @old('content2',@$section->content2)}}</textarea>
+                                            class="ckeditor form-control @if ($errors->has('content2')) is-invalid @endif"style="width: 100% !important; height: 200px !important;"
+                                            placeholder="{{ __('Enter content') }}">{{ @old('content2', @$section->content2) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content2') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Image') }} <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
+                                            href="#" class="tool_tip js-tooltip-enabled"
+                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small></label>
                                     <div class="col-sm-9">
-                                        
+
                                         @if ($section->image1)
-                                            <img src="{{ asset('storage/'.$section->image1) }}" alt="" class="img-fluid" style="width:250px;">
-                                            <button type="button" class="btn btn-primary w-md" onclick="delete_image('{{ $section->uuid }}');"
-                                            class="close">Delete</button>
+                                            <img src="{{ asset('storage/' . $section->image1) }}" alt=""
+                                                class="img-fluid" style="width:250px;">
+                                            <button type="button" class="btn btn-primary w-md"
+                                                onclick="delete_image('{{ $section->uuid }}');"
+                                                class="close">Delete</button>
                                         @endif
-                                       
-                                        <input id="image" name="image" type="file" class="form-control mb-2 @if ($errors->has('*//')) is-invalid @endif" value="{{ @old('image') }}">
-                                        
+
+                                        <input id="image" name="image" type="file"
+                                            class="form-control mb-2 @if ($errors->has('*//')) is-invalid @endif"
+                                            value="{{ @old('image') }}">
+
                                         <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('image') }}</div>
                                     </div>
                                 </div>
-                                 <div class="mb-4 row">
+                                <div class="mb-4 row">
                                     <label for="alt_text" class="col-sm-3 col-form-label mb-2">{{ __('Alt text') }}</label>
                                     <div class="col-sm-9">
                                         <input id="alt_text" name="alt_text" type="text"
-                                            class="form-control mb-2 @if ($errors->has('alt_text')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter Alt text') }}"  value="{{ @old('alt_text',@$section->alt_text) }}">
+                                            class="form-control mb-2 @if ($errors->has('alt_text')) is-invalid @endif"
+                                            placeholder="{{ __('Enter Alt text') }}"
+                                            value="{{ @old('alt_text', @$section->alt_text) }}">
                                         <div class="invalid-feedback">{{ $errors->first('alt_text') }}
                                         </div>
                                     </div>
                                 </div>
-                                 <div class="mt-4 row">
+                                <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="image">{{ __('Mobile Image') }} <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
+                                            href="#" class="tool_tip js-tooltip-enabled"
+                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                         @if ($section->image2)
-                                            <img src="{{ asset('storage/'.$section->image2) }}" alt="" class="img-fluid" style="width:250px;">
-                                            <button type="button" class="btn btn-primary w-md" onclick="delete_image1('{{ $section->uuid }}');"
-                                            class="close">Delete</button>
+                                            <img src="{{ asset('storage/' . $section->image2) }}" alt=""
+                                                class="img-fluid" style="width:250px;">
+                                            <button type="button" class="btn btn-primary w-md"
+                                                onclick="delete_image1('{{ $section->uuid }}');"
+                                                class="close">Delete</button>
                                         @endif
-                                        <input id="logo" name="logo" type="file" class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif" value="{{ @old('logo') }}">
+                                        <input id="logo" name="logo" type="file"
+                                            class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif"
+                                            value="{{ @old('logo') }}">
                                         <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('logo') }}</div>
                                     </div>
                                 </div>
 
                                 <div class="mt-4 row">
-                                    <label class="col-sm-3 col-form-label" for="background_image">{{ __('Background Image') }} <a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and WEBP only.")</small></label>
+                                    <label class="col-sm-3 col-form-label"
+                                        for="background_image">{{ __('Background Image') }} <a href="#"
+                                            class="tool_tip js-tooltip-enabled"
+                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
+                                            WEBP only.")</small></label>
                                     <div class="col-sm-9">
                                         @if ($section->background_image)
-                                            <img src="{{ asset('storage/'.$section->background_image) }}" alt="" class="img-fluid" style="width:250px;">
-                                            <button type="button" class="btn btn-primary w-md" onclick="delete_image2('{{ $section->uuid }}');"
-                                            class="close">Delete</button>
+                                            <img src="{{ asset('storage/' . $section->background_image) }}" alt=""
+                                                class="img-fluid" style="width:250px;">
+                                            <button type="button" class="btn btn-primary w-md"
+                                                onclick="delete_image2('{{ $section->uuid }}');"
+                                                class="close">Delete</button>
                                         @endif
-                                        <input id="background_image" name="background_image" type="file" class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif" value="{{ @old('background_image') }}">
+                                        <input id="background_image" name="background_image" type="file"
+                                            class="form-control mb-2 @if ($errors->has('logo')) is-invalid @endif"
+                                            value="{{ @old('background_image') }}">
                                         <small>(The image must not be greater than 2 MB)</small><br></br>
                                         <div class="invalid-feedback">{{ $errors->first('background_image') }}</div>
                                     </div>
                                 </div>
-                                 <div class="mb-4 row">
-                                    <label for="alt_background" class="col-sm-3 col-form-label mb-2">{{ __('Alt background') }}</label>
+                                <div class="mb-4 row">
+                                    <label for="alt_background"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Alt background') }}</label>
                                     <div class="col-sm-9">
                                         <input id="alt_background" name="alt_background" type="text"
-                                            class="form-control mb-2 @if ($errors->has('alt_background')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter Alt_background') }}"  value="{{ @old('alt_background',@$section->alt_background) }}">
+                                            class="form-control mb-2 @if ($errors->has('alt_background')) is-invalid @endif"
+                                            placeholder="{{ __('Enter Alt_background') }}"
+                                            value="{{ @old('alt_background', @$section->alt_background) }}">
                                         <div class="invalid-feedback">{{ $errors->first('alt_background') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="button_title"
-                                            class="col-sm-3 col-form-label">{{ __('Button Title') }}
-                                            </label>
+                                    <label for="button_title" class="col-sm-3 col-form-label">{{ __('Button Title') }}
+                                    </label>
                                     <div class="col-sm-9">
                                         <input id="button_title" name="button_title" type="text"
-                                        class="form-control mb-2 @if ($errors->has('button_title')) is-invalid  @endif"
-                                        placeholder="{{ __('Enter Button Title') }}"  value="{{ @old('button_title',@$section->button_title) }}">
+                                            class="form-control mb-2 @if ($errors->has('button_title')) is-invalid @endif"
+                                            placeholder="{{ __('Enter Button Title') }}"
+                                            value="{{ @old('button_title', @$section->button_title) }}">
                                         <div class="invalid-feedback">{{ $errors->first('button_title') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Link') }}</label>
+                                    <label for="link"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Link') }}</label>
                                     <div class="col-sm-9">
                                         <input id="link" name="link" type="text"
-                                            class="form-control mb-2 @if ($errors->has('link')) is-invalid  @endif"
-                                            placeholder="{{ __('Enter link') }}"  value="{{ @old('link',@$section->link) }}">
+                                            class="form-control mb-2 @if ($errors->has('link')) is-invalid @endif"
+                                            placeholder="{{ __('Enter link') }}"
+                                            value="{{ @old('link', @$section->link) }}">
                                         <div class="invalid-feedback">{{ $errors->first('link') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mt-4 row">
                                     <label class="col-sm-3 col-form-label" for="logo">{{ __('Order') }}<span
-                                        class="text-danger">*</span><a
-                                            href="#" class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                            class="text-danger">*</span><a href="#"
+                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
-                                        <input id="order" required name="order" type="number" class="form-control mb-2 @if ($errors->has('order')) is-invalid @endif" value="{{ @old('order',@$section->order) }}">
+                                        <input id="order" required name="order" type="number"
+                                            class="form-control mb-2 @if ($errors->has('order')) is-invalid @endif"
+                                            value="{{ @old('order', @$section->order) }}">
                                         <div class="invalid-feedback">{{ $errors->first('order') }}</div>
                                     </div>
                                 </div>
@@ -194,7 +227,8 @@
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">
                                         <div>
-                                            <button type="submit" class="btn btn-primary w-md">{{ __('Submit') }}</button>
+                                            <button type="submit"
+                                                class="btn btn-primary w-md">{{ __('Submit') }}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -219,11 +253,11 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <script>
-    $(document).ready(function () {
-        $('.ckeditor').ckeditor();
-    });
+        $(document).ready(function() {
+            $('.ckeditor').ckeditor();
+        });
 
-   function delete_image(uuid) {
+        function delete_image(uuid) {
             if (confirm("Are you sure?")) {
                 $.ajax({
                     url: "{{ route('admin.sections.image_delete') }}",
@@ -238,12 +272,13 @@
                         // } else {
                         //     sweetAlert("Oops...", "Something went wrong!", "error");
                         // }
-                         location.reload()
+                        location.reload()
                     }
                 });
             }
             return false;
         }
+
         function delete_image1(uuid) {
             if (confirm("Are you sure?")) {
                 $.ajax({
@@ -259,12 +294,13 @@
                         // } else {
                         //     sweetAlert("Oops...", "Something went wrong!", "error");
                         // }
-                         location.reload()
+                        location.reload()
                     }
                 });
             }
             return false;
         }
+
         function delete_image2(uuid) {
             if (confirm("Are you sure?")) {
                 $.ajax({
@@ -280,11 +316,11 @@
                         // } else {
                         //     sweetAlert("Oops...", "Something went wrong!", "error");
                         // }
-                         location.reload()
+                        location.reload()
                     }
                 });
             }
             return false;
         }
-</script>
+    </script>
 @endsection
