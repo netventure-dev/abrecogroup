@@ -708,6 +708,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('admin.office-location.index') }}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Office Location</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('admin.logo.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Logo</span>
