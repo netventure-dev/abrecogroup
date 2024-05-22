@@ -720,6 +720,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('admin.contact-us.create') }}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Contact</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('admin.enquiries.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Contact Request</span>
