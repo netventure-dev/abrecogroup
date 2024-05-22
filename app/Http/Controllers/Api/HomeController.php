@@ -7,13 +7,20 @@ use App\Models\Blog;
 use App\Models\Bloglist;
 use App\Models\BusinessList;
 use App\Models\BusinessSetting;
+use App\Models\Contact;
 use App\Models\General;
 use App\Models\HomeSlider;
+use App\Models\LifeAbreco;
+use App\Models\Logo;
+use App\Models\MilestoneSetting;
+use App\Models\News;
 use App\Models\Service;
 use App\Models\TestimonialSetting;
 use App\Models\Section;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class HomeController extends Controller
 {
@@ -171,6 +178,70 @@ class HomeController extends Controller
         // section 1
         $data['business_list'] = BusinessList::select('id', 'title', 'url','image')
             ->first();
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
+
+
+    public function milestone()
+    {
+        $data['milestone'] = MilestoneSetting::where('status', 1)
+             ->select('id', 'uuid','title', 'color')
+             ->with(['milestonelist' => function ($query) {
+               $query->select('id', 'uuid', 'milestone_id', 'title', 'description', 'logo')
+              ->orderBy('created_at', 'ASC');
+        }])->first();
+
+        // $data['industry']['industry_content'] =  $data['industry']->contents->where('status',1);
+
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
+
+   
+
+    public function testimonial()
+    {
+        $data['testimonials'] = Testimonial::select('uuid', 'title', 'description', 'image')->where('status', 1)->get();
+        // foreach ($data['testimonials'] as $contact) {
+        //     if (empty($contact->image)) {
+        //         $contact->image = null;
+        //     }
+        // }
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
+
+    public function news ()
+    {
+        $data['news'] = News::select('uuid', 'title', 'description', 'image','slug')->where('status', 1)->get();
+       
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
+
+    public function life ()
+    {
+        $data['life'] = LifeAbreco::select('id', 'title', 'url', 'image')->get();
+       
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
+
+    public function logo ()
+    {
+        $data['logo'] = Logo::select('id', 'order','image')->get();
+       
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }

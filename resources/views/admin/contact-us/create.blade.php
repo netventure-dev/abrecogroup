@@ -50,29 +50,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-4 row">
-                                    <label for="canonical_tag"
-                                        class="col-sm-3 col-form-label mb-2">{{ __('Canonical Tag') }}<span
-                                            class="text-danger"></span></label>
-                                    <div class="col-sm-9">
-                                        <input id="canonical_tag" name="canonical_tag" type="text"
-                                            class="form-control mb-2 @if ($errors->has('canonical_tag')) is-invalid @endif"
-                                            placeholder="{{ __('Enter canonical tag') }}"
-                                            value="{{ @old('canonical_tag', @$data->canonical_tag) }}">
-                                        <div class="invalid-feedback">{{ $errors->first('canonical_tag') }}
-                                        </div>
-                                    </div>
-                                </div>
-                                  <div class="mb-4 row">
-                                    <label for="schema"
-                                            class="col-sm-3 col-form-label">{{ __('Schema') }}</label>
-                                    <div class="col-sm-9">
-                                        <textarea name="schema"
-                                            class="form-control  @if ($errors->has('schema')) is-invalid @endif" style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Schema') }}">{{ @old('schema',@$data->schema)}}</textarea>
-                                        <div class="invalid-feedback">{{ $errors->first('schema') }}
-                                        </div>
-                                    </div>
-                                </div>
+                               
                                 <div class="mb-4 row">
                                     <label for="phone" class="col-sm-3 col-form-label mb-2">{{ __('Mobile') }}<span
                                             class="text-danger">*</span></label>
@@ -86,11 +64,11 @@
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
-                                    <label for="content" class="col-sm-3 col-form-label">{{ __('Content') }}
+                                    <label for="description" class="col-sm-3 col-form-label">{{ __('Content') }}
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <textarea name="content" class="form-control  @if ($errors->has('content')) is-invalid @endif" ro
-                                            placeholder="{{ __('Enter Description') }}" required>{{ @old('content', @$data->description) }}</textarea>
+                                        <textarea name="description" class="form-control  @if ($errors->has('description')) is-invalid @endif" ro
+                                            placeholder="{{ __('Enter Description') }}" >{{ @old('description', @$data->description) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('content') }}
                                         </div>
                                     </div>
@@ -100,77 +78,27 @@
                                         <span class="text-danger">*</span></label>
                                     <div class="col-sm-9">
                                         <textarea name="address" class="form-control  @if ($errors->has('address')) is-invalid @endif" ro
-                                            placeholder="{{ __('Enter Description') }}" required>{{ @old('address', @$data->address) }}</textarea>
+                                            placeholder="{{ __('Enter address') }}" required>{{ @old('address', @$data->address) }}</textarea>
                                         <div class="invalid-feedback">{{ $errors->first('address') }}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-4 row">
-                                    <label class="col-sm-3 col-form-label" for="banner_image">{{ __('Banner Image') }}<span
-                                            class="text-danger">*</span> <a href="#"
-                                            class="tool_tip js-tooltip-enabled"
-                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
-                                            WEBP only.")</small></label>
-                                    <div class="col-sm-9">
-                                            @if (@$data->image)
-                                                <img src="{{ asset('/storage/' . @$data->image) }}" alt=""
-                                                    class="img-fluid" style="width:100px;">
-                                                <button type="button" class="btn btn-primary w-md"
-                                                    onclick="delete_image('{{ $data->uuid }}');"
-                                                    class="close">Delete</button>
-                                            @endif
-                                            <input id="banner_image" name="banner_image" type="file"
-                                                class="form-control mb-2 @if ($errors->has('banner_image')) is-invalid @endif"
-                                                value="{{ @old('banner_image') }}">
-                                            <small>(The image must not be greater than 2 MB)</small><br></br>
-                                            <div class="invalid-feedback">{{ $errors->first('banner_image') }}</div>
-                                    </div>
-                                </div>
-                                <div class="mt-4 row">
-                                    <label class="col-sm-3 col-form-label" for="mobile_image">{{ __('Mobile Image') }}
-                                    <a href="#"
-                                            class="tool_tip js-tooltip-enabled"
-                                            data-toggle="tooltip"></a><br><small>("Accepted formats: JPG, JPEG, PNG, and
-                                            WEBP only.")</small></label>
-                                    <div class="col-sm-9">
-                                            @if (@$data->mobile_image)
-                                                <img src="{{ asset('/storage/' . @$data->mobile_image) }}" alt=""
-                                                    class="img-fluid" style="width:100px;">
-                                                <button type="button" class="btn btn-primary w-md"
-                                                    onclick="delete_image1('{{ $data->uuid }}');"
-                                                    class="close">Delete</button>
-                                            @endif
-                                            <input id="mobile_image" name="mobile_image" type="file"
-                                                class="form-control mb-2 @if ($errors->has('mobile_image')) is-invalid @endif"
-                                                value="{{ @old('mobile_image') }}">
-                                            <small>(The mobile image must not be greater than 2 MB)</small><br></br>
-                                            <div class="invalid-feedback">{{ $errors->first('mobile_image') }}</div>
-                                    </div>
-                                </div>
+                               
+                              
+                                
                                 <div class="mb-4 row">
-                                    <label for="link" class="col-sm-3 col-form-label mb-2">{{ __('Link') }}</label>
+                                    <label for="email"
+                                        class="col-sm-3 col-form-label mb-2">{{ __('Email') }}</label>
                                     <div class="col-sm-9">
-                                        <input id="link" name="link" type="text"
-                                            class="form-control mb-2 @if ($errors->has('link')) is-invalid @endif"
-                                            placeholder="{{ __('Enter link') }}"
-                                            value="{{ @old('link', @$data->link) }}">
-                                        <div class="invalid-feedback">{{ $errors->first('link') }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4 row">
-                                    <label for="map_link"
-                                        class="col-sm-3 col-form-label mb-2">{{ __('Map Link') }}</label>
-                                    <div class="col-sm-9">
-                                        <input id="map_link" name="map_link" type="text"
-                                            class="form-control mb-2 @if ($errors->has('map_link')) is-invalid @endif"
+                                        <input id="email" name="email" type="text"
+                                            class="form-control mb-2 @if ($errors->has('email')) is-invalid @endif"
                                             placeholder="{{ __('Enter map link') }}"
-                                            value="{{ @old('map_link', @$data->map_link) }}">
-                                        <div class="invalid-feedback">{{ $errors->first('map_link') }}
+                                            value="{{ @old('email', @$data->email) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('email') }}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-4 row">
+                                {{-- <div class="mb-4 row">
                                     <label for="seo_title"
                                         class="col-sm-3 col-form-label mb-2">{{ __('Seo Title') }}</label>
                                     <div class="col-sm-9">
@@ -204,7 +132,7 @@
                                         <div class="invalid-feedback">{{ $errors->first('seo_description	') }}
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">
                                         <div>

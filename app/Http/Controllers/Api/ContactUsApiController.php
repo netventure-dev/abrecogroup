@@ -27,19 +27,20 @@ class ContactUsApiController extends Controller
     public function contact()
     {
         // dd(1);
-        $data['contact'] = ContactUs::select('title', 'description', 'link', 'phone', 'address', 'map_link', 'image', 'mobile_image', 'seo_title', 'seo_description', 'seo_keywords', 'canonical_tag', 'schema')->get();
+        $data['contact'] = ContactUs::select('title', 'description', 'phone', 'address', 'email')->get();
         // Check if 'image' field is empty and set it to null
-        foreach ($data['contact'] as $contact) {
-            if (empty($contact->image)) {
-                $contact->image = null;
-            }
-        }
+        // foreach ($data['contact'] as $contact) {
+        //     if (empty($contact->image)) {
+        //         $contact->image = null;
+        //     }
+        // }
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
         }
         return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
     }
-    public function store(Request $request)
+
+    public function contact_store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
@@ -56,31 +57,6 @@ class ContactUsApiController extends Controller
 
 
         ]);
-
-        // if ($validator->fails()) {
-        //     $response = [
-        //         'success' => false,
-        //         'errors' => $validator->errors(),
-        //         'input' => request()->all(),
-        //     ];
-
-        //     return response()->json($response);
-        // }
-
-        // $secretKey = env('RECAPTCHA_SECRET_KEY');
-
-
-        // $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . $secretKey . '&response=' . $request->post('recaptchaToken'));
-
-        // $responseData = $response->json();
-
-
-        // if (!$responseData['success']) {
-        //     return response()->json([
-        //         'message' => 'reCAPTCHA validation failed',
-        //         'error-codes' => $responseData['error-codes'],
-        //     ], 422);
-        // }
 
 
 
@@ -110,6 +86,7 @@ class ContactUsApiController extends Controller
             return response()->json(['code' => 200, 'message' => 'Successful'], $this->successStatus);
         }
     }
+  
     // public function teststore(Request $request)
     //  {
     //         // Validate the form data

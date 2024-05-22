@@ -39,6 +39,27 @@ use App\Http\Controllers\Api\SeoApiController;
 // Route::get('/home', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/general', [HomeController::class, 'general']);
+// Life At abreco home
+Route::get('/testimonials', [HomeController::class, 'testimonial']);
+
+Route::get('/news', [HomeController::class, 'news']);
+Route::get('/life-at-abreco', [HomeController::class, 'life']);
+Route::get('/logo', [HomeController::class, 'logo']);
+Route::get('/business-settings', [HomeController::class, 'business_settings']);
+
+Route::get('/business-list', [HomeController::class, 'business_list']);
+
+//milestone
+ Route::get('milestone',[HomeController::class,'milestone']);
+
+// /sections
+Route::get('/section_5_multi_faceted', [HomeController::class, 'section_5']);
+Route::get('/section_3_join_abreco', [HomeController::class, 'section_3']);
+
+// Contact
+Route::post('/contact-form', [ContactUsApiController::class, 'contact_store']);
+Route::get('/contact', [ContactUsApiController::class, 'contact']);
+
 // Route::get('industries',[IndustryController::class,'index']);
 // Route::get('industries/{uuid}',[IndustryController::class,'details']);
 // Route::get('/about-us', [AboutController::class, 'index']);
@@ -48,17 +69,7 @@ Route::get('/general', [HomeController::class, 'general']);
 // Route::get('/service/{uuid}/level-2/{id}/level-3/{idd}', [ServiceApiController::class, 'inner_services']);
 // Route::get('/blogs', [BlogApiController::class, 'index']);
 // Route::get('/blogs/{uuid}', [BlogApiController::class, 'details']);
-Route::get('/business-settings', [HomeController::class, 'business_settings']);
 
-Route::get('/business-list', [HomeController::class, 'business_list']);
-
-//milestone
- Route::get('milestone',[MilestoneController::class,'index']);
-// Route::get('milestone/{uuid}',[IndustryController::class,'details']);
-
-// /sections
-Route::get('/section_5_multi_faceted', [HomeController::class, 'section_5']);
-Route::get('/section_3_join_abreco', [HomeController::class, 'section_3']);
 // Route::get('/section_6_case', [HomeController::class, 'section_6']);
 // Route::get('/section_7_industries', [HomeController::class, 'section_7']);
 // Route::get('/section_8_why', [HomeController::class, 'section_8']);
@@ -67,8 +78,7 @@ Route::get('/section_3_join_abreco', [HomeController::class, 'section_3']);
 // Route::post('/form', [ServiceFormController::class, 'store']);
 
 
-// Contact
-Route::post('/contact-form', [ContactUsApiController::class, 'store']);
+
 // Route::post('/contact-form/test', [ContactUsApiController::class, 'teststore']);
 // Route::get('/contact', [ContactUsApiController::class, 'contact']);
 
@@ -78,11 +88,7 @@ Route::post('/contact-form', [ContactUsApiController::class, 'store']);
 // Route::post('/career-form', [CareerApiController::class, 'store']);
 
 
-// Testimonials
-Route::get('/testimonials', [TestimonialsController::class, 'index']);
-Route::get('/news', [TestimonialsController::class, 'news']);
-Route::get('/life-at-abreco', [LifeAtAbrecoApiController::class, 'life']);
-Route::get('/logo', [LifeAtAbrecoApiController::class, 'life']);
+
 
 
 

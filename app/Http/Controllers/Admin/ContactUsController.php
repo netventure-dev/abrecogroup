@@ -26,40 +26,18 @@ class ContactUsController extends Controller
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
             'title' => 'required',
-            'content' => 'required',
-            'canonical_tag' =>'nullable',
-            'schema' => 'nullable',
-            'address' => 'required',
+            'description' => 'required',
+            'email' => 'required',
             'phone' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|min:9',
-            'banner_image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
-            'mobile_image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
-            'link' => 'nullable',
-            'map_link' => 'nullable',
-            'seo_title' => 'nullable',
-            'seo_keywords' => 'nullable',
-            'seo_description' => 'nullable',
+            'address' => 'nullable',
         ]);
         $data = ContactUs::firstOrCreate();
         $data->uuid = (string) Str::uuid();
         $data->title = $validated['title'];
-        $data->canonical_tag = $validated['canonical_tag'];
-        $data->schema = $validated['schema'];
-        $data->description = $validated['content'];
-        $data->address = $validated['address'];
-        $data->link = $validated['link'];
+        $data->description = $validated['description'];
+        $data->email = $validated['email'];
         $data->phone = $validated['phone'];
-        $data->map_link = $validated['map_link'];
-        $data->seo_title = $validated['seo_title'];
-        $data->seo_keywords = $validated['seo_keywords'];
-        $data->seo_description = $validated['seo_description'];
-        if ($request->hasFile('banner_image')) {
-            $path =  $request->file('banner_image')->storeAs('media/aboutus/image',$validated['banner_image']->getClientOriginalName(), 'public');
-            $data->image = $path;
-        }
-        if ($request->hasFile('mobile_image')) {
-            $path =  $request->file('mobile_image')->storeAs('media/aboutus/image',$validated['mobile_image']->getClientOriginalName(), 'public');
-            $data->mobile_image = $path;
-        }
+        $data->address = $validated['address'];
         $res = $data->save();
         if ($res) {
             notify()->success(__('Created successfully'));
