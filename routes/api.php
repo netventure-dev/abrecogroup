@@ -15,6 +15,7 @@ use App\Http\Controllers\Api\CaseStudyApiController;
 use App\Http\Controllers\Api\PolicyPageApiController;
 use App\Http\Controllers\Api\ContactUsApiController;
 use App\Http\Controllers\Api\CareerApiController;
+use App\Http\Controllers\Api\LifeAtAbrecoApiController;
 use App\Http\Controllers\Api\SchemaApiController;
 use App\Http\Controllers\Api\MilestoneController;
 use App\Http\Controllers\Api\SeoApiController;
@@ -80,6 +81,10 @@ Route::post('/contact-form', [ContactUsApiController::class, 'store']);
 // Testimonials
 Route::get('/testimonials', [TestimonialsController::class, 'index']);
 Route::get('/news', [TestimonialsController::class, 'news']);
+Route::get('/life-at-abreco', [LifeAtAbrecoApiController::class, 'life']);
+Route::get('/logo', [LifeAtAbrecoApiController::class, 'life']);
+
+
 
 
 // case studies

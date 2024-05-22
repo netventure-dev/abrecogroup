@@ -22,6 +22,7 @@ class BlogListController extends Controller
     }
     public function create()
     {
+        
         // $this->authorize('create', Admin::class);
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
