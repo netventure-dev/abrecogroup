@@ -14,9 +14,4 @@ class AboutUs extends Model
         $obj = static::first();
         return $obj ?: new static;
     }
-
-    public function lists()
-    {
-        return $this->hasMany(AboutUsList::class);
-    }
 }

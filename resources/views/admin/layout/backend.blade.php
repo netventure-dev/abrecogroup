@@ -731,6 +731,16 @@
                                 <span key="t-file-manager">Contact Request</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-store"></i>
+                                <span key="t-ecommerce">About Page</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{route('admin.about-us.settings.create')}}" key="t-products">Settings</a></li>
+                                <!-- <li><a href="{{route('admin.milestone.list.index')}}" key="t-product-detail">List</a></li> -->
+                            </ul>
+                        </li>
                        
                         <li class="menu-title" key="t-apps">Settings</li>
 
@@ -764,6 +774,7 @@
                                 <span key="t-file-manager">Services Care</span>
                             </a>
                         </li> --}}
+                        
                         <!-- <li>
                             <a href="{{ route('admin.schema.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>

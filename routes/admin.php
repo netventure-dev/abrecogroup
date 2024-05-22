@@ -23,10 +23,10 @@ Route::get('logout', 'AdminAuth\LoginController@logout')->name('logout');
 
 
 // about us settings
-Route::get('about us/settings/create',  'Admin\AboutUsController@create')->name('about-us.settings.create');
-Route::post('about us/settings/store',  'Admin\AboutUsController@store')->name('about-us.settings.store');
-Route::get('about-us/settings/image-delete',  'Admin\AboutUsController@image_delete')->name('about-us.settings.image_delete');
-Route::get('about-us/settings/image-delete1',  'Admin\AboutUsController@image_delete1')->name('about-us.settings.image_delete1');
+ Route::get('about-us/settings/create',  'Admin\AboutUsController@create')->name('about-us.settings.create');
+ Route::post('about-us/settings/store',  'Admin\AboutUsController@store')->name('about-us.settings.store');
+ Route::get('about-us/settings/image-delete',  'Admin\AboutUsController@image_delete')->name('about-us.settings.image_delete');
+//  Route::get('about-us/settings/image-delete1',  'Admin\AboutUsController@image_delete1')->name('about-us.settings.image_delete1');
 
 // about us list
 Route::get('about-us/list',  'Admin\AboutUsListController@index')->name('about-us.list.index');

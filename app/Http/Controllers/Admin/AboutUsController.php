@@ -31,44 +31,22 @@ class AboutUsController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
-        // $this->authorize('create', Gender::class);
         $validated = $request->validate([
             'title' => 'required',
-            'content' => 'required',
-            'canonical_tag' => 'nullable',
-            'schema'=>'nullable',
-            'cover_content' => 'required',
-            'alt_text' => 'nullable',
+            'sub_title'=>'nullable',
+            'content' => 'nullable',
+            'sub_content' => 'nullable',
             'banner_image' => 'sometimes|required| max:2000',
-            'image' => 'sometimes|required| max:2000',
-            'link' => 'nullable',
-            'status' => 'required',
-            'seo_title' => 'nullable',
-            'seo_description' => 'nullable',
-            'seo_keywords' => 'nullable',
         ]);
         $data = AboutUs::firstOrCreate();
         $data->uuid = (string) Str::uuid();
-        $data->cover_title = $validated['title'];
-        $data->canonical_tag = $validated['canonical_tag'];
-        $data->schema = $validated['schema'];
-        
-        $data->cover_content = $validated['cover_content'];
+        $data->title = $validated['title'];
+        $data->sub_title = $validated['sub_title'];
         $data->content = $validated['content'];
-        $data->alt_text = $validated['alt_text'];
-        $data->link = $validated['link'];
-        $data->seo_title = $validated['seo_title'];
-        $data->seo_description = $validated['seo_description'];
-        $data->seo_keywords = $validated['seo_keywords'];
-        $data->status = $validated['status'];
+        $data->sub_content = $validated['sub_content'];
         if ($request->hasFile('banner_image')) {
             $path =  $request->file('banner_image')->storeAs('media/aboutus/image',$validated['banner_image']->getClientOriginalName(), 'public');
-            $data->banner_image = $path;
-        }
-        if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/aboutus/image',$validated['image']->getClientOriginalName(), 'public');
-            $data->content_image = $path;
+            $data->image = $path;
         }
         $res = $data->save();
         if ($res) {
@@ -84,18 +62,11 @@ class AboutUsController extends Controller
 
         $data = AboutUs::where('uuid', $request->uuid)->first();
         // dd($data);
-        $data->banner_image = "";
+        $data->image = "";
         $data->save();
         return response()->json(['status' => "success"]);
     }
 
-    public function image_delete1(Request $request)
-    {
-
-        $section = AboutUs::where('uuid', $request->uuid)->first();
-        $section->content_image = "";
-        $section->save();
-        return response()->json(['status' => "success"]);
-    }
+    
 
 }
