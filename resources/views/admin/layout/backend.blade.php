@@ -608,6 +608,12 @@
                                       </a>
                                 </li>
                                 <li>
+                                    <a href="{{ route('admin.dream.create') }}" class="waves-effect">
+                                        
+                                        <span key="t-file-manager">Dream Destination</span>
+                                      </a>
+                                </li>
+                                <li>
                                     <a href="{{ route('admin.news.index') }}" class="waves-effect">
                                         
                                         <span key="t-file-manager">News</span>

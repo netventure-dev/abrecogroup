@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\InclusiveSupport;
+use App\Models\DreamDestination;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 
-class InclusiveSupportController extends Controller
+class DreamDestinationController extends Controller
 {
     public function create()
     {
@@ -19,9 +19,9 @@ class InclusiveSupportController extends Controller
             ['News', route('admin.news.index')],
             ['Create', route('admin.blog-list.create')],
         ];
-        $data = InclusiveSupport::first();
+        $data = DreamDestination::first();
 
-        return view('admin.inclusive.create', compact('breadcrumbs','data'));
+        return view('admin.dream-destination.create', compact('breadcrumbs','data'));
     }
 
     public function store(Request $request)
@@ -30,17 +30,26 @@ class InclusiveSupportController extends Controller
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
             'title' => 'nullable',
-            'sub_title' => 'nullable',
+            'quote' => 'nullable',
+            'content' => 'nullable',
+            'author' => 'nullable',
+            'position' => 'nullable',
             'image' => 'required|mimes:jpg,jpeg,png,webp|max:2000',
 
 
         ]);
-        $data = InclusiveSupport::firstOrCreate();
+        $data = DreamDestination::firstOrCreate();
         $data->uuid = (string) Str::uuid();
         $data->title = $validated['title'];
-        $data->sub_title = $validated['sub_title'];
-         if ($request->hasFile('image')) {
-            $path =  $request->file('image')->storeAs('media/testimonials/image/',$validated['image']->getClientOriginalName(), 'public');
+        $data->quote = $validated['quote'];
+        $data->content = $validated['content'];
+        $data->author = $validated['author'];
+        $data->position = $validated['position'];
+
+
+
+        if ($request->hasFile('image')) {
+            $path =  $request->file('image')->storeAs('media/testimonials/image/', $validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
         }
         $res = $data->save();

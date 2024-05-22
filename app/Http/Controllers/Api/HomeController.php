@@ -8,6 +8,7 @@ use App\Models\Bloglist;
 use App\Models\BusinessList;
 use App\Models\BusinessSetting;
 use App\Models\Contact;
+use App\Models\DreamDestination;
 use App\Models\General;
 use App\Models\HomeSlider;
 use App\Models\InclusiveSupport;
@@ -217,6 +218,16 @@ class HomeController extends Controller
     public function inclusive()
     {
         $data['inclusive'] = InclusiveSupport::select('uuid', 'title', 'sub_title', 'image')->first();
+
+        if (!empty($data)) {
+            return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
+        }
+        return response()->json(['code' => 404, 'message' => 'No Data Available', 'data' => $data], $this->failedStatus);
+    }
+
+    public function dream()
+    {
+        $data['dream'] = DreamDestination::select('uuid', 'title', 'quote', 'image','content','author','position')->first();
 
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);

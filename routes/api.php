@@ -73,6 +73,9 @@ Route::get('multifaceted',[HomeController::class,'multifaceted']);
 //inclusive support
 Route::get('inclusive',[HomeController::class,'inclusive']);
 
+//inclusive support
+Route::get('dream-destination',[HomeController::class,'dream']);
+
 
 
 
