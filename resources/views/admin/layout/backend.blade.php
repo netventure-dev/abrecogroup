@@ -702,6 +702,18 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('admin.life.index') }}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Life At Abreco</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.logo.index') }}" class="waves-effect">
+                                <i class="bx bx-receipt"></i>
+                                <span key="t-file-manager">Logo</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('admin.enquiries.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
                                 <span key="t-file-manager">Contact Request</span>

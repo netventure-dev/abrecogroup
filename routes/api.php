@@ -79,6 +79,8 @@ Route::post('/contact-form', [ContactUsApiController::class, 'store']);
 Route::get('/testimonials', [TestimonialsController::class, 'index']);
 Route::get('/news', [TestimonialsController::class, 'news']);
 Route::get('/life-at-abreco', [LifeAtAbrecoApiController::class, 'life']);
+Route::get('/logo', [LifeAtAbrecoApiController::class, 'life']);
+
 
 
 

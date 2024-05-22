@@ -134,7 +134,7 @@ Route::delete('blog/list/destroy/{id}',  'Admin\BlogListController@destroy')->na
 Route::get('blog/list/image-delete',  'Admin\BlogListController@image_delete')->name('blog-list.image_delete');
 
 
-//blog list
+//news list
 Route::get('news/',  'Admin\NewsController@index')->name('news.index');
 Route::get('news/create',  'Admin\NewsController@create')->name('news.create');
 Route::post('news/store',  'Admin\NewsController@store')->name('news.store');
@@ -142,6 +142,15 @@ Route::get('news/edit/{id}',  'Admin\NewsController@edit')->name('news.edit');
 Route::post('news/update/{id}',  'Admin\NewsController@update')->name('news.update');
 Route::delete('news/destroy/{id}',  'Admin\NewsController@destroy')->name('news.destroy');  
 Route::get('news/image-delete',  'Admin\NewsController@image_delete')->name('news.image_delete');
+
+//
+Route::get('office-location/',  'Admin\OfficeLocationController@index')->name('office-location.index');
+Route::get('office-location/create',  'Admin\OfficeLocationController@create')->name('office-location.create');
+Route::post('office-location/store',  'Admin\OfficeLocationController@store')->name('office-location.store');
+Route::get('office-location/edit/{id}',  'Admin\OfficeLocationController@edit')->name('office-location.edit');
+Route::post('office-location/update/{id}',  'Admin\OfficeLocationController@update')->name('office-location.update');
+Route::delete('office-location/destroy/{id}',  'Admin\OfficeLocationController@destroy')->name('office-location.destroy');  
+// Route::get('news/image-delete',  'Admin\NewsController@image_delete')->name('news.image_delete');
 
 // testimonials Settings
 
@@ -496,6 +505,13 @@ Route::get('life-at-abreco','Admin\LifeAbrecoController@create')->name('life.ind
 Route::post('life-at-abreco/images', 'Admin\LifeAbrecoController@store')->name('life.store');
 Route::delete('life-at-abreco/destroy/{id}',  'Admin\LifeAbrecoController@destroy')->name('life.destroy');
 Route::post('life-at-abreco/order', 'Admin\LifeAbrecoController@url')->name('life.title');
+
+//client logo
+//Life at abreco
+Route::get('logo','Admin\LogoController@create')->name('logo.index');
+Route::post('logo/images', 'Admin\LogoController@store')->name('logo.store');
+Route::delete('logo/destroy/{id}',  'Admin\LogoController@destroy')->name('logo.destroy');
+Route::post('logo/order', 'Admin\LogoController@order')->name('logo.order');
 
 
 
