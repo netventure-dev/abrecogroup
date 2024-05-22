@@ -35,6 +35,7 @@ use App\Http\Controllers\Api\SeoApiController;
 //     return $request->user();
 // });
 
+//HOME API
 
 // Route::get('/home', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
@@ -51,7 +52,7 @@ Route::get('/life-at-abreco', [HomeController::class, 'life']);
 //logo
 Route::get('/logo', [HomeController::class, 'logo']);
 
-
+//bussiness
 Route::get('/business-settings', [HomeController::class, 'business_settings']);
 
 Route::get('/business-list', [HomeController::class, 'business_list']);
@@ -59,16 +60,21 @@ Route::get('/business-list', [HomeController::class, 'business_list']);
 //milestone
  Route::get('milestone',[HomeController::class,'milestone']);
 
-// /sections
-Route::get('/section_5_multi_faceted', [HomeController::class, 'section_5']);
-Route::get('/section_3_join_abreco', [HomeController::class, 'section_3']);
-
 //office location
 Route::get('office-location',[HomeController::class,'Location']);
 
 // Contact
 Route::post('/contact-form', [ContactUsApiController::class, 'contact_store']);
 Route::get('/contact', [ContactUsApiController::class, 'contact']);
+
+//multi-faceted
+Route::get('multifaceted',[HomeController::class,'multifaceted']);
+
+//inclusive support
+Route::get('inclusive',[HomeController::class,'inclusive']);
+
+
+
 
 // Route::get('industries',[IndustryController::class,'index']);
 // Route::get('industries/{uuid}',[IndustryController::class,'details']);
