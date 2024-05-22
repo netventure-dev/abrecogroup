@@ -587,6 +587,53 @@
                             </ul>
                         </li> -->
                         <li class="menu-title" key="t-apps">Pages</li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-store"></i>
+                                <span key="t-ecommerce">Home Page</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li>
+                                    <a href="{{ route('admin.multi-faceted.create') }}" class="waves-effect">
+                                        
+                                        <span key="t-file-manager">Multi faceted</span>
+                                      </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.inclusive.create') }}" class="waves-effect">
+                                        
+                                        <span key="t-file-manager">Inclusive Support</span>
+                                      </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.news.index') }}" class="waves-effect">
+                                        
+                                        <span key="t-file-manager">News</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.office-location.index') }}" class="waves-effect">
+                                        <span key="t-file-manager">Office Location</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.logo.index') }}" class="waves-effect">
+                                        <span key="t-file-manager">Logo</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.testimonials.index') }}" class="waves-effect">
+                                        <span key="t-file-manager">Employee testimonial</span>
+                                    </a>
+                                </li>
+                                {{-- <li><a href="{{ route('admin.mission-vision.index') }}"
+                                        key="t-product-detail">Mission And Vision</a></li>  --}}
+                            </ul>
+                        </li>
+
+
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
@@ -595,8 +642,8 @@
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('admin.business-settings.create') }}"
                                         key="t-products">Settings</a></li>
-                                 <li><a href="{{ route('admin.about-us.list.index') }}"
-                                        key="t-product-detail">List</a></li>
+                                        <li><a href="{{ route('admin.business-list.index') }}"
+                                            key="t-product-detail">List</a></li>
                                 {{-- <li><a href="{{ route('admin.mission-vision.index') }}"
                                         key="t-product-detail">Mission And Vision</a></li>  --}}
                             </ul>
@@ -623,24 +670,17 @@
                                 <span key="t-file-manager">Feedback</span>
                             </a>
                         </li> --}}
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="bx bx-store"></i>
-                                <span key="t-ecommerce">Testimonials</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                {{-- <li><a href="{{route('admin.testimonials-settings.create')}}" key="t-products">Settings</a></li> --}}
-                                <li><a href="{{route('admin.testimonials.index')}}" key="t-product-detail">List</a></li>
-                            </ul>
-                        </li>
+
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-store"></i>
                                 <span key="t-ecommerce">Milestone</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{route('admin.milestone.settings.create')}}" key="t-products">Settings</a></li>
-                                <li><a href="{{route('admin.milestone.list.index')}}" key="t-product-detail">List</a></li>
+                                <li><a href="{{ route('admin.milestone.settings.create') }}"
+                                        key="t-products">Settings</a></li>
+                                <li><a href="{{ route('admin.milestone.list.index') }}"
+                                        key="t-product-detail">List</a></li>
                             </ul>
                         </li>
                         {{-- <li>
@@ -695,30 +735,12 @@
                                 <span key="t-file-manager">Feedback</span>
                             </a>
                         </li>  --}}
-                        <li>
-                            <a href="{{ route('admin.news.index') }}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">News</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.life.index') }}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Life At Abreco</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.office-location.index') }}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Office Location</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.logo.index') }}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Logo</span>
-                            </a>
-                        </li>
+
+                      
+                      
+                       
+
+                      
                         <li>
                             <a href="{{ route('admin.contact-us.create') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
@@ -731,17 +753,6 @@
                                 <span key="t-file-manager">Contact Request</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="bx bx-store"></i>
-                                <span key="t-ecommerce">About Page</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{route('admin.about-us.settings.create')}}" key="t-products">Settings</a></li>
-                                <!-- <li><a href="{{route('admin.milestone.list.index')}}" key="t-product-detail">List</a></li> -->
-                            </ul>
-                        </li>
-                       
                         <li class="menu-title" key="t-apps">Settings</li>
 
                         <li>

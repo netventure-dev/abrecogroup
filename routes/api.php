@@ -42,9 +42,16 @@ Route::get('/general', [HomeController::class, 'general']);
 // Life At abreco home
 Route::get('/testimonials', [HomeController::class, 'testimonial']);
 
+//news 
 Route::get('/news', [HomeController::class, 'news']);
+
+//life at abreco
 Route::get('/life-at-abreco', [HomeController::class, 'life']);
+
+//logo
 Route::get('/logo', [HomeController::class, 'logo']);
+
+
 Route::get('/business-settings', [HomeController::class, 'business_settings']);
 
 Route::get('/business-list', [HomeController::class, 'business_list']);
@@ -55,6 +62,9 @@ Route::get('/business-list', [HomeController::class, 'business_list']);
 // /sections
 Route::get('/section_5_multi_faceted', [HomeController::class, 'section_5']);
 Route::get('/section_3_join_abreco', [HomeController::class, 'section_3']);
+
+//office location
+Route::get('office-location',[HomeController::class,'Location']);
 
 // Contact
 Route::post('/contact-form', [ContactUsApiController::class, 'contact_store']);
