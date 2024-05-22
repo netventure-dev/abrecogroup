@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\PolicyPageApiController;
 use App\Http\Controllers\Api\ContactUsApiController;
 use App\Http\Controllers\Api\CareerApiController;
 use App\Http\Controllers\Api\SchemaApiController;
+use App\Http\Controllers\Api\MilestoneController;
 use App\Http\Controllers\Api\SeoApiController;
 
 /*
@@ -50,7 +51,9 @@ Route::get('/business-settings', [HomeController::class, 'business_settings']);
 
 Route::get('/business-list', [HomeController::class, 'business_list']);
 
-
+//milestone
+ Route::get('milestone',[MilestoneController::class,'index']);
+// Route::get('milestone/{uuid}',[IndustryController::class,'details']);
 
 // /sections
 Route::get('/section_5_multi_faceted', [HomeController::class, 'section_5']);

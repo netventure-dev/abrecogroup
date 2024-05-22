@@ -26,5 +26,10 @@ class MilestoneSetting extends Model
     protected $fillable = [
         'uuid', 'title', 'status', 'color'
     ];
+    
+    public function milestonelist()
+    {
+        return $this->hasMany(MilestoneList::class,'milestone_id','uuid');
+    }
 
 }
