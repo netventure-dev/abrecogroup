@@ -16,7 +16,8 @@
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                 <h4 class="mb-sm-0 font-size-18">{{ __('Create List') }}</h4>
                 <div class="page-title-right">
-
+                <a href="{{ route('admin.mission-vision.index') }}"
+                            class="btn btn-primary w-md">{{ __('Mission and Vision') }}</a>
                 </div>
             </div>
         </div>
