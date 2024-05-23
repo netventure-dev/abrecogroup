@@ -100,7 +100,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">{{ __('Create Life Abreco  Value list  ') }}</h4>
+                <h4 class="mb-sm-0 font-size-18">{{ __('Create Working Principle list  ') }}</h4>
                 <div class="page-title-right">
 
                 </div>
@@ -178,7 +178,7 @@
                 <div class="card-body">
                     <div class="mt-2 row">
                         <div class="col-lg-12">
-                            <h3 class="block-title">View Value List</h3>
+                            <h3 class="block-title">View Working Principle List</h3>
                             <div class="table-responsive">
                                 <table class="table table-striped table-vcenter">
                                     <thead>
