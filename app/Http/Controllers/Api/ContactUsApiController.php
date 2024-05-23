@@ -27,7 +27,7 @@ class ContactUsApiController extends Controller
     public function contact()
     {
         // dd(1);
-        $data['contact'] = ContactUs::select('title', 'description', 'phone', 'address', 'email')->get();
+        $data['contact'] = ContactUs::select('title', 'description', 'phone', 'address', 'email')->first();
         // Check if 'image' field is empty and set it to null
         // foreach ($data['contact'] as $contact) {
         //     if (empty($contact->image)) {

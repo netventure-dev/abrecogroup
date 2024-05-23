@@ -174,6 +174,11 @@ Route::post('business-settings/store',  'Admin\OurBusinessSettingController@stor
 Route::get('inclusive/create',  'Admin\InclusiveSupportController@create')->name('inclusive.create');
 Route::post('inclusive/store',  'Admin\InclusiveSupportController@store')->name('inclusive.store');
 
+// dream-destination
+
+Route::get('dream-destination/create',  'Admin\DreamDestinationController@create')->name('dream.create');
+Route::post('dream-destination/store',  'Admin\DreamDestinationController@store')->name('dream.store');
+
 
 //our business List
 
