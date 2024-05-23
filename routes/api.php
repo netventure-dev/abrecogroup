@@ -77,6 +77,13 @@ Route::get('inclusive',[HomeController::class,'inclusive']);
 Route::get('dream-destination',[HomeController::class,'dream']);
 
 
+//life at abreco Api
+Route::get('/life-at-abreco', [LifeAtAbrecoApiController::class, 'index']);
+
+
+
+
+
 
 
 // Route::get('industries',[IndustryController::class,'index']);
