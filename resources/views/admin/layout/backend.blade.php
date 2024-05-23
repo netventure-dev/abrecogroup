@@ -713,6 +713,8 @@
                                         key="t-products">Settings Page</a></li>
                                 <li><a href="{{ route('admin.mission-vision.create') }}"
                                         key="t-product-detail">Mission and Vision</a></li>
+                                <li><a href="{{ route('admin.impact.settings.index') }}"
+                                        key="t-product-detail">Our Impact</a></li>
                             </ul>
                         </li>
                         {{-- <li>

@@ -62,13 +62,24 @@ Route::get('about-us/image-delete',  'Admin\AboutUsListController@image_delete')
 Route::get('mission-vision',  'Admin\MissionVisionController@index')->name('mission-vision.index');
 Route::get('mission-vision/create',  'Admin\MissionVisionController@create')->name('mission-vision.create');
 Route::post('mission-vision/store',  'Admin\MissionVisionController@store')->name('mission-vision.store');
-// Route::get('mission-vision/edit/{id}',  'Admin\MissionVisionController@edit')->name('mission-vision.edit');
-// Route::post('mission-vision/update/{id}',  'Admin\MissionVisionController@update')->name('mission-vision.update');
 Route::delete('mission-vision/destroy/{id}',  'Admin\MissionVisionController@destroy')->name('mission-vision.destroy');
 Route::get('mission-vision/settings/image-delete',  'Admin\MissionVisionController@image_delete')->name('mission-vision.image_delete');
 Route::get('mission-vision/settings/image-delete1',  'Admin\MissionVisionController@image_delete1')->name('mission-vision.image_delete1');
 Route::get('mission-vision/settings/image-delete2',  'Admin\MissionVisionController@image_delete2')->name('mission-vision.image_delete2');
+// Route::get('mission-vision/edit/{id}',  'Admin\MissionVisionController@edit')->name('mission-vision.edit');
+// Route::post('mission-vision/update/{id}',  'Admin\MissionVisionController@update')->name('mission-vision.update');
 
+
+//about-impact
+ Route::get('impact/settings','Admin\ImpactSettingController@index')->name('impact.settings.index');
+ Route::post('impact/settings/store','Admin\ImpactSettingController@store')->name('impact.settings.store');
+ Route::post('impact/image/store','Admin\ImpactSettingController@image')->name('impact.image.store');
+ Route::delete('impact/image/destroy/{id}',  'Admin\ImpactSettingController@destroy')->name('impact.image.destroy');
+ Route::post('impact/image/order', 'Admin\ImpactSettingController@order')->name('impact.image.order');
+//  Route::get('impact/settings/create', 'Admin\ImpactSettingController@create')->name('impact.settings.create');
+//  Route::get('milestone/settings/edit/{id}', 'Admin\MilestoneSettingsController@edit')->name('milestone.settings.edit');
+//  Route::post('milestone/settings/update/{id}', 'Admin\MilestoneSettingsController@update')->name('milestone.settings.update');
+//  Route::delete('milestone/settings/destroy/{id}',  'Admin\MilestoneSettingsController@destroy')->name('milestone.settings.destroy');
 
 
 
