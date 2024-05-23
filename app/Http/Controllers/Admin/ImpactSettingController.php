@@ -44,11 +44,11 @@ class ImpactSettingController extends Controller
     }
     public function image(Request $request)
     {
-        $data = ImpactSetting::first();
+        // $data = ImpactSetting::first();
         $image =$request->file('file');
         $imageUpload = new ImpactImage();
         //  $uuid = Uuid::generate()->string;
-            $imageUpload->impact_id=$data->uuid;
+            // $imageUpload->impact_id=$data->uuid;
         // $imageUpload->id = $uuid;
         if($image){
             
