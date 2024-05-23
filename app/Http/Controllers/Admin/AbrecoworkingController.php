@@ -3,19 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\LifeAtAbrecoValue;
-use App\Models\LifeAtAbrecoValueList;
+use App\Models\AbrecoWorkingPrinclple;
+use App\Models\AbrecoWorkingPrinclpleList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 
-class LifeAtAbrecoValueController extends Controller
+class AbrecoworkingController extends Controller
 {
-    
-    // public function index()
-    // {
-    //     return view('admin.life-abreco.value.create',['news'=>$news]);
-    // }
     public function create()
     {
 
@@ -26,11 +21,11 @@ class LifeAtAbrecoValueController extends Controller
             ['News', route('admin.news.index')],
             ['Create', route('admin.blog-list.create')],
         ];
-        $data = LifeAtAbrecoValue::first();
-        $news = LifeAtAbrecoValueList::paginate(10);
+        $data = AbrecoWorkingPrinclple::first();
+        $news = AbrecoWorkingPrinclpleList::paginate(10);
 
 
-        return view('admin.life-abreco.value.create', compact('breadcrumbs', 'data', 'news'));
+        return view('admin.life-abreco.working-principle.create', compact('breadcrumbs', 'news', 'data'));
     }
 
     public function store(Request $request)
@@ -39,13 +34,15 @@ class LifeAtAbrecoValueController extends Controller
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
             'title' => 'nullable',
+            'content' => 'nullable',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
 
 
         ]);
-        $data = LifeAtAbrecoValue::firstOrCreate();
+        $data = AbrecoWorkingPrinclple::firstOrCreate();
         $data->uuid = (string) Str::uuid();
         $data->title = $validated['title'];
+        $data->content = $validated['content'];
         if ($request->hasFile('image')) {
             $path =  $request->file('image')->storeAs('media/testimonials/image/', $validated['image']->getClientOriginalName(), 'public');
             $data->image = $path;
@@ -66,11 +63,13 @@ class LifeAtAbrecoValueController extends Controller
         $validated = $request->validate([
             'title' => 'nullable',
             'content' => 'nullable',
+            'status' => 'required',
         ]);
-        $data =  new LifeAtAbrecoValueList();
+        $data =  new AbrecoWorkingPrinclpleList();
         $data->uuid = (string) Str::uuid();
         $data->title = $validated['title'];
         $data->content = $validated['content'];
+        $data->status = $validated['status'];
         $res = $data->save();
         if ($res) {
             notify()->success(__('Created successfully'));
@@ -81,30 +80,32 @@ class LifeAtAbrecoValueController extends Controller
     }
 
     public function edit($uuid)
-
     {
 
-        $milestone = LifeAtAbrecoValueList::where('id', $uuid)->first();
+        $milestone = AbrecoWorkingPrinclpleList::where('id', $uuid)->first();
         $breadcrumbs = [
             [(__('Dashboard')), route('admin.home')],
-            [(__('Milestone List')), route('admin.milestone.list.index')],
+            [(__('Working List')), route('admin.working.create')],
             [(__('Milestone')), null],
         ];
         // $services=Service::where('status',1)->get();
-        $data = LifeAtAbrecoValueList::get();
-        return view('admin.life-abreco.value.edit', compact('milestone', 'breadcrumbs', 'data'));
+        $data = AbrecoWorkingPrinclpleList::get();
+        return view('admin.life-abreco.working-principle.edit', compact('milestone', 'breadcrumbs', 'data'));
     }
 
     public function update(Request $request, $uuid)
     {
-        $milestone = LifeAtAbrecoValueList::where('uuid', $uuid)->first();
+        $milestone = AbrecoWorkingPrinclpleList::where('uuid', $uuid)->first();
 
         $validatedData = $request->validate([
             'title' => 'nullable',
             'content' => 'nullable',
+            'status' => 'required',
+
         ]);
         $milestone->title = $validatedData['title'];
         $milestone->content = $validatedData['content'];
+        $milestone->status = $validatedData['status'];
         $res = $milestone->save();
 
         if ($res) {
@@ -120,7 +121,7 @@ class LifeAtAbrecoValueController extends Controller
     {
           
         // $delEvents = NewsEventsCategory::where('category_id', $id)->delete();
-        $news = LifeAtAbrecoValueList::where('id', $id)->first();
+        $news = AbrecoWorkingPrinclpleList::where('id', $id)->first();
         $res = $news->delete();
         if ($res) {
             notify()->success(__('Deleted successfully'));

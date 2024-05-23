@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\AbrecoWorkingPrinclple;
+use App\Models\AbrecoWorkingPrinclpleList;
 use App\Models\LifeAbreco;
 use App\Models\LifeAtAbrecoBanner;
 use App\Models\LifeAtAbrecoContent;
@@ -27,6 +29,11 @@ class LifeAtAbrecoApiController extends Controller
         $data['content'] = LifeAtAbrecoContent::select('uuid', 'title', 'content')->first();
         $data['value-settings'] = LifeAtAbrecoValue::select('uuid', 'title', 'image')->first();
         $data['value-list'] = LifeAtAbrecoValueList::select('uuid', 'title', 'content')->get();
+
+        $data['work-settings'] = AbrecoWorkingPrinclple::select('uuid', 'title','content', 'image')->first();
+        $data['work-list'] = AbrecoWorkingPrinclpleList::select('uuid', 'title','content')->where('status',1)->get();
+
+
 
 
       

@@ -211,6 +211,15 @@ Route::post('abreco-life-value-list/update/{uuid}',  'Admin\LifeAtAbrecoValueCon
 // Route::delete('abreco-life-value-list/destroy/{id}',  'Admin\LifeAtAbrecoValueController@destroy')->name('life-value-list.destroy');
 Route::delete('abreco-life-value-list/{id}/destroy', 'Admin\LifeAtAbrecoValueController@destroy')->name('life-value-list.destroy');
 
+// life-at-abreco-Values
+
+Route::get('abreco-working-principle/create',  'Admin\AbrecoworkingController@create')->name('working.create');
+Route::post('abreco-working-principle/store',  'Admin\AbrecoworkingController@store')->name('working-settings.store');
+Route::post('abreco-working-principle-list/store',  'Admin\AbrecoworkingController@list_store')->name('working-list.store');
+Route::get('abreco-working-principle-list/edit/{uuid}', 'Admin\AbrecoworkingController@edit')->name('working-list.edit');
+Route::post('abreco-working-principle-list/update/{uuid}',  'Admin\AbrecoworkingController@update')->name('working-list.update');
+Route::delete('abreco-working-principle-list/{id}/destroy', 'Admin\AbrecoworkingController@destroy')->name('working-list.destroy');
+
 
 
 
