@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class MissionVision extends Model
 {
     use HasFactory;
+    public $incrementing = false;
+    public static function firstOrCreate()
+    {
+        $obj = static::first();
+        return $obj ?: new static;
+    }
 }

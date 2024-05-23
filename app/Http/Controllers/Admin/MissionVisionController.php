@@ -31,26 +31,33 @@ class MissionVisionController extends Controller
             ['Mission & Vision', route('admin.mission-vision.index')],
             ['Create', route('admin.mission-vision.create')],
         ];
-        return view('admin.about-us.mission-vision.create', compact('breadcrumbs'));
+        $data = MissionVision::first();
+        return view('admin.about-us.mission-vision.create', compact('breadcrumbs','data'));
     }
 
     public function store(Request $request)
     {
         // $this->authorize('create', Gender::class);
         $validated = $request->validate([
-            'mission_title' => 'required|unique:mission_visions,mission_title',
+            'mission_title' => 'nullable',
             'mission_content' => 'nullable',
             'mission_image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
-            'vision_title' => 'required|unique:mission_visions,vision_title',
+            'vision_title' => 'nullable',
             'vision_content' => 'nullable',
             'vision_image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
+            'values_title' => 'nullable',
+            'values_content' => 'nullable',
+            'values_image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
         ]);
-        $data = new MissionVision;
+        // $data = AboutUs::firstOrCreate();
+        $data = MissionVision::firstOrCreate();
         $data->uuid = (string) Str::uuid();
         $data->mission_title = $validated['mission_title'];
         $data->mission_content = $validated['mission_content'];
         $data->vision_title = $validated['vision_title'];
         $data->vision_content = $validated['vision_content'];
+        $data->values_title = $validated['values_title'];
+        $data->values_content = $validated['values_content'];
         if ($request->hasFile('mission_image')) {
             $path =  $request->file('mission_image')->storeAs('media/aboutus/image',  $validated['mission_image']->getClientOriginalName(), 'public');
             $data->mission_image = $path;
@@ -60,6 +67,10 @@ class MissionVisionController extends Controller
             $path =  $request->file('vision_image')->storeAs('media/aboutus/image',$validated['vision_image']->getClientOriginalName(), 'public');
             $data->vision_image = $path;
         }
+        if ($request->hasFile('values_image')) {
+            $path =  $request->file('values_image')->storeAs('media/aboutus/image',  $validated['values_image']->getClientOriginalName(), 'public');
+            $data->values_image = $path;
+        }
         $res = $data->save();
         if ($res) {
             notify()->success(__('Created Successfully'));
@@ -68,50 +79,50 @@ class MissionVisionController extends Controller
         }
         return redirect()->back();
     }
-    public function edit($id)
-    {
-        // $this->authorize('update', $menu);
-        $data= MissionVision::where('uuid',$id)->first();
-        $breadcrumbs = [
-            [(__('Dashboard')), route('admin.home')],
-            [(__('Mission & Vision')),  route('admin.mission-vision.index')],
-            [$data->title, null],
-        ];
-        return view('admin.about-us.mission-vision.edit', compact('breadcrumbs','data'));
-    }
-    public function update(Request $request,$id)
-    {
-        // $this->authorize('create', Gender::class);
-        $data= MissionVision::where('uuid',$id)->first();
-        $validated = $request->validate([
-            'mission_title' => 'required',
-            'mission_content' => 'nullable',
-            'mission_image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
-            'vision_title' => 'required',
-            'vision_content' => 'nullable',
-            'vision_image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
-        ]);
-        $data->mission_title = $validated['mission_title'];
-        $data->mission_content = $validated['mission_content'];
-        $data->vision_title = $validated['vision_title'];
-        $data->vision_content = $validated['vision_content'];
+    // public function edit($id)
+    // {
+    //     // $this->authorize('update', $menu);
+    //     $data= MissionVision::where('uuid',$id)->first();
+    //     $breadcrumbs = [
+    //         [(__('Dashboard')), route('admin.home')],
+    //         [(__('Mission & Vision')),  route('admin.mission-vision.index')],
+    //         [$data->title, null],
+    //     ];
+    //     return view('admin.about-us.mission-vision.edit', compact('breadcrumbs','data'));
+    // }
+    // public function update(Request $request,$id)
+    // {
+    //     // $this->authorize('create', Gender::class);
+    //     $data= MissionVision::where('uuid',$id)->first();
+    //     $validated = $request->validate([
+    //         'mission_title' => 'required',
+    //         'mission_content' => 'nullable',
+    //         'mission_image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
+    //         'vision_title' => 'required',
+    //         'vision_content' => 'nullable',
+    //         'vision_image' => 'sometimes|mimes:jpg,jpeg,png,webp|max:2000',
+    //     ]);
+    //     $data->mission_title = $validated['mission_title'];
+    //     $data->mission_content = $validated['mission_content'];
+    //     $data->vision_title = $validated['vision_title'];
+    //     $data->vision_content = $validated['vision_content'];
 
-        if ($request->hasFile('mission_image')) {
-            $path =  $request->file('mission_image')->storeAs('media/aboutus/image',$validated['mission_image']->getClientOriginalName(), 'public');
-            $data->mission_image = $path;
-        }
-        if ($request->hasFile('vision_image')) {
-            $path =  $request->file('vision_image')->storeAs('media/aboutus/image',$validated['vision_image']->getClientOriginalName(), 'public');
-            $data->vision_image = $path;
-        }
-        $res = $data->save();
-        if ($res) {
-            notify()->success(__('Updated Successfully'));
-        } else {
-            notify()->error(__('Failed to create. Please try again'));
-        }
-        return redirect()->back();
-    }
+    //     if ($request->hasFile('mission_image')) {
+    //         $path =  $request->file('mission_image')->storeAs('media/aboutus/image',$validated['mission_image']->getClientOriginalName(), 'public');
+    //         $data->mission_image = $path;
+    //     }
+    //     if ($request->hasFile('vision_image')) {
+    //         $path =  $request->file('vision_image')->storeAs('media/aboutus/image',$validated['vision_image']->getClientOriginalName(), 'public');
+    //         $data->vision_image = $path;
+    //     }
+    //     $res = $data->save();
+    //     if ($res) {
+    //         notify()->success(__('Updated Successfully'));
+    //     } else {
+    //         notify()->error(__('Failed to create. Please try again'));
+    //     }
+    //     return redirect()->back();
+    // }
     public function destroy($id)
     {
         // $this->authorize('delete', $menu);
@@ -139,6 +150,14 @@ class MissionVisionController extends Controller
 
         $section = MissionVision::where('uuid', $request->uuid)->first();
         $section->mission_image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
+    public function image_delete2(Request $request)
+    {
+
+        $section = MissionVision::where('uuid', $request->uuid)->first();
+        $section->values_image = "";
         $section->save();
         return response()->json(['status' => "success"]);
     }

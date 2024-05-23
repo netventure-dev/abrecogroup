@@ -48,25 +48,26 @@ Route::get('about-us/image-delete',  'Admin\AboutUsListController@image_delete')
  Route::delete('milestone/settings/destroy/{id}',  'Admin\MilestoneSettingsController@destroy')->name('milestone.settings.destroy');
 
 
-//  Milestone list
+ //Milestone list
  Route::get('milestone/list','Admin\MilestoneListController@index')->name('milestone.list.index');
  Route::get('milestone/list/create', 'Admin\MilestoneListController@create')->name('milestone.list.create');
  Route::post('milestone/list/store', 'Admin\MilestoneListController@store')->name('milestone.list.store');
  Route::get('milestone/list/edit/{id}', 'Admin\MilestoneListController@edit')->name('milestone.list.edit');
  Route::post('milestone/list/update/{id}',  'Admin\MilestoneListController@update')->name('milestone.list.update');
  Route::delete('milestone/list/destroy/{id}',  'Admin\MilestoneListController@destroy')->name('milestone.list.destroy');
-// // Route::get('about-us/image-delete',  'Admin\AboutUsListController@image_delete')->name('about-us.image_delete');
+// Route::get('about-us/image-delete',  'Admin\AboutUsListController@image_delete')->name('about-us.image_delete');
 
 
 //  about us - mission and vision
 Route::get('mission-vision',  'Admin\MissionVisionController@index')->name('mission-vision.index');
 Route::get('mission-vision/create',  'Admin\MissionVisionController@create')->name('mission-vision.create');
 Route::post('mission-vision/store',  'Admin\MissionVisionController@store')->name('mission-vision.store');
-Route::get('mission-vision/edit/{id}',  'Admin\MissionVisionController@edit')->name('mission-vision.edit');
-Route::post('mission-vision/update/{id}',  'Admin\MissionVisionController@update')->name('mission-vision.update');
+// Route::get('mission-vision/edit/{id}',  'Admin\MissionVisionController@edit')->name('mission-vision.edit');
+// Route::post('mission-vision/update/{id}',  'Admin\MissionVisionController@update')->name('mission-vision.update');
 Route::delete('mission-vision/destroy/{id}',  'Admin\MissionVisionController@destroy')->name('mission-vision.destroy');
 Route::get('mission-vision/settings/image-delete',  'Admin\MissionVisionController@image_delete')->name('mission-vision.image_delete');
 Route::get('mission-vision/settings/image-delete1',  'Admin\MissionVisionController@image_delete1')->name('mission-vision.image_delete1');
+Route::get('mission-vision/settings/image-delete2',  'Admin\MissionVisionController@image_delete2')->name('mission-vision.image_delete2');
 
 
 
