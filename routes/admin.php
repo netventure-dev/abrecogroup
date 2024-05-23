@@ -180,6 +180,16 @@ Route::post('inclusive/store',  'Admin\InclusiveSupportController@store')->name(
 Route::get('dream-destination/create',  'Admin\DreamDestinationController@create')->name('dream.create');
 Route::post('dream-destination/store',  'Admin\DreamDestinationController@store')->name('dream.store');
 
+// life-at-abreco-logo
+
+Route::get('abreco-life-banner/create',  'Admin\LifeAtAbrecoBannerController@create')->name('life-banner.create');
+Route::post('abreco-life-banner/store',  'Admin\LifeAtAbrecoBannerController@store')->name('life-banner.store');
+
+// life-at-abreco-Content
+
+Route::get('abreco-life-content/create',  'Admin\LifeAtAbrecoContentController@create')->name('life-content.create');
+Route::post('abreco-life-content/store',  'Admin\LifeAtAbrecoContentController@store')->name('life-content.store');
+
 
 //our business List
 

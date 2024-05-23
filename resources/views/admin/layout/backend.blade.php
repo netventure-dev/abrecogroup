@@ -495,12 +495,7 @@
                                 <span key="t-dashboards">Dashboards</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ route('admin.home-slider.index') }}" class="waves-effect">
-                                <i class="bx bx-receipt"></i>
-                                <span key="t-file-manager">Home Slider</span>
-                            </a>
-                        </li>
+
                         <li>
                             <a href="{{ route('admin.sections.index') }}" class="waves-effect">
                                 <i class="bx bxs-layer"></i>
@@ -595,27 +590,37 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li>
+                                    <a href="{{ route('admin.home-slider.index') }}" class="waves-effect">
+                                        <span key="t-file-manager">Home Slider</span>
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="{{ route('admin.multi-faceted.create') }}" class="waves-effect">
-                                        
+
                                         <span key="t-file-manager">Multi faceted</span>
-                                      </a>
+                                    </a>
                                 </li>
 
                                 <li>
                                     <a href="{{ route('admin.inclusive.create') }}" class="waves-effect">
-                                        
+
                                         <span key="t-file-manager">Inclusive Support</span>
-                                      </a>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.testimonials.index') }}" class="waves-effect">
+                                        <span key="t-file-manager">Employee testimonial</span>
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('admin.dream.create') }}" class="waves-effect">
-                                        
+
                                         <span key="t-file-manager">Dream Destination</span>
-                                      </a>
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('admin.news.index') }}" class="waves-effect">
-                                        
+
                                         <span key="t-file-manager">News</span>
                                     </a>
                                 </li>
@@ -629,13 +634,22 @@
                                         <span key="t-file-manager">Logo</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('admin.testimonials.index') }}" class="waves-effect">
-                                        <span key="t-file-manager">Employee testimonial</span>
-                                    </a>
-                                </li>
+
                                 {{-- <li><a href="{{ route('admin.mission-vision.index') }}"
                                         key="t-product-detail">Mission And Vision</a></li>  --}}
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-store"></i>
+                                <span key="t-ecommerce">Life at Abreco Page </span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li>
+                                    <a href="{{ route('admin.life-banner.create') }}" class="waves-effect">
+                                        <span key="t-file-manager">Banner</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -648,8 +662,8 @@
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('admin.business-settings.create') }}"
                                         key="t-products">Settings</a></li>
-                                        <li><a href="{{ route('admin.business-list.index') }}"
-                                            key="t-product-detail">List</a></li>
+                                <li><a href="{{ route('admin.business-list.index') }}"
+                                        key="t-product-detail">List</a></li>
                                 {{-- <li><a href="{{ route('admin.mission-vision.index') }}"
                                         key="t-product-detail">Mission And Vision</a></li>  --}}
                             </ul>
@@ -742,20 +756,11 @@
                             </a>
                         </li>  --}}
 
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="bx bx-store"></i>
-                                <span key="t-ecommerce">About</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.about-us.settings.create') }}"
-                                        key="t-products">Settings</a></li>
-                                <li><a href="{{ route('admin.mission-vision.create') }}"
-                                        key="t-product-detail">Mission And Vision</a></li>
-                            </ul>
-                        </li>
-                      
-                      
+
+
+
+
+
                         <li>
                             <a href="{{ route('admin.contact-us.create') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
@@ -800,7 +805,7 @@
                                 <span key="t-file-manager">Services Care</span>
                             </a>
                         </li> --}}
-                        
+
                         <!-- <li>
                             <a href="{{ route('admin.schema.index') }}" class="waves-effect">
                                 <i class="bx bx-receipt"></i>
