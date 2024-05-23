@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\LifeAbreco;
 use App\Models\LifeAtAbrecoBanner;
 use App\Models\LifeAtAbrecoContent;
+use App\Models\LifeAtAbrecoValue;
+use App\Models\LifeAtAbrecoValueList;
 use App\Models\Logo;
 use Illuminate\Http\Request;
 
@@ -23,27 +25,11 @@ class LifeAtAbrecoApiController extends Controller
         //     $data['about']->content_image = empty($data['about']->content_image) ? null : $data['about']->content_image;
         // }
         $data['content'] = LifeAtAbrecoContent::select('uuid', 'title', 'content')->first();
-        // Set null values for 'icon' field in each item in 'about_list' data
-        // foreach ($data['about_list'] as $aboutList) {
-        //     $aboutList->icon = empty($aboutList->icon) ? null : $aboutList->icon;
-        // }
-        // $data['mission_vision'] = MissionVision::select('id', 'uuid', 'title', 'description', 'image', 'mobile_image', 'status', 'canonical_tag', 'schema')->get()
+        $data['value-settings'] = LifeAtAbrecoValue::select('uuid', 'title', 'image')->first();
+        $data['value-list'] = LifeAtAbrecoValueList::select('uuid', 'title', 'content')->get();
 
-        //     ->map(function ($item) {
-        //         //  dd($item);
-        //         if ($item->status == 0) {
-        //             return [
-        //                 'id' => null,
-        //                 'title' => null,
-        //                 'description' => null,
-        //                 'image' => null,
-        //                 'mobile_image' => null,
 
-        //             ];
-        //         } else {
-        //             return $item;
-        //         }
-        //     });
+      
 
         if (!empty($data)) {
             return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);

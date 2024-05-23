@@ -201,6 +201,21 @@ Route::post('abreco-life-banner/store',  'Admin\LifeAtAbrecoBannerController@sto
 Route::get('abreco-life-content/create',  'Admin\LifeAtAbrecoContentController@create')->name('life-content.create');
 Route::post('abreco-life-content/store',  'Admin\LifeAtAbrecoContentController@store')->name('life-content.store');
 
+// life-at-abreco-Values
+
+Route::get('abreco-life-value/create',  'Admin\LifeAtAbrecoValueController@create')->name('life-value.create');
+Route::post('abreco-life-value/store',  'Admin\LifeAtAbrecoValueController@store')->name('life-value.store');
+Route::post('abreco-life-value-list/store',  'Admin\LifeAtAbrecoValueController@list_store')->name('life-value-list.store');
+Route::get('abreco-life-value-list/edit/{uuid}', 'Admin\LifeAtAbrecoValueController@edit')->name('life-value-list.edit');
+Route::post('abreco-life-value-list/update/{uuid}',  'Admin\LifeAtAbrecoValueController@update')->name('life-value-list.update');
+// Route::delete('abreco-life-value-list/destroy/{id}',  'Admin\LifeAtAbrecoValueController@destroy')->name('life-value-list.destroy');
+Route::delete('abreco-life-value-list/{id}/destroy', 'Admin\LifeAtAbrecoValueController@destroy')->name('life-value-list.destroy');
+
+
+
+
+
+
 
 //our business List
 
