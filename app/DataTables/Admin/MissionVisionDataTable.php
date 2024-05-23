@@ -22,19 +22,28 @@ class MissionVisionDataTable extends DataTable
         return datatables()
         ->eloquent($query)
         ->addIndexColumn()
-        ->editColumn('title', function (MissionVision $new) {
-            return $new->title;
+        ->editColumn('mission_title', function (MissionVision $new) {
+            return $new->mission_title;
         })
-        ->editColumn('status', function (MissionVision $new) {
-            if ($new->status) {
-                return '<span class="btn btn-sm btn-success btn-rounded waves-effect waves-light">Active</span>';
-            } else {
-                return '<span class="btn btn-sm btn-danger btn-rounded waves-effect waves-light">Inactive</span>';
+        ->editColumn('vision_title', function (MissionVision $new) {
+            return $new->vision_title;
+        })
+       
+        ->editColumn('mission_image', function (MissionVision $new) {
+            if ($new->mission_image) {
+                $url = asset('storage/' . $new->mission_image);
+                $d = '<img class="rounded avatar-md" src="' . $url . '" border="0" width="70" height="60" class="img-rounded" align="center" /> ';
+                return $d;
+            }
+            else{
+                $url = asset('assets/images/no_image.png');
+                $d = '<img class="rounded avatar-md" src="' . $url . '" border="0" width="70" height="60" class="img-rounded" align="center" /> ';
+                return $d;
             }
         })
-        ->editColumn('image', function (MissionVision $new) {
-            if ($new->image) {
-                $url = asset('storage/' . $new->image);
+        ->editColumn('vision_image', function (MissionVision $new) {
+            if ($new->vision_image) {
+                $url = asset('storage/' . $new->vision_image);
                 $d = '<img class="rounded avatar-md" src="' . $url . '" border="0" width="70" height="60" class="img-rounded" align="center" /> ';
                 return $d;
             }
@@ -48,7 +57,7 @@ class MissionVisionDataTable extends DataTable
             return view('admin.about-us.mission-vision.action', compact('new'));
         })
 
-        ->rawColumns(['title','action','image','status']);
+        ->rawColumns(['mission_title','vision_title','mission_image','vision_image']);
     }
 
     /**
@@ -85,9 +94,10 @@ class MissionVisionDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->title(__('Sl No'))->searchable(false)->orderable(false),
-            Column::make('title')->title(__('Title')),
-            Column::make('image')->title(__('Image')),
-            Column::make('status')->title(__('Status')),
+            Column::make('mission_title')->title(__('Title')),
+            Column::make('mission_image')->title(__('Image')),
+            Column::make('vision_title')->title(__('Title')),
+            Column::make('vision_image')->title(__('Image')),
             Column::computed('action')
                 ->title(__('Action'))
                 ->exportable(false)

@@ -36,106 +36,90 @@
                                 class="custom-validation" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-4 row">
-                                    <label for="title" class="col-sm-3 col-form-label mb-2">{{ __('Title') }}<span
+                                    <label for="mission_title" class="col-sm-3 col-form-label mb-2">{{ __(' Mission Title') }}<span
                                             class="text-danger">*</span></label>
                                     <div class="col-sm-9">
-                                        <input id="title" name="title" type="text"
-                                            class="form-control mb-2 @if ($errors->has('title')) is-invalid @endif"
+                                        <input id="mission_title" name="mission_title" type="text"
+                                            class="form-control mb-2 @if ($errors->has('mission_title')) is-invalid @endif"
                                             placeholder="{{ __('Enter Title') }}" required
-                                            value="{{ @old('title', @$data->title) }}">
-                                        <div class="invalid-feedback">{{ $errors->first('title') }}
+                                            value="{{ @old('mission_title', @$data->mission_title) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('mission_title') }}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-4 row">
-                                    <label for="canonical_tag"
-                                        class="col-sm-3 col-form-label mb-2">{{ __('Canonical tag') }}<span
-                                            class="text-danger"></span></label>
-                                    <div class="col-sm-9">
-                                        <input id="canonical_tag" name="canonical_tag" type="text"
-                                            class="form-control mb-2 @if ($errors->has('canonical_tag')) is-invalid @endif"
-                                            placeholder="{{ __('Enter canonical tag') }}"
-                                            value="{{ @old('canonical_tag', @$data->canonical_tag) }}">
-                                        <div class="invalid-feedback">{{ $errors->first('canonical_tag') }}
-                                        </div>
-                                    </div>
-                                </div>
+                              
                                    <div class="mb-4 row">
-                                    <label for="content" class="col-sm-3 col-form-label">{{ __('Schema') }}
+                                    <label for="content" class="col-sm-3 col-form-label">{{ __('Mission Content') }}
                                         <span class="text-danger"></span></label>
                                     <div class="col-sm-9">
-                                        <textarea name="schema" class="form-control  @if ($errors->has('schema')) is-invalid @endif"
-                                            style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Schema') }}" >{{ @old('schema', @$data->schema) }}</textarea>
-                                        <div class="invalid-feedback">{{ $errors->first('schema') }}
+                                        <textarea name="mission_content" class="form-control summernote  @if ($errors->has('mission_content')) is-invalid @endif"
+                                            style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Mission Content') }}" >{{ @old('mission_content', @$data->mission_content) }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('mission_content') }}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-4 row">
-                                    <label for="content" class="col-sm-3 col-form-label">{{ __('Sub Title') }}
-                                        <span class="text-danger">*</span></label>
-                                    <div class="col-sm-9">
-                                        <textarea name="content" class="form-control summernote @if ($errors->has('content')) is-invalid @endif" ro
-                                            placeholder="{{ __('Enter Content Description') }}" required>{{ @old('content', @$data->description) }}</textarea>
-                                        <div class="invalid-feedback">{{ $errors->first('content') }}
-                                        </div>
-                                    </div>
-                                </div>
+                              
                                 <div class="mt-4 row">
-                                    <label class="col-sm-3 col-form-label" for="image">{{ __('Icon') }}<span
+                                    <label class="col-sm-3 col-form-label" for="image">{{ __('Mission Image') }}<span
                                             class="text-danger">*</span> <a href="#"
                                             class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
                                     <div class="col-sm-9">
-                                        @if ($data->image)
-                                            <img src="{{ asset("/storage/$data->image") }}" alt=""
+                                        @if ($data->mission_image)
+                                            <img src="{{ asset("/storage/$data->mission_image") }}" alt=""
+                                                class="img-fluid" style="width:100px;">
+                                            <button type="button" class="btn btn-primary w-md"
+                                                onclick="delete_image1('{{ $data->uuid }}');"
+                                                class="close">Delete</button>
+                                        @endif
+                                        <input id="mission_image" name="mission_image" type="file"
+                                            class="form-control mb-2 @if ($errors->has('mission_image')) is-invalid @endif"
+                                            value="{{ @old('mission_image') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('mission_image') }}</div>
+                                    </div>
+                                </div>
+                              
+                                <div class="mb-4 row">
+                                    <label for="title" class="col-sm-3 col-form-label mb-2">{{ __(' Vision Title') }}<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input id="vision_title" name="vision_title" type="text"
+                                            class="form-control mb-2 @if ($errors->has('vision_title')) is-invalid @endif"
+                                            placeholder="{{ __('Enter Title') }}" required
+                                            value="{{ @old('vision_title', @$data->vision_title) }}">
+                                        <div class="invalid-feedback">{{ $errors->first('vision_title') }}
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                                   <div class="mb-4 row">
+                                    <label for="content" class="col-sm-3 col-form-label">{{ __('Vision Content') }}
+                                        <span class="text-danger"></span></label>
+                                    <div class="col-sm-9">
+                                        <textarea name="vision_content" class="form-control summernote  @if ($errors->has('vision_content')) is-invalid @endif"
+                                            style="width: 100% !important; height: 200px !important;" ro placeholder="{{ __('Enter Schema') }}" >{{ @old('vision_content', @$data->vision_content) }}</textarea>
+                                        <div class="invalid-feedback">{{ $errors->first('vision_content') }}
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                                <div class="mt-4 row">
+                                    <label class="col-sm-3 col-form-label" for="image">{{ __('Vision Image') }}<span
+                                            class="text-danger">*</span> <a href="#"
+                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
+                                    <div class="col-sm-9">
+                                        @if ($data->vision_image)
+                                            <img src="{{ asset("/storage/$data->vision_image") }}" alt=""
                                                 class="img-fluid" style="width:100px;">
                                             <button type="button" class="btn btn-primary w-md"
                                                 onclick="delete_image('{{ $data->uuid }}');"
                                                 class="close">Delete</button>
                                         @endif
-                                        <input id="image" name="image" type="file"
-                                            class="form-control mb-2 @if ($errors->has('image')) is-invalid @endif"
-                                            value="{{ @old('image') }}">
-                                        <div class="invalid-feedback">{{ $errors->first('image') }}</div>
+                                        <input id="vision_image" name="vision_image" type="file"
+                                            class="form-control mb-2 @if ($errors->has('vision_image')) is-invalid @endif"
+                                            value="{{ @old('vision_image') }}">
+                                        <div class="invalid-feedback">{{ $errors->first('vision_image') }}</div>
                                     </div>
                                 </div>
-                                <div class="mt-4 row">
-                                    <label class="col-sm-3 col-form-label" for="mobile_image">{{ __('Mobile Icon') }}<span
-                                            class="text-danger"></span> <a href="#"
-                                            class="tool_tip js-tooltip-enabled" data-toggle="tooltip"></a></label>
-                                    <div class="col-sm-9">
-                                            @if ($data->mobile_image)
-
-                                                <img src="{{ asset("/storage/$data->mobile_image") }}" alt=""
-                                                    class="img-fluid" style="width:100px;">
-                                                <button type="button" class="btn btn-primary w-md"
-                                                    onclick="delete_image1('{{ $data->uuid }}');"
-                                                    class="close">Delete</button>
-                                            @endif
-                                            <input id="mobile_image" name="mobile_image" type="file"
-                                                class="form-control mb-2 @if ($errors->has('mobile_image')) is-invalid @endif"
-                                                value="{{ @old('mobile_image') }}">
-                                            <div class="invalid-feedback">{{ $errors->first('mobile_image') }}</div>
-                                    </div>
-                                </div>
-                                <div class="mb-4 row">
-                                    <label for="horizontal-firstname-input"
-                                        class="col-sm-3 col-form-label">{{ __('Status') }}<span
-                                            class="text-danger">*</span></label>
-                                    <div class="col-sm-9">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="status1"
-                                                value="1" @if ($data->status == 1) checked @endif>
-                                            <label class="form-check-label" for="status1">{{ __('Active') }}</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="status2"
-                                                value="0" @if ($data->status == 0) checked @endif>
-                                            <label class="form-check-label" for="status2">{{ __('Inactive') }}</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">
                                         <div>
