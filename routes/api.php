@@ -40,17 +40,13 @@ use App\Http\Controllers\Api\SeoApiController;
 // Route::get('/home', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/general', [HomeController::class, 'general']);
-// Life At abreco home
-Route::get('/testimonials', [HomeController::class, 'testimonial']);
 
-//news 
-Route::get('/news', [HomeController::class, 'news']);
 
 //life at abreco
-Route::get('/life-at-abreco', [HomeController::class, 'life']);
+Route::get('/life-at-abreco', [LifeAtAbrecoApiController::class, 'index']);
 
-//logo
-Route::get('/logo', [HomeController::class, 'logo']);
+
+
 
 //bussiness
 Route::get('/business-settings', [HomeController::class, 'business_settings']);
@@ -60,31 +56,9 @@ Route::get('/business-list', [HomeController::class, 'business_list']);
 //milestone
  Route::get('milestone',[HomeController::class,'milestone']);
 
-//office location
-Route::get('office-location',[HomeController::class,'Location']);
-
 // Contact
 Route::post('/contact-form', [ContactUsApiController::class, 'contact_store']);
 Route::get('/contact', [ContactUsApiController::class, 'contact']);
-
-//multi-faceted
-Route::get('multifaceted',[HomeController::class,'multifaceted']);
-
-//inclusive support
-Route::get('inclusive',[HomeController::class,'inclusive']);
-
-//inclusive support
-Route::get('dream-destination',[HomeController::class,'dream']);
-
-
-//life at abreco Api
-Route::get('/life-at-abreco', [LifeAtAbrecoApiController::class, 'index']);
-
-
-
-
-
-
 
 // Route::get('industries',[IndustryController::class,'index']);
 // Route::get('industries/{uuid}',[IndustryController::class,'details']);
