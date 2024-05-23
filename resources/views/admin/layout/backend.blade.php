@@ -661,6 +661,11 @@
                                         <span key="t-file-manager">Our values</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('admin.working.create') }}" class="waves-effect">
+                                        <span key="t-file-manager">Working Principle</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
