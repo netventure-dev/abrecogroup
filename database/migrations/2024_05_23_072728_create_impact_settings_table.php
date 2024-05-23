@@ -17,7 +17,7 @@ class CreateImpactSettingsTable extends Migration
             $table->id();
             $table->string('uuid');
             $table->string('title')->nullable();
-            $table->string('content')->nullable();
+            $table->longText('content')->nullable();
             $table->timestamps();
         });
     }
