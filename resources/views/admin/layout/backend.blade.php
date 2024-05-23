@@ -650,6 +650,17 @@
                                         <span key="t-file-manager">Banner</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('admin.life-content.create') }}" class="waves-effect">
+                                        <span key="t-file-manager">Content</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.life-value.create') }}" class="waves-effect">
+                                        <span key="t-file-manager">Our values</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
