@@ -166,13 +166,13 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
                     <div class="mt-2 row">
                         <div class="col-lg-12">
-                            <h3 class="block-title">View Value List</h3>
+                            <h3 class="block-title">View Impact List</h3>
                             <div class="table-responsive">
                                 <table class="table table-striped table-vcenter">
                                     <thead>
