@@ -60,6 +60,10 @@ Route::get('/business-list', [HomeController::class, 'business_list']);
 Route::post('/contact-form', [ContactUsApiController::class, 'contact_store']);
 Route::get('/contact', [ContactUsApiController::class, 'contact']);
 
+
+//about-page
+ Route::get('/about-us', [AboutController::class, 'index']);
+
 // Route::get('industries',[IndustryController::class,'index']);
 // Route::get('industries/{uuid}',[IndustryController::class,'details']);
 // Route::get('/about-us', [AboutController::class, 'index']);

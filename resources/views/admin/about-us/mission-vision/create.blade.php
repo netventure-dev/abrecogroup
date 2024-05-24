@@ -175,7 +175,7 @@
 
     <script>
       $(document).ready(function() {
-            $('.summernote').summernote('fontName', 'Poppins');
+            $('.summernote').summernote();
         });
         function delete_image(uuid) {
             if (confirm("Are you sure?")) {

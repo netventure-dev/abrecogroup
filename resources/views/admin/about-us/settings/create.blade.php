@@ -146,7 +146,7 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('.summernote').summernote('fontName', 'Poppins');
+            $('.summernote').summernote();
         });
 
         function delete_image(uuid) {
