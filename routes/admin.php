@@ -81,6 +81,12 @@ Route::get('mission-vision/settings/image-delete2',  'Admin\MissionVisionControl
  Route::get('impact/settings/image-delete',  'Admin\ImpactSettingController@image_delete')->name('impact.image_delete');
  Route::delete('impact/settings/destroy/{id}','Admin\ImpactSettingController@listdestroy')->name('impact.settings.listdestroy');
 
+ //about-counters
+  Route::get('couter/list','Admin\CounterController@index')->name('couters.index');
+  Route::post('couter/list/store','Admin\CounterController@store')->name('couters.store');
+  Route::get('couter/list/edit/{id}','Admin\CounterController@edit')->name('couters.edit');
+  Route::post('couter/list/update/{id}','Admin\CounterController@update')->name('couters.update');
+  Route::delete('couter/list/destroy/{id}',  'Admin\CounterController@destroy')->name('couters.destroy');
 //  Route::post('impact/image/store','Admin\ImpactSettingController@image')->name('impact.image.store');
 //  Route::delete('impact/image/destroy/{id}',  'Admin\ImpactSettingController@destroy')->name('impact.image.destroy');
 //  Route::post('impact/image/order', 'Admin\ImpactSettingController@order')->name('impact.image.order');

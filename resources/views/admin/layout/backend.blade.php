@@ -731,6 +731,8 @@
                                         key="t-product-detail">Mission and Vision</a></li>
                                 <li><a href="{{ route('admin.impact.settings.index') }}"
                                         key="t-product-detail">Our Impact</a></li>
+                                <li><a href="{{ route('admin.couters.index') }}"
+                                        key="t-product-detail">Counter</a></li>
                             </ul>
                         </li>
                         {{-- <li>
