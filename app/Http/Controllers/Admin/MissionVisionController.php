@@ -28,7 +28,7 @@ class MissionVisionController extends Controller
         // $this->authorize('create', Admin::class);
         $breadcrumbs = [
             ['Dashboard', route('admin.home')],
-            ['Mission & Vision', route('admin.mission-vision.index')],
+            ['Mission & Vision',null],
             ['Create', route('admin.mission-vision.create')],
         ];
         $data = MissionVision::first();
