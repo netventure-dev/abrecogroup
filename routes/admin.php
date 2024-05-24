@@ -234,6 +234,21 @@ Route::get('abreco-working-principle-list/edit/{uuid}', 'Admin\AbrecoworkingCont
 Route::post('abreco-working-principle-list/update/{uuid}',  'Admin\AbrecoworkingController@update')->name('working-list.update');
 Route::delete('abreco-working-principle-list/{id}/destroy', 'Admin\AbrecoworkingController@destroy')->name('working-list.destroy');
 
+// life-at-abreco-Values
+
+Route::get('abreco-benifits/create',  'Admin\BenifitsController@create')->name('benifits.create');
+Route::post('abreco-benifits/store',  'Admin\BenifitsController@store')->name('benifits.store');
+Route::post('abreco-benifits-list/store',  'Admin\BenifitsController@list_store')->name('benifits-list.store');
+Route::get('abreco-benifits-list/edit/{uuid}', 'Admin\BenifitsController@edit')->name('benifits-list.edit');
+Route::post('abreco-benifits-list/update/{uuid}',  'Admin\BenifitsController@update')->name('benifits-list.update');
+Route::delete('abreco-benifits-list/{id}/destroy', 'Admin\BenifitsController@destroy')->name('benifits-list.destroy');
+
+// life-at-abreco-Values
+
+Route::get('abreco-image-section/create',  'Admin\LifeImageSectionController@create')->name('abreco-image.create');
+Route::post('abreco-image-section/store',  'Admin\LifeImageSectionController@store')->name('abreco-image.store');
+
+
 
 
 

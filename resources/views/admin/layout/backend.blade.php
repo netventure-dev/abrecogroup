@@ -666,6 +666,11 @@
                                         <span key="t-file-manager">Working Principle</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('admin.benifits.create') }}" class="waves-effect">
+                                        <span key="t-file-manager">Benifit Highlights</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
