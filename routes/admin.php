@@ -73,9 +73,17 @@ Route::get('mission-vision/settings/image-delete2',  'Admin\MissionVisionControl
 //about-impact
  Route::get('impact/settings','Admin\ImpactSettingController@index')->name('impact.settings.index');
  Route::post('impact/settings/store','Admin\ImpactSettingController@store')->name('impact.settings.store');
- Route::post('impact/image/store','Admin\ImpactSettingController@image')->name('impact.image.store');
- Route::delete('impact/image/destroy/{id}',  'Admin\ImpactSettingController@destroy')->name('impact.image.destroy');
- Route::post('impact/image/order', 'Admin\ImpactSettingController@order')->name('impact.image.order');
+ 
+ //about-impact-list
+ Route::post('impact/settings/liststore','Admin\ImpactSettingController@liststore')->name('impact.settings.liststore');
+ Route::get('impact/settings/listedit/{id}','Admin\ImpactSettingController@listedit')->name('impact.settings.listedit');
+ Route::post('impact/settings/listupdate/{id}','Admin\ImpactSettingController@listupdate')->name('impact.settings.listupdate');
+ Route::get('impact/settings/image-delete',  'Admin\ImpactSettingController@image_delete')->name('impact.image_delete');
+ Route::delete('impact/settings/destroy/{id}','Admin\ImpactSettingController@listdestroy')->name('impact.settings.listdestroy');
+
+//  Route::post('impact/image/store','Admin\ImpactSettingController@image')->name('impact.image.store');
+//  Route::delete('impact/image/destroy/{id}',  'Admin\ImpactSettingController@destroy')->name('impact.image.destroy');
+//  Route::post('impact/image/order', 'Admin\ImpactSettingController@order')->name('impact.image.order');
 //  Route::get('impact/settings/create', 'Admin\ImpactSettingController@create')->name('impact.settings.create');
 //  Route::get('milestone/settings/edit/{id}', 'Admin\MilestoneSettingsController@edit')->name('milestone.settings.edit');
 //  Route::post('milestone/settings/update/{id}', 'Admin\MilestoneSettingsController@update')->name('milestone.settings.update');

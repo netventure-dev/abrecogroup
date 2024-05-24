@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ImpactSetting;
-use App\Models\ImpactImage;
+use App\Models\ImpactList;
 use Illuminate\Support\Str;
 
 
@@ -18,8 +18,8 @@ class ImpactSettingController extends Controller
             ['About Us', route('admin.about-us.settings.create')],
         ];
         $data = ImpactSetting::first();
-        $life = ImpactImage::get();
-        return view('admin.about-us.impact.index', compact('breadcrumbs','data','life'));
+        $news = ImpactList::paginate(10);
+        return view('admin.about-us.impact.index', compact('breadcrumbs','data','news'));
     }
     public function store(Request $request)
     {
@@ -42,64 +42,92 @@ class ImpactSettingController extends Controller
        
           
     }
-    public function image(Request $request)
+    public function liststore(Request $request)
     {
-        // $data = ImpactSetting::first();
-        $image =$request->file('file');
-        $imageUpload = new ImpactImage();
-        //  $uuid = Uuid::generate()->string;
-            // $imageUpload->impact_id=$data->uuid;
-        // $imageUpload->id = $uuid;
-        if($image){
-            
-                // $avatarName =  'upload/gallery/' . 'image_' .$image->getClientOriginalName();
-                // $image->move(public_path('upload/gallery'),$avatarName);
-                
-                $path = $request->file('file')->storeAs(
-                    'upload/logos',
-                    time() . '_' . $image->getClientOriginalName(),
-                    'public'
-                );
-                // $page->image = $path;
-                
-                // $vehicle->image = $avatarName;
-                $imageUpload->image = $path;
-                // $imageUpload->work_id = '';
-                $imageUpload->save();
-            // return response()->json(['success'=>$avatarName]);
-            return redirect()->back()->with('success', 'Successfully added .');
-        }
-    }
-    public function order(Request $request)
-    {
-       
-        $image = ImpactImage::where('id',$request->id)->first();
-        $image->order = $request->data;
-        $res = $image->update();
-        // dd($vehicle);
-        if($res){
-            $data['message'] = 'Order updated Successfully';
-            $data['status'] = '1';
-            return response()->json($data);
-        }
-    }
-    public function destroy($id)
-    {
-
+        $validated = $request->validate([
+            'title' => 'required',
+            'content' => 'nullable',
+            'status' => 'required',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+        ]);
         
-        $logo = ImpactImage::where('id',$id)->first();
+        $data = new ImpactList();
+        $data->uuid = (string) Str::uuid();
+        $data->title = $validated['title'];
+        $data->content = $validated['content'];
+        $data->status= $validated['status'];
+        if ($request->hasFile('image')) {
+            $path =  $request->file('image')->storeAs('media/aboutus/image',$validated['image']->getClientOriginalName(), 'public');
+            $data->image = $path;
+        }
+        $res = $data->save();
+        if ($res) {
+            notify()->success(__('Created successfully'));
+        } else {
+            notify()->error(__('Failed to create. Please try again'));
+        }
+        return redirect()->back();
+       
+          
+    }
+    public function listedit($id)
+    {
+        $data = ImpactList::where('uuid',$id)->firstOrFail();
+    
+        $breadcrumbs = [
+            [__('Dashboard'), route('admin.home')],
+            ['Our Impact', route('admin.impact.settings.index')],
+            ['Edit', Null],
+        ];
+    
+        return view('admin.about-us.impact.list.edit', compact('breadcrumbs', 'data'));
+    }
 
-        // $this->authorize('delete', $data);
-        $res = $logo->delete();
+    public function listupdate(Request $request,$id)
+    {
+        $data= ImpactList::where('uuid',$id)->first();
+        $validated = $request->validate([
+            'title' => 'required',
+            'content' => 'nullable',
+            'status' => 'required',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2000',
+        ]);
+
+        $data->title = $validated['title'];
+        $data->content = $validated['content'];
+        $data->status= $validated['status'];
+        if ($request->hasFile('image')) {
+            $path =  $request->file('image')->storeAs('media/aboutus/image',$validated['image']->getClientOriginalName(), 'public');
+            $data->image = $path;
+        }
+        $res = $data->save();
+        if ($res) {
+            notify()->success(__('Updated successfully'));
+        } else {
+            notify()->error(__('Failed to update. Please try again'));
+        }
+        return redirect()->back();
+    }
+    public function image_delete(Request $request)
+    {
+
+        $section = ImpactList::where('uuid',$request->uuid)->first();
+        $section->image = "";
+        $section->save();
+        return response()->json(['status' => "success"]);
+    }
+     public function listdestroy(Request $request, $id)
+    {
+          
+        $impact = ImpactList::where('uuid', $id)->first();
+        $res = $impact->delete();
         if ($res) {
             notify()->success(__('Deleted successfully'));
         } else {
             notify()->error(__('Failed to Delete. Please try again'));
         }
         return redirect()->back();
-
     }
-
     
 
         
