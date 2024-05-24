@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
 use App\Models\MissionVision;
 use App\Models\AboutUsList;
+use App\Models\ImpactSetting;
+use App\Models\ImpactList;
+use App\Models\Counter;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -53,6 +56,10 @@ public function index()
 {
     $data['about'] = AboutUs::select('title', 'sub_title', 'content', 'sub_content', 'image')->get();
     $data['mission'] = MissionVision::select('mission_title', 'mission_content', 'mission_image', 'vision_title', 'vision_content','vision_image','values_title','values_content','values_image')->get();
+    $data['impact_setting'] = ImpactSetting::select('title', 'content')->get();
+    $data['impact_list'] = ImpactList::select('title', 'content','image')->where('status',1)->get();
+    $data['counter'] = Counter::select('title', 'counter') ->where('status', 1)->orderBy('order', 'asc')->get();
+
     if (!empty($data)) {
         return response()->json(['code' => 200, 'message' => 'Successful', 'data' => $data], $this->successStatus);
     }
