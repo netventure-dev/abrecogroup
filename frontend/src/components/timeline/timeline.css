@@ -1,0 +1,660 @@
+.pageTitle.timeline {
+  padding-top: 50px;
+  padding-bottom: 120px;
+}
+.pageTitle.timeline .steps-timeline {
+  margin-top: 60px;
+  font-size: 14px;
+  line-height: 16px;
+  position: relative;
+}
+.pageTitle.timeline .steps-timeline:before {
+  content: "";
+  width: 175px;
+  height: 100px;
+  background: url(../../images/arrow.webp);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 9;
+  transform: translate(0%, -50%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.pageTitle.timeline .steps-timeline:after {
+  content: "";
+  width: 175px;
+  height: 100px;
+  background: url(../../images/arrow.webp);
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 9;
+  transform: translate(0%, -50%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.pageTitle.timeline .steps-timeline .step {
+  outline: 1px dashed rgba(0, 128, 0, 0);
+  margin-bottom: 0px;
+  position: relative;
+  padding: 200px 0;
+}
+.pageTitle.timeline .steps-timeline .step .line {
+  height: 200px;
+  position: absolute;
+  left: 100px;
+  width: 1px;
+}
+.pageTitle.timeline .steps-timeline .step .line:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 100px;
+  position: absolute;
+  left: -5px;
+}
+.pageTitle.timeline .steps-timeline .step .step-milestone {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  border-radius: 0;
+  margin: 0px auto;
+  box-sizing: border-box;
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+.pageTitle.timeline .steps-timeline .step .step-milestone:after {
+  content: "";
+  width: 30px;
+  height: 100px;
+  border-bottom: solid 50px transparent;
+  border-top: solid 50px transparent;
+  border-left: solid 50px transparent;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -50px;
+  z-index: 99;
+}
+.pageTitle.timeline .steps-timeline .step .step-milestone:before {
+  content: "";
+  width: 30px;
+  height: 100px;
+  border-left: solid 50px var(--white);
+  border-bottom: solid 50px transparent;
+  border-top: solid 50px transparent;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.pageTitle.timeline .steps-timeline .step .stepData {
+  position: absolute;
+  width: 300px;
+  left: 125px;
+}
+.pageTitle.timeline .steps-timeline .step .stepData .step-title,
+.pageTitle.timeline .steps-timeline .step .stepData .step-description {
+  margin: 0;
+  display: block;
+}
+.pageTitle.timeline .steps-timeline .step .stepData .step-title {
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 500;
+  font-weight: bold;
+  margin: 15px 0;
+  text-transform: uppercase;
+}
+.pageTitle.timeline .steps-timeline .step .stepData .ste-description {
+  overflow: hidden;
+  font-size: 20px;
+  line-height: 26px;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(1) .line {
+  top: 0;
+  background-color: #014E74;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(1) .line:after {
+  background-color: #014E74;
+  top: -5px;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(1) .step-milestone {
+  background-color: #014E74;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(1) .step-milestone:after {
+  border-left-color: #014E74;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(1) .stepData {
+  top: 0;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(1) .stepData .step-title {
+  color: #014E74;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(2) .line {
+  bottom: 0;
+  background-color: #047FBB;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(2) .line:after {
+  background-color: #047FBB;
+  bottom: -5px;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(2) .step-milestone {
+  background-color: #047FBB;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(2) .step-milestone:after {
+  border-left-color: #047FBB;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(2) .stepData {
+  bottom: 0;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(2) .stepData .step-title {
+  color: #047FBB;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(3) .line {
+  top: 0;
+  background-color: #FF3E60;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(3) .line:after {
+  background-color: #FF3E60;
+  top: -5px;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(3) .step-milestone {
+  background-color: #FF3E60;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(3) .step-milestone:after {
+  border-left-color: #FF3E60;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(3) .stepData {
+  top: 0;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(3) .stepData .step-title {
+  color: #FF3E60;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(4) .line {
+  bottom: 0;
+  background-color: #EE0029;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(4) .line:after {
+  background-color: #EE0029;
+  bottom: -5px;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(4) .step-milestone {
+  background-color: #EE0029;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(4) .step-milestone:after {
+  border-left-color: #EE0029;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(4) .stepData {
+  bottom: 0;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(4) .stepData .step-title {
+  color: #EE0029;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(5) .line {
+  top: 0;
+  background-color: #C40727;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(5) .line:after {
+  background-color: #C40727;
+  top: -5px;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(5) .step-milestone {
+  background-color: #C40727;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(5) .step-milestone:after {
+  border-left-color: #C40727;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(5) .stepData {
+  top: 0;
+}
+.pageTitle.timeline .steps-timeline .step:nth-child(5) .stepData .step-title {
+  color: #C40727;
+}
+
+@media screen and (max-width: 678px) {
+  .steps-timeline .step {
+    display: block;
+  }
+  .step-milestone {
+    float: left;
+    margin-left: 10px;
+  }
+  .step-title,
+  .step-description {
+    text-align: left;
+    margin-left: 60px;
+  }
+}
+@media screen and (min-width: 678px) {
+  .steps-timeline {
+    padding-left: 150px;
+    padding-right: 200px;
+    display: -moz-flex;
+    display: flex;
+    justify-content: space-between;
+  }
+  .steps-timeline .step {
+    /* Safari 6.1+ */
+    /* IE 10 */
+    flex: 1;
+  }
+}
+@media (min-width: 1369px) and (max-width: 1600px) {
+  .pageTitle.timeline {
+    padding-top: 50px;
+    padding-bottom: 120px;
+  }
+  .pageTitle.timeline .steps-timeline {
+    margin-top: 60px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .pageTitle.timeline .steps-timeline:before {
+    width: 150px;
+    height: 90px;
+  }
+  .pageTitle.timeline .steps-timeline:after {
+    width: 150px;
+    height: 90px;
+  }
+  .pageTitle.timeline .steps-timeline .step {
+    padding: 200px 0;
+  }
+  .pageTitle.timeline .steps-timeline .step .line {
+    height: 200px;
+    left: 100px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone {
+    height: 90px;
+    font-size: 27px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone:after {
+    width: 30px;
+    height: 90px;
+    border-bottom: solid 45px transparent;
+    border-top: solid 45px transparent;
+    border-left: solid 45px transparent;
+    right: -45px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone:before {
+    width: 30px;
+    height: 90px;
+    border-left: solid 45px var(--white);
+    border-bottom: solid 45px transparent;
+    border-top: solid 45px transparent;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData {
+    width: 300px;
+    left: 125px;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData .step-title {
+    font-size: 27px;
+    line-height: 30px;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData .ste-description {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+@media (min-width: 1201px) and (max-width: 1368px) {
+  .pageTitle.timeline {
+    padding-top: 50px;
+    padding-bottom: 120px;
+  }
+  .pageTitle.timeline .steps-timeline {
+    margin-top: 60px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .pageTitle.timeline .steps-timeline:before {
+    width: 150px;
+    height: 90px;
+  }
+  .pageTitle.timeline .steps-timeline:after {
+    width: 150px;
+    height: 90px;
+  }
+  .pageTitle.timeline .steps-timeline .step {
+    padding: 200px 0;
+  }
+  .pageTitle.timeline .steps-timeline .step .line {
+    height: 200px;
+    left: 100px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone {
+    height: 90px;
+    font-size: 24px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone:after {
+    width: 30px;
+    height: 90px;
+    border-bottom: solid 45px transparent;
+    border-top: solid 45px transparent;
+    border-left: solid 45px transparent;
+    right: -45px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone:before {
+    width: 30px;
+    height: 90px;
+    border-left: solid 45px var(--white);
+    border-bottom: solid 45px transparent;
+    border-top: solid 45px transparent;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData {
+    width: 300px;
+    left: 125px;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData .step-title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData .ste-description {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+@media (min-width: 993px) and (max-width: 1200px) {
+  .pageTitle.timeline {
+    padding-top: 50px;
+    padding-bottom: 120px;
+  }
+  .pageTitle.timeline .steps-timeline {
+    margin-top: 60px;
+    font-size: 14px;
+    line-height: 16px;
+    padding-left: 125px;
+    padding-right: 170px;
+  }
+  .pageTitle.timeline .steps-timeline:before {
+    width: 150px;
+    height: 80px;
+  }
+  .pageTitle.timeline .steps-timeline:after {
+    width: 150px;
+    height: 80px;
+  }
+  .pageTitle.timeline .steps-timeline .step {
+    padding: 200px 0;
+  }
+  .pageTitle.timeline .steps-timeline .step .line {
+    height: 200px;
+    left: 100px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone {
+    height: 80px;
+    font-size: 22px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone:after {
+    width: 30px;
+    height: 80px;
+    border-bottom: solid 40px transparent;
+    border-top: solid 40px transparent;
+    border-left: solid 40px transparent;
+    right: -40px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone:before {
+    width: 30px;
+    height: 80px;
+    border-left: solid 40px var(--white);
+    border-bottom: solid 40px transparent;
+    border-top: solid 40px transparent;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData {
+    width: 205px;
+    left: 115px;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData .step-title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData .ste-description {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+@media (max-width: 992px) {
+  .pageTitle.timeline {
+    padding-top: 50px;
+    padding-bottom: 120px;
+  }
+  .pageTitle.timeline .steps-timeline {
+    margin-top: 60px;
+    font-size: 14px;
+    line-height: 16px;
+    padding-left: 0px;
+    padding-right: 0px;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .pageTitle.timeline .steps-timeline:before {
+    width: 150px;
+    height: 80px;
+    display: none;
+  }
+  .pageTitle.timeline .steps-timeline:after {
+    width: 150px;
+    height: 80px;
+    display: none;
+  }
+  .pageTitle.timeline .steps-timeline .step {
+    padding: 0px 0;
+    display: flex;
+  }
+  .pageTitle.timeline .steps-timeline .step .line {
+    height: 200px;
+    left: 100px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone {
+    height: 80px;
+    font-size: 22px;
+    width: 100px;
+    margin: 0;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone:after {
+    width: 30px;
+    height: 80px;
+    border-left: solid 20px transparent;
+    border-bottom: solid 40px transparent;
+    border-top: solid 40px transparent;
+    right: -30px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone:before {
+    width: 30px;
+    height: 80px;
+    border-left: solid 20px var(--white);
+    border-bottom: solid 40px transparent;
+    border-top: solid 40px transparent;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData {
+    width: 450px;
+    left: 100px;
+    position: relative;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData .step-title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData .ste-description {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .pageTitle.timeline .steps-timeline .step:nth-child(1) .line, .pageTitle.timeline .steps-timeline .step:nth-child(2) .line, .pageTitle.timeline .steps-timeline .step:nth-child(3) .line, .pageTitle.timeline .steps-timeline .step:nth-child(4) .line, .pageTitle.timeline .steps-timeline .step:nth-child(5) .line {
+    top: 40px;
+    width: 60px;
+    height: 1px;
+    left: 120px;
+  }
+  .pageTitle.timeline .steps-timeline .step:nth-child(1) .line:after, .pageTitle.timeline .steps-timeline .step:nth-child(2) .line:after, .pageTitle.timeline .steps-timeline .step:nth-child(3) .line:after, .pageTitle.timeline .steps-timeline .step:nth-child(4) .line:after, .pageTitle.timeline .steps-timeline .step:nth-child(5) .line:after {
+    top: -5px;
+    left: unset;
+    right: -5px;
+  }
+}
+@media (max-width: 767px) {
+  .pageTitle.timeline {
+    padding-top: 50px;
+    padding-bottom: 120px;
+  }
+  .pageTitle.timeline .steps-timeline {
+    margin-top: 60px;
+    font-size: 14px;
+    line-height: 16px;
+    padding-left: 0px;
+    padding-right: 0px;
+    flex-direction: column;
+    gap: 50px;
+    display: flex;
+    margin-left: 0;
+  }
+  .pageTitle.timeline .steps-timeline:before {
+    width: 150px;
+    height: 80px;
+    display: none;
+  }
+  .pageTitle.timeline .steps-timeline:after {
+    width: 150px;
+    height: 80px;
+    display: none;
+  }
+  .pageTitle.timeline .steps-timeline .step {
+    padding: 0px 0;
+    display: flex;
+  }
+  .pageTitle.timeline .steps-timeline .step .line {
+    height: 200px;
+    left: 100px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone {
+    height: 80px;
+    font-size: 22px;
+    width: 100px;
+    margin: 0;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone:after {
+    width: 30px;
+    height: 80px;
+    border-left: solid 20px transparent;
+    border-bottom: solid 40px transparent;
+    border-top: solid 40px transparent;
+    right: -30px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone:before {
+    width: 30px;
+    height: 80px;
+    border-left: solid 20px var(--white);
+    border-bottom: solid 40px transparent;
+    border-top: solid 40px transparent;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData {
+    width: 300px;
+    left: 100px;
+    position: relative;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData .step-title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData .ste-description {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .pageTitle.timeline .steps-timeline .step:nth-child(1) .line, .pageTitle.timeline .steps-timeline .step:nth-child(2) .line, .pageTitle.timeline .steps-timeline .step:nth-child(3) .line, .pageTitle.timeline .steps-timeline .step:nth-child(4) .line, .pageTitle.timeline .steps-timeline .step:nth-child(5) .line {
+    top: 40px;
+    width: 60px;
+    height: 1px;
+    left: 120px;
+  }
+  .pageTitle.timeline .steps-timeline .step:nth-child(1) .line:after, .pageTitle.timeline .steps-timeline .step:nth-child(2) .line:after, .pageTitle.timeline .steps-timeline .step:nth-child(3) .line:after, .pageTitle.timeline .steps-timeline .step:nth-child(4) .line:after, .pageTitle.timeline .steps-timeline .step:nth-child(5) .line:after {
+    top: -5px;
+    left: unset;
+    right: -5px;
+  }
+}
+@media (max-width: 600px) {
+  .pageTitle.timeline {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .pageTitle.timeline .steps-timeline {
+    margin-top: 60px;
+    font-size: 14px;
+    line-height: 16px;
+    padding-left: 0px;
+    padding-right: 0px;
+    flex-direction: column;
+    gap: 50px;
+    display: flex;
+    margin-left: 0;
+  }
+  .pageTitle.timeline .steps-timeline:before {
+    width: 150px;
+    height: 80px;
+    display: none;
+  }
+  .pageTitle.timeline .steps-timeline:after {
+    width: 150px;
+    height: 80px;
+    display: none;
+  }
+  .pageTitle.timeline .steps-timeline .step {
+    padding: 0px 0;
+    display: flex;
+  }
+  .pageTitle.timeline .steps-timeline .step .line {
+    height: 200px;
+    left: 100px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone {
+    height: 80px;
+    font-size: 16px;
+    width: 80px;
+    margin: 0;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone:after {
+    width: 30px;
+    height: 80px;
+    border-left: solid 20px transparent;
+    border-bottom: solid 40px transparent;
+    border-top: solid 40px transparent;
+    right: -30px;
+  }
+  .pageTitle.timeline .steps-timeline .step .step-milestone:before {
+    width: 30px;
+    height: 80px;
+    border-left: solid 20px var(--white);
+    border-bottom: solid 40px transparent;
+    border-top: solid 40px transparent;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData {
+    width: 180px;
+    left: 80px;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData .step-title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .pageTitle.timeline .steps-timeline .step .stepData .ste-description {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .pageTitle.timeline .steps-timeline .step:nth-child(1) .line, .pageTitle.timeline .steps-timeline .step:nth-child(2) .line, .pageTitle.timeline .steps-timeline .step:nth-child(3) .line, .pageTitle.timeline .steps-timeline .step:nth-child(4) .line, .pageTitle.timeline .steps-timeline .step:nth-child(5) .line {
+    top: 40px;
+    width: 40px;
+    height: 1px;
+    left: 100px;
+  }
+  .pageTitle.timeline .steps-timeline .step:nth-child(1) .line:after, .pageTitle.timeline .steps-timeline .step:nth-child(2) .line:after, .pageTitle.timeline .steps-timeline .step:nth-child(3) .line:after, .pageTitle.timeline .steps-timeline .step:nth-child(4) .line:after, .pageTitle.timeline .steps-timeline .step:nth-child(5) .line:after {
+    top: -5px;
+    left: unset;
+    right: -5px;
+  }
+}/*# sourceMappingURL=timeline.css.map */
